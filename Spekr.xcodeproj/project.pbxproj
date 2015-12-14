@@ -1,0 +1,292 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54E7951C1EF9B8001496AB /* AppDelegate.swift */; };
+		DC54E7981C1EF9B8001496AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54E7971C1EF9B8001496AB /* ViewController.swift */; };
+		DC54E79B1C1EF9B8001496AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC54E7991C1EF9B8001496AB /* Main.storyboard */; };
+		DC54E79D1C1EF9B8001496AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC54E79C1C1EF9B8001496AB /* Assets.xcassets */; };
+		DC54E7A01C1EF9B8001496AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC54E79E1C1EF9B8001496AB /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DC54E7921C1EF9B8001496AB /* Spekr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spekr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC54E7951C1EF9B8001496AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DC54E7971C1EF9B8001496AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DC54E79A1C1EF9B8001496AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DC54E79C1C1EF9B8001496AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC54E79F1C1EF9B8001496AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DC54E7A11C1EF9B8001496AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC54E78F1C1EF9B8001496AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC54E7891C1EF9B8001496AB = {
+			isa = PBXGroup;
+			children = (
+				DC54E7941C1EF9B8001496AB /* Spekr */,
+				DC54E7931C1EF9B8001496AB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC54E7931C1EF9B8001496AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC54E7921C1EF9B8001496AB /* Spekr.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC54E7941C1EF9B8001496AB /* Spekr */ = {
+			isa = PBXGroup;
+			children = (
+				DC54E7951C1EF9B8001496AB /* AppDelegate.swift */,
+				DC54E7971C1EF9B8001496AB /* ViewController.swift */,
+				DC54E7991C1EF9B8001496AB /* Main.storyboard */,
+				DC54E79C1C1EF9B8001496AB /* Assets.xcassets */,
+				DC54E79E1C1EF9B8001496AB /* LaunchScreen.storyboard */,
+				DC54E7A11C1EF9B8001496AB /* Info.plist */,
+			);
+			path = Spekr;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC54E7911C1EF9B8001496AB /* Spekr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC54E7A41C1EF9B8001496AB /* Build configuration list for PBXNativeTarget "Spekr" */;
+			buildPhases = (
+				DC54E78E1C1EF9B8001496AB /* Sources */,
+				DC54E78F1C1EF9B8001496AB /* Frameworks */,
+				DC54E7901C1EF9B8001496AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Spekr;
+			productName = Spekr;
+			productReference = DC54E7921C1EF9B8001496AB /* Spekr.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC54E78A1C1EF9B8001496AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Arjun Kodur";
+				TargetAttributes = {
+					DC54E7911C1EF9B8001496AB = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = E696HLUBV9;
+					};
+				};
+			};
+			buildConfigurationList = DC54E78D1C1EF9B8001496AB /* Build configuration list for PBXProject "Spekr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC54E7891C1EF9B8001496AB;
+			productRefGroup = DC54E7931C1EF9B8001496AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC54E7911C1EF9B8001496AB /* Spekr */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC54E7901C1EF9B8001496AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC54E7A01C1EF9B8001496AB /* LaunchScreen.storyboard in Resources */,
+				DC54E79D1C1EF9B8001496AB /* Assets.xcassets in Resources */,
+				DC54E79B1C1EF9B8001496AB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC54E78E1C1EF9B8001496AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC54E7981C1EF9B8001496AB /* ViewController.swift in Sources */,
+				DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DC54E7991C1EF9B8001496AB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC54E79A1C1EF9B8001496AB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DC54E79E1C1EF9B8001496AB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC54E79F1C1EF9B8001496AB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC54E7A21C1EF9B8001496AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DC54E7A31C1EF9B8001496AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DC54E7A51C1EF9B8001496AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Spekr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.spekrapp.Spekr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DC54E7A61C1EF9B8001496AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Spekr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.spekrapp.Spekr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC54E78D1C1EF9B8001496AB /* Build configuration list for PBXProject "Spekr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC54E7A21C1EF9B8001496AB /* Debug */,
+				DC54E7A31C1EF9B8001496AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC54E7A41C1EF9B8001496AB /* Build configuration list for PBXNativeTarget "Spekr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC54E7A51C1EF9B8001496AB /* Debug */,
+				DC54E7A61C1EF9B8001496AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC54E78A1C1EF9B8001496AB /* Project object */;
+}
