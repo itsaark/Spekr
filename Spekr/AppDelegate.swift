@@ -11,6 +11,9 @@ import Parse
 import Bolts
 import Fabric
 import DigitsKit
+import TwitterKit
+import ParseTwitterUtils
+
 
 
 @UIApplicationMain
@@ -34,8 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         acl.setPublicReadAccess(true)
         PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
         
-        //Initializing Digits
-        Fabric.with([Digits.self])
+        //Initializing Digits & Twitter
+        Fabric.with([Digits.self, Twitter.self])
+        
+        //Initializing Twitter for Parse
+        PFTwitterUtils.initializeWithConsumerKey("YcXiqliTkJPfilJmvx8LiMI2r",  consumerSecret:"Oy4EXN1X46tNdmtxLbusBqomQrzHgOasQUbXVUnc1T9CyHZrSb")
     
         //Logout current user
         Digits.sharedInstance().logOut()

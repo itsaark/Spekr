@@ -25,6 +25,11 @@
 		DC54E7C01C1F0F18001496AB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC54E7BF1C1F0F18001496AB /* libsqlite3.tbd */; };
 		DC54E7C41C1F1242001496AB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54E7C31C1F1242001496AB /* SignInViewController.swift */; };
 		DC8669C11C1FEFF600692AAE /* FirstLastNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8669C01C1FEFF600692AAE /* FirstLastNameViewController.swift */; };
+		DC975C761C206F30007BA980 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C741C206F30007BA980 /* TwitterKit.framework */; };
+		DC975C771C206F30007BA980 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC975C751C206F30007BA980 /* TwitterKitResources.bundle */; };
+		DC975C791C20714F007BA980 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C781C20714F007BA980 /* Accounts.framework */; };
+		DC975C7B1C207154007BA980 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C7A1C207154007BA980 /* Social.framework */; };
+		DC975C7D1C207280007BA980 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C7C1C207280007BA980 /* ParseTwitterUtils.framework */; };
 		DCE90A6F1C1FE0B4004A5004 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */; };
 		DCE90A701C1FE0B4004A5004 /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */; };
 		DCE90A711C1FE0B4004A5004 /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCE90A6D1C1FE0B4004A5004 /* DigitsKitResources.bundle */; };
@@ -52,6 +57,11 @@
 		DC54E7BF1C1F0F18001496AB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		DC54E7C31C1F1242001496AB /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DC8669C01C1FEFF600692AAE /* FirstLastNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLastNameViewController.swift; sourceTree = "<group>"; };
+		DC975C741C206F30007BA980 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = SOURCE_ROOT; };
+		DC975C751C206F30007BA980 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = SOURCE_ROOT; };
+		DC975C781C20714F007BA980 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		DC975C7A1C207154007BA980 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		DC975C7C1C207280007BA980 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = SOURCE_ROOT; };
 		DCE90A6D1C1FE0B4004A5004 /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = SOURCE_ROOT; };
@@ -63,6 +73,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC975C7B1C207154007BA980 /* Social.framework in Frameworks */,
+				DC975C7D1C207280007BA980 /* ParseTwitterUtils.framework in Frameworks */,
+				DC975C791C20714F007BA980 /* Accounts.framework in Frameworks */,
 				DC54E7C01C1F0F18001496AB /* libsqlite3.tbd in Frameworks */,
 				DC54E7BE1C1F0F02001496AB /* libz.tbd in Frameworks */,
 				DC54E7BC1C1F0EE7001496AB /* SystemConfiguration.framework in Frameworks */,
@@ -74,6 +87,7 @@
 				DC54E7B21C1F0EAB001496AB /* CoreGraphics.framework in Frameworks */,
 				DCE90A6F1C1FE0B4004A5004 /* Fabric.framework in Frameworks */,
 				DCE90A721C1FE0B4004A5004 /* TwitterCore.framework in Frameworks */,
+				DC975C761C206F30007BA980 /* TwitterKit.framework in Frameworks */,
 				DC54E7B01C1F0EA3001496AB /* CoreLocation.framework in Frameworks */,
 				DC54E7AE1C1F0E8D001496AB /* StoreKit.framework in Frameworks */,
 				DC54E7AC1C1F0E71001496AB /* Parse.framework in Frameworks */,
@@ -87,6 +101,8 @@
 		DC54E7891C1EF9B8001496AB = {
 			isa = PBXGroup;
 			children = (
+				DC975C7A1C207154007BA980 /* Social.framework */,
+				DC975C781C20714F007BA980 /* Accounts.framework */,
 				DC54E7941C1EF9B8001496AB /* Spekr */,
 				DC54E7931C1EF9B8001496AB /* Products */,
 			);
@@ -127,6 +143,9 @@
 		DC54E7A81C1F0E1A001496AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC975C7C1C207280007BA980 /* ParseTwitterUtils.framework */,
+				DC975C741C206F30007BA980 /* TwitterKit.framework */,
+				DC975C751C206F30007BA980 /* TwitterKitResources.bundle */,
 				DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */,
 				DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */,
 				DCE90A6D1C1FE0B4004A5004 /* DigitsKitResources.bundle */,
@@ -234,6 +253,7 @@
 				DC54E7A01C1EF9B8001496AB /* LaunchScreen.storyboard in Resources */,
 				DC54E79D1C1EF9B8001496AB /* Assets.xcassets in Resources */,
 				DC54E79B1C1EF9B8001496AB /* Main.storyboard in Resources */,
+				DC975C771C206F30007BA980 /* TwitterKitResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

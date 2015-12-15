@@ -90,6 +90,9 @@
                                                 <exclude reference="k7g-aS-TOJ"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="signInTwitter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j0w-bp-LUS"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGT-LC-oqM">
                                         <rect key="frame" x="110" y="0.0" width="110" height="48"/>

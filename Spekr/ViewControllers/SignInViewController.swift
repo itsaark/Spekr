@@ -8,6 +8,9 @@
 
 import UIKit
 import DigitsKit
+import Parse
+import ParseTwitterUtils
+
 
 
 
@@ -22,7 +25,9 @@ class SignInViewController: UIViewController {
     private func navigateToNamingScreen() {
         performSegueWithIdentifier("JumpToFirstLastNameVC", sender: self)
     }
- 
+
+    
+    //Sign in with Phone Number
     @IBAction func didTapPhoneSignInButton(sender: AnyObject) {
         
         // Create a Digits Instance
@@ -46,7 +51,23 @@ class SignInViewController: UIViewController {
             
         }
         
+    //Sign in with Twitter    
+    @IBAction func signInTwitter(sender: AnyObject) {
         
+        PFTwitterUtils.logInWithBlock {
+            (user: PFUser?, error: NSError?) -> Void in
+            if let user = user {
+                if user.isNew {
+                    print("User signed up and logged in with Twitter!")
+                } else {
+                    print("User logged in with Twitter!")
+                }
+            } else {
+                print("Uh oh. The user cancelled the Twitter login.")
+            }
+        }
+        
+    }
     
     
 
