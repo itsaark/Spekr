@@ -24,6 +24,11 @@
 		DC54E7BE1C1F0F02001496AB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC54E7BD1C1F0F02001496AB /* libz.tbd */; };
 		DC54E7C01C1F0F18001496AB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC54E7BF1C1F0F18001496AB /* libsqlite3.tbd */; };
 		DC54E7C41C1F1242001496AB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54E7C31C1F1242001496AB /* SignInViewController.swift */; };
+		DC8669C11C1FEFF600692AAE /* FirstLastNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8669C01C1FEFF600692AAE /* FirstLastNameViewController.swift */; };
+		DCE90A6F1C1FE0B4004A5004 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */; };
+		DCE90A701C1FE0B4004A5004 /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */; };
+		DCE90A711C1FE0B4004A5004 /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCE90A6D1C1FE0B4004A5004 /* DigitsKitResources.bundle */; };
+		DCE90A721C1FE0B4004A5004 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6E1C1FE0B4004A5004 /* TwitterCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +51,11 @@
 		DC54E7BD1C1F0F02001496AB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		DC54E7BF1C1F0F18001496AB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		DC54E7C31C1F1242001496AB /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		DC8669C01C1FEFF600692AAE /* FirstLastNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLastNameViewController.swift; sourceTree = "<group>"; };
+		DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = SOURCE_ROOT; };
+		DCE90A6D1C1FE0B4004A5004 /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = SOURCE_ROOT; };
+		DCE90A6E1C1FE0B4004A5004 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,11 +66,14 @@
 				DC54E7C01C1F0F18001496AB /* libsqlite3.tbd in Frameworks */,
 				DC54E7BE1C1F0F02001496AB /* libz.tbd in Frameworks */,
 				DC54E7BC1C1F0EE7001496AB /* SystemConfiguration.framework in Frameworks */,
+				DCE90A701C1FE0B4004A5004 /* DigitsKit.framework in Frameworks */,
 				DC54E7BA1C1F0ED5001496AB /* Security.framework in Frameworks */,
 				DC54E7B81C1F0EC7001496AB /* QuartzCore.framework in Frameworks */,
 				DC54E7B61C1F0EC0001496AB /* CFNetwork.framework in Frameworks */,
 				DC54E7B41C1F0EB2001496AB /* AudioToolbox.framework in Frameworks */,
 				DC54E7B21C1F0EAB001496AB /* CoreGraphics.framework in Frameworks */,
+				DCE90A6F1C1FE0B4004A5004 /* Fabric.framework in Frameworks */,
+				DCE90A721C1FE0B4004A5004 /* TwitterCore.framework in Frameworks */,
 				DC54E7B01C1F0EA3001496AB /* CoreLocation.framework in Frameworks */,
 				DC54E7AE1C1F0E8D001496AB /* StoreKit.framework in Frameworks */,
 				DC54E7AC1C1F0E71001496AB /* Parse.framework in Frameworks */,
@@ -90,6 +103,7 @@
 		DC54E7941C1EF9B8001496AB /* Spekr */ = {
 			isa = PBXGroup;
 			children = (
+				DCE90A671C1FDEEB004A5004 /* Helpers */,
 				DC54E7A81C1F0E1A001496AB /* Frameworks */,
 				DC54E7A71C1F0ABA001496AB /* ViewControllers */,
 				DC54E7951C1EF9B8001496AB /* AppDelegate.swift */,
@@ -105,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				DC54E7C31C1F1242001496AB /* SignInViewController.swift */,
+				DC8669C01C1FEFF600692AAE /* FirstLastNameViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -112,6 +127,10 @@
 		DC54E7A81C1F0E1A001496AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */,
+				DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */,
+				DCE90A6D1C1FE0B4004A5004 /* DigitsKitResources.bundle */,
+				DCE90A6E1C1FE0B4004A5004 /* TwitterCore.framework */,
 				DC54E7BF1C1F0F18001496AB /* libsqlite3.tbd */,
 				DC54E7BD1C1F0F02001496AB /* libz.tbd */,
 				DC54E7BB1C1F0EE7001496AB /* SystemConfiguration.framework */,
@@ -128,6 +147,29 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		DCE90A671C1FDEEB004A5004 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DCE90A681C1FDEEB004A5004 /* ErrorHelpers */,
+				DCE90A691C1FDEEB004A5004 /* ParseHelpers */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DCE90A681C1FDEEB004A5004 /* ErrorHelpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ErrorHelpers;
+			sourceTree = "<group>";
+		};
+		DCE90A691C1FDEEB004A5004 /* ParseHelpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ParseHelpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +180,7 @@
 				DC54E78E1C1EF9B8001496AB /* Sources */,
 				DC54E78F1C1EF9B8001496AB /* Frameworks */,
 				DC54E7901C1EF9B8001496AB /* Resources */,
+				DCE90A6A1C1FE05D004A5004 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -187,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCE90A711C1FE0B4004A5004 /* DigitsKitResources.bundle in Resources */,
 				DC54E7A01C1EF9B8001496AB /* LaunchScreen.storyboard in Resources */,
 				DC54E79D1C1EF9B8001496AB /* Assets.xcassets in Resources */,
 				DC54E79B1C1EF9B8001496AB /* Main.storyboard in Resources */,
@@ -195,11 +239,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DCE90A6A1C1FE05D004A5004 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 4ddd1869502455974a6c4c3f575a654a633ab426 f741e96808b447cb783ebf2f80947266040688ccb92f0acf84a27c3d8ee4d5b0";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DC54E78E1C1EF9B8001496AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC8669C11C1FEFF600692AAE /* FirstLastNameViewController.swift in Sources */,
 				DC54E7C41C1F1242001496AB /* SignInViewController.swift in Sources */,
 				DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */,
 			);
@@ -312,9 +373,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Spekr/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Spekr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -327,9 +390,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Spekr/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Spekr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -357,6 +422,7 @@
 				DC54E7A61C1EF9B8001496AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

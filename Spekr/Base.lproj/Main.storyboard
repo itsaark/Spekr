@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nC7-1q-saF">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpekrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iwB-ab-ghp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SpekrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iwB-ab-ghp">
                                 <rect key="frame" x="110" y="65" width="101" height="101"/>
                                 <animations/>
                                 <constraints>
@@ -38,6 +38,9 @@
                                 <state key="normal" title="SIGN IN WITH PHONE NUMBER">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapPhoneSignInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OEg-Zf-cl7"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OrLine" translatesAutoresizingMaskIntoConstraints="NO" id="teO-hG-fkv">
                                 <rect key="frame" x="50" y="328" width="221" height="33"/>
@@ -180,9 +183,90 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="RLm-CF-Ge5"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="gxg-Og-xS9" kind="show" identifier="JumpToFirstLastNameVC" id="MdY-EL-EwC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="807" y="349"/>
+        </scene>
+        <!--First Last Name View Controller-->
+        <scene sceneID="taS-8U-pYp">
+            <objects>
+                <viewController id="gxg-Og-xS9" customClass="FirstLastNameViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aIf-8a-T2u"/>
+                        <viewControllerLayoutGuide type="bottom" id="cXm-o3-K6S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gtY-2P-UJU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VQm-Ku-gdI">
+                                <rect key="frame" x="66" y="66" width="189" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="189" id="9Oa-Lv-Kfb"/>
+                                    <constraint firstAttribute="height" constant="30" id="EbU-vk-Nzc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dFs-wj-hpn">
+                                <rect key="frame" x="66" y="114" width="189" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="189" id="CZ0-LS-66S"/>
+                                    <constraint firstAttribute="height" constant="30" id="Xvc-pt-Pfn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXV-iy-Eb4">
+                                <rect key="frame" x="142" y="187" width="37" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Enter">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dFs-wj-hpn" firstAttribute="top" secondItem="VQm-Ku-gdI" secondAttribute="bottom" constant="18" id="1DR-bW-1oN"/>
+                            <constraint firstItem="GXV-iy-Eb4" firstAttribute="centerX" secondItem="gtY-2P-UJU" secondAttribute="centerX" id="6Cb-uf-lq4"/>
+                            <constraint firstItem="VQm-Ku-gdI" firstAttribute="top" secondItem="aIf-8a-T2u" secondAttribute="bottom" constant="46" id="MIp-oM-Lz7"/>
+                            <constraint firstItem="GXV-iy-Eb4" firstAttribute="top" secondItem="dFs-wj-hpn" secondAttribute="bottom" constant="43" id="cEL-EI-igl"/>
+                            <constraint firstItem="VQm-Ku-gdI" firstAttribute="centerX" secondItem="gtY-2P-UJU" secondAttribute="centerX" id="h5b-xF-flp"/>
+                            <constraint firstItem="dFs-wj-hpn" firstAttribute="centerX" secondItem="gtY-2P-UJU" secondAttribute="centerX" id="rUm-Z3-htw"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XBJ-le-DcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1279" y="349"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="B3w-xn-iLb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nC7-1q-saF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T40-y6-H7k">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="y8E-hZ-JCo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nol-P4-hA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="305" y="349"/>
         </scene>

@@ -9,6 +9,9 @@
 import UIKit
 import Parse
 import Bolts
+import Fabric
+import DigitsKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,6 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let acl = PFACL()
         acl.setPublicReadAccess(true)
         PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
+        
+        //Initializing Digits
+        Fabric.with([Digits.self])
+    
+        //Logout current user
+        Digits.sharedInstance().logOut()
+
         
         return true
     }
