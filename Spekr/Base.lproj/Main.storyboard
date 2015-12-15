@@ -3,12 +3,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SignInViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,13 +18,179 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpekrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iwB-ab-ghp">
+                                <rect key="frame" x="110" y="65" width="101" height="101"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="101" id="Jz2-S8-AX7"/>
+                                    <constraint firstAttribute="height" constant="101" id="aEg-Qi-dIC"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPX-Ga-R9E">
+                                <rect key="frame" x="56" y="274" width="209" height="29"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="2fx-3m-0FH"/>
+                                    <constraint firstAttribute="width" constant="209" id="eqt-TS-Fdi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                <state key="normal" title="SIGN IN WITH PHONE NUMBER">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OrLine" translatesAutoresizingMaskIntoConstraints="NO" id="teO-hG-fkv">
+                                <rect key="frame" x="50" y="328" width="221" height="33"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="od5-bP-pSU"/>
+                                    <constraint firstAttribute="width" constant="221" id="vRN-jK-QfQ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in with social account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEP-Ke-75p">
+                                <rect key="frame" x="86" y="386" width="149" height="15"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="149" id="Z6j-cy-8r4"/>
+                                    <constraint firstAttribute="height" constant="15" id="o1j-CB-IZq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8T-uL-PtJ">
+                                <rect key="frame" x="50" y="416" width="220" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPZ-EE-R08">
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="48"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="0cH-Zu-9MP"/>
+                                            <constraint firstAttribute="width" constant="110" id="4oK-gl-WRG"/>
+                                            <constraint firstAttribute="width" constant="110" id="ATs-yG-TiS"/>
+                                            <constraint firstAttribute="height" constant="48" id="Vfl-jJ-QHq"/>
+                                            <constraint firstAttribute="height" constant="48" id="YVM-Y3-ehG"/>
+                                            <constraint firstAttribute="width" constant="110" id="eA9-em-YO1"/>
+                                            <constraint firstAttribute="height" constant="48" id="faX-1b-aa5"/>
+                                            <constraint firstAttribute="width" constant="110" id="k7g-aS-TOJ"/>
+                                        </constraints>
+                                        <state key="normal" image="TwitterSignInButton"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="0cH-Zu-9MP"/>
+                                                <exclude reference="4oK-gl-WRG"/>
+                                                <exclude reference="ATs-yG-TiS"/>
+                                                <exclude reference="Vfl-jJ-QHq"/>
+                                                <exclude reference="YVM-Y3-ehG"/>
+                                                <exclude reference="eA9-em-YO1"/>
+                                                <exclude reference="faX-1b-aa5"/>
+                                                <exclude reference="k7g-aS-TOJ"/>
+                                            </mask>
+                                        </variation>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGT-LC-oqM">
+                                        <rect key="frame" x="110" y="0.0" width="110" height="48"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="1Le-w1-Jmi"/>
+                                            <constraint firstAttribute="height" constant="48" id="3dB-za-Eot"/>
+                                            <constraint firstAttribute="height" constant="48" id="6d2-XJ-AqB"/>
+                                            <constraint firstAttribute="width" constant="110" id="ZCB-ej-1Lv"/>
+                                            <constraint firstAttribute="width" constant="110" id="fms-df-hwP"/>
+                                            <constraint firstAttribute="height" constant="48" id="pTb-TL-gi0"/>
+                                        </constraints>
+                                        <state key="normal" image="FB SignInButton"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="1Le-w1-Jmi"/>
+                                                <exclude reference="3dB-za-Eot"/>
+                                                <exclude reference="6d2-XJ-AqB"/>
+                                                <exclude reference="ZCB-ej-1Lv"/>
+                                                <exclude reference="fms-df-hwP"/>
+                                                <exclude reference="pTb-TL-gi0"/>
+                                            </mask>
+                                        </variation>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By continuing, you agree to our Terms of Service and Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="oLf-uJ-voh">
+                                <rect key="frame" x="15" y="528.5" width="295" height="11.5"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oLf-uJ-voh" secondAttribute="height" multiplier="101:4" id="RY1-Vq-KbS"/>
+                                    <constraint firstAttribute="width" constant="333" id="b5K-AE-aaR"/>
+                                    <constraint firstAttribute="height" constant="13" id="ek0-XQ-Hsz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="b5K-AE-aaR"/>
+                                        <exclude reference="ek0-XQ-Hsz"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lEP-Ke-75p" firstAttribute="top" secondItem="teO-hG-fkv" secondAttribute="bottom" constant="25" id="4Bj-RC-F9w"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oLf-uJ-voh" secondAttribute="trailing" constant="5" id="4Cm-7S-LzY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oLf-uJ-voh" secondAttribute="trailing" constant="-12" id="70d-UX-JZY"/>
+                            <constraint firstItem="MPX-Ga-R9E" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iwB-ab-ghp" secondAttribute="bottom" constant="20" id="7NQ-VZ-bOO"/>
+                            <constraint firstItem="oLf-uJ-voh" firstAttribute="top" secondItem="l8T-uL-PtJ" secondAttribute="bottom" constant="19" id="8PW-d9-zUP"/>
+                            <constraint firstItem="oLf-uJ-voh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-1" id="BB1-A3-N0h"/>
+                            <constraint firstItem="teO-hG-fkv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DIA-ec-Owi"/>
+                            <constraint firstItem="oLf-uJ-voh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DQB-VL-Qy4"/>
+                            <constraint firstItem="MPX-Ga-R9E" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dc5-Qk-UgK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oLf-uJ-voh" secondAttribute="trailing" constant="-6" id="Ec7-gh-gjI"/>
+                            <constraint firstItem="oLf-uJ-voh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="7" id="I8K-Ef-Oob"/>
+                            <constraint firstItem="l8T-uL-PtJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mbj-nN-PQs"/>
+                            <constraint firstItem="oLf-uJ-voh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-11" id="Nzd-Th-zqz"/>
+                            <constraint firstItem="iwB-ab-ghp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="45" id="T0E-og-9dD"/>
+                            <constraint firstAttribute="bottom" secondItem="iwB-ab-ghp" secondAttribute="bottom" constant="367" id="TKU-f2-CF0"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oLf-uJ-voh" secondAttribute="bottom" constant="28" id="UO9-QV-VfH"/>
+                            <constraint firstItem="oLf-uJ-voh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dPT-F9-Wdn"/>
+                            <constraint firstItem="teO-hG-fkv" firstAttribute="top" secondItem="MPX-Ga-R9E" secondAttribute="bottom" constant="25" id="egJ-Ma-ovh"/>
+                            <constraint firstItem="MPX-Ga-R9E" firstAttribute="top" secondItem="iwB-ab-ghp" secondAttribute="bottom" constant="73" id="h4D-EN-0jh"/>
+                            <constraint firstItem="lEP-Ke-75p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jBH-Ie-2Pf"/>
+                            <constraint firstItem="oLf-uJ-voh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kXd-co-UCT"/>
+                            <constraint firstItem="oLf-uJ-voh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="kgf-Ms-HyI"/>
+                            <constraint firstItem="oLf-uJ-voh" firstAttribute="top" secondItem="l8T-uL-PtJ" secondAttribute="bottom" constant="64" id="oxD-21-prG"/>
+                            <constraint firstItem="l8T-uL-PtJ" firstAttribute="top" secondItem="lEP-Ke-75p" secondAttribute="bottom" constant="15" id="r7c-rS-iPj"/>
+                            <constraint firstItem="iwB-ab-ghp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sBU-rf-6kw"/>
+                            <constraint firstAttribute="trailing" secondItem="oLf-uJ-voh" secondAttribute="trailing" constant="7" id="vRb-wi-vZ1"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="TKU-f2-CF0"/>
+                                <exclude reference="h4D-EN-0jh"/>
+                                <exclude reference="4Cm-7S-LzY"/>
+                                <exclude reference="70d-UX-JZY"/>
+                                <exclude reference="8PW-d9-zUP"/>
+                                <exclude reference="DQB-VL-Qy4"/>
+                                <exclude reference="I8K-Ef-Oob"/>
+                                <exclude reference="Nzd-Th-zqz"/>
+                                <exclude reference="dPT-F9-Wdn"/>
+                                <exclude reference="kXd-co-UCT"/>
+                                <exclude reference="kgf-Ms-HyI"/>
+                                <exclude reference="vRb-wi-vZ1"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="305" y="349"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="FB SignInButton" width="110" height="48"/>
+        <image name="OrLine" width="221" height="35"/>
+        <image name="SpekrLogo" width="109" height="109"/>
+        <image name="TwitterSignInButton" width="110" height="48"/>
+    </resources>
 </document>

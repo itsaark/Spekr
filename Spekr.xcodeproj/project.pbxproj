@@ -23,6 +23,7 @@
 		DC54E7BC1C1F0EE7001496AB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC54E7BB1C1F0EE7001496AB /* SystemConfiguration.framework */; };
 		DC54E7BE1C1F0F02001496AB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC54E7BD1C1F0F02001496AB /* libz.tbd */; };
 		DC54E7C01C1F0F18001496AB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC54E7BF1C1F0F18001496AB /* libsqlite3.tbd */; };
+		DC54E7C41C1F1242001496AB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54E7C31C1F1242001496AB /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		DC54E7BB1C1F0EE7001496AB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DC54E7BD1C1F0F02001496AB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		DC54E7BF1C1F0F18001496AB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		DC54E7C31C1F1242001496AB /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		DC54E7A71C1F0ABA001496AB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DC54E7C31C1F1242001496AB /* SignInViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC54E7C41C1F1242001496AB /* SignInViewController.swift in Sources */,
 				DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
