@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC1698761C207B2F00CD60AB /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1698741C207B2F00CD60AB /* ParseFacebookUtils.framework */; };
+		DC1698771C207B2F00CD60AB /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1698751C207B2F00CD60AB /* ParseFacebookUtilsV4.framework */; };
+		DC1698811C207D5800CD60AB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC16987E1C207D5800CD60AB /* FBSDKCoreKit.framework */; };
+		DC1698821C207D5800CD60AB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC16987F1C207D5800CD60AB /* FBSDKLoginKit.framework */; };
+		DC1698831C207D5800CD60AB /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1698801C207D5800CD60AB /* FBSDKShareKit.framework */; };
 		DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54E7951C1EF9B8001496AB /* AppDelegate.swift */; };
 		DC54E79B1C1EF9B8001496AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC54E7991C1EF9B8001496AB /* Main.storyboard */; };
 		DC54E79D1C1EF9B8001496AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC54E79C1C1EF9B8001496AB /* Assets.xcassets */; };
@@ -37,6 +42,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC1698741C207B2F00CD60AB /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		DC1698751C207B2F00CD60AB /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		DC16987E1C207D5800CD60AB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		DC16987F1C207D5800CD60AB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		DC1698801C207D5800CD60AB /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		DC54E7921C1EF9B8001496AB /* Spekr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spekr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC54E7951C1EF9B8001496AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC54E79A1C1EF9B8001496AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,9 +85,13 @@
 			files = (
 				DC975C7B1C207154007BA980 /* Social.framework in Frameworks */,
 				DC975C7D1C207280007BA980 /* ParseTwitterUtils.framework in Frameworks */,
+				DC1698771C207B2F00CD60AB /* ParseFacebookUtilsV4.framework in Frameworks */,
+				DC1698811C207D5800CD60AB /* FBSDKCoreKit.framework in Frameworks */,
 				DC975C791C20714F007BA980 /* Accounts.framework in Frameworks */,
+				DC1698821C207D5800CD60AB /* FBSDKLoginKit.framework in Frameworks */,
 				DC54E7C01C1F0F18001496AB /* libsqlite3.tbd in Frameworks */,
 				DC54E7BE1C1F0F02001496AB /* libz.tbd in Frameworks */,
+				DC1698831C207D5800CD60AB /* FBSDKShareKit.framework in Frameworks */,
 				DC54E7BC1C1F0EE7001496AB /* SystemConfiguration.framework in Frameworks */,
 				DCE90A701C1FE0B4004A5004 /* DigitsKit.framework in Frameworks */,
 				DC54E7BA1C1F0ED5001496AB /* Security.framework in Frameworks */,
@@ -91,6 +105,7 @@
 				DC54E7B01C1F0EA3001496AB /* CoreLocation.framework in Frameworks */,
 				DC54E7AE1C1F0E8D001496AB /* StoreKit.framework in Frameworks */,
 				DC54E7AC1C1F0E71001496AB /* Parse.framework in Frameworks */,
+				DC1698761C207B2F00CD60AB /* ParseFacebookUtils.framework in Frameworks */,
 				DC54E7AB1C1F0E71001496AB /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +158,11 @@
 		DC54E7A81C1F0E1A001496AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC16987E1C207D5800CD60AB /* FBSDKCoreKit.framework */,
+				DC16987F1C207D5800CD60AB /* FBSDKLoginKit.framework */,
+				DC1698801C207D5800CD60AB /* FBSDKShareKit.framework */,
+				DC1698741C207B2F00CD60AB /* ParseFacebookUtils.framework */,
+				DC1698751C207B2F00CD60AB /* ParseFacebookUtilsV4.framework */,
 				DC975C7C1C207280007BA980 /* ParseTwitterUtils.framework */,
 				DC975C741C206F30007BA980 /* TwitterKit.framework */,
 				DC975C751C206F30007BA980 /* TwitterKitResources.bundle */,

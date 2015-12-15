@@ -10,6 +10,7 @@ import UIKit
 import DigitsKit
 import Parse
 import ParseTwitterUtils
+import ParseFacebookUtilsV4
 
 
 
@@ -51,7 +52,7 @@ class SignInViewController: UIViewController {
             
         }
         
-    //Sign in with Twitter    
+    //Sign in with Twitter     
     @IBAction func signInTwitter(sender: AnyObject) {
         
         PFTwitterUtils.logInWithBlock {
@@ -67,6 +68,25 @@ class SignInViewController: UIViewController {
             }
         }
         
+    }
+    
+    //Sign in with Facebook
+    @IBAction func signInFacebook(sender: AnyObject) {
+        
+        let permissions = ["public_profile", "email"]
+        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions) {
+            (user: PFUser?, error: NSError?) -> Void in
+            if let user = user {
+                if user.isNew {
+                    print("User signed up and logged in through Facebook!")
+                } else {
+                    print("User logged in through Facebook!")
+                }
+            } else {
+                print("Uh oh. The user cancelled the Facebook login.")
+            }
+        }
+
     }
     
     

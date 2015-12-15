@@ -116,6 +116,9 @@
                                                 <exclude reference="pTb-TL-gi0"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="signInFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0KQ-n0-Un4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
