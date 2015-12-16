@@ -12,8 +12,8 @@
 		DC1698811C207D5800CD60AB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC16987E1C207D5800CD60AB /* FBSDKCoreKit.framework */; };
 		DC1698821C207D5800CD60AB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC16987F1C207D5800CD60AB /* FBSDKLoginKit.framework */; };
 		DC1698831C207D5800CD60AB /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1698801C207D5800CD60AB /* FBSDKShareKit.framework */; };
+		DC434DFB1C213F8000995B06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC434DFA1C213F8000995B06 /* Main.storyboard */; };
 		DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54E7951C1EF9B8001496AB /* AppDelegate.swift */; };
-		DC54E79B1C1EF9B8001496AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC54E7991C1EF9B8001496AB /* Main.storyboard */; };
 		DC54E79D1C1EF9B8001496AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC54E79C1C1EF9B8001496AB /* Assets.xcassets */; };
 		DC54E7A01C1EF9B8001496AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC54E79E1C1EF9B8001496AB /* LaunchScreen.storyboard */; };
 		DC54E7AB1C1F0E71001496AB /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC54E7A91C1F0E71001496AB /* Bolts.framework */; };
@@ -47,9 +47,9 @@
 		DC16987E1C207D5800CD60AB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		DC16987F1C207D5800CD60AB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		DC1698801C207D5800CD60AB /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		DC434DFA1C213F8000995B06 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DC54E7921C1EF9B8001496AB /* Spekr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spekr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC54E7951C1EF9B8001496AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DC54E79A1C1EF9B8001496AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC54E79C1C1EF9B8001496AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC54E79F1C1EF9B8001496AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC54E7A11C1EF9B8001496AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 				DC54E7A81C1F0E1A001496AB /* Frameworks */,
 				DC54E7A71C1F0ABA001496AB /* ViewControllers */,
 				DC54E7951C1EF9B8001496AB /* AppDelegate.swift */,
-				DC54E7991C1EF9B8001496AB /* Main.storyboard */,
 				DC54E79C1C1EF9B8001496AB /* Assets.xcassets */,
+				DC434DFA1C213F8000995B06 /* Main.storyboard */,
 				DC54E79E1C1EF9B8001496AB /* LaunchScreen.storyboard */,
 				DC54E7A11C1EF9B8001496AB /* Info.plist */,
 			);
@@ -270,9 +270,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCE90A711C1FE0B4004A5004 /* DigitsKitResources.bundle in Resources */,
+				DC434DFB1C213F8000995B06 /* Main.storyboard in Resources */,
 				DC54E7A01C1EF9B8001496AB /* LaunchScreen.storyboard in Resources */,
 				DC54E79D1C1EF9B8001496AB /* Assets.xcassets in Resources */,
-				DC54E79B1C1EF9B8001496AB /* Main.storyboard in Resources */,
 				DC975C771C206F30007BA980 /* TwitterKitResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,14 +309,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DC54E7991C1EF9B8001496AB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DC54E79A1C1EF9B8001496AB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DC54E79E1C1EF9B8001496AB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

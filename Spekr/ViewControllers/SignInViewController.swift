@@ -23,8 +23,8 @@ class SignInViewController: UIViewController {
         navigationController?.navigationBarHidden = true
     }
     
-    private func navigateToNamingScreen() {
-        performSegueWithIdentifier("JumpToFirstLastNameVC", sender: self)
+    private func navigateToNewViewController(Identifier: String) {
+        performSegueWithIdentifier(Identifier, sender: self)
     }
 
     
@@ -45,7 +45,7 @@ class SignInViewController: UIViewController {
                 
                 
                 // Navigate to the Naming screen.
-                self.navigateToNamingScreen()
+                self.navigateToNewViewController("JumpFromPhoneSignInToLinkAccount")
             }
         }
         
@@ -63,6 +63,11 @@ class SignInViewController: UIViewController {
                 } else {
                     print("User logged in with Twitter!")
                 }
+                
+                //Performing a segue to Local Feed Screen
+                self.navigateToNewViewController("JumpFromSignInToLocalFeed")
+                
+                
             } else {
                 print("Uh oh. The user cancelled the Twitter login.")
             }
@@ -82,6 +87,10 @@ class SignInViewController: UIViewController {
                 } else {
                     print("User logged in through Facebook!")
                 }
+                
+                //Performing a segue to Local Feed Screen
+                self.navigateToNewViewController("JumpFromSignInToLocalFeed")
+                
             } else {
                 print("Uh oh. The user cancelled the Facebook login.")
             }

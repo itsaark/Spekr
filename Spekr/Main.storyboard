@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nC7-1q-saF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rCv-gt-l4k">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -10,7 +10,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SignInViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="BYZ-38-t0r" customClass="SignInViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SpekrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iwB-ab-ghp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpekrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iwB-ab-ghp">
                                 <rect key="frame" x="110" y="65" width="101" height="101"/>
                                 <animations/>
                                 <constraints>
@@ -123,8 +123,8 @@
                                 </subviews>
                                 <animations/>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By continuing, you agree to our Terms of Service and Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="oLf-uJ-voh">
-                                <rect key="frame" x="15" y="528.5" width="295" height="11.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="By continuing, you agree to our Terms of Service and Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="oLf-uJ-voh">
+                                <rect key="frame" x="13" y="528" width="295" height="11.5"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oLf-uJ-voh" secondAttribute="height" multiplier="101:4" id="RY1-Vq-KbS"/>
@@ -143,7 +143,7 @@
                             </label>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.40392157435417175" green="0.29019609093666077" blue="0.60784316062927246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lEP-Ke-75p" firstAttribute="top" secondItem="teO-hG-fkv" secondAttribute="bottom" constant="25" id="4Bj-RC-F9w"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oLf-uJ-voh" secondAttribute="trailing" constant="5" id="4Cm-7S-LzY"/>
@@ -192,7 +192,8 @@
                     <navigationItem key="navigationItem" id="RLm-CF-Ge5"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <segue destination="gxg-Og-xS9" kind="show" identifier="JumpToFirstLastNameVC" id="MdY-EL-EwC"/>
+                        <segue destination="gxg-Og-xS9" kind="show" identifier="JumpFromPhoneSignInToLinkAccount" id="MdY-EL-EwC"/>
+                        <segue destination="rCv-gt-l4k" kind="show" identifier="JumpFromSignInToLocalFeed" id="V4B-U7-B5o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -211,76 +212,179 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VQm-Ku-gdI">
-                                <rect key="frame" x="66" y="66" width="189" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Fpt-eI-XBg">
+                                <rect key="frame" x="6" y="28" width="308" height="39"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="189" id="9Oa-Lv-Kfb"/>
-                                    <constraint firstAttribute="height" constant="30" id="EbU-vk-Nzc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dFs-wj-hpn">
-                                <rect key="frame" x="66" y="114" width="189" height="30"/>
+                                <string key="text">Link anyone of your social accounts, so people around 
+you can get in touch.</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" red="0.65882354974746704" green="0.64705884456634521" blue="0.63529413938522339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WxS-Oz-YJL">
+                                <rect key="frame" x="50" y="141" width="220" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IiT-9B-Hid">
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="48"/>
+                                        <animations/>
+                                        <state key="normal" image="TwitterSignInButton"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em5-A4-QJv">
+                                        <rect key="frame" x="110" y="0.0" width="110" height="48"/>
+                                        <animations/>
+                                        <state key="normal" image="FB SignInButton"/>
+                                    </button>
+                                </subviews>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="189" id="CZ0-LS-66S"/>
-                                    <constraint firstAttribute="height" constant="30" id="Xvc-pt-Pfn"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXV-iy-Eb4">
-                                <rect key="frame" x="142" y="187" width="37" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Enter">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
+                            </stackView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93333333730697632" green="0.93333333730697632" blue="0.94901961088180542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dFs-wj-hpn" firstAttribute="top" secondItem="VQm-Ku-gdI" secondAttribute="bottom" constant="18" id="1DR-bW-1oN"/>
-                            <constraint firstItem="GXV-iy-Eb4" firstAttribute="centerX" secondItem="gtY-2P-UJU" secondAttribute="centerX" id="6Cb-uf-lq4"/>
-                            <constraint firstItem="VQm-Ku-gdI" firstAttribute="top" secondItem="aIf-8a-T2u" secondAttribute="bottom" constant="46" id="MIp-oM-Lz7"/>
-                            <constraint firstItem="GXV-iy-Eb4" firstAttribute="top" secondItem="dFs-wj-hpn" secondAttribute="bottom" constant="43" id="cEL-EI-igl"/>
-                            <constraint firstItem="VQm-Ku-gdI" firstAttribute="centerX" secondItem="gtY-2P-UJU" secondAttribute="centerX" id="h5b-xF-flp"/>
-                            <constraint firstItem="dFs-wj-hpn" firstAttribute="centerX" secondItem="gtY-2P-UJU" secondAttribute="centerX" id="rUm-Z3-htw"/>
+                            <constraint firstItem="Fpt-eI-XBg" firstAttribute="top" secondItem="aIf-8a-T2u" secondAttribute="bottom" constant="8" id="I0b-Rc-HaF"/>
+                            <constraint firstItem="Fpt-eI-XBg" firstAttribute="leading" secondItem="gtY-2P-UJU" secondAttribute="leadingMargin" constant="-14" id="Nsb-cM-3mm"/>
+                            <constraint firstItem="Fpt-eI-XBg" firstAttribute="centerX" secondItem="gtY-2P-UJU" secondAttribute="centerX" id="W5G-Yh-ja2"/>
+                            <constraint firstItem="WxS-Oz-YJL" firstAttribute="centerX" secondItem="gtY-2P-UJU" secondAttribute="centerX" id="emw-uu-wOl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fpt-eI-XBg" secondAttribute="trailing" constant="-14" id="iZb-mY-V1B"/>
+                            <constraint firstItem="WxS-Oz-YJL" firstAttribute="top" secondItem="Fpt-eI-XBg" secondAttribute="bottom" constant="74" id="tH3-mS-GZt"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="rCv-gt-l4k" kind="show" id="QNy-2O-c1d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBJ-le-DcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1279" y="349"/>
+            <point key="canvasLocation" x="1285" y="-67"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="B3w-xn-iLb">
+        <!--View Controller-->
+        <scene sceneID="QJw-uV-H5E">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nC7-1q-saF" sceneMemberID="viewController">
-                    <toolbarItems/>
+                <viewController id="SNP-D8-71L" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GMo-Vo-eXS"/>
+                        <viewControllerLayoutGuide type="bottom" id="gqs-qz-KMr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jwi-hK-Eq1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="BellIcon" id="gTe-ON-waM">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T40-y6-H7k">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oh0-g7-kfJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2104" y="1336"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Eob-lJ-49u">
+            <objects>
+                <viewController id="8rd-xi-tLz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ump-ud-G7u"/>
+                        <viewControllerLayoutGuide type="bottom" id="G9i-0F-Pr1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JTt-Om-N33">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="SettingsIcon" id="ZaX-hQ-Uc4">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yr2-cO-DFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2298" y="-298"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TLJ-hH-0qM">
+            <objects>
+                <viewController id="ccy-3x-Qsy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QqY-Bt-kGw"/>
+                        <viewControllerLayoutGuide type="bottom" id="JbT-3f-OQH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZDv-7x-N7J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="LocalIcon" id="lE8-sd-uow">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S6B-Pl-J24" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2298" y="457"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Mag-j3-Snz">
+            <objects>
+                <viewController id="ycy-qj-lyN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bNn-jk-nYa"/>
+                        <viewControllerLayoutGuide type="bottom" id="uuq-uk-Um5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k72-ZV-LCL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="AccountIcon" id="8Gc-e2-Uci">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XjI-dA-jJ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2640" y="1358"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="W1C-2k-m1Z">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rCv-gt-l4k" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="4nO-uL-6yu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.32941176470588235" green="0.20784313725490197" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="y8E-hZ-JCo"/>
+                        <segue destination="ycy-qj-lyN" kind="relationship" relationship="viewControllers" id="lRM-Tb-FGI"/>
+                        <segue destination="ccy-3x-Qsy" kind="relationship" relationship="viewControllers" id="iF1-pc-oxg"/>
+                        <segue destination="SNP-D8-71L" kind="relationship" relationship="viewControllers" id="3rj-KS-XbA"/>
+                        <segue destination="8rd-xi-tLz" kind="relationship" relationship="viewControllers" id="gdW-0q-HrO"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nol-P4-hA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ocV-TX-8Ds" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="349"/>
+            <point key="canvasLocation" x="1742" y="349"/>
         </scene>
     </scenes>
     <resources>
+        <image name="AccountIcon" width="31" height="32"/>
+        <image name="BellIcon" width="27" height="31"/>
         <image name="FB SignInButton" width="110" height="48"/>
+        <image name="LocalIcon" width="20" height="30"/>
         <image name="OrLine" width="221" height="35"/>
+        <image name="SettingsIcon" width="26" height="26"/>
         <image name="SpekrLogo" width="109" height="109"/>
         <image name="TwitterSignInButton" width="110" height="48"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="V4B-U7-B5o"/>
+    </inferredMetricsTieBreakers>
 </document>

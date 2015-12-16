@@ -47,8 +47,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Initializing Facebook for Parse
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
     
-        //Logout current user
-        Digits.sharedInstance().logOut()
+        
+        // Check for an existing Twitter or Digits session before presenting the sign in screen.
+        if Twitter.sharedInstance().sessionStore.session() == nil && Digits.sharedInstance().session() == nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let signInViewController: AnyObject! = storyboard.instantiateViewControllerWithIdentifier("SignInViewController")
+            window?.rootViewController = signInViewController as? UIViewController
+        }
+
 
         
         return true
