@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "Spekr": {
+      "applicationId": "WdNnUtLLDaGtAZrmHPNnznjqaGNIDvORDDTobJkm"
+    },
+    "_default": {
+      "link": "Spekr"
+    }
+  }
+}

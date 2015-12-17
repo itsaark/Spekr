@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rCv-gt-l4k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rCv-gt-l4k">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -21,7 +21,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpekrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iwB-ab-ghp">
                                 <rect key="frame" x="110" y="65" width="101" height="101"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="101" id="Jz2-S8-AX7"/>
                                     <constraint firstAttribute="height" constant="101" id="aEg-Qi-dIC"/>
@@ -29,7 +28,6 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPX-Ga-R9E">
                                 <rect key="frame" x="56" y="274" width="209" height="29"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="2fx-3m-0FH"/>
                                     <constraint firstAttribute="width" constant="209" id="eqt-TS-Fdi"/>
@@ -44,7 +42,6 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OrLine" translatesAutoresizingMaskIntoConstraints="NO" id="teO-hG-fkv">
                                 <rect key="frame" x="50" y="328" width="221" height="33"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="od5-bP-pSU"/>
                                     <constraint firstAttribute="width" constant="221" id="vRN-jK-QfQ"/>
@@ -52,7 +49,6 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in with social account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEP-Ke-75p">
                                 <rect key="frame" x="86" y="386" width="149" height="15"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="149" id="Z6j-cy-8r4"/>
                                     <constraint firstAttribute="height" constant="15" id="o1j-CB-IZq"/>
@@ -66,7 +62,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPZ-EE-R08">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="48"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="0cH-Zu-9MP"/>
                                             <constraint firstAttribute="width" constant="110" id="4oK-gl-WRG"/>
@@ -96,7 +91,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGT-LC-oqM">
                                         <rect key="frame" x="110" y="0.0" width="110" height="48"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="1Le-w1-Jmi"/>
                                             <constraint firstAttribute="height" constant="48" id="3dB-za-Eot"/>
@@ -121,11 +115,9 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <animations/>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="By continuing, you agree to our Terms of Service and Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="oLf-uJ-voh">
-                                <rect key="frame" x="13" y="528" width="295" height="11.5"/>
-                                <animations/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By continuing, you agree to our Terms of Service and Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="oLf-uJ-voh">
+                                <rect key="frame" x="15" y="528" width="295" height="11.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oLf-uJ-voh" secondAttribute="height" multiplier="101:4" id="RY1-Vq-KbS"/>
                                     <constraint firstAttribute="width" constant="333" id="b5K-AE-aaR"/>
@@ -142,7 +134,6 @@
                                 </variation>
                             </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" red="0.40392157435417175" green="0.29019609093666077" blue="0.60784316062927246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lEP-Ke-75p" firstAttribute="top" secondItem="teO-hG-fkv" secondAttribute="bottom" constant="25" id="4Bj-RC-F9w"/>
@@ -200,10 +191,10 @@
             </objects>
             <point key="canvasLocation" x="807" y="349"/>
         </scene>
-        <!--First Last Name View Controller-->
+        <!--Social Account View Controller-->
         <scene sceneID="taS-8U-pYp">
             <objects>
-                <viewController id="gxg-Og-xS9" customClass="FirstLastNameViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SocialAccountViewController" id="gxg-Og-xS9" customClass="SocialAccountViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aIf-8a-T2u"/>
                         <viewControllerLayoutGuide type="bottom" id="cXm-o3-K6S"/>
@@ -213,41 +204,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Fpt-eI-XBg">
-                                <rect key="frame" x="6" y="28" width="308" height="39"/>
-                                <animations/>
+                                <rect key="frame" x="10" y="28" width="300" height="36"/>
                                 <string key="text">Link anyone of your social accounts, so people around 
 you can get in touch.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" red="0.65882354974746704" green="0.64705884456634521" blue="0.63529413938522339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WxS-Oz-YJL">
-                                <rect key="frame" x="50" y="141" width="220" height="48"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxS-Oz-YJL">
+                                <rect key="frame" x="50" y="138" width="220" height="48"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IiT-9B-Hid">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="48"/>
-                                        <animations/>
                                         <state key="normal" image="TwitterSignInButton"/>
+                                        <connections>
+                                            <action selector="linkTwitter:" destination="gxg-Og-xS9" eventType="touchUpInside" id="Jy6-gw-P6s"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em5-A4-QJv">
                                         <rect key="frame" x="110" y="0.0" width="110" height="48"/>
-                                        <animations/>
                                         <state key="normal" image="FB SignInButton"/>
+                                        <connections>
+                                            <action selector="linkFacebook:" destination="gxg-Og-xS9" eventType="touchUpInside" id="eEm-pF-nnp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <animations/>
                             </stackView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" red="0.93333333730697632" green="0.93333333730697632" blue="0.94901961088180542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Fpt-eI-XBg" firstAttribute="top" secondItem="aIf-8a-T2u" secondAttribute="bottom" constant="8" id="I0b-Rc-HaF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fpt-eI-XBg" secondAttribute="trailing" constant="-10" id="KjU-iE-j8T"/>
                             <constraint firstItem="Fpt-eI-XBg" firstAttribute="leading" secondItem="gtY-2P-UJU" secondAttribute="leadingMargin" constant="-14" id="Nsb-cM-3mm"/>
+                            <constraint firstItem="Fpt-eI-XBg" firstAttribute="leading" secondItem="gtY-2P-UJU" secondAttribute="leadingMargin" constant="-10" id="SVo-UE-Mcc"/>
                             <constraint firstItem="Fpt-eI-XBg" firstAttribute="centerX" secondItem="gtY-2P-UJU" secondAttribute="centerX" id="W5G-Yh-ja2"/>
                             <constraint firstItem="WxS-Oz-YJL" firstAttribute="centerX" secondItem="gtY-2P-UJU" secondAttribute="centerX" id="emw-uu-wOl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fpt-eI-XBg" secondAttribute="trailing" constant="-14" id="iZb-mY-V1B"/>
                             <constraint firstItem="WxS-Oz-YJL" firstAttribute="top" secondItem="Fpt-eI-XBg" secondAttribute="bottom" constant="74" id="tH3-mS-GZt"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Nsb-cM-3mm"/>
+                                <exclude reference="iZb-mY-V1B"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -269,7 +269,6 @@ you can get in touch.</string>
                     <view key="view" contentMode="scaleToFill" id="jwi-hK-Eq1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="BellIcon" id="gTe-ON-waM">
@@ -292,7 +291,6 @@ you can get in touch.</string>
                     <view key="view" contentMode="scaleToFill" id="JTt-Om-N33">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="SettingsIcon" id="ZaX-hQ-Uc4">
@@ -315,7 +313,6 @@ you can get in touch.</string>
                     <view key="view" contentMode="scaleToFill" id="ZDv-7x-N7J">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="LocalIcon" id="lE8-sd-uow">
@@ -338,7 +335,6 @@ you can get in touch.</string>
                     <view key="view" contentMode="scaleToFill" id="k72-ZV-LCL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="AccountIcon" id="8Gc-e2-Uci">
@@ -358,7 +354,6 @@ you can get in touch.</string>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="4nO-uL-6yu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.32941176470588235" green="0.20784313725490197" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -391,6 +386,6 @@ you can get in touch.</string>
         <image name="TwitterSignInButton" width="110" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="V4B-U7-B5o"/>
+        <segue reference="QNy-2O-c1d"/>
     </inferredMetricsTieBreakers>
 </document>

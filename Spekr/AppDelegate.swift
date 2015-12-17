@@ -46,8 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFTwitterUtils.initializeWithConsumerKey("YcXiqliTkJPfilJmvx8LiMI2r",  consumerSecret:"Oy4EXN1X46tNdmtxLbusBqomQrzHgOasQUbXVUnc1T9CyHZrSb")
         //Initializing Facebook for Parse
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
-    
         
+        //TODO: Remove them as soon as the app is ready
+        Digits.sharedInstance().logOut()
+        PFUser.logOut()
+        
+        //TODO: Add a similar instance for facebook as well.
         // Check for an existing Twitter or Digits session before presenting the sign in screen.
         if Twitter.sharedInstance().sessionStore.session() == nil && Digits.sharedInstance().session() == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
