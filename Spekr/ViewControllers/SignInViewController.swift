@@ -43,11 +43,36 @@ class SignInViewController: UIViewController {
         
         PFUser.loginWithDigitsInBackground { (user: PFUser?, error: NSError?) -> Void in
             
+            if error == nil {
+                
+                if let user = user {
+                    
+                if user.isLinkedWithAuthType("facebook") || user.isLinkedWithAuthType("twitter") {
+                    
+                    //TODO: Change the string in this func to "JumpFromSignInToLocalFeed" when isNew property is added.
+                    self.navigateToNewViewController("JumpFromSignInToLocalFeed")
+
+                    
+                }else {
+                    //TODO: Change the string in this func to "JumpFromSignInToLocalFeed" when isNew property is added.
+                    self.navigateToNewViewController("JumpFromPhoneSignInToLinkAccount")
+                    
+                    }
+                }
+            
             print("log in done")
             
             // TODO: Perform a segue to user profile screen after successful sign in
             // Navigate to the Naming screen.
-            self.navigateToNewViewController("JumpFromPhoneSignInToLinkAccount")
+            
+            } else {
+                
+                if let error = error {
+                    
+                    let errorString = error.userInfo["error"] as? NSString
+                    print("Error: \(errorString)")
+                }
+            }
 
         }
 
@@ -55,7 +80,7 @@ class SignInViewController: UIViewController {
             
         }
     
-    // Updating Facebook user data to Parse database
+    // Updating twitter user data to Parse database
     func twitterUserDataToParse(){
         
         if PFTwitterUtils.isLinkedWithUser(PFUser.currentUser()!) {
@@ -136,37 +161,42 @@ class SignInViewController: UIViewController {
         
         PFTwitterUtils.logInWithBlock {
             (user: PFUser?, error: NSError?) -> Void in
-            if let user = user {
-                if user.isNew {
+            if error == nil {
+                if let user = user {
+                    if user.isNew {
                     print("User signed up and logged in with Twitter!")
                         
-                        
-                        let shareEmailViewController = TWTRShareEmailViewController() { email, error in
-                            print("Email \(email), Error: \(error)")
-                        }
-                    self.presentViewController(shareEmailViewController, animated: true, completion: { () -> Void in
-                        
-                        self.twitterUserDataToParse()
-                    })
+//                        
+//                        let shareEmailViewController = TWTRShareEmailViewController() { email, error in
+//                            print("Email \(email), Error: \(error)")
+//                        }
+//                    self.presentViewController(shareEmailViewController, animated: true, completion: { () -> Void in
+//                        
+//                        self.twitterUserDataToParse()
+//                    })
+//                    
                     
                     
                     
-                    
-                    
+                    } else {
+                        print("User logged in with Twitter!")
+                    }
+                
+                
+                
+                        //Performing a segue to Local Feed Screen
+                        self.navigateToNewViewController("JumpFromSignInToLocalFeed")
+                
+                
                 } else {
-                    print("User logged in with Twitter!")
-                }
-                
-                
-                
-                //Performing a segue to Local Feed Screen
-                self.navigateToNewViewController("JumpFromSignInToLocalFeed")
-                
-                
+                    print("Uh oh. The user cancelled the Twitter login.")
+                       }
             } else {
-                print("Uh oh. The user cancelled the Twitter login.")
+                if let error = error {
+                let errorString = error.userInfo["error"] as? NSString
+                    print("Error: \(errorString)") }
             }
-        }
+         }
         
     }
     

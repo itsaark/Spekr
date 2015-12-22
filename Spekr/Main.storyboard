@@ -134,7 +134,7 @@
                                 </variation>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.40392157435417175" green="0.29019609093666077" blue="0.60784316062927246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="lEP-Ke-75p" firstAttribute="top" secondItem="teO-hG-fkv" secondAttribute="bottom" constant="25" id="4Bj-RC-F9w"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oLf-uJ-voh" secondAttribute="trailing" constant="5" id="4Cm-7S-LzY"/>
@@ -203,15 +203,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Fpt-eI-XBg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Fpt-eI-XBg">
                                 <rect key="frame" x="10" y="28" width="300" height="36"/>
-                                <string key="text">Link anyone of your social accounts, so people around 
+                                <string key="text">Link your social account, so people around 
 you can get in touch.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" red="0.65882354974746704" green="0.64705884456634521" blue="0.63529413938522339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxS-Oz-YJL">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WxS-Oz-YJL">
                                 <rect key="frame" x="50" y="138" width="220" height="48"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IiT-9B-Hid">
@@ -231,9 +231,9 @@ you can get in touch.</string>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.93333333730697632" green="0.93333333730697632" blue="0.94901961088180542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.37647058823529411" green="0.23137254901960785" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Fpt-eI-XBg" firstAttribute="top" secondItem="aIf-8a-T2u" secondAttribute="bottom" constant="8" id="I0b-Rc-HaF"/>
+                            <constraint firstItem="Fpt-eI-XBg" firstAttribute="top" secondItem="aIf-8a-T2u" secondAttribute="bottom" constant="20" id="I0b-Rc-HaF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fpt-eI-XBg" secondAttribute="trailing" constant="-10" id="KjU-iE-j8T"/>
                             <constraint firstItem="Fpt-eI-XBg" firstAttribute="leading" secondItem="gtY-2P-UJU" secondAttribute="leadingMargin" constant="-14" id="Nsb-cM-3mm"/>
                             <constraint firstItem="Fpt-eI-XBg" firstAttribute="leading" secondItem="gtY-2P-UJU" secondAttribute="leadingMargin" constant="-10" id="SVo-UE-Mcc"/>
@@ -251,7 +251,7 @@ you can get in touch.</string>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <segue destination="rCv-gt-l4k" kind="show" id="QNy-2O-c1d"/>
+                        <segue destination="rCv-gt-l4k" kind="show" identifier="JumpFromLinkToLocalFeed" id="QNy-2O-c1d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBJ-le-DcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
