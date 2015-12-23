@@ -55,8 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Check for an existing Twitter or Digits session before presenting the sign in screen.
         if Twitter.sharedInstance().sessionStore.session() == nil && Digits.sharedInstance().session() == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let signInViewController: AnyObject! = storyboard.instantiateViewControllerWithIdentifier("SignInViewController")
-            window?.rootViewController = signInViewController as? UIViewController
+            let signInViewController: AnyObject! = storyboard.instantiateViewControllerWithIdentifier("SignInNavigationViewController")
+            window?.rootViewController = signInViewController as? UINavigationController
         }
 
 

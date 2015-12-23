@@ -15,10 +15,11 @@ import ParseTwitterUtils
 
 class SocialAccountViewController: UIViewController {
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidLoad() {
         
-        
+        navigationController?.navigationBarHidden = false
     }
+    
     //Displaying error message through Alert
     func DisplayAert(title:String, errorMessage:String){
         

@@ -19,12 +19,10 @@ import TwitterKit
 
 class SignInViewController: UIViewController {
     
-    override func viewDidAppear(animated: Bool) {
-        
+    override func viewDidLoad() {
         
         navigationController?.navigationBarHidden = true
     }
-    
     //Displaying error message through Alert
     func DisplayAert(title:String, errorMessage:String){
         
