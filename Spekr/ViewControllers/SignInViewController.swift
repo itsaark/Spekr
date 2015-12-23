@@ -20,13 +20,28 @@ import TwitterKit
 class SignInViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
-        self.view.backgroundColor = UIColor.init(red: 103/255, green: 74/255, blue: 155/255, alpha: 100/100)
+        
         
         navigationController?.navigationBarHidden = true
     }
     
+    //Displaying error message through Alert
+    func DisplayAert(title:String, errorMessage:String){
+        
+        let alert = UIAlertController(title: title, message: errorMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
+            
+            //self.dismissViewControllerAnimated(true, completion: nil)
+            
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }
     
-    
+    //Segue funtion
     private func navigateToNewViewController(Identifier: String) {
         performSegueWithIdentifier(Identifier, sender: self)
     }
@@ -69,8 +84,11 @@ class SignInViewController: UIViewController {
                 
                 if let error = error {
                     
-                    let errorString = error.userInfo["error"] as? NSString
-                    print("Error: \(errorString)")
+                    if let errorString = error.userInfo["error"] as? NSString {
+                        
+                        self.DisplayAert("Error", errorMessage: errorString as String)
+                    }
+                    
                 }
             }
 
@@ -175,9 +193,7 @@ class SignInViewController: UIViewController {
 //                        self.twitterUserDataToParse()
 //                    })
 //                    
-                    
-                    
-                    
+                        
                     } else {
                         print("User logged in with Twitter!")
                     }
@@ -193,8 +209,11 @@ class SignInViewController: UIViewController {
                        }
             } else {
                 if let error = error {
-                let errorString = error.userInfo["error"] as? NSString
-                    print("Error: \(errorString)") }
+                    if let errorString = error.userInfo["error"] as? NSString {
+                        
+                        self.DisplayAert("Error", errorMessage: errorString as String)
+                    }
+                }
             }
          }
         
@@ -279,14 +298,13 @@ class SignInViewController: UIViewController {
             
             if error != nil {
                 //Display an alert message
-                let myAlert = UIAlertController(title:"Alert", message:error?.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert);
+                if let error = error {
+                    if let errorString = error.userInfo["error"] as? NSString {
+                        
+                        self.DisplayAert("Error", errorMessage: errorString as String)
+                    }
+                }
                 
-                let okAction =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-                
-                myAlert.addAction(okAction);
-                self.presentViewController(myAlert, animated:true, completion:nil);
-                
-                return
             } else {
                 
                 if let user = user {

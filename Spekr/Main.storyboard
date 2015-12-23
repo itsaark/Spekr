@@ -189,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="807" y="349"/>
+            <point key="canvasLocation" x="1619" y="349"/>
         </scene>
         <!--Social Account View Controller-->
         <scene sceneID="taS-8U-pYp">
@@ -256,7 +256,7 @@ you can get in touch.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBJ-le-DcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1285" y="-67"/>
+            <point key="canvasLocation" x="2097" y="-67"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QJw-uV-H5E">
@@ -300,7 +300,7 @@ you can get in touch.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yr2-cO-DFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2298" y="-298"/>
+            <point key="canvasLocation" x="2974" y="-546"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="TLJ-hH-0qM">
@@ -322,7 +322,7 @@ you can get in touch.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6B-Pl-J24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2298" y="457"/>
+            <point key="canvasLocation" x="3110" y="457"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Mag-j3-Snz">
@@ -372,7 +372,26 @@ you can get in touch.</string>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocV-TX-8Ds" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1742" y="349"/>
+            <point key="canvasLocation" x="2554" y="349"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zWb-rf-AIR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CUU-Sm-2h5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6gQ-AQ-NP3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oIL-Bf-G6V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iMs-CF-kdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1069" y="349"/>
         </scene>
     </scenes>
     <resources>
@@ -386,6 +405,6 @@ you can get in touch.</string>
         <image name="TwitterSignInButton" width="110" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QNy-2O-c1d"/>
+        <segue reference="V4B-U7-B5o"/>
     </inferredMetricsTieBreakers>
 </document>

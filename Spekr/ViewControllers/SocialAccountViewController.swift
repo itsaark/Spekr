@@ -19,6 +19,21 @@ class SocialAccountViewController: UIViewController {
         
         
     }
+    //Displaying error message through Alert
+    func DisplayAert(title:String, errorMessage:String){
+        
+        let alert = UIAlertController(title: title, message: errorMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
+            
+            //self.dismissViewControllerAnimated(true, completion: nil)
+            
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }
     
     private func navigateToNewViewController(Identifier: String) {
         performSegueWithIdentifier(Identifier, sender: self)
@@ -124,8 +139,11 @@ class SocialAccountViewController: UIViewController {
                     
                     if let error = error {
                         
-                        let errorString = error.userInfo["error"] as? NSString
-                        print("Error: \(errorString)")
+                        if let errorString = error.userInfo["error"] as? NSString {
+                            
+                            self.DisplayAert("Try with a different account", errorMessage: errorString as String)
+                        }
+                        
                     }
                     
                 }
@@ -149,6 +167,13 @@ class SocialAccountViewController: UIViewController {
             if ((error) != nil)
             {
                 // Process error
+                if let error = error {
+                    
+                    if let errorString = error.userInfo["error"] as? NSString{
+                    self.DisplayAert("Error", errorMessage: errorString as String)
+                        
+                    }
+                }
             }
             else
             {
@@ -230,8 +255,13 @@ class SocialAccountViewController: UIViewController {
                 } else {
                     
                     if let error = error {
-                        let errorString = error.userInfo["error"] as? NSString
-                        print("Error: \(errorString)") }
+                        
+                        if let errorString = error.userInfo["error"] as? NSString {
+                            
+                            self.DisplayAert("Try with a different account", errorMessage: errorString as String)
+                        }
+                    }
+                        
                 }
             })
                 
