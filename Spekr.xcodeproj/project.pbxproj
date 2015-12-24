@@ -43,6 +43,8 @@
 		DCE90A701C1FE0B4004A5004 /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */; };
 		DCE90A711C1FE0B4004A5004 /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCE90A6D1C1FE0B4004A5004 /* DigitsKitResources.bundle */; };
 		DCE90A721C1FE0B4004A5004 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6E1C1FE0B4004A5004 /* TwitterCore.framework */; };
+		DCFE8E0F1C2C6278005A1100 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFE8E0E1C2C6278005A1100 /* NotificationsViewController.swift */; };
+		DCFE8E111C2C62C1005A1100 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFE8E101C2C62C1005A1100 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = SOURCE_ROOT; };
 		DCE90A6D1C1FE0B4004A5004 /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = SOURCE_ROOT; };
 		DCE90A6E1C1FE0B4004A5004 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = SOURCE_ROOT; };
+		DCFE8E0E1C2C6278005A1100 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		DCFE8E101C2C62C1005A1100 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,8 @@
 				DC8669C01C1FEFF600692AAE /* SocialAccountViewController.swift */,
 				DC6162041C2BA99800C484FD /* ProfileViewController.swift */,
 				DC61620F1C2C35DD00C484FD /* LocalFeedViewController.swift */,
+				DCFE8E0E1C2C6278005A1100 /* NotificationsViewController.swift */,
+				DCFE8E101C2C62C1005A1100 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -327,6 +333,8 @@
 				DCB65A081C22860A0094E58B /* PFUserDigits.swift in Sources */,
 				DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */,
 				DC6162091C2BAE6700C484FD /* ParseHelper.swift in Sources */,
+				DCFE8E0F1C2C6278005A1100 /* NotificationsViewController.swift in Sources */,
+				DCFE8E111C2C62C1005A1100 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
