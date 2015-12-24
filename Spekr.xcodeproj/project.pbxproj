@@ -29,6 +29,9 @@
 		DC54E7BE1C1F0F02001496AB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC54E7BD1C1F0F02001496AB /* libz.tbd */; };
 		DC54E7C01C1F0F18001496AB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC54E7BF1C1F0F18001496AB /* libsqlite3.tbd */; };
 		DC54E7C41C1F1242001496AB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54E7C31C1F1242001496AB /* SignInViewController.swift */; };
+		DC6162051C2BA99800C484FD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6162041C2BA99800C484FD /* ProfileViewController.swift */; };
+		DC6162091C2BAE6700C484FD /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6162081C2BAE6700C484FD /* ParseHelper.swift */; };
+		DC6162101C2C35DD00C484FD /* LocalFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61620F1C2C35DD00C484FD /* LocalFeedViewController.swift */; };
 		DC8669C11C1FEFF600692AAE /* SocialAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8669C01C1FEFF600692AAE /* SocialAccountViewController.swift */; };
 		DC975C761C206F30007BA980 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C741C206F30007BA980 /* TwitterKit.framework */; };
 		DC975C771C206F30007BA980 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC975C751C206F30007BA980 /* TwitterKitResources.bundle */; };
@@ -67,6 +70,9 @@
 		DC54E7BD1C1F0F02001496AB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		DC54E7BF1C1F0F18001496AB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		DC54E7C31C1F1242001496AB /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		DC6162041C2BA99800C484FD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DC6162081C2BAE6700C484FD /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
+		DC61620F1C2C35DD00C484FD /* LocalFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFeedViewController.swift; sourceTree = "<group>"; };
 		DC8669C01C1FEFF600692AAE /* SocialAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialAccountViewController.swift; sourceTree = "<group>"; };
 		DC975C741C206F30007BA980 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = SOURCE_ROOT; };
 		DC975C751C206F30007BA980 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = SOURCE_ROOT; };
@@ -134,6 +140,7 @@
 		DC54E7941C1EF9B8001496AB /* Spekr */ = {
 			isa = PBXGroup;
 			children = (
+				DC61620C1C2BB77D00C484FD /* Models */,
 				DCE90A671C1FDEEB004A5004 /* Helpers */,
 				DC54E7A81C1F0E1A001496AB /* Frameworks */,
 				DC54E7A71C1F0ABA001496AB /* ViewControllers */,
@@ -151,6 +158,8 @@
 			children = (
 				DC54E7C31C1F1242001496AB /* SignInViewController.swift */,
 				DC8669C01C1FEFF600692AAE /* SocialAccountViewController.swift */,
+				DC6162041C2BA99800C484FD /* ProfileViewController.swift */,
+				DC61620F1C2C35DD00C484FD /* LocalFeedViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -188,6 +197,13 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		DC61620C1C2BB77D00C484FD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DCE90A671C1FDEEB004A5004 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				DCB65A071C22860A0094E58B /* PFUserDigits.swift */,
+				DC6162081C2BAE6700C484FD /* ParseHelper.swift */,
 			);
 			path = ParseHelpers;
 			sourceTree = "<group>";
@@ -303,10 +320,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC6162101C2C35DD00C484FD /* LocalFeedViewController.swift in Sources */,
 				DC8669C11C1FEFF600692AAE /* SocialAccountViewController.swift in Sources */,
 				DC54E7C41C1F1242001496AB /* SignInViewController.swift in Sources */,
+				DC6162051C2BA99800C484FD /* ProfileViewController.swift in Sources */,
 				DCB65A081C22860A0094E58B /* PFUserDigits.swift in Sources */,
 				DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */,
+				DC6162091C2BAE6700C484FD /* ParseHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

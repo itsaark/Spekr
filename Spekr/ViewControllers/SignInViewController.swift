@@ -190,6 +190,7 @@ class SignInViewController: UIViewController {
 //                        
 //                        self.twitterUserDataToParse()
 //                    })
+                        self.twitterUserDataToParse()
 //                    
                         
                     } else {
@@ -200,6 +201,7 @@ class SignInViewController: UIViewController {
                 
                         //Performing a segue to Local Feed Screen
                         self.navigateToNewViewController("JumpFromSignInToLocalFeed")
+                    
                 
                 
                 } else {

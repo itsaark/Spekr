@@ -258,10 +258,10 @@ you can get in touch.</string>
             </objects>
             <point key="canvasLocation" x="2097" y="-67"/>
         </scene>
-        <!--View Controller-->
+        <!--Notifications-->
         <scene sceneID="QJw-uV-H5E">
             <objects>
-                <viewController id="SNP-D8-71L" sceneMemberID="viewController">
+                <viewController title="Notifications" id="SNP-D8-71L" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GMo-Vo-eXS"/>
                         <viewControllerLayoutGuide type="bottom" id="gqs-qz-KMr"/>
@@ -280,10 +280,10 @@ you can get in touch.</string>
             </objects>
             <point key="canvasLocation" x="2104" y="1336"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="Eob-lJ-49u">
             <objects>
-                <viewController id="8rd-xi-tLz" sceneMemberID="viewController">
+                <viewController title="Settings" id="8rd-xi-tLz" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ump-ud-G7u"/>
                         <viewControllerLayoutGuide type="bottom" id="G9i-0F-Pr1"/>
@@ -302,10 +302,10 @@ you can get in touch.</string>
             </objects>
             <point key="canvasLocation" x="2974" y="-546"/>
         </scene>
-        <!--View Controller-->
+        <!--Local Feed-->
         <scene sceneID="TLJ-hH-0qM">
             <objects>
-                <viewController id="ccy-3x-Qsy" sceneMemberID="viewController">
+                <viewController title="Local Feed" id="ccy-3x-Qsy" customClass="LocalFeedViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QqY-Bt-kGw"/>
                         <viewControllerLayoutGuide type="bottom" id="JbT-3f-OQH"/>
@@ -324,10 +324,10 @@ you can get in touch.</string>
             </objects>
             <point key="canvasLocation" x="3110" y="457"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile-->
         <scene sceneID="Mag-j3-Snz">
             <objects>
-                <viewController id="ycy-qj-lyN" sceneMemberID="viewController">
+                <viewController title="Profile" id="ycy-qj-lyN" customClass="ProfileViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bNn-jk-nYa"/>
                         <viewControllerLayoutGuide type="bottom" id="uuq-uk-Um5"/>
@@ -335,12 +335,49 @@ you can get in touch.</string>
                     <view key="view" contentMode="scaleToFill" id="k72-ZV-LCL">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F8m-vu-DNP" userLabel="DisplayImage">
+                                <rect key="frame" x="118" y="32" width="84" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="eSd-Z5-2Fd"/>
+                                    <constraint firstAttribute="width" constant="84" id="z5d-h2-anr"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-Ql-cfn">
+                                <rect key="frame" x="20" y="124" width="280" height="29"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="B9n-Ql-cfn" firstAttribute="trailing" secondItem="k72-ZV-LCL" secondAttribute="trailingMargin" id="16n-IR-0c4"/>
+                            <constraint firstItem="B9n-Ql-cfn" firstAttribute="top" secondItem="F8m-vu-DNP" secondAttribute="bottom" constant="5" id="8NX-Fu-mZN"/>
+                            <constraint firstItem="uuq-uk-Um5" firstAttribute="top" secondItem="B9n-Ql-cfn" secondAttribute="bottom" constant="232" id="GBu-3l-EmC"/>
+                            <constraint firstItem="B9n-Ql-cfn" firstAttribute="leading" secondItem="k72-ZV-LCL" secondAttribute="leadingMargin" id="GMe-RW-lyU"/>
+                            <constraint firstItem="B9n-Ql-cfn" firstAttribute="centerX" secondItem="k72-ZV-LCL" secondAttribute="centerX" id="SoV-ks-GJH"/>
+                            <constraint firstItem="F8m-vu-DNP" firstAttribute="top" secondItem="bNn-jk-nYa" secondAttribute="bottom" constant="32" id="dAB-Is-kuE"/>
+                            <constraint firstItem="F8m-vu-DNP" firstAttribute="centerX" secondItem="k72-ZV-LCL" secondAttribute="centerX" id="mHE-ED-kfr"/>
+                            <constraint firstItem="B9n-Ql-cfn" firstAttribute="centerX" secondItem="k72-ZV-LCL" secondAttribute="centerX" id="shC-gj-XU2"/>
+                            <constraint firstItem="B9n-Ql-cfn" firstAttribute="top" secondItem="F8m-vu-DNP" secondAttribute="bottom" constant="8" id="yM8-uZ-O5u"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8NX-Fu-mZN"/>
+                                <exclude reference="shC-gj-XU2"/>
+                                <exclude reference="GBu-3l-EmC"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="AccountIcon" id="8Gc-e2-Uci">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="displayImage" destination="F8m-vu-DNP" id="Khs-BX-7YR"/>
+                        <outlet property="displayName" destination="B9n-Ql-cfn" id="7mx-iq-SNK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XjI-dA-jJ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
