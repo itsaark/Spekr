@@ -367,12 +367,37 @@ you can get in touch.</string>
                                 <color key="textColor" red="0.65882354974746704" green="0.64705884456634521" blue="0.63529413938522339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hev-NP-slQ">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hev-NP-slQ">
                                 <rect key="frame" x="16" y="329" width="288" height="88"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="8OA-sD-B17">
+                                <rect key="frame" x="83" y="165" width="170" height="36"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmP-6h-cix">
+                                        <rect key="frame" x="0.0" y="0.0" width="53" height="36"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                        <state key="normal" title="Twitter">
+                                            <color key="titleColor" red="0.2627450980392157" green="0.92941176470588238" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="twitterButtonTapped:" destination="ycy-qj-lyN" eventType="touchUpInside" id="4JS-xI-kgK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bab-zf-MZZ">
+                                        <rect key="frame" x="93" y="0.0" width="77" height="36"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                        <state key="normal" title="Facebook">
+                                            <color key="titleColor" red="0.26274509800000001" green="0.92941176469999998" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="facebookButtonTapped:" destination="ycy-qj-lyN" eventType="touchUpInside" id="ddb-ED-oaA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333730697632" green="0.93333333730697632" blue="0.94901961088180542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -387,7 +412,10 @@ you can get in touch.</string>
                             <constraint firstItem="jml-RG-h2i" firstAttribute="top" secondItem="B9n-Ql-cfn" secondAttribute="bottom" constant="173" id="Pt8-hz-9gO"/>
                             <constraint firstItem="B9n-Ql-cfn" firstAttribute="centerX" secondItem="k72-ZV-LCL" secondAttribute="centerX" id="SoV-ks-GJH"/>
                             <constraint firstItem="jml-RG-h2i" firstAttribute="leading" secondItem="k72-ZV-LCL" secondAttribute="leadingMargin" id="Ylk-TG-LW8"/>
+                            <constraint firstItem="jml-RG-h2i" firstAttribute="top" secondItem="bNn-jk-nYa" secondAttribute="bottom" constant="297" id="aPJ-dq-gGZ"/>
                             <constraint firstItem="F8m-vu-DNP" firstAttribute="top" secondItem="bNn-jk-nYa" secondAttribute="bottom" constant="32" id="dAB-Is-kuE"/>
+                            <constraint firstItem="8OA-sD-B17" firstAttribute="top" secondItem="B9n-Ql-cfn" secondAttribute="bottom" constant="40" id="h2c-jp-rU7"/>
+                            <constraint firstItem="8OA-sD-B17" firstAttribute="centerX" secondItem="k72-ZV-LCL" secondAttribute="centerX" id="hds-dI-7Qi"/>
                             <constraint firstItem="F8m-vu-DNP" firstAttribute="centerX" secondItem="k72-ZV-LCL" secondAttribute="centerX" id="mHE-ED-kfr"/>
                             <constraint firstItem="B9n-Ql-cfn" firstAttribute="centerX" secondItem="k72-ZV-LCL" secondAttribute="centerX" id="shC-gj-XU2"/>
                             <constraint firstItem="Hev-NP-slQ" firstAttribute="top" secondItem="jml-RG-h2i" secondAttribute="bottom" constant="8" id="uPu-Wv-lNR"/>
@@ -397,6 +425,7 @@ you can get in touch.</string>
                             <mask key="constraints">
                                 <exclude reference="8NX-Fu-mZN"/>
                                 <exclude reference="shC-gj-XU2"/>
+                                <exclude reference="Pt8-hz-9gO"/>
                                 <exclude reference="GBu-3l-EmC"/>
                             </mask>
                         </variation>

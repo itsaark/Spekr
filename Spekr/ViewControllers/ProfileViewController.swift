@@ -68,14 +68,42 @@ class ProfileViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    //Twitter button tapped
+    @IBAction func twitterButtonTapped(sender: AnyObject) {
+        
+        if PFUser.currentUser()!.isLinkedWithAuthType("twitter") {
+            
+            print("is linked to twitter")
+            
+            if let userProfileLink = PFUser.currentUser()!["link"] as? String {
+                
+                if let url = NSURL(string: userProfileLink) {
+                    
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            
+        }
+        
+        
     }
-    */
+    
+    //Facebook button tapped
+    @IBAction func facebookButtonTapped(sender: AnyObject) {
+        
+        if PFUser.currentUser()!.isLinkedWithAuthType("facebook") {
+            
+            print("is linked to facebook")
+            
+            if let userProfileLink = PFUser.currentUser()!["link"] as? String {
+                
+                if let url = NSURL(string: userProfileLink) {
+                UIApplication.sharedApplication().openURL(url)
+                }
+            }
+        }
+    }
+    
 
 }

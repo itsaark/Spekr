@@ -125,12 +125,23 @@ class SignInViewController: UIViewController {
                     let userName: String! = result?.objectForKey("name") as! String
                     //let userEmail: String! = result?.objectForKey("email") as! String
                     
+                    let userId: String! = result?.objectForKey("id_str") as! String
+                    
+                    let userProfileLink: String! = "https://twitter.com/intent/user?user_id=" + userId
+                    
                     let myUser:PFUser = PFUser.currentUser()!
                     
                     // Save first name
                     if(userName != nil)
                     {
                         myUser.setObject(userName!, forKey: "displayName")
+                        
+                    }
+                    
+                    // Save user profile link
+                    if(userProfileLink != nil)
+                    {
+                        myUser.setObject(userProfileLink!, forKey: "link")
                         
                     }
                     
@@ -222,7 +233,7 @@ class SignInViewController: UIViewController {
     // Updating Facebook user data to Parse database
     func fbUserDataToParse() {
         
-        let requestParameters = ["fields": "id, email, name"]
+        let requestParameters = ["fields": "id, email, name, link"]
         
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: requestParameters)
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
@@ -236,6 +247,7 @@ class SignInViewController: UIViewController {
                 let userId:String = result["id"] as! String
                 let userName:String? = result["name"] as? String
                 let userEmail:String? = result["email"] as? String
+                let userTimeLineLink:String? = result["link"] as? String
                 
                 
                 print("\(userEmail)")
@@ -255,12 +267,19 @@ class SignInViewController: UIViewController {
                     myUser.setObject(userEmail!, forKey: "email")
                 }
                 
+                // Save Timeline link
+                if(userTimeLineLink != nil)
+                {
+                    myUser.setObject(userTimeLineLink!, forKey: "email")
+                }
+
+                
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                     
                     // Get Facebook profile picture
-                    let userProfile = "https://graph.facebook.com/" + userId + "/picture?type=large"
+                    let userProfilePictureLink = "https://graph.facebook.com/" + userId + "/picture?type=large"
                     
-                    let profilePictureUrl = NSURL(string: userProfile)
+                    let profilePictureUrl = NSURL(string: userProfilePictureLink)
                     
                     let profilePictureData = NSData(contentsOfURL: profilePictureUrl!)
                     
