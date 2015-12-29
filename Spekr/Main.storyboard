@@ -330,11 +330,60 @@ you can get in touch.</string>
                     <tabBarItem key="tabBarItem" title="" image="LocalIcon" id="lE8-sd-uow">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="LJY-HL-Lds"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="Xuk-DL-n3N" kind="show" identifier="JumpToComposeVC" id="57k-DQ-ywc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6B-Pl-J24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3074" y="362"/>
+        </scene>
+        <!--Compose View Controller-->
+        <scene sceneID="EMG-WL-V3Z">
+            <objects>
+                <viewController id="Xuk-DL-n3N" customClass="ComposeViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CcT-hQ-N2l"/>
+                        <viewControllerLayoutGuide type="bottom" id="wsn-RQ-tup"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gbj-mp-OoB">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eJF-E6-1HB">
+                                <rect key="frame" x="20" y="47" width="280" height="127"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="0SQ-d1-wtk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="160 Characters remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-KN-FIU">
+                                <rect key="frame" x="20" y="182" width="166" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333730697632" green="0.93333333730697632" blue="0.94901961088180542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6CC-KN-FIU" firstAttribute="top" secondItem="eJF-E6-1HB" secondAttribute="bottom" constant="8" id="BkW-6o-ocu"/>
+                            <constraint firstItem="eJF-E6-1HB" firstAttribute="leading" secondItem="gbj-mp-OoB" secondAttribute="leadingMargin" id="JmN-Bb-U8S"/>
+                            <constraint firstItem="eJF-E6-1HB" firstAttribute="top" secondItem="CcT-hQ-N2l" secondAttribute="bottom" constant="47" id="QGk-ee-TH5"/>
+                            <constraint firstItem="6CC-KN-FIU" firstAttribute="leading" secondItem="gbj-mp-OoB" secondAttribute="leadingMargin" id="WpO-4b-DZp"/>
+                            <constraint firstItem="eJF-E6-1HB" firstAttribute="centerX" secondItem="gbj-mp-OoB" secondAttribute="centerX" id="qjQ-0C-Ift"/>
+                            <constraint firstItem="eJF-E6-1HB" firstAttribute="trailing" secondItem="gbj-mp-OoB" secondAttribute="trailingMargin" id="wKZ-MG-BZW"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XSM-Xy-1va" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3478" y="362"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Mag-j3-Snz">
@@ -474,6 +523,7 @@ you can get in touch.</string>
         <!--SignInNavigationViewController-->
         <scene sceneID="zWb-rf-AIR">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iMs-CF-kdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="SignInNavigationViewController" title="SignInNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CUU-Sm-2h5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -495,7 +545,6 @@ you can get in touch.</string>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oIL-Bf-G6V"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iMs-CF-kdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1069" y="349"/>
         </scene>

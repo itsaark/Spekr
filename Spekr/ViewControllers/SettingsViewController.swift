@@ -24,6 +24,7 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         
         self.tabBarController?.navigationItem.title = "Settings"
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
     }
 
     /*

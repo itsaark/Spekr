@@ -1,14 +1,14 @@
 //
-//  NotificationsViewController.swift
+//  ComposeViewController.swift
 //  Spekr
 //
-//  Created by Arjun Kodur on 12/24/15.
+//  Created by Arjun Kodur on 12/28/15.
 //  Copyright © 2015 Arjun Kodur. All rights reserved.
 //
 
 import UIKit
 
-class NotificationsViewController: UIViewController {
+class ComposeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +23,9 @@ class NotificationsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
-        self.tabBarController?.navigationItem.title = "Notifications"
-        self.tabBarController?.navigationItem.rightBarButtonItem = nil
-        
+        self.title = "Compose"
+
     }
-    
 
     /*
     // MARK: - Navigation

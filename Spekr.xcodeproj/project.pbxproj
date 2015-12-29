@@ -13,6 +13,7 @@
 		DC1698821C207D5800CD60AB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC16987F1C207D5800CD60AB /* FBSDKLoginKit.framework */; };
 		DC1698831C207D5800CD60AB /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1698801C207D5800CD60AB /* FBSDKShareKit.framework */; };
 		DC434DFB1C213F8000995B06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC434DFA1C213F8000995B06 /* Main.storyboard */; };
+		DC46D2F41C3193E4008BBE48 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46D2F31C3193E4008BBE48 /* ComposeViewController.swift */; };
 		DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54E7951C1EF9B8001496AB /* AppDelegate.swift */; };
 		DC54E79D1C1EF9B8001496AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC54E79C1C1EF9B8001496AB /* Assets.xcassets */; };
 		DC54E7A01C1EF9B8001496AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC54E79E1C1EF9B8001496AB /* LaunchScreen.storyboard */; };
@@ -54,6 +55,7 @@
 		DC16987F1C207D5800CD60AB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		DC1698801C207D5800CD60AB /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		DC434DFA1C213F8000995B06 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DC46D2F31C3193E4008BBE48 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		DC54E7921C1EF9B8001496AB /* Spekr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spekr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC54E7951C1EF9B8001496AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC54E79C1C1EF9B8001496AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				DC61620F1C2C35DD00C484FD /* LocalFeedViewController.swift */,
 				DCFE8E0E1C2C6278005A1100 /* NotificationsViewController.swift */,
 				DCFE8E101C2C62C1005A1100 /* SettingsViewController.swift */,
+				DC46D2F31C3193E4008BBE48 /* ComposeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				DC54E7C41C1F1242001496AB /* SignInViewController.swift in Sources */,
 				DC6162051C2BA99800C484FD /* ProfileViewController.swift in Sources */,
 				DCB65A081C22860A0094E58B /* PFUserDigits.swift in Sources */,
+				DC46D2F41C3193E4008BBE48 /* ComposeViewController.swift in Sources */,
 				DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */,
 				DC6162091C2BAE6700C484FD /* ParseHelper.swift in Sources */,
 				DCFE8E0F1C2C6278005A1100 /* NotificationsViewController.swift in Sources */,
