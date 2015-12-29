@@ -39,7 +39,7 @@ class SignInViewController: UIViewController {
         
     }
     
-    //Segue funtion
+    //Segue funtion from one view controller to other
     private func navigateToNewViewController(Identifier: String) {
         performSegueWithIdentifier(Identifier, sender: self)
     }

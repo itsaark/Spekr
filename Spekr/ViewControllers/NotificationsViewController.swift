@@ -23,6 +23,7 @@ class NotificationsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
+        //Setting View controller's navigation item properties
         self.tabBarController?.navigationItem.title = "Notifications"
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
         

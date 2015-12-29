@@ -291,12 +291,90 @@ you can get in touch.</string>
                     <view key="view" contentMode="scaleToFill" id="JTt-Om-N33">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect.Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuY-PN-FFu">
+                                <rect key="frame" x="112" y="395" width="96" height="15.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" red="0.60784316062927246" green="0.60784316062927246" blue="0.60784316062927246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Version 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOl-ud-lPC">
+                                <rect key="frame" x="131" y="415" width="58" height="14.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.60784316062927246" green="0.60784316062927246" blue="0.60784316062927246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bRe-zk-e6L">
+                                <rect key="frame" x="-4" y="15" width="328" height="258"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="44" id="pM9-N1-GXP">
+                                        <rect key="frame" x="0.0" y="28" width="328" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pM9-N1-GXP" id="cI7-wY-gjS">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8rd-xi-tLz" id="ufE-d4-Kmc"/>
+                                    <outlet property="delegate" destination="8rd-xi-tLz" id="l0O-ky-Nxe"/>
+                                </connections>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpekrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="8vg-Cv-lbA">
+                                <rect key="frame" x="120" y="303" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="0CL-AY-phE"/>
+                                    <constraint firstAttribute="width" constant="80" id="2DI-5D-HcN"/>
+                                    <constraint firstAttribute="height" constant="80" id="PHX-eV-tT7"/>
+                                    <constraint firstAttribute="width" constant="80" id="kNT-Cl-b9H"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0CL-AY-phE"/>
+                                        <exclude reference="kNT-Cl-b9H"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.9137254901960784" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="G9i-0F-Pr1" firstAttribute="top" secondItem="QOl-ud-lPC" secondAttribute="bottom" constant="25" id="5Qp-4F-1Ed"/>
+                            <constraint firstItem="iuY-PN-FFu" firstAttribute="top" secondItem="8vg-Cv-lbA" secondAttribute="bottom" constant="12" id="5Zm-R2-TX2"/>
+                            <constraint firstItem="bRe-zk-e6L" firstAttribute="centerX" secondItem="JTt-Om-N33" secondAttribute="centerX" id="F3i-m2-na7"/>
+                            <constraint firstItem="iuY-PN-FFu" firstAttribute="centerX" secondItem="JTt-Om-N33" secondAttribute="centerX" id="G6U-Vk-6DD"/>
+                            <constraint firstItem="iuY-PN-FFu" firstAttribute="top" secondItem="8vg-Cv-lbA" secondAttribute="bottom" constant="15" id="HlB-9H-BQC"/>
+                            <constraint firstItem="G9i-0F-Pr1" firstAttribute="top" secondItem="bRe-zk-e6L" secondAttribute="bottom" constant="182" id="Rah-Ya-1Wi"/>
+                            <constraint firstItem="QOl-ud-lPC" firstAttribute="top" secondItem="iuY-PN-FFu" secondAttribute="bottom" constant="5" id="SSD-zy-vKB"/>
+                            <constraint firstItem="QOl-ud-lPC" firstAttribute="top" secondItem="iuY-PN-FFu" secondAttribute="bottom" constant="8" id="T2s-cG-4Fe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bRe-zk-e6L" secondAttribute="trailing" constant="-20" id="b9l-6h-OeN"/>
+                            <constraint firstItem="8vg-Cv-lbA" firstAttribute="centerX" secondItem="JTt-Om-N33" secondAttribute="centerX" id="emm-CM-rkb"/>
+                            <constraint firstItem="bRe-zk-e6L" firstAttribute="leading" secondItem="JTt-Om-N33" secondAttribute="leadingMargin" constant="-20" id="lBW-y3-dAh"/>
+                            <constraint firstItem="bRe-zk-e6L" firstAttribute="top" secondItem="Ump-ud-G7u" secondAttribute="bottom" constant="15" id="pV2-B1-Qkf"/>
+                            <constraint firstItem="iuY-PN-FFu" firstAttribute="centerX" secondItem="JTt-Om-N33" secondAttribute="centerX" id="rV9-0G-boQ"/>
+                            <constraint firstItem="8vg-Cv-lbA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bRe-zk-e6L" secondAttribute="bottom" constant="30" id="rWg-oC-vr3"/>
+                            <constraint firstItem="iuY-PN-FFu" firstAttribute="leading" secondItem="JTt-Om-N33" secondAttribute="leadingMargin" constant="84" id="wkP-9e-m9f"/>
+                            <constraint firstItem="QOl-ud-lPC" firstAttribute="centerX" secondItem="JTt-Om-N33" secondAttribute="centerX" id="xcH-gF-Sdh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iuY-PN-FFu" secondAttribute="trailing" constant="83" id="zMS-Mn-Qua"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="G6U-Vk-6DD"/>
+                                <exclude reference="HlB-9H-BQC"/>
+                                <exclude reference="wkP-9e-m9f"/>
+                                <exclude reference="zMS-Mn-Qua"/>
+                                <exclude reference="T2s-cG-4Fe"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="SettingsIcon" id="ZaX-hQ-Uc4">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="settingsTableView" destination="bRe-zk-e6L" id="YLS-62-vsG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yr2-cO-DFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -352,8 +430,8 @@ you can get in touch.</string>
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eJF-E6-1HB">
-                                <rect key="frame" x="20" y="47" width="280" height="127"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eJF-E6-1HB">
+                                <rect key="frame" x="16" y="47" width="288" height="130"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="0SQ-d1-wtk"/>
@@ -362,24 +440,44 @@ you can get in touch.</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="160 Characters remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-KN-FIU">
-                                <rect key="frame" x="20" y="182" width="166" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="160 Characters remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-KN-FIU">
+                                <rect key="frame" x="16" y="185" width="166" height="17"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5C3-cH-eJr">
+                                <rect key="frame" x="268" y="146" width="22" height="22"/>
+                                <state key="normal" image="AttachImage"/>
+                                <connections>
+                                    <action selector="attachImageButton:" destination="Xuk-DL-n3N" eventType="touchUpInside" id="c6J-ol-qgl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WhS-hx-vVh">
+                                <rect key="frame" x="115" y="239" width="91" height="31"/>
+                                <state key="normal" image="Post button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333730697632" green="0.93333333730697632" blue="0.94901961088180542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6CC-KN-FIU" firstAttribute="top" secondItem="eJF-E6-1HB" secondAttribute="bottom" constant="8" id="BkW-6o-ocu"/>
+                            <constraint firstItem="WhS-hx-vVh" firstAttribute="top" secondItem="6CC-KN-FIU" secondAttribute="bottom" constant="37" id="I9k-Gc-0MM"/>
                             <constraint firstItem="eJF-E6-1HB" firstAttribute="leading" secondItem="gbj-mp-OoB" secondAttribute="leadingMargin" id="JmN-Bb-U8S"/>
                             <constraint firstItem="eJF-E6-1HB" firstAttribute="top" secondItem="CcT-hQ-N2l" secondAttribute="bottom" constant="47" id="QGk-ee-TH5"/>
                             <constraint firstItem="6CC-KN-FIU" firstAttribute="leading" secondItem="gbj-mp-OoB" secondAttribute="leadingMargin" id="WpO-4b-DZp"/>
+                            <constraint firstItem="WhS-hx-vVh" firstAttribute="leading" secondItem="gbj-mp-OoB" secondAttribute="leadingMargin" constant="99" id="j0p-8H-nXr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5C3-cH-eJr" secondAttribute="trailing" constant="14" id="mLq-eu-omA"/>
+                            <constraint firstItem="5C3-cH-eJr" firstAttribute="top" secondItem="CcT-hQ-N2l" secondAttribute="bottom" constant="146" id="pvf-K2-wxB"/>
                             <constraint firstItem="eJF-E6-1HB" firstAttribute="centerX" secondItem="gbj-mp-OoB" secondAttribute="centerX" id="qjQ-0C-Ift"/>
+                            <constraint firstItem="WhS-hx-vVh" firstAttribute="centerX" secondItem="gbj-mp-OoB" secondAttribute="centerX" id="tXo-go-TwP"/>
                             <constraint firstItem="eJF-E6-1HB" firstAttribute="trailing" secondItem="gbj-mp-OoB" secondAttribute="trailingMargin" id="wKZ-MG-BZW"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="charLimitLabel" destination="6CC-KN-FIU" id="55L-NI-xal"/>
+                        <outlet property="composeTextView" destination="eJF-E6-1HB" id="wm0-VK-Dfg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSM-Xy-1va" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -410,20 +508,20 @@ you can get in touch.</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Recent Post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jml-RG-h2i">
-                                <rect key="frame" x="20" y="297" width="91" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent Post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jml-RG-h2i">
+                                <rect key="frame" x="16" y="297" width="90.5" height="23.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" red="0.65882354974746704" green="0.64705884456634521" blue="0.63529413938522339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hev-NP-slQ">
-                                <rect key="frame" x="16" y="329" width="288" height="88"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hev-NP-slQ">
+                                <rect key="frame" x="12" y="328" width="296" height="89"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="8OA-sD-B17">
-                                <rect key="frame" x="83" y="165" width="170" height="36"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="8OA-sD-B17">
+                                <rect key="frame" x="75" y="164" width="170" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmP-6h-cix">
                                         <rect key="frame" x="0.0" y="0.0" width="53" height="36"/>
@@ -551,10 +649,12 @@ you can get in touch.</string>
     </scenes>
     <resources>
         <image name="AccountIcon" width="32" height="32"/>
+        <image name="AttachImage" width="22" height="22"/>
         <image name="BellIcon" width="27" height="31"/>
         <image name="FB SignInButton" width="110" height="48"/>
         <image name="LocalIcon" width="20" height="30"/>
         <image name="OrLine" width="221" height="35"/>
+        <image name="Post button" width="83" height="31"/>
         <image name="SettingsIcon" width="26" height="26"/>
         <image name="SpekrLogo" width="109" height="109"/>
         <image name="TwitterSignInButton" width="110" height="48"/>

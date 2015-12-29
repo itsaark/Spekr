@@ -27,37 +27,28 @@ class LocalFeedViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
 
 
-        
+        //Setting right bar button item
         let composeButtonImage = UIImage(named: "Compose")
         
         let composeButton = UIBarButtonItem(image: composeButtonImage, style: .Plain, target: self, action: "segueFunction")
         
-        
         self.tabBarController?.navigationItem.rightBarButtonItem = composeButton
         
+        
+        //Setting View controller's title
         self.tabBarController?.navigationItem.title = "Local Feed"
-        
-        
         
         
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    //Segue function to navigate to Compose view controller from right bar button item
     func segueFunction(){
         
         performSegueWithIdentifier("JumpToComposeVC", sender: UIBarButtonItem())
     }
     
+    //Customizing the back bar button item
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let backItem = UIBarButtonItem()
         backItem.title = ""
