@@ -308,10 +308,27 @@ you can get in touch.</string>
                                 <rect key="frame" x="-4" y="15" width="328" height="258"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="44" id="pM9-N1-GXP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellWithIcon" rowHeight="44" id="pM9-N1-GXP">
                                         <rect key="frame" x="0.0" y="28" width="328" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pM9-N1-GXP" id="cI7-wY-gjS">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Disclosure Indicator" translatesAutoresizingMaskIntoConstraints="NO" id="BHr-ev-UcM">
+                                                    <rect key="frame" x="312" y="15.5" width="8" height="13"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="BHr-ev-UcM" secondAttribute="trailing" id="ESe-S1-lgG"/>
+                                                <constraint firstItem="BHr-ev-UcM" firstAttribute="centerY" secondItem="cI7-wY-gjS" secondAttribute="centerY" id="lqT-Gy-gC0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="44" id="Cje-wU-Df4">
+                                        <rect key="frame" x="0.0" y="72" width="328" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cje-wU-Df4" id="k9R-7p-jey">
                                             <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -621,7 +638,6 @@ you can get in touch.</string>
         <!--SignInNavigationViewController-->
         <scene sceneID="zWb-rf-AIR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iMs-CF-kdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="SignInNavigationViewController" title="SignInNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CUU-Sm-2h5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -643,6 +659,7 @@ you can get in touch.</string>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oIL-Bf-G6V"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iMs-CF-kdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1069" y="349"/>
         </scene>
@@ -651,6 +668,7 @@ you can get in touch.</string>
         <image name="AccountIcon" width="32" height="32"/>
         <image name="AttachImage" width="22" height="22"/>
         <image name="BellIcon" width="27" height="31"/>
+        <image name="Disclosure Indicator" width="8" height="13"/>
         <image name="FB SignInButton" width="110" height="48"/>
         <image name="LocalIcon" width="20" height="30"/>
         <image name="OrLine" width="221" height="35"/>

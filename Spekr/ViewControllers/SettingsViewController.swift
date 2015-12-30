@@ -27,22 +27,46 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
     override func viewWillAppear(animated: Bool) {
         
         //Setting View controller's navigation item properties
+        
         self.tabBarController?.navigationItem.title = "Settings"
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
     }
-
+    
+    var settingsList = ["About", "Privacy", "Invite Friends", "Support", "Send Feedback", "Log Out"]
+    
+    // MARK: - UITableViewDataSource
+   
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 6
+        return settingsList.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
         
-        return cell
+        //TODO: AutoLayout constraints for navigation icon not set properly
+        //First 3 settings options have a navigation icon in the prototype cell
+        if indexPath.row < 3 {
+            
+        let cell = tableView.dequeueReusableCellWithIdentifier("CellWithIcon", forIndexPath: indexPath)
+        
+        cell.textLabel?.text = settingsList[indexPath.row]
+            
+            return cell
+            
+        } else {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+            
+            cell.textLabel?.text = settingsList[indexPath.row]
+            
+            return cell
+        }
+        
+        
     }
+    
+    
     /*
     // MARK: - Navigation
 

@@ -52,13 +52,15 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         
         self.tabBarController?.navigationItem.title = "Profile"
+        self.tabBarController?.navigationController?.navigationBarHidden = false
+        self.tabBarController?.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBarController?.navigationController?.navigationBarHidden = false
-        self.tabBarController?.navigationItem.hidesBackButton = true
+        
 
     }
 
