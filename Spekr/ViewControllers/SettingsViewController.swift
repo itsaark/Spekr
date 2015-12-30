@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import DigitsKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate {
     
@@ -67,14 +69,56 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
     }
     
     
-    /*
-    // MARK: - Navigation
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        if indexPath.row == 0 {
+            
+        }
+        else if indexPath.row == 1 {
+            
+        }
+        else if indexPath.row == 2 {
+            
+        }
+        else if indexPath.row == 3 {
+            
+        }
+        else if indexPath.row == 4 {
+            
+        }
+        
+        //Log out cell tapped
+        else if indexPath.row == 5 {
+            
+            let alert = UIAlertController(title: "Confirmation", message: "Are you sure you want to Log out?", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action: UIAlertAction!) -> Void in
+                
+                //Log out current user
+                Digits.sharedInstance().logOut()
+                PFUser.logOut()
+    
+                //Segue to sing in view controller
+                self.performSegueWithIdentifier("JumpToSignInVC", sender: self)
+                
+                
+            }))
+            
+            alert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action: UIAlertAction!) -> Void in
+                
+                self.dismissViewControllerAnimated(true, completion: nil)
+                
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+            
+        }
     }
-    */
+    
+    
+   
 
 }
