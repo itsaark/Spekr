@@ -16,13 +16,10 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var displayName: UILabel!
     
-
-    
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
         
-        // Do any additional setup after loading the view.
         //Displaying current user name
         if let parseDisplayName = PFUser.currentUser()!["displayName"] as? String {
             self.displayName.text = parseDisplayName
@@ -45,12 +42,11 @@ class ProfileViewController: UIViewController {
             })
         }
         
-
-
     }
     
     override func viewWillAppear(animated: Bool) {
         
+        //Setting View controller's navigation item properties
         self.tabBarController?.navigationItem.title = "Profile"
         self.tabBarController?.navigationController?.navigationBarHidden = false
         self.tabBarController?.navigationItem.hidesBackButton = true
@@ -102,6 +98,7 @@ class ProfileViewController: UIViewController {
                 
                 if let url = NSURL(string: userProfileLink) {
                 UIApplication.sharedApplication().openURL(url)
+                    
                 }
             }
         }

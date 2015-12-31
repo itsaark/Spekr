@@ -12,6 +12,29 @@ import DigitsKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate {
     
+    //Displaying error message through Alert
+    func DisplayAert(title:String, errorMessage:String){
+        
+        let alert = UIAlertController(title: title, message: errorMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+
+    
+    //Customizing the back bar button item
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        self.tabBarController?.navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+    }
+
     
     @IBOutlet weak var settingsTableView: UITableView!
 
@@ -48,11 +71,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         
         //TODO: AutoLayout constraints for navigation icon not set properly
         //First 3 settings options have a navigation icon in the prototype cell
-        if indexPath.row < 3 {
+        if indexPath.row < 4 {
             
-        let cell = tableView.dequeueReusableCellWithIdentifier("CellWithIcon", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("CellWithIcon", forIndexPath: indexPath)
         
-        cell.textLabel?.text = settingsList[indexPath.row]
+            cell.textLabel?.text = settingsList[indexPath.row]
+            cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 16)
             
             return cell
             
@@ -61,7 +85,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
             let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
             
             cell.textLabel?.text = settingsList[indexPath.row]
-            
+            cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 16)
             return cell
         }
         
@@ -72,12 +96,21 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        //Deselects the seltected cell
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        //About cell tapped
         if indexPath.row == 0 {
             
+            //Segue to about view controller
+            self.performSegueWithIdentifier("JumpToAboutVC", sender: self)
+            
         }
+        // Privacy Policy cell tapped
         else if indexPath.row == 1 {
             
+            //Segue to privacy policy view controller
+            self.performSegueWithIdentifier("JumpToPrivacyPolicyVC", sender: self)
         }
         else if indexPath.row == 2 {
             
@@ -85,7 +118,21 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         else if indexPath.row == 3 {
             
         }
+        // Send feedback cell tapped
         else if indexPath.row == 4 {
+            
+            //Calling Email composer class to send feedback via e-mail
+            let emailComposer = EmailComposer()
+            let configuredMailComposeViewController = emailComposer.configuredMailComposeViewController()
+            
+            if emailComposer.canSendMail() {
+                
+                presentViewController(configuredMailComposeViewController, animated: true, completion: nil)
+                
+            }else{
+                
+                DisplayAert("Could Not Send Email", errorMessage: "Your device couldn't send the e-mail. Please check the device configuration and try again later")
+            }
             
         }
         
@@ -97,9 +144,16 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
             alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action: UIAlertAction!) -> Void in
                 
                 //Log out current user
-                Digits.sharedInstance().logOut()
-                PFUser.logOut()
-    
+                
+                PFUser.logOutInBackgroundWithBlock({ (error: NSError?) -> Void in
+                    
+                    if error ==
+                        nil {
+                     
+                        Digits.sharedInstance().logOut()
+                    }
+                })
+                
                 //Segue to sing in view controller
                 self.performSegueWithIdentifier("JumpToSignInVC", sender: self)
                 

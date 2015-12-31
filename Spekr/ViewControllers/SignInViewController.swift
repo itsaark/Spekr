@@ -14,15 +14,13 @@ import ParseFacebookUtilsV4
 import TwitterKit
 
 
-
-
-
 class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         
         navigationController?.navigationBarHidden = true
     }
+    
     //Displaying error message through Alert
     func DisplayAert(title:String, errorMessage:String){
         
@@ -36,23 +34,17 @@ class SignInViewController: UIViewController {
         
         self.presentViewController(alert, animated: true, completion: nil)
         
-        
     }
     
-    //Segue funtion from one view controller to other
+    //Funtion for seguing from one view controller to other
     private func navigateToNewViewController(Identifier: String) {
         performSegueWithIdentifier(Identifier, sender: self)
     }
 
-    // Updating Facebook user data to Parse database
-    func digitsUserDataToParse() {
-        
-    }
     
-    //Sign in with Phone Number
+    //Sign in with Phone Number button tapped
     @IBAction func didTapPhoneSignInButton(sender: AnyObject) {
         
-   
         
         PFUser.loginWithDigitsInBackground { (user: PFUser?, error: NSError?) -> Void in
             
@@ -91,12 +83,10 @@ class SignInViewController: UIViewController {
             }
 
         }
-
-        
             
-        }
+    }
     
-    // Updating twitter user data to Parse database
+    // Function for updating twitter user data to Parse database
     func twitterUserDataToParse(){
         
         if PFTwitterUtils.isLinkedWithUser(PFUser.currentUser()!) {
@@ -183,7 +173,7 @@ class SignInViewController: UIViewController {
         
     }
         
-    //Sign in with Twitter     
+    //Sign in with Twitter button tapped
     @IBAction func signInTwitter(sender: AnyObject) {
         
         PFTwitterUtils.logInWithBlock {
@@ -192,7 +182,8 @@ class SignInViewController: UIViewController {
                 if let user = user {
                     if user.isNew {
                     print("User signed up and logged in with Twitter!")
-                        
+ 
+                        //TODO: Update twitter email to parse
 //                        
 //                        let shareEmailViewController = TWTRShareEmailViewController() { email, error in
 //                            print("Email \(email), Error: \(error)")
@@ -298,17 +289,13 @@ class SignInViewController: UIViewController {
                         
                     })
                     
-                    
-                    
                 }
-
-
                 
             }
         })
     }
     
-    //Sign in with Facebook
+    //Sign in with Facebook button tapped
     @IBAction func signInFacebook(sender: AnyObject) {
         
         let permissions = ["public_profile", "email"]

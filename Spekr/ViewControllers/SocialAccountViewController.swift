@@ -33,9 +33,9 @@ class SocialAccountViewController: UIViewController {
         
         self.presentViewController(alert, animated: true, completion: nil)
         
-        
     }
     
+    //Funtion for seguing from one view controller to other
     private func navigateToNewViewController(Identifier: String) {
         performSegueWithIdentifier(Identifier, sender: self)
     }
@@ -117,10 +117,10 @@ class SocialAccountViewController: UIViewController {
     }
 
 
-    
     //TODO: Check if the user has already been linked
     //TODO: Update the linked account on parse
-
+    
+    //Link Twitter button tapped
     @IBAction func linkTwitter(sender: AnyObject) {
         
         let user: PFUser = PFUser.currentUser()!
@@ -237,6 +237,7 @@ class SocialAccountViewController: UIViewController {
     
     //TODO: Check if the user has already been linked
 
+    //Link Facebook button tapped
     @IBAction func linkFacebook(sender: AnyObject) {
         
         let user: PFUser = PFUser.currentUser()!
