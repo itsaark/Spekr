@@ -113,5 +113,7 @@
         <string>fbauth2</string>
         <string>fbshareextension</string>
     </array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Spekr would like to access your current location to display local feed around you</string>
 </dict>
 </plist>
