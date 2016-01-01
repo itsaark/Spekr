@@ -520,6 +520,9 @@ you can get in touch.</string>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WhS-hx-vVh">
                                 <rect key="frame" x="115" y="239" width="91" height="31"/>
                                 <state key="normal" image="Post button"/>
+                                <connections>
+                                    <action selector="postButtonTapped:" destination="Xuk-DL-n3N" eventType="touchUpInside" id="lDL-tO-xQy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333730697632" green="0.93333333730697632" blue="0.94901961088180542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

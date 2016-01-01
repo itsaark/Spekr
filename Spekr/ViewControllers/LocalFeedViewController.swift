@@ -118,7 +118,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
                     
                 }))
                 
-                presentViewController(alert, animated: true, completion: nil)
+                self.presentViewController(alert, animated: true, completion: nil)
                 
             case .AuthorizedAlways, .AuthorizedWhenInUse:
                 print("Stopped updating location")

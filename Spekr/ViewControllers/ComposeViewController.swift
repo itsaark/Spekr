@@ -12,6 +12,7 @@ import CoreLocation
 
 class ComposeViewController: UIViewController, CLLocationManagerDelegate {
     
+    
     //Displaying error/alert message through Alert
     func DisplayAert(title:String, errorMessage:String){
         
@@ -27,16 +28,30 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate {
         
     }
 
-    
-    var currentUserLocation: PFGeoPoint? = nil
+    var photoTakingHelper: PhotoTakingHelper?
+    var currentUserLocation: PFGeoPoint?
     let locationManager = CLLocationManager()
+    let postDetails = PostDetails()
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locationCoordinates:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locationCoordinates.latitude) \(locationCoordinates.longitude)")
         
-        currentUserLocation?.latitude = locationCoordinates.latitude
-        currentUserLocation?.longitude = locationCoordinates.longitude
+        for location in locations {
+            
+            currentUserLocation = PFGeoPoint(location: location)
+        }
+        
+    }
+    
+    func attachImage() {
+        
+        photoTakingHelper = PhotoTakingHelper(viewController: self, callback: { (image: UIImage?) -> Void in
+            
+            print("received a callback")
+            
+            self.postDetails.image = image
+            
+            
+        })
     }
 
     
@@ -47,8 +62,45 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate {
     //User tapped attachImage button
     @IBAction func attachImageButton(sender: AnyObject) {
         
+        attachImage()
         
     }
+    
+    
+    
+    @IBAction func postButtonTapped(sender: AnyObject) {
+        
+        print(currentUserLocation)
+        
+        if currentUserLocation?.latitude == nil || currentUserLocation?.longitude == nil {
+            
+            //TODO: Redirect to settings pane
+            let alert = UIAlertController(title: "Location Access Denied", message: "Please turn your Location Access ON to get feed around you", preferredStyle: .Alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction) -> Void in
+                
+                
+                let url = NSURL(string: UIApplicationOpenSettingsURLString)
+                
+                UIApplication.sharedApplication().openURL(url!)
+                
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            
+        }else if composeTextView.text == nil {
+            
+            DisplayAert("Empty Post", errorMessage: "Please enter text")
+            
+        }else {
+            
+            self.postDetails.locationCoordinates = currentUserLocation
+            self.postDetails.postText = composeTextView.text
+            self.postDetails.uploadPost()
+        }
+    }
+    
     
 
     override func viewDidLoad() {
@@ -112,7 +164,7 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate {
                     
                 }))
                 
-                presentViewController(alert, animated: true, completion: nil)
+                self.presentViewController(alert, animated: true, completion: nil)
                 
             case .AuthorizedAlways, .AuthorizedWhenInUse:
                 print("Stopped updating location")

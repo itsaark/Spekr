@@ -15,6 +15,8 @@
 		DC1F39E91C343EED00E6FBE0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1F39E81C343EED00E6FBE0 /* AboutViewController.swift */; };
 		DC1F39EB1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1F39EA1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift */; };
 		DC1F39EE1C34DB3F00E6FBE0 /* EmailComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1F39ED1C34DB3F00E6FBE0 /* EmailComposer.swift */; };
+		DC2964C11C3661A300F2FEF9 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2964C01C3661A300F2FEF9 /* PhotoTakingHelper.swift */; };
+		DC2964C31C36890B00F2FEF9 /* PostDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2964C21C36890B00F2FEF9 /* PostDetails.swift */; };
 		DC434DFB1C213F8000995B06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC434DFA1C213F8000995B06 /* Main.storyboard */; };
 		DC46D2F41C3193E4008BBE48 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46D2F31C3193E4008BBE48 /* ComposeViewController.swift */; };
 		DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54E7951C1EF9B8001496AB /* AppDelegate.swift */; };
@@ -60,6 +62,8 @@
 		DC1F39E81C343EED00E6FBE0 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DC1F39EA1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		DC1F39ED1C34DB3F00E6FBE0 /* EmailComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailComposer.swift; sourceTree = "<group>"; };
+		DC2964C01C3661A300F2FEF9 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
+		DC2964C21C36890B00F2FEF9 /* PostDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetails.swift; sourceTree = "<group>"; };
 		DC434DFA1C213F8000995B06 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DC46D2F31C3193E4008BBE48 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		DC54E7921C1EF9B8001496AB /* Spekr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spekr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				DC1F39ED1C34DB3F00E6FBE0 /* EmailComposer.swift */,
+				DC2964C01C3661A300F2FEF9 /* PhotoTakingHelper.swift */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 		DC61620C1C2BB77D00C484FD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DC2964C21C36890B00F2FEF9 /* PostDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -358,6 +364,7 @@
 				DC8669C11C1FEFF600692AAE /* SocialAccountViewController.swift in Sources */,
 				DC1F39E91C343EED00E6FBE0 /* AboutViewController.swift in Sources */,
 				DC1F39EB1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift in Sources */,
+				DC2964C11C3661A300F2FEF9 /* PhotoTakingHelper.swift in Sources */,
 				DC54E7C41C1F1242001496AB /* SignInViewController.swift in Sources */,
 				DC6162051C2BA99800C484FD /* ProfileViewController.swift in Sources */,
 				DCB65A081C22860A0094E58B /* PFUserDigits.swift in Sources */,
@@ -365,6 +372,7 @@
 				DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */,
 				DC6162091C2BAE6700C484FD /* ParseHelper.swift in Sources */,
 				DCFE8E0F1C2C6278005A1100 /* NotificationsViewController.swift in Sources */,
+				DC2964C31C36890B00F2FEF9 /* PostDetails.swift in Sources */,
 				DCFE8E111C2C62C1005A1100 /* SettingsViewController.swift in Sources */,
 				DC1F39EE1C34DB3F00E6FBE0 /* EmailComposer.swift in Sources */,
 			);

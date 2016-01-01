@@ -127,7 +127,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
             
             if emailComposer.canSendMail() {
                 
-                presentViewController(configuredMailComposeViewController, animated: true, completion: nil)
+                self.presentViewController(configuredMailComposeViewController, animated: true, completion: nil)
                 
             }else{
                 
