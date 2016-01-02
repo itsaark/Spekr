@@ -18,7 +18,7 @@ class PostDetails: PFObject, PFSubclassing {
     @NSManaged var locationCoordinates: PFGeoPoint?
     
     var image: UIImage?
-    
+    var photoUploadTask: UIBackgroundTaskIdentifier?
     //MARK: PFSubclassing Protocol
     
     // 3
@@ -44,7 +44,16 @@ class PostDetails: PFObject, PFSubclassing {
             // 1
             let imageData = UIImageJPEGRepresentation(image, 0.8)!
             let imageFile = PFFile(data: imageData)
-            imageFile?.saveInBackgroundWithBlock(nil)
+            
+            //Uploading image in background
+            photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
+                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+            }
+            
+            imageFile?.saveInBackgroundWithBlock({ (Success: Bool, error: NSError?) -> Void in
+                
+                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+            })
             
             // 2
             self.imageFile = imageFile

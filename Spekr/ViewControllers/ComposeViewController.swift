@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import CoreLocation
 
-class ComposeViewController: UIViewController, CLLocationManagerDelegate {
+class ComposeViewController: UIViewController, CLLocationManagerDelegate, UITextViewDelegate {
     
     
     //Displaying error/alert message through Alert
@@ -49,8 +49,7 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate {
             print("received a callback")
             
             self.postDetails.image = image
-            
-            
+            //TODO: Change Image icon to file name after image has been selected
         })
     }
 
@@ -72,7 +71,7 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate {
         
         print(currentUserLocation)
         
-        if currentUserLocation?.latitude == nil || currentUserLocation?.longitude == nil {
+        if currentUserLocation == nil {
             
             //TODO: Redirect to settings pane
             let alert = UIAlertController(title: "Location Access Denied", message: "Please turn your Location Access ON to get feed around you", preferredStyle: .Alert)
@@ -89,7 +88,7 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate {
             self.presentViewController(alert, animated: true, completion: nil)
             
             
-        }else if composeTextView.text == nil {
+        }else if composeTextView.text == "" {
             
             DisplayAert("Empty Post", errorMessage: "Please enter text")
             
@@ -98,15 +97,42 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate {
             self.postDetails.locationCoordinates = currentUserLocation
             self.postDetails.postText = composeTextView.text
             self.postDetails.uploadPost()
+            
+            let alert = UIAlertController(title: "Posted Successfully", message: "", preferredStyle: .Alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction) -> Void in
+                
+                self.performSegueWithIdentifier("unwindToLocalFeed", sender: self)
+                
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+
+            
         }
     }
     
+    //Character limiting
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        
+        let newLength = textView.text.utf16.count + text.utf16.count - range.length
+        
+        //change the value of the label
+        charLimitLabel.text =  String(140-newLength) + " Characters remaining"
+        
+        //return true to allow the change, if you want to limit the number of characters in the text field use something like
+        return newLength < 140 // To just allow up to 140 characters
+        
+    }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        composeTextView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -176,5 +202,6 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate {
 
     }
    
-
 }
+
+

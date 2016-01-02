@@ -544,9 +544,12 @@ you can get in touch.</string>
                     <connections>
                         <outlet property="charLimitLabel" destination="6CC-KN-FIU" id="55L-NI-xal"/>
                         <outlet property="composeTextView" destination="eJF-E6-1HB" id="wm0-VK-Dfg"/>
+                        <segue destination="ccy-3x-Qsy" kind="show" identifier="JumpToLocalFeedVCAfterPost" id="QkS-V1-igt"/>
+                        <segue destination="EOm-Os-mIO" kind="unwind" identifier="unwindToLocalFeed" unwindAction="unwindToLocalFeed:" id="Gpi-gh-HPp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSM-Xy-1va" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="EOm-Os-mIO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3478" y="362"/>
         </scene>
@@ -728,6 +731,7 @@ you can get in touch.</string>
         <image name="TwitterSignInButton" width="110" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="QkS-V1-igt"/>
         <segue reference="V4B-U7-B5o"/>
     </inferredMetricsTieBreakers>
 </document>

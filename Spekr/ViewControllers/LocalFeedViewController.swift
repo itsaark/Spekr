@@ -12,6 +12,8 @@ import Parse
 
 class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
     
+    @IBAction func unwindToLocalFeed(segue: UIStoryboardSegue) {}
+    
     //Displaying error/alert message through Alert
     func DisplayAert(title:String, errorMessage:String){
         
