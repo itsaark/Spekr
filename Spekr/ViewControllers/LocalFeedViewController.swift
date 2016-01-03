@@ -12,6 +12,26 @@ import Parse
 
 class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
     
+    var postDetails: [PostDetails] = []
+    
+    @IBOutlet weak var distanceSliderValue: UISlider!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBAction func sliderMoved(sender: AnyObject) {
+        if currentUserLocation != nil {
+            
+        ParseHelper.timelineRequestForCurrentPost("locationCoordinates", geoPoint: currentUserLocation!, radius: Double(distanceSliderValue.value)) { (result:[PFObject]?, error: NSError?) -> Void in
+            
+            self.postDetails = result as? [PostDetails] ?? []
+            print(self.postDetails)
+            self.tableView.reloadData()
+
+        }
+      }
+    }
+    
+    
     @IBAction func unwindToLocalFeed(segue: UIStoryboardSegue) {}
     
     //Displaying error/alert message through Alert
@@ -30,15 +50,15 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     //Obtaining current user location details
-    var currentUserLocation: PFGeoPoint? = nil
+    var currentUserLocation: PFGeoPoint?
     let locationManager = CLLocationManager()
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locationCoordinates:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locationCoordinates.latitude) \(locationCoordinates.longitude)")
         
-        currentUserLocation?.latitude = locationCoordinates.latitude
-        currentUserLocation?.longitude = locationCoordinates.longitude
+        for location in locations {
+            
+            currentUserLocation = PFGeoPoint(location: location)
+        }
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -56,6 +76,9 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
         
         //Initial request for Location Access
         self.locationManager.requestWhenInUseAuthorization()
+        
+        tableView.estimatedRowHeight = 100.0
+        tableView.rowHeight = UITableViewAutomaticDimension
         
     }
 
@@ -150,3 +173,57 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
     }
     
 }
+
+extension LocalFeedViewController: UITableViewDataSource {
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
+        return postDetails.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
+        
+        
+        cell.postTextView.text = postDetails[indexPath.row].postText
+        let user = postDetails[indexPath.row].objectForKey("username") as! PFUser
+        
+        user.fetchIfNeededInBackgroundWithBlock { (obj: PFObject?, error: NSError?) -> Void in
+            
+            if obj != nil {
+                let fetchedUser = obj as! PFUser
+                let username = fetchedUser["displayName"] as! String
+                
+                cell.userName.text = username // This Works FINE
+                
+                let userDisplayImageFile = fetchedUser["displayImage"] as! PFFile
+                
+                userDisplayImageFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                    
+                    if error == nil {
+                        
+                        let userDisplayImage = UIImage(data: imageData!)
+                        
+                        cell.userDisplayImage.image = userDisplayImage
+                        
+                        cell.userDisplayImage.layer.cornerRadius = 27
+                        
+                        cell.userDisplayImage.clipsToBounds = true
+                    }
+                })
+                                
+            }
+        }
+        
+        
+        
+        
+        
+        return cell
+    }
+    
+}
+

@@ -12,7 +12,30 @@ import Parse
 class ParseHelper {
     
 
+    // 2
+    static func timelineRequestForCurrentPost(key: String, geoPoint: PFGeoPoint, radius: Double, completionBlock: PFQueryArrayResultBlock) {
+        
+        let query = PFQuery(className:"PostDetails")
+        
+        // 5
+        
+        query.whereKey(key, nearGeoPoint: geoPoint, withinMiles: radius)
+        
+        query.includeKey("username")
+        
+        // 3
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
     
+    static func requestForUserDetails(username: String, completionBlock: PFQueryArrayResultBlock) {
+        
+        let query = PFQuery(className: "User")
+        
+        query.whereKey("username", equalTo: username)
+        
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+
   
 }
 

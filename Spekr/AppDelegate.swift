@@ -47,9 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Initializing Facebook for Parse
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         
-        //TODO: Remove them as soon as the app is ready
-        Digits.sharedInstance().logOut()
-        PFUser.logOut()
+        
         
         //TODO: Add a similar instance for facebook as well.
         // Check for an existing Twitter or Digits session before presenting the sign in screen.

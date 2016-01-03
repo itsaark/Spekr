@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class NotificationsViewController: UIViewController {
 
@@ -27,6 +28,7 @@ class NotificationsViewController: UIViewController {
         self.tabBarController?.navigationItem.title = "Notifications"
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
         
+
     }
     
 
