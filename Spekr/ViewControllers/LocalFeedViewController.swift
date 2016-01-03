@@ -146,10 +146,14 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
                 self.presentViewController(alert, animated: true, completion: nil)
                 
             case .AuthorizedAlways, .AuthorizedWhenInUse:
-                print("Stopped updating location")
-                //Stop updating location once the view is appeared.
-                locationManager.stopUpdatingLocation()
                 
+                //Stop updating location once the view is appeared.
+                
+                if currentUserLocation != nil {
+                locationManager.stopUpdatingLocation()
+                print("Stopped updating location")
+                    
+                }
             }
         }
         
@@ -172,6 +176,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
         self.tabBarController?.navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
     }
     
+    
 }
 
 extension LocalFeedViewController: UITableViewDataSource {
@@ -185,10 +190,13 @@ extension LocalFeedViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        if postDetails[indexPath.row].imageFile == nil {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
         
         
         cell.postTextView.text = postDetails[indexPath.row].postText
+        
         let user = postDetails[indexPath.row].objectForKey("username") as! PFUser
         
         user.fetchIfNeededInBackgroundWithBlock { (obj: PFObject?, error: NSError?) -> Void in
@@ -219,10 +227,58 @@ extension LocalFeedViewController: UITableViewDataSource {
         }
         
         
-        
-        
-        
         return cell
+        } else {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("PostCellWithImage") as! PostWithImageTableViewCell
+            
+            cell.postTextView.text = postDetails[indexPath.row].postText
+            
+            let postImageFile = postDetails[indexPath.row].imageFile
+            
+            postImageFile?.getDataInBackgroundWithBlock({ (postImageData: NSData?, error: NSError?) -> Void in
+                
+                if error == nil {
+                    
+                    let postImage = UIImage(data: postImageData!)
+                    
+                    cell.postImage.image = postImage
+                }
+            })
+            
+            let user = postDetails[indexPath.row].objectForKey("username") as! PFUser
+            
+            user.fetchIfNeededInBackgroundWithBlock { (obj: PFObject?, error: NSError?) -> Void in
+                
+                if obj != nil {
+                    let fetchedUser = obj as! PFUser
+                    let username = fetchedUser["displayName"] as! String
+                    
+                    cell.userName.text = username // This Works FINE
+                    
+                    let userDisplayImageFile = fetchedUser["displayImage"] as! PFFile
+                    
+                    userDisplayImageFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                        
+                        if error == nil {
+                            
+                            let userDisplayImage = UIImage(data: imageData!)
+                            
+                            cell.userDisplayImage.image = userDisplayImage
+                            
+                            cell.userDisplayImage.layer.cornerRadius = 27
+                            
+                            cell.userDisplayImage.clipsToBounds = true
+                        }
+                    })
+                    
+                }
+            }
+
+            
+            
+            return cell
+        }
     }
     
 }

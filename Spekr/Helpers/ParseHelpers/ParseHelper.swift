@@ -27,16 +27,7 @@ class ParseHelper {
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
-    static func requestForUserDetails(username: String, completionBlock: PFQueryArrayResultBlock) {
-        
-        let query = PFQuery(className: "User")
-        
-        query.whereKey("username", equalTo: username)
-        
-        query.findObjectsInBackgroundWithBlock(completionBlock)
-    }
-
-  
+    
 }
 
 

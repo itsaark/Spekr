@@ -70,7 +70,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         //TODO: AutoLayout constraints for navigation icon not set properly
-        //First 3 settings options have a navigation icon in the prototype cell
+        //First 3 settings options have a disclosure indicator in the prototype cell
         if indexPath.row < 4 {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("CellWithIcon", forIndexPath: indexPath)

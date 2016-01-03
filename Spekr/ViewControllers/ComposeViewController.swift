@@ -74,7 +74,7 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
         if currentUserLocation == nil {
             
             //TODO: Redirect to settings pane
-            let alert = UIAlertController(title: "Location Access Denied", message: "Please turn your Location Access ON to get feed around you", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Location Access Denied", message: "Please turn your Location Access ON to post", preferredStyle: .Alert)
             
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction) -> Void in
                 
@@ -193,9 +193,12 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
                 self.presentViewController(alert, animated: true, completion: nil)
                 
             case .AuthorizedAlways, .AuthorizedWhenInUse:
-                print("Stopped updating location")
+                
                 //Stop updating location once the view is appeared.
-                locationManager.stopUpdatingLocation()
+                if currentUserLocation != nil {
+                    locationManager.stopUpdatingLocation()
+                    print("Stopped updating location")
+                }
                 
             }
         }

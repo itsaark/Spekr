@@ -22,7 +22,7 @@ class EmailComposer: NSObject, MFMailComposeViewControllerDelegate {
         
         mailComposerVC.setToRecipients(["support@spekrapp.com"])
         mailComposerVC.setSubject("Feedback")
-        mailComposerVC.setMessageBody("Hello! I have a feedback for you", isHTML: false)
+        mailComposerVC.setMessageBody("Hello! I have some feedback for you.", isHTML: false)
         
         return mailComposerVC
     }
