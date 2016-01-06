@@ -577,12 +577,20 @@ you can get in touch.</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Move the slider to load feed " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64z-on-g7B">
+                                <rect key="frame" x="66" y="60" width="115" height="11"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
+                                <color key="textColor" red="0.60784316062927246" green="0.60784316062927246" blue="0.60784316062927246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="aqx-Kn-31G" firstAttribute="top" secondItem="7kc-Wy-OdX" secondAttribute="bottom" id="7he-Gr-mU3"/>
                             <constraint firstItem="7kc-Wy-OdX" firstAttribute="leading" secondItem="ZDv-7x-N7J" secondAttribute="leadingMargin" id="8oE-fa-3rO"/>
                             <constraint firstAttribute="trailing" secondItem="fDj-Su-goR" secondAttribute="trailing" id="A65-6B-ZFc"/>
+                            <constraint firstItem="64z-on-g7B" firstAttribute="top" secondItem="7kc-Wy-OdX" secondAttribute="bottom" constant="4" id="BMU-CU-sfR"/>
+                            <constraint firstItem="64z-on-g7B" firstAttribute="centerX" secondItem="ZDv-7x-N7J" secondAttribute="centerX" id="JUm-fI-SZa"/>
                             <constraint firstItem="7kc-Wy-OdX" firstAttribute="top" secondItem="QqY-Bt-kGw" secondAttribute="bottom" constant="20" id="OPb-f1-iDu"/>
                             <constraint firstItem="buH-fR-KdU" firstAttribute="top" secondItem="7kc-Wy-OdX" secondAttribute="bottom" id="W9X-IN-yxw"/>
                             <constraint firstItem="aqx-Kn-31G" firstAttribute="leading" secondItem="ZDv-7x-N7J" secondAttribute="leading" constant="8" id="gbI-Cf-Esf"/>
@@ -601,6 +609,7 @@ you can get in touch.</string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="distanceSliderValue" destination="7kc-Wy-OdX" id="N4l-EG-cRi"/>
+                        <outlet property="moveSliderLabel" destination="64z-on-g7B" id="fz3-2e-gC9"/>
                         <outlet property="tableView" destination="fDj-Su-goR" id="Zn2-Sf-C7g"/>
                         <segue destination="Xuk-DL-n3N" kind="show" identifier="JumpToComposeVC" id="57k-DQ-ywc"/>
                     </connections>

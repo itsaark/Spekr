@@ -14,11 +14,18 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
     
     var postDetails: [PostDetails] = []
     
+    
+    @IBOutlet weak var moveSliderLabel: UILabel!
+    
     @IBOutlet weak var distanceSliderValue: UISlider!
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func sliderMoved(sender: AnyObject) {
+        
+        //Move slider label will disappear
+        moveSliderLabel.hidden = true
+        
         if currentUserLocation != nil {
             
         ParseHelper.timelineRequestForCurrentPost("locationCoordinates", geoPoint: currentUserLocation!, radius: Double(distanceSliderValue.value)) { (result:[PFObject]?, error: NSError?) -> Void in
@@ -31,7 +38,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
       }
     }
     
-    
+    // Segue to load LocalFeed after successful post from Compose View Controller
     @IBAction func unwindToLocalFeed(segue: UIStoryboardSegue) {}
     
     //Displaying error/alert message through Alert
@@ -116,7 +123,20 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
 
             }
         } else {
-            DisplayAert("Location Access Disabled", errorMessage: "Please turn your Location Access ON to get feed around you")
+            //TODO: Redirect to settings pane
+            let alert = UIAlertController(title: "Location Access Denied", message: "Please turn your Location Access ON to get feed around you", preferredStyle: .Alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction) -> Void in
+                
+                
+                let url = NSURL(string: UIApplicationOpenSettingsURLString)
+                
+                UIApplication.sharedApplication().openURL(url!)
+                
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+
         }
         
     }
@@ -129,10 +149,9 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
             switch(CLLocationManager.authorizationStatus()) {
                 
             case .NotDetermined, .Restricted, .Denied:
-                print("No access")
                 
                 //TODO: Redirect to settings pane
-                let alert = UIAlertController(title: "Location Access Denied", message: "Please turn your Location Access ON to get feed around you", preferredStyle: .Alert)
+                let alert = UIAlertController(title: "Location Access Denied", message: "Please turn your Location Access ON for Spekr App get feed around you", preferredStyle: .Alert)
                 
                 alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction) -> Void in
                     
@@ -147,7 +166,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
                 
             case .AuthorizedAlways, .AuthorizedWhenInUse:
                 
-                //Stop updating location once the view is appeared.
+                //Stop updating location once the currentUserLocation is not nil.
                 
                 if currentUserLocation != nil {
                 locationManager.stopUpdatingLocation()
@@ -182,53 +201,53 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
 extension LocalFeedViewController: UITableViewDataSource {
     
     
+    //Number of rows in section
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
         return postDetails.count
     }
     
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        //Check if a post has image file and set the TableViewCell accordingly
         if postDetails[indexPath.row].imageFile == nil {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
         
+            cell.postTextView.text = postDetails[indexPath.row].postText
         
-        cell.postTextView.text = postDetails[indexPath.row].postText
-        
-        let user = postDetails[indexPath.row].objectForKey("username") as! PFUser
-        
-        user.fetchIfNeededInBackgroundWithBlock { (obj: PFObject?, error: NSError?) -> Void in
+            let user = postDetails[indexPath.row].objectForKey("username") as! PFUser
             
-            if obj != nil {
-                let fetchedUser = obj as! PFUser
-                let username = fetchedUser["displayName"] as! String
-                
-                cell.userName.text = username // This Works FINE
-                
-                let userDisplayImageFile = fetchedUser["displayImage"] as! PFFile
-                
-                userDisplayImageFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+            //Fetching displayName & displayImage of the user
+            user.fetchIfNeededInBackgroundWithBlock { (obj: PFObject?, error: NSError?) -> Void in
+            
+                if obj != nil {
                     
-                    if error == nil {
+                    let fetchedUser = obj as! PFUser
+                    let username = fetchedUser["displayName"] as! String
+                    cell.userName.text = username
+                
+                    //Fetching displayImage
+                    let userDisplayImageFile = fetchedUser["displayImage"] as! PFFile
+                    userDisplayImageFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                    
+                        if error == nil {
                         
-                        let userDisplayImage = UIImage(data: imageData!)
-                        
-                        cell.userDisplayImage.image = userDisplayImage
-                        
-                        cell.userDisplayImage.layer.cornerRadius = 27
-                        
-                        cell.userDisplayImage.clipsToBounds = true
-                    }
-                })
-                                
+                            //Converting displayImage to UIImage
+                            let userDisplayImage = UIImage(data: imageData!)
+                            cell.userDisplayImage.image = userDisplayImage
+                            cell.userDisplayImage.layer.cornerRadius = 27
+                            cell.userDisplayImage.clipsToBounds = true
+                        }
+                    })
+                }
             }
+            
+            return cell
         }
-        
-        
-        return cell
-        } else {
+        else {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("PostCellWithImage") as! PostWithImageTableViewCell
             
@@ -273,9 +292,7 @@ extension LocalFeedViewController: UITableViewDataSource {
                     })
                     
                 }
-            }
-
-            
+            }          
             
             return cell
         }
