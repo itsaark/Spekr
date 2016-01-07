@@ -89,6 +89,8 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         tableView.delegate = self
         
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -97,7 +99,8 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     }
     
     override func viewWillAppear(animated: Bool) {
-
+        
+        self.navigationController?.toolbarHidden = true
 
         //Setting right bar button item
         let composeButtonImage = UIImage(named: "Compose")

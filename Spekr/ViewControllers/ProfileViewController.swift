@@ -57,7 +57,6 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         
-
     }
 
     override func didReceiveMemoryWarning() {

@@ -631,17 +631,6 @@ you can get in touch.</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T8o-I3-NEX">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem image="FlagIcon" id="mze-K1-k9N"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WpC-DS-BSE"/>
-                                    <barButtonItem image="VoteIconLarge" id="UPc-nl-bEC"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hkC-L7-QXU"/>
-                                    <barButtonItem image="ShareIcon" id="4sa-v5-i9x"/>
-                                </items>
-                                <color key="tintColor" red="0.68627452850341797" green="0.68627452850341797" blue="0.68627452850341797" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2tE-7W-pHq">
                                 <rect key="frame" x="10" y="25" width="72" height="72"/>
                                 <constraints>
@@ -662,11 +651,11 @@ you can get in touch.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8K5-ms-9P6">
-                                <rect key="frame" x="10" y="181" width="300" height="300"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8K5-ms-9P6">
+                                <rect key="frame" x="10" y="208" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="G0H-QC-U5z"/>
-                                    <constraint firstAttribute="height" constant="300" id="v0E-YL-wcH"/>
+                                    <constraint firstAttribute="height" constant="260" id="v0E-YL-wcH"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -681,7 +670,7 @@ you can get in touch.</string>
                             <constraint firstItem="Jcb-dS-Rna" firstAttribute="top" secondItem="jpC-0O-G6z" secondAttribute="bottom" constant="10" id="WEp-vY-ENE"/>
                             <constraint firstItem="8K5-ms-9P6" firstAttribute="centerX" secondItem="JDq-Fs-Ojq" secondAttribute="centerX" id="Y0O-3K-2um"/>
                             <constraint firstItem="8K5-ms-9P6" firstAttribute="centerX" secondItem="JDq-Fs-Ojq" secondAttribute="centerX" id="Ymw-Sy-6OV"/>
-                            <constraint firstItem="vay-I6-CTn" firstAttribute="top" secondItem="8K5-ms-9P6" secondAttribute="bottom" constant="87" id="ZoB-mm-jbw"/>
+                            <constraint firstItem="vay-I6-CTn" firstAttribute="top" secondItem="8K5-ms-9P6" secondAttribute="bottom" constant="60" id="ZoB-mm-jbw"/>
                             <constraint firstAttribute="trailing" secondItem="Jcb-dS-Rna" secondAttribute="trailing" constant="10" id="cNm-uJ-fsf"/>
                             <constraint firstItem="8K5-ms-9P6" firstAttribute="leading" secondItem="JDq-Fs-Ojq" secondAttribute="leading" constant="10" id="jPR-SS-bhO"/>
                             <constraint firstItem="2tE-7W-pHq" firstAttribute="top" secondItem="jpC-0O-G6z" secondAttribute="bottom" constant="5" id="kQ9-gV-FYS"/>
@@ -694,6 +683,20 @@ you can get in touch.</string>
                             </mask>
                         </variation>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem image="FlagIcon" id="gIR-Ij-xPK">
+                            <color key="tintColor" red="0.65882354974746704" green="0.64705884456634521" blue="0.63529413938522339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="FQW-TR-aAv"/>
+                        <barButtonItem image="VoteIconLarge" id="VoV-Ho-C3W">
+                            <color key="tintColor" red="0.65882354974746704" green="0.64705884456634521" blue="0.63529413938522339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="eIy-4A-hhb"/>
+                        <barButtonItem image="ShareIcon" id="JSY-RM-JM1">
+                            <color key="tintColor" red="0.65882354974746704" green="0.64705884456634521" blue="0.63529413938522339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="postImageView" destination="8K5-ms-9P6" id="XpD-2x-ilk"/>
@@ -957,7 +960,7 @@ you can get in touch.</string>
         <image name="VoteIconLarge" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QkS-V1-igt"/>
         <segue reference="V4B-U7-B5o"/>
+        <segue reference="iF1-pc-oxg"/>
     </inferredMetricsTieBreakers>
 </document>

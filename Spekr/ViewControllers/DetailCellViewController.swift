@@ -42,6 +42,7 @@ class DetailCellViewController: UIViewController {
                         
                         let postDisplayImage = UIImage(data: imageData!)
                         self.postImageView.image = postDisplayImage
+                        self.postImageView.clipsToBounds = true
                         
                     }
                 })
@@ -75,6 +76,8 @@ class DetailCellViewController: UIViewController {
            
         }
         
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,7 +90,8 @@ class DetailCellViewController: UIViewController {
         
         //setting view controller's title
         self.title = "Post"
-
+        
+        self.navigationController?.toolbarHidden = false
     }
 
     
