@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import Parse
 
-class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
+class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate{
     
     var postDetails: [PostDetails] = []
     
@@ -86,6 +86,8 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
         
         tableView.estimatedRowHeight = 100.0
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        tableView.delegate = self
         
     }
 
@@ -193,9 +195,32 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate {
         let backItem = UIBarButtonItem()
         backItem.title = ""
         self.tabBarController?.navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        
+        if (segue.identifier == "JumpToDetailCellVC"){
+            
+            let destinationVC = segue.destinationViewController as! DetailCellViewController
+            
+            let selectedRow = tableView.indexPathForSelectedRow?.row
+            
+            print("wow\(postDetails[selectedRow!])")
+            
+            destinationVC.currentObject = postDetails[selectedRow!] as PFObject
+        }
     }
     
     
+    //User taps a cell and a segue is performed to a detail view controller
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+         performSegueWithIdentifier("JumpToDetailCellVC", sender: self)
+        
+        //Deselects the seltected cell
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+
+    }
+    
+    
+
 }
 
 extension LocalFeedViewController: UITableViewDataSource {

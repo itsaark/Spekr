@@ -21,6 +21,7 @@
 		DC3B009B1C38FF5500CF973D /* PostWithImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B009A1C38FF5500CF973D /* PostWithImageTableViewCell.swift */; };
 		DC434DFB1C213F8000995B06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC434DFA1C213F8000995B06 /* Main.storyboard */; };
 		DC46D2F41C3193E4008BBE48 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46D2F31C3193E4008BBE48 /* ComposeViewController.swift */; };
+		DC52D1981C3D6099003AC3F8 /* DetailCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52D1971C3D6099003AC3F8 /* DetailCellViewController.swift */; };
 		DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54E7951C1EF9B8001496AB /* AppDelegate.swift */; };
 		DC54E79D1C1EF9B8001496AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC54E79C1C1EF9B8001496AB /* Assets.xcassets */; };
 		DC54E7A01C1EF9B8001496AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC54E79E1C1EF9B8001496AB /* LaunchScreen.storyboard */; };
@@ -70,6 +71,7 @@
 		DC3B009A1C38FF5500CF973D /* PostWithImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostWithImageTableViewCell.swift; sourceTree = "<group>"; };
 		DC434DFA1C213F8000995B06 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DC46D2F31C3193E4008BBE48 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		DC52D1971C3D6099003AC3F8 /* DetailCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCellViewController.swift; sourceTree = "<group>"; };
 		DC54E7921C1EF9B8001496AB /* Spekr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spekr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC54E7951C1EF9B8001496AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC54E79C1C1EF9B8001496AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				DCFE8E101C2C62C1005A1100 /* SettingsViewController.swift */,
 				DC2910E51C37DE5F0025E968 /* PostTableViewCell.swift */,
 				DC3B009A1C38FF5500CF973D /* PostWithImageTableViewCell.swift */,
+				DC52D1971C3D6099003AC3F8 /* DetailCellViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				DC46D2F41C3193E4008BBE48 /* ComposeViewController.swift in Sources */,
 				DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */,
 				DC3B009B1C38FF5500CF973D /* PostWithImageTableViewCell.swift in Sources */,
+				DC52D1981C3D6099003AC3F8 /* DetailCellViewController.swift in Sources */,
 				DC6162091C2BAE6700C484FD /* ParseHelper.swift in Sources */,
 				DC2910E61C37DE5F0025E968 /* PostTableViewCell.swift in Sources */,
 				DCFE8E0F1C2C6278005A1100 /* NotificationsViewController.swift in Sources */,
