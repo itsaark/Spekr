@@ -100,6 +100,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     
     override func viewWillAppear(animated: Bool) {
         
+        //Makes toolbar disappear
         self.navigationController?.toolbarHidden = true
 
         //Setting right bar button item

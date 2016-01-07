@@ -22,6 +22,7 @@ class DetailCellViewController: UIViewController {
     
     @IBOutlet weak var postImageView: UIImageView!
     
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,17 @@ class DetailCellViewController: UIViewController {
         if let object = currentObject {
             
             postTextView.text = object["postText"] as! String
+            
+//            while (postTextView.sizeThatFits(postTextView.frame.size).height > postTextView.frame.size.height) {
+//                
+//                postTextView.font = postTextView.font?.fontWithSize(postTextView.font!.pointSize-0.5)
+//            }
+            
+            
+            
+            let sizeThatShouldFitTheContent = postTextView.sizeThatFits(postTextView.frame.size)
+            heightConstraint.constant = sizeThatShouldFitTheContent.height
+        
             
             let postImageFile = object["imageFile"] as! PFFile?
             
@@ -67,7 +79,7 @@ class DetailCellViewController: UIViewController {
                             //Converting displayImage to UIImage
                             let userDisplayImage = UIImage(data: imageData!)
                             self.userDisplayImage.image = userDisplayImage
-                            self.userDisplayImage.layer.cornerRadius = 35
+                            self.userDisplayImage.layer.cornerRadius = 30
                             self.userDisplayImage.clipsToBounds = true
                         }
                     })
@@ -75,8 +87,6 @@ class DetailCellViewController: UIViewController {
             })
            
         }
-        
-        
         
     }
 
@@ -91,6 +101,7 @@ class DetailCellViewController: UIViewController {
         //setting view controller's title
         self.title = "Post"
         
+        //Makes toolbar appear
         self.navigationController?.toolbarHidden = false
     }
 

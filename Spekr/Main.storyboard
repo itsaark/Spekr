@@ -484,6 +484,7 @@ you can get in touch.</string>
                                                     <color key="textColor" red="0.29019609093666077" green="0.29019609093666077" blue="0.29019609093666077" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                                 </textView>
                                             </subviews>
                                             <constraints>
@@ -529,6 +530,7 @@ you can get in touch.</string>
                                                     <color key="textColor" red="0.29019609089999998" green="0.29019609089999998" blue="0.29019609089999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                                 </textView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yEO-lA-ia2">
                                                     <rect key="frame" x="8" y="83" width="304" height="260.5"/>
@@ -632,24 +634,28 @@ you can get in touch.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2tE-7W-pHq">
-                                <rect key="frame" x="10" y="25" width="72" height="72"/>
+                                <rect key="frame" x="10" y="25" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="72" id="V7P-b2-20h"/>
-                                    <constraint firstAttribute="height" constant="72" id="ZpQ-ne-py0"/>
+                                    <constraint firstAttribute="width" constant="60" id="V7P-b2-20h"/>
+                                    <constraint firstAttribute="height" constant="60" id="ZpQ-ne-py0"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Jcb-dS-Rna">
-                                <rect key="frame" x="90" y="30" width="220" height="0.0"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                <rect key="frame" x="78" y="42" width="232" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gda-Id-c7s">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gda-Id-c7s">
                                 <rect key="frame" x="10" y="100" width="301" height="75"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="2MS-AC-aKs"/>
+                                </constraints>
                                 <color key="textColor" red="0.29019609093666077" green="0.29019609093666077" blue="0.29019609093666077" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8K5-ms-9P6">
                                 <rect key="frame" x="10" y="208" width="300" height="300"/>
@@ -665,12 +671,12 @@ you can get in touch.</string>
                             <constraint firstItem="2tE-7W-pHq" firstAttribute="leading" secondItem="JDq-Fs-Ojq" secondAttribute="leading" constant="10" id="4Fz-kW-az3"/>
                             <constraint firstItem="gda-Id-c7s" firstAttribute="top" secondItem="2tE-7W-pHq" secondAttribute="bottom" constant="8" id="E2T-wW-FZo"/>
                             <constraint firstItem="Jcb-dS-Rna" firstAttribute="leading" secondItem="2tE-7W-pHq" secondAttribute="trailing" constant="8" id="E7Q-wK-VhJ"/>
-                            <constraint firstItem="8K5-ms-9P6" firstAttribute="top" secondItem="gda-Id-c7s" secondAttribute="bottom" constant="6" id="NXc-sm-iL1"/>
+                            <constraint firstItem="8K5-ms-9P6" firstAttribute="top" secondItem="gda-Id-c7s" secondAttribute="bottom" constant="3" id="NXc-sm-iL1"/>
                             <constraint firstItem="gda-Id-c7s" firstAttribute="leading" secondItem="JDq-Fs-Ojq" secondAttribute="leading" constant="10" id="QJp-LL-8wr"/>
-                            <constraint firstItem="Jcb-dS-Rna" firstAttribute="top" secondItem="jpC-0O-G6z" secondAttribute="bottom" constant="10" id="WEp-vY-ENE"/>
+                            <constraint firstItem="Jcb-dS-Rna" firstAttribute="top" secondItem="jpC-0O-G6z" secondAttribute="bottom" constant="22" id="WEp-vY-ENE"/>
                             <constraint firstItem="8K5-ms-9P6" firstAttribute="centerX" secondItem="JDq-Fs-Ojq" secondAttribute="centerX" id="Y0O-3K-2um"/>
                             <constraint firstItem="8K5-ms-9P6" firstAttribute="centerX" secondItem="JDq-Fs-Ojq" secondAttribute="centerX" id="Ymw-Sy-6OV"/>
-                            <constraint firstItem="vay-I6-CTn" firstAttribute="top" secondItem="8K5-ms-9P6" secondAttribute="bottom" constant="60" id="ZoB-mm-jbw"/>
+                            <constraint firstItem="vay-I6-CTn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8K5-ms-9P6" secondAttribute="bottom" constant="30" id="ZoB-mm-jbw"/>
                             <constraint firstAttribute="trailing" secondItem="Jcb-dS-Rna" secondAttribute="trailing" constant="10" id="cNm-uJ-fsf"/>
                             <constraint firstItem="8K5-ms-9P6" firstAttribute="leading" secondItem="JDq-Fs-Ojq" secondAttribute="leading" constant="10" id="jPR-SS-bhO"/>
                             <constraint firstItem="2tE-7W-pHq" firstAttribute="top" secondItem="jpC-0O-G6z" secondAttribute="bottom" constant="5" id="kQ9-gV-FYS"/>
@@ -699,6 +705,7 @@ you can get in touch.</string>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="heightConstraint" destination="2MS-AC-aKs" id="a9d-s5-WDF"/>
                         <outlet property="postImageView" destination="8K5-ms-9P6" id="XpD-2x-ilk"/>
                         <outlet property="postTextView" destination="gda-Id-c7s" id="v4U-xy-EQm"/>
                         <outlet property="userDisplayImage" destination="2tE-7W-pHq" id="Pel-Bk-Zf9"/>
