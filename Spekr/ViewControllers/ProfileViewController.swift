@@ -86,6 +86,7 @@ class ProfileViewController: UIViewController {
         
     }
     
+    //TODO: Facebook button is not working
     //Facebook button tapped
     @IBAction func facebookButtonTapped(sender: AnyObject) {
         
@@ -96,6 +97,9 @@ class ProfileViewController: UIViewController {
             if let userProfileLink = PFUser.currentUser()!["link"] as? String {
                 
                 if let url = NSURL(string: userProfileLink) {
+                    
+                    print(url)
+                    
                 UIApplication.sharedApplication().openURL(url)
                     
                 }

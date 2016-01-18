@@ -57,7 +57,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
     }
     
-    var settingsList = ["About", "Privacy", "Invite Friends", "Support", "Send Feedback", "Log Out"]
+    var settingsList = ["About", "Invite Friends", "Privacy", "Support", "Send Feedback", "Log Out"]
     
     // MARK: - UITableViewDataSource
    

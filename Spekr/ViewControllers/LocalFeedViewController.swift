@@ -9,10 +9,15 @@
 import UIKit
 import CoreLocation
 import Parse
+import Foundation
 
 class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate{
     
     var postDetails: [PostDetails] = []
+    
+    //Calender Declaration
+    let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+
     
     
     @IBOutlet weak var moveSliderLabel: UILabel!
@@ -84,7 +89,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         //Initial request for Location Access
         self.locationManager.requestWhenInUseAuthorization()
         
-        tableView.estimatedRowHeight = 100.0
+        tableView.estimatedRowHeight = 60.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
         tableView.delegate = self
@@ -204,7 +209,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
             
             let destinationVC = segue.destinationViewController as! DetailCellViewController
             
-            let selectedRow = tableView.indexPathForSelectedRow?.row
+            let selectedRow = tableView.indexPathForSelectedRow?.section
             
             print("wow\(postDetails[selectedRow!])")
             
@@ -224,30 +229,65 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     }
     
     
+    
 
 }
 
 extension LocalFeedViewController: UITableViewDataSource {
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        return postDetails.count
+        
+    }
+    
+    //Footer color
+    func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        
+         view.tintColor = UIColor(red: 234/255.0, green: 234/255.0, blue: 239/255.0, alpha: 1)
+    }
+    
+    //Footer height
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        return 25
+    }
     
     //Number of rows in section
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
-        return postDetails.count
+        return 1
     }
+    
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        //Check if a post has image file and set the TableViewCell accordingly
-        if postDetails[indexPath.row].imageFile == nil {
+            //TODO: Use custom cell for this task later.
         
             let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
+            
+            cell.layer.cornerRadius = 30
+            cell.layer.masksToBounds = true
         
-            cell.postTextView.text = postDetails[indexPath.row].postText
+            cell.postTextLabel.text = postDetails[indexPath.section].postText
+            
+            let createdAtDate = postDetails[indexPath.section].createdAt
+            
+            //Getting date components from NSDate
+            let dateComponents = gregorianCal.components([NSCalendarUnit.Era, NSCalendarUnit.Year, NSCalendarUnit.Month,NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Nanosecond], fromDate: createdAtDate!)
+            
+            let postedDate = gregorianCal.dateWithEra(dateComponents.era, year: dateComponents.year, month: dateComponents.month, day: dateComponents.day, hour: dateComponents.hour, minute: dateComponents.minute, second: dateComponents.second, nanosecond: dateComponents.nanosecond)
+            
+            //calling relative time property from Date Format
+            let postedRelativeTime = postedDate?.relativeTime
+            
+            cell.timeStamp.text = postedRelativeTime
+            
+
         
-            let user = postDetails[indexPath.row].objectForKey("username") as! PFUser
+            let user = postDetails[indexPath.section].objectForKey("username") as! PFUser
             
             //Fetching displayName & displayImage of the user
             user.fetchIfNeededInBackgroundWithBlock { (obj: PFObject?, error: NSError?) -> Void in
@@ -255,8 +295,8 @@ extension LocalFeedViewController: UITableViewDataSource {
                 if obj != nil {
                     
                     let fetchedUser = obj as! PFUser
-                    let username = fetchedUser["displayName"] as! String
-                    cell.userName.text = username
+                    //let username = fetchedUser["displayName"] as! String
+                    //cell.userName.text = username
                 
                     //Fetching displayImage
                     let userDisplayImageFile = fetchedUser["displayImage"] as! PFFile
@@ -267,7 +307,7 @@ extension LocalFeedViewController: UITableViewDataSource {
                             //Converting displayImage to UIImage
                             let userDisplayImage = UIImage(data: imageData!)
                             cell.userDisplayImage.image = userDisplayImage
-                            cell.userDisplayImage.layer.cornerRadius = 27
+                            cell.userDisplayImage.layer.cornerRadius = 22.5
                             cell.userDisplayImage.clipsToBounds = true
                         }
                     })
@@ -275,56 +315,8 @@ extension LocalFeedViewController: UITableViewDataSource {
             }
             
             return cell
-        }
-        else {
+        
             
-            let cell = tableView.dequeueReusableCellWithIdentifier("PostCellWithImage") as! PostWithImageTableViewCell
-            
-            cell.postTextView.text = postDetails[indexPath.row].postText
-            
-            let postImageFile = postDetails[indexPath.row].imageFile
-            
-            postImageFile?.getDataInBackgroundWithBlock({ (postImageData: NSData?, error: NSError?) -> Void in
-                
-                if error == nil {
-                    
-                    let postImage = UIImage(data: postImageData!)
-                    
-                    cell.postImage.image = postImage
-                }
-            })
-            
-            let user = postDetails[indexPath.row].objectForKey("username") as! PFUser
-            
-            user.fetchIfNeededInBackgroundWithBlock { (obj: PFObject?, error: NSError?) -> Void in
-                
-                if obj != nil {
-                    let fetchedUser = obj as! PFUser
-                    let username = fetchedUser["displayName"] as! String
-                    
-                    cell.userName.text = username // This Works FINE
-                    
-                    let userDisplayImageFile = fetchedUser["displayImage"] as! PFFile
-                    
-                    userDisplayImageFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
-                        
-                        if error == nil {
-                            
-                            let userDisplayImage = UIImage(data: imageData!)
-                            
-                            cell.userDisplayImage.image = userDisplayImage
-                            
-                            cell.userDisplayImage.layer.cornerRadius = 27
-                            
-                            cell.userDisplayImage.clipsToBounds = true
-                        }
-                    })
-                    
-                }
-            }          
-            
-            return cell
-        }
     }
     
 }

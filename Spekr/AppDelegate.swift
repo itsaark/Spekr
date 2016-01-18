@@ -15,6 +15,8 @@ import TwitterKit
 import FBSDKCoreKit
 import ParseTwitterUtils
 import ParseFacebookUtilsV4
+import Crashlytics
+
 
 
 
@@ -40,13 +42,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
         
         //Initializing Digits & Twitter
-        Fabric.with([Digits.self, Twitter.self])
+        Fabric.with([Digits.self, Twitter.self, Crashlytics.self])
+        
+         PFUser.logOut()
+        Digits.sharedInstance().logOut()
+        
+        
         
         //Initializing Twitter for Parse
         PFTwitterUtils.initializeWithConsumerKey("YcXiqliTkJPfilJmvx8LiMI2r",  consumerSecret:"Oy4EXN1X46tNdmtxLbusBqomQrzHgOasQUbXVUnc1T9CyHZrSb")
         //Initializing Facebook for Parse
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         
+       
         
         
         //TODO: Add a similar instance for facebook as well.
@@ -56,6 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let signInViewController: AnyObject! = storyboard.instantiateViewControllerWithIdentifier("SignInNavigationViewController")
             window?.rootViewController = signInViewController as? UINavigationController
         }
+
 
 
         

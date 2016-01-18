@@ -54,20 +54,14 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
     }
 
     
-    @IBOutlet weak var charLimitLabel: UILabel!
-    
     @IBOutlet weak var composeTextView: UITextView!
     
-    //User tapped attachImage button
-    @IBAction func attachImageButton(sender: AnyObject) {
-        
-        attachImage()
-        
-    }
+    @IBOutlet weak var placeHolderLabel: UILabel!
+
     
     
     
-    @IBAction func postButtonTapped(sender: AnyObject) {
+    func postButtonTapped() {
         
         print(currentUserLocation)
         
@@ -108,31 +102,85 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
             
             self.presentViewController(alert, animated: true, completion: nil)
             
-
-            
         }
+        
     }
-    
+  
     //Character limiting
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         
         let newLength = textView.text.utf16.count + text.utf16.count - range.length
         
         //change the value of the label
-        charLimitLabel.text =  String(140-newLength) + " Characters remaining"
+        characterLabel.text =  String(140-newLength)
+        
+        //Placeholder and Post button animations
+        if newLength == 0 {
+            
+             placeHolderLabel.text = "What's new around you?"
+             postButton.selected = false
+            
+        }else {
+            
+            placeHolderLabel.text = ""
+            postButton.selected = true
+        }
         
         //return true to allow the change, if you want to limit the number of characters in the text field use something like
         return newLength < 140 // To just allow up to 140 characters
         
     }
     
+    let postButton = UIButton(type: UIButtonType.Custom)
+    var characterLabel = UILabel()
+    
+    //Custom Toolbar
+    lazy var inputToolbar: UIToolbar = {
+        var toolbar = UIToolbar()
+        toolbar.barStyle = .Default
+        //toolbar.translucent = true
+        toolbar.barTintColor = UIColor.whiteColor()
+        toolbar.sizeToFit()
+        toolbar.tintColor = UIColor(red: 176/255.0, green: 170/255.0, blue: 170/255.0, alpha: 1)
+        toolbar.clipsToBounds = true
+        
+        self.postButton.setImage(UIImage(named: "PostButton"), forState: UIControlState.Normal)
+        self.postButton.setImage(UIImage(named: "PostButtonActive"), forState: UIControlState.Selected)
+        self.postButton.frame = CGRectMake(0, 0, 72, 27)
+        self.postButton.addTarget(self, action: "postButtonTapped", forControlEvents: .TouchUpInside)
+        
+        self.characterLabel.text = "140"
+        self.characterLabel.textColor = UIColor(red: 176/255.0, green: 170/255.0, blue: 170/255.0, alpha: 1)
+        self.characterLabel.frame = CGRectMake(0, 0, 40, 20)
 
+        
+        var postBarButton = UIBarButtonItem(customView: self.postButton)
+        
+        var characterLabelDisplayButton = UIBarButtonItem(customView: self.characterLabel)
+        
+        var flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        var fixedSpaceButton = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+        
+        var buzzButton  = UIBarButtonItem(image: UIImage(named: "BuzzIconGrey"), style: .Plain, target: self, action: nil)
+        buzzButton.width = 30
+
+        var cameraButton  = UIBarButtonItem(image: UIImage(named: "CameraIcon"), style: .Plain, target: self, action: "attachImage")
+
+        toolbar.setItems([fixedSpaceButton, cameraButton, fixedSpaceButton, buzzButton, flexibleSpaceButton, characterLabelDisplayButton, fixedSpaceButton, postBarButton], animated: false)
+        toolbar.userInteractionEnabled = true
+        
+        return toolbar
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
         composeTextView.delegate = self
+        
+        //Setting custom toolbar as inputAccessory to composeTextView
+        composeTextView.inputAccessoryView = inputToolbar
     }
 
     override func didReceiveMemoryWarning() {
@@ -144,6 +192,9 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
         
         //setting view controller's title
         self.title = "Compose"
+        
+        //Makes toolbar appear
+        self.navigationController?.toolbarHidden = false
         
         //Setting Compose Text View as First Responder when the view appears
         self.composeTextView.becomeFirstResponder()

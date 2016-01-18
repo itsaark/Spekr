@@ -15,10 +15,11 @@
 		DC1F39E91C343EED00E6FBE0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1F39E81C343EED00E6FBE0 /* AboutViewController.swift */; };
 		DC1F39EB1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1F39EA1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift */; };
 		DC1F39EE1C34DB3F00E6FBE0 /* EmailComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1F39ED1C34DB3F00E6FBE0 /* EmailComposer.swift */; };
+		DC261B891C4C8DAC003277DE /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC261B881C4C8DAC003277DE /* SafariServices.framework */; };
 		DC2910E61C37DE5F0025E968 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2910E51C37DE5F0025E968 /* PostTableViewCell.swift */; };
 		DC2964C11C3661A300F2FEF9 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2964C01C3661A300F2FEF9 /* PhotoTakingHelper.swift */; };
 		DC2964C31C36890B00F2FEF9 /* PostDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2964C21C36890B00F2FEF9 /* PostDetails.swift */; };
-		DC3B009B1C38FF5500CF973D /* PostWithImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B009A1C38FF5500CF973D /* PostWithImageTableViewCell.swift */; };
+		DC3B1B151C3F995E00121278 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3B1B141C3F995E00121278 /* Crashlytics.framework */; };
 		DC434DFB1C213F8000995B06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC434DFA1C213F8000995B06 /* Main.storyboard */; };
 		DC46D2F41C3193E4008BBE48 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46D2F31C3193E4008BBE48 /* ComposeViewController.swift */; };
 		DC52D1981C3D6099003AC3F8 /* DetailCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52D1971C3D6099003AC3F8 /* DetailCellViewController.swift */; };
@@ -48,6 +49,7 @@
 		DC975C7B1C207154007BA980 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C7A1C207154007BA980 /* Social.framework */; };
 		DC975C7D1C207280007BA980 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C7C1C207280007BA980 /* ParseTwitterUtils.framework */; };
 		DCB65A081C22860A0094E58B /* PFUserDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB65A071C22860A0094E58B /* PFUserDigits.swift */; };
+		DCC8A1061C436EF1009C4846 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8A1051C436EF1009C4846 /* File.swift */; };
 		DCE90A6F1C1FE0B4004A5004 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */; };
 		DCE90A701C1FE0B4004A5004 /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */; };
 		DCE90A711C1FE0B4004A5004 /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCE90A6D1C1FE0B4004A5004 /* DigitsKitResources.bundle */; };
@@ -65,10 +67,11 @@
 		DC1F39E81C343EED00E6FBE0 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DC1F39EA1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		DC1F39ED1C34DB3F00E6FBE0 /* EmailComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailComposer.swift; sourceTree = "<group>"; };
+		DC261B881C4C8DAC003277DE /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		DC2910E51C37DE5F0025E968 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		DC2964C01C3661A300F2FEF9 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 		DC2964C21C36890B00F2FEF9 /* PostDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetails.swift; sourceTree = "<group>"; };
-		DC3B009A1C38FF5500CF973D /* PostWithImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostWithImageTableViewCell.swift; sourceTree = "<group>"; };
+		DC3B1B141C3F995E00121278 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		DC434DFA1C213F8000995B06 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DC46D2F31C3193E4008BBE48 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		DC52D1971C3D6099003AC3F8 /* DetailCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCellViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 		DC975C7A1C207154007BA980 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		DC975C7C1C207280007BA980 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		DCB65A071C22860A0094E58B /* PFUserDigits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFUserDigits.swift; sourceTree = "<group>"; };
+		DCC8A1051C436EF1009C4846 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = SOURCE_ROOT; };
 		DCE90A6D1C1FE0B4004A5004 /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = SOURCE_ROOT; };
@@ -113,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC261B891C4C8DAC003277DE /* SafariServices.framework in Frameworks */,
 				DC975C7B1C207154007BA980 /* Social.framework in Frameworks */,
 				DC975C7D1C207280007BA980 /* ParseTwitterUtils.framework in Frameworks */,
 				DC1698771C207B2F00CD60AB /* ParseFacebookUtilsV4.framework in Frameworks */,
@@ -134,6 +139,7 @@
 				DC975C761C206F30007BA980 /* TwitterKit.framework in Frameworks */,
 				DC54E7B01C1F0EA3001496AB /* CoreLocation.framework in Frameworks */,
 				DC54E7AE1C1F0E8D001496AB /* StoreKit.framework in Frameworks */,
+				DC3B1B151C3F995E00121278 /* Crashlytics.framework in Frameworks */,
 				DC54E7AC1C1F0E71001496AB /* Parse.framework in Frameworks */,
 				DC1698761C207B2F00CD60AB /* ParseFacebookUtils.framework in Frameworks */,
 				DC54E7AB1C1F0E71001496AB /* Bolts.framework in Frameworks */,
@@ -157,6 +163,7 @@
 			children = (
 				DC1F39ED1C34DB3F00E6FBE0 /* EmailComposer.swift */,
 				DC2964C01C3661A300F2FEF9 /* PhotoTakingHelper.swift */,
+				DCC8A1051C436EF1009C4846 /* File.swift */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -164,6 +171,7 @@
 		DC54E7891C1EF9B8001496AB = {
 			isa = PBXGroup;
 			children = (
+				DC261B881C4C8DAC003277DE /* SafariServices.framework */,
 				DC54E7941C1EF9B8001496AB /* Spekr */,
 				DC54E7931C1EF9B8001496AB /* Products */,
 			);
@@ -205,7 +213,6 @@
 				DC46D2F31C3193E4008BBE48 /* ComposeViewController.swift */,
 				DCFE8E101C2C62C1005A1100 /* SettingsViewController.swift */,
 				DC2910E51C37DE5F0025E968 /* PostTableViewCell.swift */,
-				DC3B009A1C38FF5500CF973D /* PostWithImageTableViewCell.swift */,
 				DC52D1971C3D6099003AC3F8 /* DetailCellViewController.swift */,
 			);
 			path = ViewControllers;
@@ -214,6 +221,7 @@
 		DC54E7A81C1F0E1A001496AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC3B1B141C3F995E00121278 /* Crashlytics.framework */,
 				DC975C7A1C207154007BA980 /* Social.framework */,
 				DC975C781C20714F007BA980 /* Accounts.framework */,
 				DC16987E1C207D5800CD60AB /* FBSDKCoreKit.framework */,
@@ -379,13 +387,13 @@
 				DCB65A081C22860A0094E58B /* PFUserDigits.swift in Sources */,
 				DC46D2F41C3193E4008BBE48 /* ComposeViewController.swift in Sources */,
 				DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */,
-				DC3B009B1C38FF5500CF973D /* PostWithImageTableViewCell.swift in Sources */,
 				DC52D1981C3D6099003AC3F8 /* DetailCellViewController.swift in Sources */,
 				DC6162091C2BAE6700C484FD /* ParseHelper.swift in Sources */,
 				DC2910E61C37DE5F0025E968 /* PostTableViewCell.swift in Sources */,
 				DCFE8E0F1C2C6278005A1100 /* NotificationsViewController.swift in Sources */,
 				DC2964C31C36890B00F2FEF9 /* PostDetails.swift in Sources */,
 				DCFE8E111C2C62C1005A1100 /* SettingsViewController.swift in Sources */,
+				DCC8A1061C436EF1009C4846 /* File.swift in Sources */,
 				DC1F39EE1C34DB3F00E6FBE0 /* EmailComposer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Spekr/Frameworks",
@@ -500,6 +509,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spekrapp.Spekr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5f4b96fc-7dab-45ed-a05e-47ef536e4f3e";
 			};
 			name = Debug;
 		};
@@ -518,6 +528,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spekrapp.Spekr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5f4b96fc-7dab-45ed-a05e-47ef536e4f3e";
 			};
 			name = Release;
 		};

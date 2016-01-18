@@ -22,6 +22,9 @@ class DetailCellViewController: UIViewController {
     
     @IBOutlet weak var postImageView: UIImageView!
     
+    @IBOutlet weak var timeStamp: UILabel!
+    
+    
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
@@ -39,7 +42,7 @@ class DetailCellViewController: UIViewController {
 //            }
             
             
-            
+            //Changing the height of postTextView based on the content inside the view
             let sizeThatShouldFitTheContent = postTextView.sizeThatFits(postTextView.frame.size)
             heightConstraint.constant = sizeThatShouldFitTheContent.height
         

@@ -13,10 +13,24 @@ class PostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var userDisplayImage: UIImageView!
     
-    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var timeStamp: UILabel!
     
+    @IBOutlet weak var postTextLabel: UILabel!
     
-    @IBOutlet weak var postTextView: UITextView!
+    @IBOutlet weak var likeButton: UIButton!
+    
+    @IBAction func likeButtonTapped(sender: AnyObject) {
+        
+        if likeButton.selected == false {
+            
+            likeButton.selected = true
+            
+        }else {
+            
+            likeButton.selected = false
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
