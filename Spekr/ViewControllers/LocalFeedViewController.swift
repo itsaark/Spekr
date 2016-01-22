@@ -205,9 +205,9 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         backItem.title = ""
         self.tabBarController?.navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
         
-        if (segue.identifier == "JumpToDetailCellVC"){
+        if (segue.identifier == "JumpToDetailCellWithImageVC"){
             
-            let destinationVC = segue.destinationViewController as! DetailCellViewController
+            let destinationVC = segue.destinationViewController as! DetailCellWithImageViewController
             
             let selectedRow = tableView.indexPathForSelectedRow?.section
             
@@ -215,13 +215,29 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
             
             destinationVC.currentObject = postDetails[selectedRow!] as PFObject
         }
+        else if (segue.identifier == "JumpToDetailCellVC"){
+            
+            let destinationVC = segue.destinationViewController as! DetailCellViewController
+            
+            let selectedRow = tableView.indexPathForSelectedRow?.section
+            
+            destinationVC.currentObject = postDetails[selectedRow!] as PFObject
+            
+        }
     }
     
     
     //User taps a cell and a segue is performed to a detail view controller
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-         performSegueWithIdentifier("JumpToDetailCellVC", sender: self)
+        if postDetails[indexPath.section].objectForKey("imageFile") == nil {
+            
+            performSegueWithIdentifier("JumpToDetailCellVC", sender: self)
+            
+        }else {
+            
+            performSegueWithIdentifier("JumpToDetailCellWithImageVC", sender: self)
+        }
         
         //Deselects the seltected cell
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -250,7 +266,7 @@ extension LocalFeedViewController: UITableViewDataSource {
     //Footer height
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         
-        return 25
+        return 20
     }
     
     //Number of rows in section

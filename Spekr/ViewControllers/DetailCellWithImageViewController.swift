@@ -1,16 +1,16 @@
 //
-//  DetailCellViewController.swift
+//  DetailCellWithImageViewController.swift
 //  Spekr
 //
-//  Created by Arjun Kodur on 1/21/16.
+//  Created by Arjun Kodur on 1/6/16.
 //  Copyright © 2016 Arjun Kodur. All rights reserved.
 //
 
 import UIKit
-import Foundation
 import Parse
+import Foundation
 
-class DetailCellViewController: UIViewController {
+class DetailCellWithImageViewController: UIViewController {
     
     
     var currentObject : PFObject?
@@ -18,32 +18,15 @@ class DetailCellViewController: UIViewController {
     //Calender Declaration
     let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
     
-    
     @IBOutlet weak var userDisplayImage: UIImageView!
-    
-    @IBOutlet weak var userDisplayName: UILabel!
-    
-    @IBOutlet weak var timeStamp: UILabel!
     
     @IBOutlet weak var postTextView: UITextView!
     
-    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var userDisplayName: UILabel!
     
-    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var postImageView: UIImageView!
     
-    @IBOutlet weak var likesCountLabel: UILabel!
-    
-    @IBAction func likeButtonTapped(sender: AnyObject) {
-        
-        if likeButton.selected == false {
-            
-            likeButton.selected = true
-        }
-        else{
-            
-            likeButton.selected = false
-        }
-    }
+    @IBOutlet weak var timeStamp: UILabel!
     
     
     //user's display image is tapped. Performing a segue to user profile vc
@@ -62,23 +45,46 @@ class DetailCellViewController: UIViewController {
         }
     }
     
+    func windowHeight() -> CGFloat {
+        return UIScreen.mainScreen().bounds.size.height
+    }
+    
+    func windowWidth() -> CGFloat {
+        return UIScreen.mainScreen().bounds.size.width
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("height \(UIScreen.mainScreen().bounds.size.height)")
         
         let userDisplayImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("userDisplayImageTapped"))
         self.userDisplayImage.addGestureRecognizer(userDisplayImageTapGestureRecognizer)
         self.userDisplayImage.userInteractionEnabled = true
 
+        // Do any additional setup after loading the view.
+        
         if let object = currentObject {
             
             self.postTextView.text = object["postText"] as! String
-            self.postTextView.textContainerInset = UIEdgeInsetsZero
-            self.postTextView.textContainer.lineFragmentPadding = 0
+            postTextView.textContainerInset = UIEdgeInsetsZero
+            postTextView.textContainer.lineFragmentPadding = 0
             
+            //Setting font size for iPhone5 and below.
+            if windowHeight() <= 568{
+                
+                postTextView.font = UIFont(name: "Helvetica Neue", size: 15)
+            }
+       
             
             //Changing the height of postTextView based on the content inside the view
-            let sizeThatShouldFitTheContent = postTextView.sizeThatFits(postTextView.frame.size)
-            heightConstraint.constant = sizeThatShouldFitTheContent.height
+            let fixedWidth = postTextView.frame.size.width
+            postTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+            let newSize = postTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+            var newFrame = postTextView.frame
+            newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+            postTextView.frame = newFrame
             
             let createdAtDate = object.createdAt
             
@@ -91,7 +97,23 @@ class DetailCellViewController: UIViewController {
             let postedRelativeTime = postedDate?.relativeTime
             
             timeStamp.text = postedRelativeTime
+        
             
+            let postImageFile = object["imageFile"] as! PFFile?
+            
+            if postImageFile != nil {
+                
+                postImageFile?.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                    
+                    if imageData != nil {
+                        
+                        let postDisplayImage = UIImage(data: imageData!)
+                        self.postImageView.image = postDisplayImage
+                        self.postImageView.clipsToBounds = true
+                        
+                    }
+                })
+            }
             
             let user = object["username"] as! PFUser
             
@@ -118,14 +140,16 @@ class DetailCellViewController: UIViewController {
                     })
                 }
             })
-            
+           
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         
@@ -135,6 +159,7 @@ class DetailCellViewController: UIViewController {
         //Makes toolbar appear
         self.navigationController?.toolbarHidden = false
     }
+
     
 
 }

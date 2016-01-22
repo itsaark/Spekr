@@ -109,11 +109,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         // Privacy Policy cell tapped
         else if indexPath.row == 1 {
             
-            //Segue to privacy policy view controller
-            self.performSegueWithIdentifier("JumpToPrivacyPolicyVC", sender: self)
         }
         else if indexPath.row == 2 {
             
+            //Segue to privacy policy view controller
+            self.performSegueWithIdentifier("JumpToPrivacyPolicyVC", sender: self)
         }
         else if indexPath.row == 3 {
             

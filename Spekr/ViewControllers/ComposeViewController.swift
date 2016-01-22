@@ -50,6 +50,7 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
             
             self.postDetails.image = image
             //TODO: Change Image icon to file name after image has been selected
+            self.cameraButton.selected = true
         })
     }
 
@@ -132,7 +133,9 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
     }
     
     let postButton = UIButton(type: UIButtonType.Custom)
+    let cameraButton = UIButton(type: UIButtonType.Custom)
     var characterLabel = UILabel()
+    
     
     //Custom Toolbar
     lazy var inputToolbar: UIToolbar = {
@@ -146,8 +149,14 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
         
         self.postButton.setImage(UIImage(named: "PostButton"), forState: UIControlState.Normal)
         self.postButton.setImage(UIImage(named: "PostButtonActive"), forState: UIControlState.Selected)
-        self.postButton.frame = CGRectMake(0, 0, 72, 27)
         self.postButton.addTarget(self, action: "postButtonTapped", forControlEvents: .TouchUpInside)
+        self.postButton.frame = CGRectMake(0, 0, 72, 27)
+        
+        self.cameraButton.setImage(UIImage(named: "CameraIcon"), forState: UIControlState.Normal)
+        self.cameraButton.setImage(UIImage(named: "CameraIconActive"), forState: UIControlState.Selected)
+        self.cameraButton.addTarget(self, action: "attachImage", forControlEvents: .TouchUpInside)
+        self.cameraButton.frame = CGRectMake(0, 0, 28, 23)
+
         
         self.characterLabel.text = "140"
         self.characterLabel.textColor = UIColor(red: 176/255.0, green: 170/255.0, blue: 170/255.0, alpha: 1)
@@ -161,12 +170,9 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
         var flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
         var fixedSpaceButton = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
         
-        var buzzButton  = UIBarButtonItem(image: UIImage(named: "BuzzIconGrey"), style: .Plain, target: self, action: nil)
-        buzzButton.width = 30
+        var cameraBarButton  = UIBarButtonItem(customView: self.cameraButton)
 
-        var cameraButton  = UIBarButtonItem(image: UIImage(named: "CameraIcon"), style: .Plain, target: self, action: "attachImage")
-
-        toolbar.setItems([fixedSpaceButton, cameraButton, fixedSpaceButton, buzzButton, flexibleSpaceButton, characterLabelDisplayButton, fixedSpaceButton, postBarButton], animated: false)
+        toolbar.setItems([fixedSpaceButton, cameraBarButton, flexibleSpaceButton, characterLabelDisplayButton, fixedSpaceButton, postBarButton], animated: false)
         toolbar.userInteractionEnabled = true
         
         return toolbar
@@ -191,7 +197,7 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
     override func viewWillAppear(animated: Bool) {
         
         //setting view controller's title
-        self.title = "Compose"
+        self.title = ""
         
         //Makes toolbar appear
         self.navigationController?.toolbarHidden = false

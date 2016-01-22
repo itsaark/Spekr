@@ -19,18 +19,6 @@ class PostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var likeButton: UIButton!
     
-    @IBAction func likeButtonTapped(sender: AnyObject) {
-        
-        if likeButton.selected == false {
-            
-            likeButton.selected = true
-            
-        }else {
-            
-            likeButton.selected = false
-        }
-    }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

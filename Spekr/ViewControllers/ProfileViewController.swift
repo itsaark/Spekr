@@ -16,6 +16,41 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var displayName: UILabel!
     
+    @IBAction func connectButtonTapped(sender: AnyObject) {
+        
+        if PFUser.currentUser()!.isLinkedWithAuthType("twitter"){
+            
+            print("linked to twitter")
+
+            
+            if let userProfileLink = PFUser.currentUser()!["link"] as? String {
+                
+                if let url = NSURL(string: userProfileLink) {
+                    
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+
+            
+        }else if PFUser.currentUser()!.isLinkedWithAuthType("facebook"){
+            
+            print("linked to fb")
+            
+            if let userProfileLink = PFUser.currentUser()!["link"] as? String {
+                
+                if let url = NSURL(string: userProfileLink) {
+                    
+                    print(url)
+                    
+                    UIApplication.sharedApplication().openURL(url)
+                    
+                }
+            }
+        }
+    }
+    
+    
+    
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
@@ -65,47 +100,5 @@ class ProfileViewController: UIViewController {
     }
     
 
-    
-    //Twitter button tapped
-    @IBAction func twitterButtonTapped(sender: AnyObject) {
-        
-        if PFUser.currentUser()!.isLinkedWithAuthType("twitter") {
-            
-            print("is linked to twitter")
-            
-            if let userProfileLink = PFUser.currentUser()!["link"] as? String {
-                
-                if let url = NSURL(string: userProfileLink) {
-                    
-                    UIApplication.sharedApplication().openURL(url)
-                }
-            }
-            
-        }
-        
-        
-    }
-    
-    //TODO: Facebook button is not working
-    //Facebook button tapped
-    @IBAction func facebookButtonTapped(sender: AnyObject) {
-        
-        if PFUser.currentUser()!.isLinkedWithAuthType("facebook") {
-            
-            print("is linked to facebook")
-            
-            if let userProfileLink = PFUser.currentUser()!["link"] as? String {
-                
-                if let url = NSURL(string: userProfileLink) {
-                    
-                    print(url)
-                    
-                UIApplication.sharedApplication().openURL(url)
-                    
-                }
-            }
-        }
-    }
-    
 
 }
