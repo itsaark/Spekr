@@ -107,6 +107,12 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         //Makes toolbar disappear
         self.navigationController?.toolbarHidden = true
+        
+        //Setting View controller's title
+        self.tabBarController?.navigationItem.title = "Local Feed"
+        
+        //Reload Tableview
+        self.tableView.reloadData()
 
         //Setting right bar button item
         let composeButtonImage = UIImage(named: "Compose")
@@ -115,9 +121,6 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         self.tabBarController?.navigationItem.rightBarButtonItem = composeButton
         
-        
-        //Setting View controller's title
-        self.tabBarController?.navigationItem.title = "Local Feed"
         
         //Check for location services
         if CLLocationManager.locationServicesEnabled() {
@@ -213,7 +216,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
             
             print("wow\(postDetails[selectedRow!])")
             
-            destinationVC.currentObject = postDetails[selectedRow!] as PFObject
+            destinationVC.currentObject = postDetails[selectedRow!] as PostDetails
         }
         else if (segue.identifier == "JumpToDetailCellVC"){
             
@@ -221,7 +224,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
             
             let selectedRow = tableView.indexPathForSelectedRow?.section
             
-            destinationVC.currentObject = postDetails[selectedRow!] as PFObject
+            destinationVC.currentObject = postDetails[selectedRow!] as PostDetails
             
         }
     }
@@ -241,6 +244,9 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         //Deselects the seltected cell
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+//        print(postDetails[indexPath.section].likes.value)
+//        print("current user: \(PFUser.currentUser()!)")
 
     }
     
@@ -276,16 +282,33 @@ extension LocalFeedViewController: UITableViewDataSource {
         return 1
     }
     
-    
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
+//        
+//        
+//        if postDetails[indexPath.section].doesUserLikePost(PFUser.currentUser()!) {
+//            
+//            cell.likeButton.selected = true
+//        }else{
+//            cell.likeButton.selected = false
+//        }
+//    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
             //TODO: Use custom cell for this task later.
         
+        
+            print("\(indexPath.section): \(postDetails[indexPath.section].likes.value)")
+        
             let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
             
             cell.layer.cornerRadius = 30
             cell.layer.masksToBounds = true
+            postDetails[indexPath.section].fetchLikes()
+
+            cell.likeButton.selected = postDetails[indexPath.section].doesUserLikePost(PFUser.currentUser()!)
         
             cell.postTextLabel.text = postDetails[indexPath.section].postText
             
@@ -300,8 +323,7 @@ extension LocalFeedViewController: UITableViewDataSource {
             let postedRelativeTime = postedDate?.relativeTime
             
             cell.timeStamp.text = postedRelativeTime
-            
-
+        
         
             let user = postDetails[indexPath.section].objectForKey("username") as! PFUser
             
@@ -331,8 +353,6 @@ extension LocalFeedViewController: UITableViewDataSource {
             }
             
             return cell
-        
-            
     }
     
 }

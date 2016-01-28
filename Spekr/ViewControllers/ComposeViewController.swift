@@ -48,7 +48,7 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
             
             print("received a callback")
             
-            self.postDetails.image = image
+            self.postDetails.image.value = image
             //TODO: Change Image icon to file name after image has been selected
             self.cameraButton.selected = true
         })

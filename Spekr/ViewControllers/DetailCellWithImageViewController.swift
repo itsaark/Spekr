@@ -9,11 +9,13 @@
 import UIKit
 import Parse
 import Foundation
+import Bond
 
 class DetailCellWithImageViewController: UIViewController {
     
+    var currentObject : PostDetails?
     
-    var currentObject : PFObject?
+    
     
     //Calender Declaration
     let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
@@ -27,6 +29,36 @@ class DetailCellWithImageViewController: UIViewController {
     @IBOutlet weak var postImageView: UIImageView!
     
     @IBOutlet weak var timeStamp: UILabel!
+    
+    @IBOutlet weak var likeButton: UIButton!
+    
+    @IBOutlet weak var likesCountLabel: UILabel!
+    
+    @IBAction func likeButtonTapped(sender: AnyObject) {
+        
+        currentObject!.toggleLikePost(PFUser.currentUser()!)
+        
+        if likeButton.selected == false {
+            
+            ParseHelper.sendPushNotification(currentObject?.objectForKey("username") as! PFUser)
+            
+            //Like button animation
+            likeButton.viewWithTag(0)!.transform = CGAffineTransformMakeScale(0, 0)
+            
+            UIView.animateWithDuration(0.5,delay: 0.1,usingSpringWithDamping: 0.5,initialSpringVelocity: 10, options: .CurveLinear, animations: {
+                self.likeButton.viewWithTag(0)!.transform = CGAffineTransformIdentity
+                },
+                completion: nil
+            )
+            
+            likeButton.selected = true
+        }
+        else{
+            
+            likeButton.selected = false
+        }
+
+    }
     
     
     //user's display image is tapped. Performing a segue to user profile vc
@@ -49,9 +81,6 @@ class DetailCellWithImageViewController: UIViewController {
         return UIScreen.mainScreen().bounds.size.height
     }
     
-    func windowWidth() -> CGFloat {
-        return UIScreen.mainScreen().bounds.size.width
-    }
     
 
     override func viewDidLoad() {
@@ -62,6 +91,7 @@ class DetailCellWithImageViewController: UIViewController {
         let userDisplayImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("userDisplayImageTapped"))
         self.userDisplayImage.addGestureRecognizer(userDisplayImageTapGestureRecognizer)
         self.userDisplayImage.userInteractionEnabled = true
+        
 
         // Do any additional setup after loading the view.
         
@@ -158,6 +188,23 @@ class DetailCellWithImageViewController: UIViewController {
         
         //Makes toolbar appear
         self.navigationController?.toolbarHidden = false
+        
+        if currentObject?.likes.value?.count == nil || (currentObject?.likes.value?.count)! == 0 {
+            
+            likesCountLabel.text = ""
+        }
+        else{
+            
+            likesCountLabel.text = "\((currentObject?.likes.value?.count)!)"
+        }
+        
+        if currentObject?.doesUserLikePost(PFUser.currentUser()!) == true {
+            
+            likeButton.selected = true
+        }else {
+            likeButton.selected = false
+        }
+        
     }
 
     

@@ -9,11 +9,11 @@
 import UIKit
 import Foundation
 import Parse
+import Bond
 
 class DetailCellViewController: UIViewController {
     
-    
-    var currentObject : PFObject?
+    var currentObject : PostDetails?
     
     //Calender Declaration
     let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
@@ -27,15 +27,24 @@ class DetailCellViewController: UIViewController {
     
     @IBOutlet weak var postTextView: UITextView!
     
-    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var likeButton: UIButton!
     
     @IBOutlet weak var likesCountLabel: UILabel!
     
     @IBAction func likeButtonTapped(sender: AnyObject) {
         
+        currentObject!.toggleLikePost(PFUser.currentUser()!)
+        
         if likeButton.selected == false {
+            
+            //Like button animation
+            likeButton.viewWithTag(0)!.transform = CGAffineTransformMakeScale(0, 0)
+            
+            UIView.animateWithDuration(0.5,delay: 0.1,usingSpringWithDamping: 0.5,initialSpringVelocity: 10, options: .CurveLinear, animations: {
+                    self.likeButton.viewWithTag(0)!.transform = CGAffineTransformIdentity
+                },
+                completion: nil
+            )
             
             likeButton.selected = true
         }
@@ -43,6 +52,7 @@ class DetailCellViewController: UIViewController {
             
             likeButton.selected = false
         }
+
     }
     
     
@@ -62,6 +72,12 @@ class DetailCellViewController: UIViewController {
         }
     }
     
+    func windowHeight() -> CGFloat {
+        
+        return UIScreen.mainScreen().bounds.size.height
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,11 +90,23 @@ class DetailCellViewController: UIViewController {
             self.postTextView.text = object["postText"] as! String
             self.postTextView.textContainerInset = UIEdgeInsetsZero
             self.postTextView.textContainer.lineFragmentPadding = 0
+
+            
+            //Setting font size for iPhone5 and below.
+            if windowHeight() <= 568{
+                
+                postTextView.font = UIFont(name: "Helvetica Neue", size: 15)
+            }
             
             
             //Changing the height of postTextView based on the content inside the view
-            let sizeThatShouldFitTheContent = postTextView.sizeThatFits(postTextView.frame.size)
-            heightConstraint.constant = sizeThatShouldFitTheContent.height
+            let fixedWidth = postTextView.frame.size.width
+            postTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+            let newSize = postTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+            var newFrame = postTextView.frame
+            newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+            postTextView.frame = newFrame
+
             
             let createdAtDate = object.createdAt
             
@@ -134,6 +162,23 @@ class DetailCellViewController: UIViewController {
         
         //Makes toolbar appear
         self.navigationController?.toolbarHidden = false
+        
+        if currentObject?.likes.value?.count == nil || (currentObject?.likes.value?.count)! == 0 {
+            
+            likesCountLabel.text = ""
+        }
+        else{
+            
+            likesCountLabel.text = "\((currentObject?.likes.value?.count)!)"
+        }
+        
+        if currentObject?.doesUserLikePost(PFUser.currentUser()!) == true {
+            
+            likeButton.selected = true
+        }else {
+            likeButton.selected = false
+        }
+
     }
     
 

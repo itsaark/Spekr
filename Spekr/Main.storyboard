@@ -390,6 +390,7 @@ you can get in touch.</string>
                         <segue destination="CUU-Sm-2h5" kind="show" identifier="JumpToSignInVC" id="ZpB-fF-GHi"/>
                         <segue destination="7Ue-oi-EVZ" kind="push" identifier="JumpToAboutVC" id="Ndb-EJ-Tf4"/>
                         <segue destination="ShN-Ex-HJu" kind="push" identifier="JumpToPrivacyPolicyVC" id="Ncc-ET-VgC"/>
+                        <segue destination="ycy-qj-lyN" kind="show" identifier="JumpToAccountVC" id="52p-62-GEq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yr2-cO-DFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -411,16 +412,20 @@ you can get in touch.</string>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fFs-c8-RJC">
                                 <rect key="frame" x="8" y="20" width="303" height="447"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Most of us have very little scope to share our views with people around our locality. One has to rely on friends/followers to spread information. Our social reach is limited. 
+                                <mutableString key="text">Most of us have very little scope to share our views with people around our locality. One has to rely on friends/followers to spread information. Our social reach is limited. 
 
 We became fascinated by the idea of genuinely sharing info, discovering people, happenings &amp; content around a location.
 
-Spekr is a mobile application which helps you easily share info across your locality. Hit ❤️ to show some love; Hit ⚡️ to show interest in the post.
+Spekr is a mobile application which helps you easily share info across your locality. Hit ❤️ to show some love;
 
 We truly believe that Spekr gives everyone the power to directly share content across communities.
-</string>
+</mutableString>
+                                <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="8" y="28" width="303" height="488.5"/>
+                                </variation>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -455,7 +460,7 @@ We truly believe that Spekr gives everyone the power to directly share content a
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJg-Tu-qNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3592" y="-1298"/>
+            <point key="canvasLocation" x="3705" y="-1298.25"/>
         </scene>
         <!--Local Feed-->
         <scene sceneID="TLJ-hH-0qM">
@@ -506,7 +511,7 @@ We truly believe that Spekr gives everyone the power to directly share content a
                                                     <color key="textColor" red="0.56470590829849243" green="0.56470590829849243" blue="0.58039218187332153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfI-ke-lqW">
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfI-ke-lqW">
                                                     <rect key="frame" x="237" y="33" width="16" height="22"/>
                                                     <state key="normal" image="HeartIcon"/>
                                                     <state key="selected" image="FullHeart"/>
@@ -599,7 +604,7 @@ We truly believe that Spekr gives everyone the power to directly share content a
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6B-Pl-J24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3074" y="362"/>
+            <point key="canvasLocation" x="3013.5" y="420"/>
         </scene>
         <!--Detail Cell With Image View Controller-->
         <scene sceneID="vVn-Re-7MS">
@@ -635,7 +640,7 @@ We truly believe that Spekr gives everyone the power to directly share content a
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Jcb-dS-Rna">
                                         <rect key="frame" x="82" y="38" width="230" height="0.0"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8K5-ms-9P6">
@@ -672,11 +677,14 @@ We truly believe that Spekr gives everyone the power to directly share content a
                                         </constraints>
                                         <state key="normal" image="HeartIconNormal"/>
                                         <state key="selected" image="HeartIconSelected"/>
+                                        <connections>
+                                            <action selector="likeButtonTapped:" destination="0iH-Ad-jhH" eventType="touchUpInside" id="cI3-1R-e1h"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1I5-6n-Qog" userLabel="LikesCount">
                                         <rect key="frame" x="278" y="342" width="34" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gda-Id-c7s">
@@ -785,11 +793,11 @@ We truly believe that Spekr gives everyone the power to directly share content a
                                         <exclude reference="RFj-mo-yuQ"/>
                                         <exclude reference="evs-mU-nEb"/>
                                         <exclude reference="fpy-wB-mgX"/>
+                                        <exclude reference="V1y-KZ-8GU"/>
+                                        <exclude reference="WgN-8d-qM4"/>
                                         <exclude reference="PWX-8x-e0E"/>
                                         <exclude reference="cPJ-hG-EB5"/>
                                         <exclude reference="wSa-4R-8nO"/>
-                                        <exclude reference="V1y-KZ-8GU"/>
-                                        <exclude reference="WgN-8d-qM4"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -838,6 +846,8 @@ We truly believe that Spekr gives everyone the power to directly share content a
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="likeButton" destination="2Fg-Qo-C7i" id="Tve-nJ-U0H"/>
+                        <outlet property="likesCountLabel" destination="1I5-6n-Qog" id="axe-FI-jnn"/>
                         <outlet property="postImageView" destination="8K5-ms-9P6" id="XpD-2x-ilk"/>
                         <outlet property="postTextView" destination="gda-Id-c7s" id="v4U-xy-EQm"/>
                         <outlet property="timeStamp" destination="xze-Qw-aWm" id="B7x-sO-QjY"/>
@@ -848,7 +858,7 @@ We truly believe that Spekr gives everyone the power to directly share content a
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kig-7y-oU8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3093" y="1358"/>
+            <point key="canvasLocation" x="3147" y="1335.75"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="EMG-WL-V3Z">
@@ -918,12 +928,12 @@ We truly believe that Spekr gives everyone the power to directly share content a
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSM-Xy-1va" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="EOm-Os-mIO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3572" y="362"/>
+            <point key="canvasLocation" x="3595.5" y="420"/>
         </scene>
-        <!--Profile-->
+        <!--Account-->
         <scene sceneID="Mag-j3-Snz">
             <objects>
-                <viewController title="Profile" id="ycy-qj-lyN" customClass="ProfileViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Account" id="ycy-qj-lyN" customClass="AccountViewController" customModule="Spekr" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bNn-jk-nYa"/>
                         <viewControllerLayoutGuide type="bottom" id="uuq-uk-Um5"/>
@@ -942,36 +952,55 @@ We truly believe that Spekr gives everyone the power to directly share content a
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-Ql-cfn">
                                 <rect key="frame" x="16" y="124" width="288" height="0.0"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Recent Post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jml-RG-h2i">
                                 <rect key="frame" x="16" y="297" width="90.5" height="23.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23.5" id="exs-Eu-lae"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" red="0.65882354974746704" green="0.64705884456634521" blue="0.63529413938522339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="exs-Eu-lae"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="317" width="90.5" height="23.5"/>
+                                    <mask key="constraints">
+                                        <include reference="exs-Eu-lae"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hev-NP-slQ">
                                 <rect key="frame" x="12" y="328" width="296" height="89"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="udj-1l-AOD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="udj-1l-AOD"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="12" y="348" width="296" height="65"/>
+                                    <mask key="constraints">
+                                        <include reference="udj-1l-AOD"/>
+                                    </mask>
+                                </variation>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EcB-Ay-RSh">
-                                <rect key="frame" x="117" y="228" width="87" height="27"/>
-                                <state key="normal" image="ConnectButton"/>
-                                <connections>
-                                    <action selector="connectButtonTapped:" destination="ycy-qj-lyN" eventType="touchUpInside" id="5HY-qr-FBp"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333730697632" green="0.93333333730697632" blue="0.94901961088180542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="B9n-Ql-cfn" firstAttribute="trailing" secondItem="k72-ZV-LCL" secondAttribute="trailingMargin" id="16n-IR-0c4"/>
-                            <constraint firstItem="EcB-Ay-RSh" firstAttribute="centerX" secondItem="k72-ZV-LCL" secondAttribute="centerX" id="7RG-2m-fp4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Hev-NP-slQ" secondAttribute="trailing" constant="-4" id="7jq-No-ifp"/>
                             <constraint firstItem="B9n-Ql-cfn" firstAttribute="top" secondItem="F8m-vu-DNP" secondAttribute="bottom" constant="5" id="8NX-Fu-mZN"/>
-                            <constraint firstItem="EcB-Ay-RSh" firstAttribute="top" secondItem="B9n-Ql-cfn" secondAttribute="bottom" constant="50" id="ChT-Ym-l36"/>
                             <constraint firstItem="Hev-NP-slQ" firstAttribute="centerX" secondItem="k72-ZV-LCL" secondAttribute="centerX" id="Dt4-Q6-hRJ"/>
                             <constraint firstItem="uuq-uk-Um5" firstAttribute="top" secondItem="B9n-Ql-cfn" secondAttribute="bottom" constant="232" id="GBu-3l-EmC"/>
                             <constraint firstItem="Hev-NP-slQ" firstAttribute="leading" secondItem="k72-ZV-LCL" secondAttribute="leadingMargin" constant="-4" id="GEi-Gv-Dca"/>
@@ -980,6 +1009,7 @@ We truly believe that Spekr gives everyone the power to directly share content a
                             <constraint firstItem="jml-RG-h2i" firstAttribute="top" secondItem="B9n-Ql-cfn" secondAttribute="bottom" constant="173" id="Pt8-hz-9gO"/>
                             <constraint firstItem="B9n-Ql-cfn" firstAttribute="centerX" secondItem="k72-ZV-LCL" secondAttribute="centerX" id="SoV-ks-GJH"/>
                             <constraint firstItem="jml-RG-h2i" firstAttribute="leading" secondItem="k72-ZV-LCL" secondAttribute="leadingMargin" id="Ylk-TG-LW8"/>
+                            <constraint firstItem="Hev-NP-slQ" firstAttribute="centerX" secondItem="k72-ZV-LCL" secondAttribute="centerX" id="aED-cp-bdV"/>
                             <constraint firstItem="jml-RG-h2i" firstAttribute="top" secondItem="bNn-jk-nYa" secondAttribute="bottom" constant="297" id="aPJ-dq-gGZ"/>
                             <constraint firstItem="F8m-vu-DNP" firstAttribute="top" secondItem="bNn-jk-nYa" secondAttribute="bottom" constant="32" id="dAB-Is-kuE"/>
                             <constraint firstItem="F8m-vu-DNP" firstAttribute="centerX" secondItem="k72-ZV-LCL" secondAttribute="centerX" id="mHE-ED-kfr"/>
@@ -992,14 +1022,17 @@ We truly believe that Spekr gives everyone the power to directly share content a
                                 <exclude reference="8NX-Fu-mZN"/>
                                 <exclude reference="shC-gj-XU2"/>
                                 <exclude reference="Pt8-hz-9gO"/>
+                                <exclude reference="aED-cp-bdV"/>
                                 <exclude reference="GBu-3l-EmC"/>
                             </mask>
                         </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="aPJ-dq-gGZ"/>
+                                <exclude reference="aED-cp-bdV"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="AccountIcon" id="8Gc-e2-Uci">
-                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
-                    </tabBarItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="displayImage" destination="F8m-vu-DNP" id="Khs-BX-7YR"/>
                         <outlet property="displayName" destination="B9n-Ql-cfn" id="7mx-iq-SNK"/>
@@ -1007,7 +1040,29 @@ We truly believe that Spekr gives everyone the power to directly share content a
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XjI-dA-jJ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2640" y="1358"/>
+            <point key="canvasLocation" x="3705" y="-776.25"/>
+        </scene>
+        <!--World Feed View Controller-->
+        <scene sceneID="lap-wd-E8r">
+            <objects>
+                <viewController id="yO2-g9-vHt" customClass="WorldFeedViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Naz-1z-q12"/>
+                        <viewControllerLayoutGuide type="bottom" id="6xC-SD-Kek"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Jp-nM-jSv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93333333730697632" green="0.93333333730697632" blue="0.94901961088180542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="WorldIcon" id="Dv8-Wd-9jg">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ece-If-I6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2623.5" y="1335.75"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="W1C-2k-m1Z">
@@ -1028,7 +1083,7 @@ We truly believe that Spekr gives everyone the power to directly share content a
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="ycy-qj-lyN" kind="relationship" relationship="viewControllers" id="lRM-Tb-FGI"/>
+                        <segue destination="yO2-g9-vHt" kind="relationship" relationship="viewControllers" id="qRi-Vd-Mhk"/>
                         <segue destination="ccy-3x-Qsy" kind="relationship" relationship="viewControllers" id="iF1-pc-oxg"/>
                         <segue destination="SNP-D8-71L" kind="relationship" relationship="viewControllers" id="3rj-KS-XbA"/>
                         <segue destination="8rd-xi-tLz" kind="relationship" relationship="viewControllers" id="gdW-0q-HrO"/>
@@ -1036,7 +1091,7 @@ We truly believe that Spekr gives everyone the power to directly share content a
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocV-TX-8Ds" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2554" y="349"/>
+            <point key="canvasLocation" x="2415" y="414.75"/>
         </scene>
         <!--SignInNavigationViewController-->
         <scene sceneID="zWb-rf-AIR">
@@ -1069,7 +1124,7 @@ We truly believe that Spekr gives everyone the power to directly share content a
         <!--Detail Cell View Controller-->
         <scene sceneID="IPa-aO-0vQ">
             <objects>
-                <viewController storyboardIdentifier="DetailCellViewController" id="jiZ-v0-cde" customClass="DetailCellViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailCellViewController" automaticallyAdjustsScrollViewInsets="NO" id="jiZ-v0-cde" customClass="DetailCellViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f0A-0H-rx2"/>
                         <viewControllerLayoutGuide type="bottom" id="Sg8-UP-Wld"/>
@@ -1079,10 +1134,10 @@ We truly believe that Spekr gives everyone the power to directly share content a
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjO-4h-Xbk" userLabel="CellView">
-                                <rect key="frame" x="0.0" y="45" width="320" height="164"/>
+                                <rect key="frame" x="0.0" y="45" width="320" height="160"/>
                                 <subviews>
-                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ct0-vv-bGZ">
-                                        <rect key="frame" x="14" y="8" width="66" height="66"/>
+                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ct0-vv-bGZ">
+                                        <rect key="frame" x="14" y="8" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="EOh-Tn-t06"/>
                                             <constraint firstAttribute="width" constant="50" id="Lem-a1-ork"/>
@@ -1097,14 +1152,14 @@ We truly believe that Spekr gives everyone the power to directly share content a
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Did-Pn-kXZ">
-                                        <rect key="frame" x="88" y="41" width="318" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Did-Pn-kXZ">
+                                        <rect key="frame" x="82" y="38" width="230" height="0.0"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBR-KJ-YPH">
-                                        <rect key="frame" x="14" y="390.5" width="66" height="16.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBR-KJ-YPH">
+                                        <rect key="frame" x="14" y="128" width="0.0" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="EdV-r6-iKz"/>
                                         </constraints>
@@ -1113,7 +1168,7 @@ We truly believe that Spekr gives everyone the power to directly share content a
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYp-qN-YCJ" userLabel="LikeButton">
-                                        <rect key="frame" x="244" y="130.5" width="26" height="23"/>
+                                        <rect key="frame" x="244" y="126.5" width="26" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="QYp-qN-YCJ" secondAttribute="height" multiplier="9:8" id="MW5-RX-mJQ"/>
                                         </constraints>
@@ -1123,14 +1178,14 @@ We truly believe that Spekr gives everyone the power to directly share content a
                                             <action selector="likeButtonTapped:" destination="jiZ-v0-cde" eventType="touchUpInside" id="sbn-LM-RPO"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntl-Qz-PN0" userLabel="LikesCount">
-                                        <rect key="frame" x="343" y="386.5" width="63" height="19"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ntl-Qz-PN0" userLabel="LikesCount">
+                                        <rect key="frame" x="278" y="138" width="34" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5W-dw-QZe">
-                                        <rect key="frame" x="12" y="73" width="296" height="44"/>
+                                        <rect key="frame" x="12" y="73" width="296" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="PV2-5p-wwE"/>
@@ -1144,6 +1199,7 @@ We truly believe that Spekr gives everyone the power to directly share content a
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="PV2-5p-wwE"/>
+                                                <exclude reference="Wfk-xf-4wP"/>
                                                 <exclude reference="vwx-kA-HcW"/>
                                             </mask>
                                         </variation>
@@ -1213,9 +1269,9 @@ We truly believe that Spekr gives everyone the power to directly share content a
                                         <exclude reference="7Z2-6k-Qm8"/>
                                         <exclude reference="ee9-2j-Rum"/>
                                         <exclude reference="ivu-U0-uHa"/>
+                                        <exclude reference="cM2-Wi-r9z"/>
                                         <exclude reference="WbD-iE-vcn"/>
                                         <exclude reference="fgn-N1-55x"/>
-                                        <exclude reference="cM2-Wi-r9z"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -1239,14 +1295,14 @@ We truly believe that Spekr gives everyone the power to directly share content a
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Wyy-d5-k2E"/>
-                                <exclude reference="qpK-Bv-d55"/>
-                                <exclude reference="mMG-OW-IOG"/>
-                                <exclude reference="zRS-oQ-SNi"/>
-                                <exclude reference="YfJ-oq-CBw"/>
-                                <exclude reference="oet-hZ-j3I"/>
-                                <exclude reference="bU5-KD-0m8"/>
                                 <exclude reference="7Yy-BZ-ffH"/>
+                                <exclude reference="Wyy-d5-k2E"/>
+                                <exclude reference="YfJ-oq-CBw"/>
+                                <exclude reference="bU5-KD-0m8"/>
+                                <exclude reference="mMG-OW-IOG"/>
+                                <exclude reference="oet-hZ-j3I"/>
+                                <exclude reference="qpK-Bv-d55"/>
+                                <exclude reference="zRS-oQ-SNi"/>
                                 <exclude reference="V2y-g5-FXE"/>
                                 <exclude reference="mmA-Qf-gI2"/>
                             </mask>
@@ -1264,7 +1320,6 @@ We truly believe that Spekr gives everyone the power to directly share content a
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="heightConstraint" destination="Wfk-xf-4wP" id="anv-S4-2sR"/>
                         <outlet property="likeButton" destination="QYp-qN-YCJ" id="cwK-h0-IQI"/>
                         <outlet property="likesCountLabel" destination="ntl-Qz-PN0" id="MIT-1h-Qbf"/>
                         <outlet property="postTextView" destination="g5W-dw-QZe" id="oqp-tb-R4T"/>
@@ -1276,7 +1331,7 @@ We truly believe that Spekr gives everyone the power to directly share content a
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1IK-RX-ode" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3499" y="1358"/>
+            <point key="canvasLocation" x="3681" y="1335.75"/>
         </scene>
         <!--User Profile View Controller-->
         <scene sceneID="fWN-Q2-7Pr">
@@ -1300,6 +1355,7 @@ We truly believe that Spekr gives everyone the power to directly share content a
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="042-tU-ew4">
                                 <rect key="frame" x="20" y="161" width="280" height="21"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydI-w4-o6I">
@@ -1340,7 +1396,6 @@ We truly believe that Spekr gives everyone the power to directly share content a
         </scene>
     </scenes>
     <resources>
-        <image name="AccountIcon" width="32" height="32"/>
         <image name="BellIcon" width="27" height="31"/>
         <image name="ConnectButton" width="87" height="27"/>
         <image name="FB SignInButton" width="110" height="48"/>
@@ -1355,10 +1410,11 @@ We truly believe that Spekr gives everyone the power to directly share content a
         <image name="ShareIcon" width="20" height="27"/>
         <image name="SpekrLogo" width="109" height="109"/>
         <image name="TwitterSignInButton" width="110" height="48"/>
+        <image name="WorldIcon" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="V4B-U7-B5o"/>
         <segue reference="QkS-V1-igt"/>
-        <segue reference="vvE-3u-XyL"/>
+        <segue reference="TVA-lP-vkP"/>
     </inferredMetricsTieBreakers>
 </document>

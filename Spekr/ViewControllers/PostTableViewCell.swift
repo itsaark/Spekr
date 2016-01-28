@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Bond
 
 class PostTableViewCell: UITableViewCell {
 
@@ -20,6 +21,7 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,6 +32,7 @@ class PostTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     
 
 }

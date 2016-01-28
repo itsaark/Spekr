@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BEE9B5C14CBD2D9BB10B3E1 /* Pods_Spekr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EEAD013E78665B52F84469C /* Pods_Spekr.framework */; };
 		DC1698761C207B2F00CD60AB /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1698741C207B2F00CD60AB /* ParseFacebookUtils.framework */; };
 		DC1698771C207B2F00CD60AB /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1698751C207B2F00CD60AB /* ParseFacebookUtilsV4.framework */; };
 		DC1698811C207D5800CD60AB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC16987E1C207D5800CD60AB /* FBSDKCoreKit.framework */; };
@@ -39,7 +40,7 @@
 		DC54E7BE1C1F0F02001496AB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC54E7BD1C1F0F02001496AB /* libz.tbd */; };
 		DC54E7C01C1F0F18001496AB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC54E7BF1C1F0F18001496AB /* libsqlite3.tbd */; };
 		DC54E7C41C1F1242001496AB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54E7C31C1F1242001496AB /* SignInViewController.swift */; };
-		DC6162051C2BA99800C484FD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6162041C2BA99800C484FD /* ProfileViewController.swift */; };
+		DC6162051C2BA99800C484FD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6162041C2BA99800C484FD /* AccountViewController.swift */; };
 		DC6162091C2BAE6700C484FD /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6162081C2BAE6700C484FD /* ParseHelper.swift */; };
 		DC6162101C2C35DD00C484FD /* LocalFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61620F1C2C35DD00C484FD /* LocalFeedViewController.swift */; };
 		DC65CF5C1C50A48A0045930C /* DetailCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65CF5B1C50A48A0045930C /* DetailCellViewController.swift */; };
@@ -51,6 +52,7 @@
 		DC975C7B1C207154007BA980 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C7A1C207154007BA980 /* Social.framework */; };
 		DC975C7D1C207280007BA980 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C7C1C207280007BA980 /* ParseTwitterUtils.framework */; };
 		DCB65A081C22860A0094E58B /* PFUserDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB65A071C22860A0094E58B /* PFUserDigits.swift */; };
+		DCC304141C57911D001C9E74 /* WorldFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC304131C57911D001C9E74 /* WorldFeedViewController.swift */; };
 		DCC8A1061C436EF1009C4846 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8A1051C436EF1009C4846 /* DateFormat.swift */; };
 		DCE90A6F1C1FE0B4004A5004 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */; };
 		DCE90A701C1FE0B4004A5004 /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */; };
@@ -61,6 +63,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		338E117AF89E8887428E76DF /* Pods-Spekr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spekr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spekr/Pods-Spekr.debug.xcconfig"; sourceTree = "<group>"; };
+		3EEAD013E78665B52F84469C /* Pods_Spekr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spekr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		478294C8D6D408863BCF6E7F /* Pods-Spekr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spekr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spekr/Pods-Spekr.release.xcconfig"; sourceTree = "<group>"; };
 		DC1698741C207B2F00CD60AB /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		DC1698751C207B2F00CD60AB /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		DC16987E1C207D5800CD60AB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -95,7 +100,7 @@
 		DC54E7BD1C1F0F02001496AB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		DC54E7BF1C1F0F18001496AB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		DC54E7C31C1F1242001496AB /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		DC6162041C2BA99800C484FD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DC6162041C2BA99800C484FD /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountViewController.swift; path = ../AccountViewController.swift; sourceTree = "<group>"; };
 		DC6162081C2BAE6700C484FD /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		DC61620F1C2C35DD00C484FD /* LocalFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFeedViewController.swift; sourceTree = "<group>"; };
 		DC65CF5B1C50A48A0045930C /* DetailCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCellViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +112,7 @@
 		DC975C7A1C207154007BA980 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		DC975C7C1C207280007BA980 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		DCB65A071C22860A0094E58B /* PFUserDigits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFUserDigits.swift; sourceTree = "<group>"; };
+		DCC304131C57911D001C9E74 /* WorldFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldFeedViewController.swift; sourceTree = "<group>"; };
 		DCC8A1051C436EF1009C4846 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = SOURCE_ROOT; };
@@ -147,15 +153,34 @@
 				DC54E7AC1C1F0E71001496AB /* Parse.framework in Frameworks */,
 				DC1698761C207B2F00CD60AB /* ParseFacebookUtils.framework in Frameworks */,
 				DC54E7AB1C1F0E71001496AB /* Bolts.framework in Frameworks */,
+				0BEE9B5C14CBD2D9BB10B3E1 /* Pods_Spekr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3084F0210EC94FF100DE7661 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				338E117AF89E8887428E76DF /* Pods-Spekr.debug.xcconfig */,
+				478294C8D6D408863BCF6E7F /* Pods-Spekr.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7CDD7091DE9110D6754C46D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3EEAD013E78665B52F84469C /* Pods_Spekr.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DC1F39E71C343ED700E6FBE0 /* SettingItemsViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DC6162041C2BA99800C484FD /* AccountViewController.swift */,
 				DC1F39E81C343EED00E6FBE0 /* AboutViewController.swift */,
 				DC1F39EA1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift */,
 			);
@@ -178,6 +203,8 @@
 				DC261B881C4C8DAC003277DE /* SafariServices.framework */,
 				DC54E7941C1EF9B8001496AB /* Spekr */,
 				DC54E7931C1EF9B8001496AB /* Products */,
+				3084F0210EC94FF100DE7661 /* Pods */,
+				7CDD7091DE9110D6754C46D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,6 +219,7 @@
 		DC54E7941C1EF9B8001496AB /* Spekr */ = {
 			isa = PBXGroup;
 			children = (
+				DCC304151C591F6D001C9E74 /* Particles */,
 				DC61620C1C2BB77D00C484FD /* Models */,
 				DCE90A671C1FDEEB004A5004 /* Helpers */,
 				DC54E7A81C1F0E1A001496AB /* Frameworks */,
@@ -211,7 +239,6 @@
 				DC1F39E71C343ED700E6FBE0 /* SettingItemsViewControllers */,
 				DC54E7C31C1F1242001496AB /* SignInViewController.swift */,
 				DC8669C01C1FEFF600692AAE /* SocialAccountViewController.swift */,
-				DC6162041C2BA99800C484FD /* ProfileViewController.swift */,
 				DC61620F1C2C35DD00C484FD /* LocalFeedViewController.swift */,
 				DCFE8E0E1C2C6278005A1100 /* NotificationsViewController.swift */,
 				DC46D2F31C3193E4008BBE48 /* ComposeViewController.swift */,
@@ -220,6 +247,7 @@
 				DC52D1971C3D6099003AC3F8 /* DetailCellWithImageViewController.swift */,
 				DC65CF5B1C50A48A0045930C /* DetailCellViewController.swift */,
 				DC65CF5D1C50C3F70045930C /* UserProfileViewController.swift */,
+				DCC304131C57911D001C9E74 /* WorldFeedViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -266,6 +294,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		DCC304151C591F6D001C9E74 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Particles;
+			sourceTree = "<group>";
+		};
 		DCE90A671C1FDEEB004A5004 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,10 +334,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC54E7A41C1EF9B8001496AB /* Build configuration list for PBXNativeTarget "Spekr" */;
 			buildPhases = (
+				AE05B770284F57F61DBF0B72 /* Check Pods Manifest.lock */,
 				DC54E78E1C1EF9B8001496AB /* Sources */,
 				DC54E78F1C1EF9B8001496AB /* Frameworks */,
 				DC54E7901C1EF9B8001496AB /* Resources */,
 				DCE90A6A1C1FE05D004A5004 /* ShellScript */,
+				970B7EF78F5378B8AB4B273F /* Embed Pods Frameworks */,
+				7A7EA39A1BAC2EB221B5AF6B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -326,6 +364,11 @@
 					DC54E7911C1EF9B8001496AB = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = E696HLUBV9;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -363,6 +406,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7A7EA39A1BAC2EB221B5AF6B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spekr/Pods-Spekr-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		970B7EF78F5378B8AB4B273F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spekr/Pods-Spekr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE05B770284F57F61DBF0B72 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		DCE90A6A1C1FE05D004A5004 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -385,12 +473,13 @@
 			files = (
 				DC6162101C2C35DD00C484FD /* LocalFeedViewController.swift in Sources */,
 				DC65CF5E1C50C3F70045930C /* UserProfileViewController.swift in Sources */,
+				DCC304141C57911D001C9E74 /* WorldFeedViewController.swift in Sources */,
 				DC8669C11C1FEFF600692AAE /* SocialAccountViewController.swift in Sources */,
 				DC1F39E91C343EED00E6FBE0 /* AboutViewController.swift in Sources */,
 				DC1F39EB1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift in Sources */,
 				DC2964C11C3661A300F2FEF9 /* PhotoTakingHelper.swift in Sources */,
 				DC54E7C41C1F1242001496AB /* SignInViewController.swift in Sources */,
-				DC6162051C2BA99800C484FD /* ProfileViewController.swift in Sources */,
+				DC6162051C2BA99800C484FD /* AccountViewController.swift in Sources */,
 				DCB65A081C22860A0094E58B /* PFUserDigits.swift in Sources */,
 				DC46D2F41C3193E4008BBE48 /* ComposeViewController.swift in Sources */,
 				DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */,
@@ -503,9 +592,11 @@
 		};
 		DC54E7A51C1EF9B8001496AB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 338E117AF89E8887428E76DF /* Pods-Spekr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -523,9 +614,11 @@
 		};
 		DC54E7A61C1EF9B8001496AB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 478294C8D6D408863BCF6E7F /* Pods-Spekr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Spekr/Frameworks",

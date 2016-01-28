@@ -121,5 +121,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+    <key>aps-environment</key>
+    <string>development</string>
+    <key>get-task-allow</key>
+    <true/>
 </dict>
 </plist>
