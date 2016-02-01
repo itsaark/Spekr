@@ -15,6 +15,8 @@ class DetailCellViewController: UIViewController {
     
     var currentObject : PostDetails?
     
+    var likesCounter: Int?
+    
     //Calender Declaration
     let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
     
@@ -47,10 +49,17 @@ class DetailCellViewController: UIViewController {
             )
             
             likeButton.selected = true
+            likesCountLabel.text = "\(likesCounter! + 1)"
         }
         else{
             
             likeButton.selected = false
+            if likesCounter == 0 || likesCounter == 1{
+                
+                likesCountLabel.text = ""
+            }else {
+            likesCountLabel.text = "\(likesCounter! - 1)"
+            }
         }
 
     }
@@ -166,10 +175,12 @@ class DetailCellViewController: UIViewController {
         if currentObject?.likes.value?.count == nil || (currentObject?.likes.value?.count)! == 0 {
             
             likesCountLabel.text = ""
+            likesCounter = 0
         }
         else{
             
             likesCountLabel.text = "\((currentObject?.likes.value?.count)!)"
+            likesCounter = currentObject?.likes.value?.count
         }
         
         if currentObject?.doesUserLikePost(PFUser.currentUser()!) == true {

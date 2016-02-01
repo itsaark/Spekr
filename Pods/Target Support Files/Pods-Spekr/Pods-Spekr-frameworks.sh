@@ -86,8 +86,10 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Spekr/Bond.framework"
   install_framework "Pods-Spekr/DOFavoriteButton.framework"
+  install_framework "Pods-Spekr/PermissionScope.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Spekr/Bond.framework"
   install_framework "Pods-Spekr/DOFavoriteButton.framework"
+  install_framework "Pods-Spekr/PermissionScope.framework"
 fi

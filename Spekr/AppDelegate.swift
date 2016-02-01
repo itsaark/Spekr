@@ -1,4 +1,4 @@
-//
+////
 //  AppDelegate.swift
 //  Spekr
 //
@@ -44,9 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Initializing Digits & Twitter
         Fabric.with([Digits.self, Twitter.self, Crashlytics.self])
         
-         PFUser.logOut()
+        PFUser.logOut()
         Digits.sharedInstance().logOut()
-        
         
         //Initializing Twitter for Parse
         PFTwitterUtils.initializeWithConsumerKey("YcXiqliTkJPfilJmvx8LiMI2r",  consumerSecret:"Oy4EXN1X46tNdmtxLbusBqomQrzHgOasQUbXVUnc1T9CyHZrSb")
@@ -62,9 +61,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = signInViewController as? UINavigationController
         }
         
-        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
-        application.registerUserNotificationSettings(settings)
-        application.registerForRemoteNotifications()
+        //let settings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
+        //application.registerUserNotificationSettings(settings)
+        //application.registerForRemoteNotifications()
         
                 
         if let launchOptions = launchOptions as? [String : AnyObject] {
@@ -91,13 +90,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Push Notifications
     //--------------------------------------
     
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        
+        application.registerForRemoteNotifications()
+        print("Registered for remote notif")
+    }
+    
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let installation = PFInstallation.currentInstallation()
-        //installation["user"] = PFUser.currentUser()
+        installation["user"] = PFUser.currentUser()
         installation.setDeviceTokenFromData(deviceToken)
         installation.saveInBackground()
         print("fucking work device")
         
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        if error.code == 3010 {
+            print("Push notifications are not supported in the iOS Simulator.\n")
+        } else {
+            print("application:didFailToRegisterForRemoteNotificationsWithError: %@\n", error)
+        }
     }
     
     func clearBadges() {
@@ -114,14 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        if error.code == 3010 {
-            print("Push notifications are not supported in the iOS Simulator.\n")
-        } else {
-            print("application:didFailToRegisterForRemoteNotificationsWithError: %@\n", error)
-        }
-    }
-    
+        
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         PFPush.handlePush(userInfo)
         if application.applicationState == UIApplicationState.Inactive {

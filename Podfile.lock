@@ -1,13 +1,16 @@
 PODS:
   - Bond (4.3.0)
   - DOFavoriteButton (0.0.4)
+  - PermissionScope (1.0.2)
 
 DEPENDENCIES:
   - Bond (~> 4.0)
   - DOFavoriteButton
+  - PermissionScope
 
 SPEC CHECKSUMS:
   Bond: ebe2364b18130690083cbceff036420b21494ae4
   DOFavoriteButton: 866e15af173d2dd5233971a1f657a5f31d2491d5
+  PermissionScope: 860828c5516d349b6f49e5491799cfef33c5ccc7
 
 COCOAPODS: 0.39.0

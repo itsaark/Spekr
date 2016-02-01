@@ -7,6 +7,7 @@ target 'Spekr' do
 
 pod 'Bond', '~> 4.0'
 pod 'DOFavoriteButton'
+pod 'PermissionScope'
 
 end
 

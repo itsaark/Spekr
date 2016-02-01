@@ -15,6 +15,8 @@ class DetailCellWithImageViewController: UIViewController {
     
     var currentObject : PostDetails?
     
+    var likesCounter: Int?
+    
     
     
     //Calender Declaration
@@ -38,9 +40,8 @@ class DetailCellWithImageViewController: UIViewController {
         
         currentObject!.toggleLikePost(PFUser.currentUser()!)
         
+        //Updating likes on UI
         if likeButton.selected == false {
-            
-            ParseHelper.sendPushNotification(currentObject?.objectForKey("username") as! PFUser)
             
             //Like button animation
             likeButton.viewWithTag(0)!.transform = CGAffineTransformMakeScale(0, 0)
@@ -51,17 +52,27 @@ class DetailCellWithImageViewController: UIViewController {
                 completion: nil
             )
             
+            let pfUser = currentObject?.objectForKey("username") as! PFUser
+            
+            ParseHelper.sendPushNotification(pfUser)
             likeButton.selected = true
+            likesCountLabel.text = "\(likesCounter! + 1)"
         }
         else{
             
             likeButton.selected = false
+            if likesCounter == 0 || likesCounter == 1{
+                
+                likesCountLabel.text = ""
+            }else {
+                likesCountLabel.text = "\(likesCounter! - 1)"
+            }
         }
 
     }
     
     
-    //user's display image is tapped. Performing a segue to user profile vc
+    //User's display image is tapped. Performing a segue to user profile vc
     func userDisplayImageTapped(){
         
         performSegueWithIdentifier("JumpToUserProfileVC", sender: self)
@@ -70,6 +81,7 @@ class DetailCellWithImageViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        //Check for identifier and jump to user profile VC
         if segue.identifier == "JumpToUserProfileVC" {
             
             let destinationVC = segue.destinationViewController as! UserProfileViewController
@@ -77,6 +89,7 @@ class DetailCellWithImageViewController: UIViewController {
         }
     }
     
+    //Get device screen height
     func windowHeight() -> CGFloat {
         return UIScreen.mainScreen().bounds.size.height
     }
@@ -88,6 +101,7 @@ class DetailCellWithImageViewController: UIViewController {
         
         print("height \(UIScreen.mainScreen().bounds.size.height)")
         
+        //User display image tap gesture recognizer
         let userDisplayImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("userDisplayImageTapped"))
         self.userDisplayImage.addGestureRecognizer(userDisplayImageTapGestureRecognizer)
         self.userDisplayImage.userInteractionEnabled = true
@@ -128,7 +142,6 @@ class DetailCellWithImageViewController: UIViewController {
             
             timeStamp.text = postedRelativeTime
         
-            
             let postImageFile = object["imageFile"] as! PFFile?
             
             if postImageFile != nil {
@@ -192,10 +205,12 @@ class DetailCellWithImageViewController: UIViewController {
         if currentObject?.likes.value?.count == nil || (currentObject?.likes.value?.count)! == 0 {
             
             likesCountLabel.text = ""
+            likesCounter = 0
         }
         else{
             
             likesCountLabel.text = "\((currentObject?.likes.value?.count)!)"
+            likesCounter = currentObject?.likes.value?.count
         }
         
         if currentObject?.doesUserLikePost(PFUser.currentUser()!) == true {

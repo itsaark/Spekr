@@ -10,13 +10,16 @@ import UIKit
 import CoreLocation
 import Parse
 import Foundation
+import PermissionScope
 
-class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate{
+class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UIApplicationDelegate{
     
     var postDetails: [PostDetails] = []
     
     //Calender Declaration
     let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+    
+    let permissionPane = PermissionScope()
 
     
     
@@ -33,14 +36,30 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         if currentUserLocation != nil {
             
-        ParseHelper.timelineRequestForCurrentPost("locationCoordinates", geoPoint: currentUserLocation!, radius: Double(distanceSliderValue.value)) { (result:[PFObject]?, error: NSError?) -> Void in
+            ParseHelper.timelineRequestForCurrentPost("locationCoordinates", geoPoint: currentUserLocation!, radius: Double(distanceSliderValue.value)) { (result:[PFObject]?, error: NSError?) -> Void in
             
             self.postDetails = result as? [PostDetails] ?? []
             print(self.postDetails)
             self.tableView.reloadData()
 
+            }
+        }else {
+            
+            // Redirect to location settings pane
+            let alert = UIAlertController(title: "Location Access Denied", message: "Please turn your Location Access ON to get feed around you", preferredStyle: .Alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction) -> Void in
+                
+                
+                let url = NSURL(string: UIApplicationOpenSettingsURLString)
+                
+                UIApplication.sharedApplication().openURL(url!)
+                
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+
         }
-      }
     }
     
     // Segue to load LocalFeed after successful post from Compose View Controller
@@ -62,8 +81,9 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     }
     
     //Obtaining current user location details
-    var currentUserLocation: PFGeoPoint?
     let locationManager = CLLocationManager()
+    var currentUserLocation: PFGeoPoint?
+    
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -78,16 +98,21 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         //TODO: Reload the view
         if status == .AuthorizedWhenInUse {
          
-            print("Status Changed")
-            
+            locationManager.startUpdatingLocation()
         }
     }
+    
+
+
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Initial request for Location Access
-        self.locationManager.requestWhenInUseAuthorization()
+        //self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.delegate = self
         
         tableView.estimatedRowHeight = 60.0
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -96,7 +121,47 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         
         
+        permissionPane.addPermission(LocationWhileInUsePermission(), message: "We use this to fetch local feed around you")
+        permissionPane.addPermission(NotificationsPermission(notificationCategories: nil), message: "We use this to update you about people who loved your post")
+        
+        permissionPane.headerLabel.text = "Hey, Guys!"
+        permissionPane.closeButtonTextColor = UIColor(red: 96/255.0, green: 59/255.0, blue: 156/255.0, alpha: 1)
+        permissionPane.permissionButtonBorderColor = UIColor(red: 96/255.0, green: 59/255.0, blue: 156/255.0, alpha: 1)
+        permissionPane.permissionButtonTextColor = UIColor(red: 96/255.0, green: 59/255.0, blue: 156/255.0, alpha: 1)
+        permissionPane.authorizedButtonColor = UIColor(red: 2/255.0, green: 208/255.0, blue: 78/255.0, alpha: 1)
+        
+        permissionPane.show(
+            { finished, results in
+                print("got results \(results)")
+                
+            },
+            cancelled: { results in
+                print("thing was cancelled")
+            }
+        )
+        
+        
+        
+        
+        
     }
+    
+    func checkForLocation() {
+        switch PermissionScope().statusLocationInUse() {
+        case .Unknown:
+            // ask
+            PermissionScope().requestLocationInUse()
+        case .Unauthorized, .Disabled:
+            // bummer
+            return
+        case .Authorized:
+            // thanks!
+            return
+        }
+    }
+    
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -138,19 +203,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
             }
         } else {
             //TODO: Redirect to settings pane
-            let alert = UIAlertController(title: "Location Access Denied", message: "Please turn your Location Access ON to get feed around you", preferredStyle: .Alert)
             
-            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction) -> Void in
-                
-                
-                let url = NSURL(string: UIApplicationOpenSettingsURLString)
-                
-                UIApplication.sharedApplication().openURL(url!)
-                
-            }))
-            
-            self.presentViewController(alert, animated: true, completion: nil)
-
         }
         
     }
@@ -165,18 +218,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
             case .NotDetermined, .Restricted, .Denied:
                 
                 //TODO: Redirect to settings pane
-                let alert = UIAlertController(title: "Location Access Denied", message: "Please turn your Location Access ON for Spekr App get feed around you", preferredStyle: .Alert)
-                
-                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction) -> Void in
-                    
-                    
-                    let url = NSURL(string: UIApplicationOpenSettingsURLString)
-                    
-                    UIApplication.sharedApplication().openURL(url!)
-                    
-                }))
-                
-                self.presentViewController(alert, animated: true, completion: nil)
+                print("Denied")
                 
             case .AuthorizedAlways, .AuthorizedWhenInUse:
                 
