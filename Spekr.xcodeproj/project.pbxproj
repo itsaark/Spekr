@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0BEE9B5C14CBD2D9BB10B3E1 /* Pods_Spekr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EEAD013E78665B52F84469C /* Pods_Spekr.framework */; };
+		DC0B52AC1C60A1C700D83037 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0B52AB1C60A1C700D83037 /* UIColorExtension.swift */; };
+		DC0B52AE1C60D97D00D83037 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0B52AD1C60D97D00D83037 /* SweetAlert.swift */; };
 		DC1698761C207B2F00CD60AB /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1698741C207B2F00CD60AB /* ParseFacebookUtils.framework */; };
 		DC1698771C207B2F00CD60AB /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1698751C207B2F00CD60AB /* ParseFacebookUtilsV4.framework */; };
 		DC1698811C207D5800CD60AB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC16987E1C207D5800CD60AB /* FBSDKCoreKit.framework */; };
@@ -66,6 +68,8 @@
 		338E117AF89E8887428E76DF /* Pods-Spekr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spekr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spekr/Pods-Spekr.debug.xcconfig"; sourceTree = "<group>"; };
 		3EEAD013E78665B52F84469C /* Pods_Spekr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spekr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		478294C8D6D408863BCF6E7F /* Pods-Spekr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spekr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spekr/Pods-Spekr.release.xcconfig"; sourceTree = "<group>"; };
+		DC0B52AB1C60A1C700D83037 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		DC0B52AD1C60D97D00D83037 /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
 		DC1698741C207B2F00CD60AB /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		DC1698751C207B2F00CD60AB /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		DC16987E1C207D5800CD60AB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -175,6 +179,14 @@
 				3EEAD013E78665B52F84469C /* Pods_Spekr.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC0B52AA1C60A19C00D83037 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DC0B52AB1C60A1C700D83037 /* UIColorExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		DC1F39E71C343ED700E6FBE0 /* SettingItemsViewControllers */ = {
@@ -304,9 +316,11 @@
 		DCE90A671C1FDEEB004A5004 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DC0B52AA1C60A19C00D83037 /* Extensions */,
 				DC1F39EC1C34DAF200E6FBE0 /* HelperClasses */,
 				DCE90A681C1FDEEB004A5004 /* ErrorHelpers */,
 				DCE90A691C1FDEEB004A5004 /* ParseHelpers */,
+				DC0B52AD1C60D97D00D83037 /* SweetAlert.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -473,6 +487,7 @@
 			files = (
 				DC6162101C2C35DD00C484FD /* LocalFeedViewController.swift in Sources */,
 				DC65CF5E1C50C3F70045930C /* UserProfileViewController.swift in Sources */,
+				DC0B52AE1C60D97D00D83037 /* SweetAlert.swift in Sources */,
 				DCC304141C57911D001C9E74 /* WorldFeedViewController.swift in Sources */,
 				DC8669C11C1FEFF600692AAE /* SocialAccountViewController.swift in Sources */,
 				DC1F39E91C343EED00E6FBE0 /* AboutViewController.swift in Sources */,
@@ -490,6 +505,7 @@
 				DC2964C31C36890B00F2FEF9 /* PostDetails.swift in Sources */,
 				DCFE8E111C2C62C1005A1100 /* SettingsViewController.swift in Sources */,
 				DC65CF5C1C50A48A0045930C /* DetailCellViewController.swift in Sources */,
+				DC0B52AC1C60A1C700D83037 /* UIColorExtension.swift in Sources */,
 				DCC8A1061C436EF1009C4846 /* DateFormat.swift in Sources */,
 				DC1F39EE1C34DB3F00E6FBE0 /* EmailComposer.swift in Sources */,
 			);

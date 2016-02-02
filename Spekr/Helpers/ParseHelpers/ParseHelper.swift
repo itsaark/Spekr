@@ -86,6 +86,7 @@ class ParseHelper {
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
+    // MARK: Push notifications
     static func sendPushNotification(toUser: PFUser){
         
         let pushQuery = PFInstallation.query()!
@@ -99,6 +100,35 @@ class ParseHelper {
         push.setData(data)
         push.sendPushInBackground()
     }
+    
+    // MARK: Flagged content
+    
+    static func flagPost(user: PFUser, post: PostDetails) {
+        let flagObject = PFObject(className: ParseFlaggedContentClass)
+        flagObject[ParseFlaggedContentFromUser] = user
+        flagObject[ParseFlaggedContentToPost] = post
+        
+        flagObject.saveInBackgroundWithBlock(nil)
+    }
+    
+    static func unflagPost(user: PFUser, post: PostDetails) {
+        // 1
+        let query = PFQuery(className: ParseFlaggedContentClass)
+        query.whereKey(ParseFlaggedContentFromUser, equalTo: user)
+        query.whereKey(ParseFlaggedContentToPost, equalTo: post)
+        
+        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
+            
+            if let result = results {
+                
+                for flags in result {
+                    
+                    flags.deleteInBackgroundWithBlock(nil)
+                }
+            }
+        }
+    }
+
  
 }
 

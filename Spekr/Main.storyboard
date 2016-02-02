@@ -836,11 +836,14 @@ We truly believe that Spekr gives everyone the power to directly share content a
                     </view>
                     <toolbarItems>
                         <barButtonItem image="FlagIcon" id="gIR-Ij-xPK">
-                            <color key="tintColor" red="0.65882354974746704" green="0.64705884456634521" blue="0.63529413938522339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="flagButtonTapped:" destination="0iH-Ad-jhH" id="mzw-fp-ubZ"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="eIy-4A-hhb"/>
                         <barButtonItem image="ShareIcon" id="JSY-RM-JM1">
-                            <color key="tintColor" red="0.65882354974746704" green="0.64705884456634521" blue="0.63529413938522339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -1310,11 +1313,14 @@ We truly believe that Spekr gives everyone the power to directly share content a
                     </view>
                     <toolbarItems>
                         <barButtonItem image="FlagIcon" id="tgJ-ca-w9a">
-                            <color key="tintColor" red="0.65882354970000001" green="0.64705884459999996" blue="0.63529413940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="flagButtonTapped:" destination="jiZ-v0-cde" id="bUf-sj-A5L"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="OWm-t1-nVs"/>
                         <barButtonItem image="ShareIcon" id="f4b-j4-s7y">
-                            <color key="tintColor" red="0.65882354970000001" green="0.64705884459999996" blue="0.63529413940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -1413,8 +1419,8 @@ We truly believe that Spekr gives everyone the power to directly share content a
         <image name="WorldIcon" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="V4B-U7-B5o"/>
         <segue reference="QkS-V1-igt"/>
         <segue reference="vvE-3u-XyL"/>
+        <segue reference="V4B-U7-B5o"/>
     </inferredMetricsTieBreakers>
 </document>

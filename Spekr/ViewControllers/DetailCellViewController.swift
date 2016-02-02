@@ -37,6 +37,7 @@ class DetailCellViewController: UIViewController {
         
         currentObject!.toggleLikePost(PFUser.currentUser()!)
         
+        //Updating likes on UI
         if likeButton.selected == false {
             
             //Like button animation
@@ -49,24 +50,55 @@ class DetailCellViewController: UIViewController {
             )
             
             likeButton.selected = true
-            likesCountLabel.text = "\(likesCounter! + 1)"
+            likesCounter = likesCounter! + 1
+            likesCountLabel.text = "\(likesCounter!)"
         }
         else{
             
             likeButton.selected = false
-            if likesCounter == 0 || likesCounter == 1{
+            
+            if likesCounter == 0 {
                 
                 likesCountLabel.text = ""
-            }else {
-            likesCountLabel.text = "\(likesCounter! - 1)"
+            }
+            else if likesCounter == 1{
+                likesCounter = likesCounter! - 1
+                likesCountLabel.text = ""
+            }
+            else{
+                likesCounter = likesCounter! - 1
+                likesCountLabel.text = "\(likesCounter!)"
             }
         }
 
     }
     
+    //Flag button tapped
+    @IBAction func flagButtonTapped(sender: AnyObject) {
+        
+        
+        SweetAlert().showAlert("Are you sure?", subTitle: "Do you want to flag this post for inappropriate content?", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor(red: 182, green: 182, blue: 182) , otherButtonTitle:  "Yes, flag it!", otherButtonColor: UIColor(red: 100, green: 240, blue: 150)) { (isOtherButton) -> Void in
+            if isOtherButton == true {
+                
+                print("Cancel Button  Pressed")
+            }
+            else {
+                
+                ParseHelper.flagPost(PFUser.currentUser()!, post: self.currentObject!)
+                
+                print("Flag Button  Pressed")
+                
+                SweetAlert().showAlert("Flagged", subTitle: "Thanks! We'll review it shortly.", style: AlertStyle.Success, buttonTitle: "OK", buttonColor:  UIColor(red: 103, green: 74, blue: 155))
+            }
+        }
+        
+    }
+
     
-    //user's display image is tapped. Performing a segue to user profile vc
-    func userDisplayImageTapped(){
+    
+    
+    //User's display image/name is tapped. Performing a segue to user profile vc
+    func userDisplayTapped(){
         
         performSegueWithIdentifier("JumpToUserProfileVC", sender: self)
         print("imageTapped")
@@ -90,9 +122,15 @@ class DetailCellViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let userDisplayImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("userDisplayImageTapped"))
+         //User display image/name tap gesture recognizer
+        let userDisplayImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("userDisplayTapped"))
         self.userDisplayImage.addGestureRecognizer(userDisplayImageTapGestureRecognizer)
         self.userDisplayImage.userInteractionEnabled = true
+        
+        let userDisplayNameTapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("userDisplayTapped"))
+        self.userDisplayName.addGestureRecognizer(userDisplayNameTapGestureRecognizer)
+        self.userDisplayName.userInteractionEnabled = true
+
 
         if let object = currentObject {
             

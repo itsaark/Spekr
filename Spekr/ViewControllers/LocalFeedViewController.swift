@@ -120,15 +120,16 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         tableView.delegate = self
         
         
-        
+        //Requesting Location access and Notification permission using PermissionScope
         permissionPane.addPermission(LocationWhileInUsePermission(), message: "We use this to fetch local feed around you")
         permissionPane.addPermission(NotificationsPermission(notificationCategories: nil), message: "We use this to update you about people who loved your post")
         
+        //Customising permission pane
         permissionPane.headerLabel.text = "Hey, Guys!"
-        permissionPane.closeButtonTextColor = UIColor(red: 96/255.0, green: 59/255.0, blue: 156/255.0, alpha: 1)
-        permissionPane.permissionButtonBorderColor = UIColor(red: 96/255.0, green: 59/255.0, blue: 156/255.0, alpha: 1)
-        permissionPane.permissionButtonTextColor = UIColor(red: 96/255.0, green: 59/255.0, blue: 156/255.0, alpha: 1)
-        permissionPane.authorizedButtonColor = UIColor(red: 2/255.0, green: 208/255.0, blue: 78/255.0, alpha: 1)
+        permissionPane.closeButtonTextColor = UIColor(red: 96, green: 59, blue: 156)
+        permissionPane.permissionButtonBorderColor = UIColor(red: 96, green: 59, blue: 156)
+        permissionPane.permissionButtonTextColor = UIColor(red: 96, green: 59, blue: 156)
+        permissionPane.authorizedButtonColor = UIColor(red: 2, green: 208, blue: 78)
         
         permissionPane.show(
             { finished, results in
@@ -139,9 +140,6 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
                 print("thing was cancelled")
             }
         )
-        
-        
-        
         
         
     }
@@ -308,7 +306,7 @@ extension LocalFeedViewController: UITableViewDataSource {
     //Footer color
     func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         
-         view.tintColor = UIColor(red: 234/255.0, green: 234/255.0, blue: 239/255.0, alpha: 1)
+         view.tintColor = UIColor(red: 234, green: 234, blue: 239)
     }
     
     //Footer height

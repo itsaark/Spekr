@@ -144,7 +144,7 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
         //toolbar.translucent = true
         toolbar.barTintColor = UIColor.whiteColor()
         toolbar.sizeToFit()
-        toolbar.tintColor = UIColor(red: 176/255.0, green: 170/255.0, blue: 170/255.0, alpha: 1)
+        toolbar.tintColor = UIColor(red: 176, green: 170, blue: 170)
         toolbar.clipsToBounds = true
         
         self.postButton.setImage(UIImage(named: "PostButton"), forState: UIControlState.Normal)
@@ -159,7 +159,7 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
 
         
         self.characterLabel.text = "140"
-        self.characterLabel.textColor = UIColor(red: 176/255.0, green: 170/255.0, blue: 170/255.0, alpha: 1)
+        self.characterLabel.textColor = UIColor(red: 176, green: 170, blue: 170)
         self.characterLabel.frame = CGRectMake(0, 0, 40, 20)
 
         
