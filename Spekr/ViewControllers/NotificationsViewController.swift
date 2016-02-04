@@ -28,18 +28,11 @@ class NotificationsViewController: UIViewController {
         self.tabBarController?.navigationItem.title = "Notifications"
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
         
+        //Setting badge value to Nil
+        (tabBarController!.tabBar.items![2]).badgeValue = nil
+        
 
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

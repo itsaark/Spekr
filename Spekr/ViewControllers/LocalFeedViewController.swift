@@ -20,8 +20,6 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
     
     let permissionPane = PermissionScope()
-
-    
     
     @IBOutlet weak var moveSliderLabel: UILabel!
     
@@ -299,7 +297,26 @@ extension LocalFeedViewController: UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
-        return postDetails.count
+        //Setting placeholder image
+        if postDetails.count == 0{
+            let image = UIImage(named: "LocalFeedPlaceHolder")
+            
+            let imageView = UIImageView(image: image)
+            //imageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)
+            imageView.frame = self.tableView.frame
+            imageView.contentMode = UIViewContentMode.ScaleAspectFit
+
+            self.tableView.backgroundView = imageView
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            return 0
+            
+        } else {
+            //Hiding the background before the view loads
+            self.tableView.backgroundView?.hidden = true
+            return postDetails.count
+
+        }
+        
         
     }
     
