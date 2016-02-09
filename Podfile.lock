@@ -1,16 +1,37 @@
 PODS:
+  - Agrume (2.0.4)
   - Bond (4.3.0)
+  - DGElasticPullToRefresh (1.0.3)
   - DOFavoriteButton (0.0.4)
+  - NVActivityIndicatorView (2.3)
   - PermissionScope (1.0.2)
+  - PullToBounce (0.0.3)
 
 DEPENDENCIES:
+  - Agrume (from `https://github.com/JanGorman/Agrume.git`)
   - Bond (~> 4.0)
+  - DGElasticPullToRefresh
   - DOFavoriteButton
+  - NVActivityIndicatorView
   - PermissionScope
+  - PullToBounce
+
+EXTERNAL SOURCES:
+  Agrume:
+    :git: https://github.com/JanGorman/Agrume.git
+
+CHECKOUT OPTIONS:
+  Agrume:
+    :commit: dd276a9196820ae77752179c3d684ab2a56ecf04
+    :git: https://github.com/JanGorman/Agrume.git
 
 SPEC CHECKSUMS:
+  Agrume: 166fb17264340f63c18953fc6fc900c249da87bf
   Bond: ebe2364b18130690083cbceff036420b21494ae4
+  DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
   DOFavoriteButton: 866e15af173d2dd5233971a1f657a5f31d2491d5
+  NVActivityIndicatorView: c7ef25ef527ab5e51b00322cb1ddd58681bcf2a3
   PermissionScope: 860828c5516d349b6f49e5491799cfef33c5ccc7
+  PullToBounce: d2c6300b92fa124f7133e0ca0088bbf7a7059194
 
 COCOAPODS: 0.39.0

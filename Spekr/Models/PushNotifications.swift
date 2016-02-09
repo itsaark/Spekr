@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import Parse
+
+struct PushNotifications {
+    
+    var fromUser: PFUser
+    var toPost: PostDetails
+}

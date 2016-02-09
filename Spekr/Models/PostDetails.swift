@@ -17,6 +17,7 @@ class PostDetails: PFObject, PFSubclassing {
     @NSManaged var username: PFUser?
     @NSManaged var postText: String?
     @NSManaged var locationCoordinates: PFGeoPoint?
+    @NSManaged var likesCount: NSNumber?
     
     var image: Observable<UIImage?> = Observable(nil)
     var photoUploadTask: UIBackgroundTaskIdentifier?
@@ -123,6 +124,13 @@ class PostDetails: PFObject, PFSubclassing {
             likes.value?.append(user)
             ParseHelper.likePost(user, post: self)
         }
+    }
+    
+    func updateLikesCount(count: NSNumber) {
+        
+        self.likesCount = count
+        
+        saveInBackground()
     }
 
 }

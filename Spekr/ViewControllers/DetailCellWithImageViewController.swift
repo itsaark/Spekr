@@ -10,6 +10,7 @@ import UIKit
 import Parse
 import Foundation
 import Bond
+import Agrume
 
 class DetailCellWithImageViewController: UIViewController {
     
@@ -55,6 +56,10 @@ class DetailCellWithImageViewController: UIViewController {
             likeButton.selected = true
             likesCounter = likesCounter! + 1
             likesCountLabel.text = "\(likesCounter!)"
+            currentObject!.updateLikesCount(likesCounter!)
+            //Send a push notification
+            ParseHelper.sendPushNotification(currentObject?.objectForKey("username") as! PFUser, toPostID: (currentObject?.objectId)!)
+
         }
         else{
             
@@ -63,14 +68,17 @@ class DetailCellWithImageViewController: UIViewController {
             if likesCounter == 0 {
                 
                 likesCountLabel.text = ""
+                currentObject!.updateLikesCount(0)
             }
             else if likesCounter == 1{
                 likesCounter = likesCounter! - 1
                 likesCountLabel.text = ""
+                currentObject!.updateLikesCount(likesCounter!)
             }
             else{
                 likesCounter = likesCounter! - 1
                 likesCountLabel.text = "\(likesCounter!)"
+                currentObject!.updateLikesCount(likesCounter!)
             }
         }
 
@@ -104,6 +112,14 @@ class DetailCellWithImageViewController: UIViewController {
         print("imageTapped")
     }
     
+    func postImageTapped(){
+        
+        if let image = self.postImageView.image {
+            let agrume = Agrume(image: image)
+            agrume.showFrom(self)
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         //Check for identifier and jump to user profile VC
@@ -134,6 +150,12 @@ class DetailCellWithImageViewController: UIViewController {
         let userDisplayNameTapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("userDisplayTapped"))
         self.userDisplayName.addGestureRecognizer(userDisplayNameTapGestureRecognizer)
         self.userDisplayName.userInteractionEnabled = true
+        
+        let postImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("postImageTapped"))
+        self.postImageView.addGestureRecognizer(postImageTapGestureRecognizer)
+        self.postImageView.userInteractionEnabled = true
+        
+        
         
 
         // Do any additional setup after loading the view.

@@ -52,6 +52,8 @@ class DetailCellViewController: UIViewController {
             likeButton.selected = true
             likesCounter = likesCounter! + 1
             likesCountLabel.text = "\(likesCounter!)"
+            currentObject!.updateLikesCount(likesCounter!)
+            ParseHelper.sendPushNotification(currentObject?.objectForKey("username") as! PFUser, toPostID: (currentObject?.objectId)!)
         }
         else{
             
@@ -60,14 +62,17 @@ class DetailCellViewController: UIViewController {
             if likesCounter == 0 {
                 
                 likesCountLabel.text = ""
+                currentObject!.updateLikesCount(0)
             }
             else if likesCounter == 1{
                 likesCounter = likesCounter! - 1
                 likesCountLabel.text = ""
+                currentObject!.updateLikesCount(likesCounter!)
             }
             else{
                 likesCounter = likesCounter! - 1
                 likesCountLabel.text = "\(likesCounter!)"
+                currentObject!.updateLikesCount(likesCounter!)
             }
         }
 
@@ -130,8 +135,7 @@ class DetailCellViewController: UIViewController {
         let userDisplayNameTapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("userDisplayTapped"))
         self.userDisplayName.addGestureRecognizer(userDisplayNameTapGestureRecognizer)
         self.userDisplayName.userInteractionEnabled = true
-
-
+        
         if let object = currentObject {
             
             self.postTextView.text = object["postText"] as! String

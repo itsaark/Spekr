@@ -57,7 +57,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
     }
     
-    var settingsList = ["About", "Account", "Privacy", "Support", "Send Feedback", "Log Out"]
+    var settingsList = ["About", "Account", "Privacy & Location", "Terms of Service", "Send Feedback", "Log Out"]
     
     // MARK: - UITableViewDataSource
    
@@ -119,6 +119,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
             self.performSegueWithIdentifier("JumpToPrivacyPolicyVC", sender: self)
         }
         else if indexPath.row == 3 {
+            
+            //Segue to privacy policy view controller
+            self.performSegueWithIdentifier("JumpToTermsOfService", sender: self)
             
         }
         // Send feedback cell tapped

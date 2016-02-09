@@ -47,6 +47,7 @@
 		DC6162101C2C35DD00C484FD /* LocalFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61620F1C2C35DD00C484FD /* LocalFeedViewController.swift */; };
 		DC65CF5C1C50A48A0045930C /* DetailCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65CF5B1C50A48A0045930C /* DetailCellViewController.swift */; };
 		DC65CF5E1C50C3F70045930C /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65CF5D1C50C3F70045930C /* UserProfileViewController.swift */; };
+		DC746E411C6712B60017DBF1 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC746E401C6712B60017DBF1 /* TermsOfServiceViewController.swift */; };
 		DC8669C11C1FEFF600692AAE /* SocialAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8669C01C1FEFF600692AAE /* SocialAccountViewController.swift */; };
 		DC975C761C206F30007BA980 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C741C206F30007BA980 /* TwitterKit.framework */; };
 		DC975C771C206F30007BA980 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC975C751C206F30007BA980 /* TwitterKitResources.bundle */; };
@@ -56,6 +57,7 @@
 		DCB65A081C22860A0094E58B /* PFUserDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB65A071C22860A0094E58B /* PFUserDigits.swift */; };
 		DCC304141C57911D001C9E74 /* WorldFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC304131C57911D001C9E74 /* WorldFeedViewController.swift */; };
 		DCC8A1061C436EF1009C4846 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8A1051C436EF1009C4846 /* DateFormat.swift */; };
+		DCE302591C686A35002A5B90 /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE302581C686A35002A5B90 /* PushNotifications.swift */; };
 		DCE90A6F1C1FE0B4004A5004 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */; };
 		DCE90A701C1FE0B4004A5004 /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */; };
 		DCE90A711C1FE0B4004A5004 /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCE90A6D1C1FE0B4004A5004 /* DigitsKitResources.bundle */; };
@@ -109,6 +111,7 @@
 		DC61620F1C2C35DD00C484FD /* LocalFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFeedViewController.swift; sourceTree = "<group>"; };
 		DC65CF5B1C50A48A0045930C /* DetailCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCellViewController.swift; sourceTree = "<group>"; };
 		DC65CF5D1C50C3F70045930C /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		DC746E401C6712B60017DBF1 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
 		DC8669C01C1FEFF600692AAE /* SocialAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialAccountViewController.swift; sourceTree = "<group>"; };
 		DC975C741C206F30007BA980 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = SOURCE_ROOT; };
 		DC975C751C206F30007BA980 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = SOURCE_ROOT; };
@@ -118,6 +121,7 @@
 		DCB65A071C22860A0094E58B /* PFUserDigits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFUserDigits.swift; sourceTree = "<group>"; };
 		DCC304131C57911D001C9E74 /* WorldFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldFeedViewController.swift; sourceTree = "<group>"; };
 		DCC8A1051C436EF1009C4846 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		DCE302581C686A35002A5B90 /* PushNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
 		DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = SOURCE_ROOT; };
 		DCE90A6D1C1FE0B4004A5004 /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = SOURCE_ROOT; };
@@ -195,6 +199,7 @@
 				DC6162041C2BA99800C484FD /* AccountViewController.swift */,
 				DC1F39E81C343EED00E6FBE0 /* AboutViewController.swift */,
 				DC1F39EA1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift */,
+				DC746E401C6712B60017DBF1 /* TermsOfServiceViewController.swift */,
 			);
 			path = SettingItemsViewControllers;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 				DC54E7C31C1F1242001496AB /* SignInViewController.swift */,
 				DC8669C01C1FEFF600692AAE /* SocialAccountViewController.swift */,
 				DC61620F1C2C35DD00C484FD /* LocalFeedViewController.swift */,
+				DCC304131C57911D001C9E74 /* WorldFeedViewController.swift */,
 				DCFE8E0E1C2C6278005A1100 /* NotificationsViewController.swift */,
 				DC46D2F31C3193E4008BBE48 /* ComposeViewController.swift */,
 				DCFE8E101C2C62C1005A1100 /* SettingsViewController.swift */,
@@ -259,7 +265,6 @@
 				DC52D1971C3D6099003AC3F8 /* DetailCellWithImageViewController.swift */,
 				DC65CF5B1C50A48A0045930C /* DetailCellViewController.swift */,
 				DC65CF5D1C50C3F70045930C /* UserProfileViewController.swift */,
-				DCC304131C57911D001C9E74 /* WorldFeedViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				DC2964C21C36890B00F2FEF9 /* PostDetails.swift */,
+				DCE302581C686A35002A5B90 /* PushNotifications.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -494,11 +500,13 @@
 				DC1F39EB1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift in Sources */,
 				DC2964C11C3661A300F2FEF9 /* PhotoTakingHelper.swift in Sources */,
 				DC54E7C41C1F1242001496AB /* SignInViewController.swift in Sources */,
+				DCE302591C686A35002A5B90 /* PushNotifications.swift in Sources */,
 				DC6162051C2BA99800C484FD /* AccountViewController.swift in Sources */,
 				DCB65A081C22860A0094E58B /* PFUserDigits.swift in Sources */,
 				DC46D2F41C3193E4008BBE48 /* ComposeViewController.swift in Sources */,
 				DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */,
 				DC52D1981C3D6099003AC3F8 /* DetailCellWithImageViewController.swift in Sources */,
+				DC746E411C6712B60017DBF1 /* TermsOfServiceViewController.swift in Sources */,
 				DC6162091C2BAE6700C484FD /* ParseHelper.swift in Sources */,
 				DC2910E61C37DE5F0025E968 /* PostTableViewCell.swift in Sources */,
 				DCFE8E0F1C2C6278005A1100 /* NotificationsViewController.swift in Sources */,

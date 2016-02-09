@@ -20,6 +20,7 @@ class ParseHelper {
     static let ParsePostUser          = "username"
     static let ParsePostCreatedAt     = "createdAt"
     static let ParsePostDetailsClass  = "PostDetails"
+    static let ParsePostLikesCount    = "likesCount"
     
     // Flagged Content Relation
     static let ParseFlaggedContentClass    = "FlaggedContent"
@@ -44,9 +45,23 @@ class ParseHelper {
         
         query.orderByDescending(ParsePostCreatedAt)
         
+        query.cachePolicy = .NetworkElseCache
+        
         // 3
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
+    
+    static func requestForWorldFeed(completionBlock: PFQueryArrayResultBlock){
+        
+        let query = PFQuery(className: ParsePostDetailsClass)
+        
+        query.whereKey(ParsePostLikesCount, greaterThan: 1)
+        
+        query.orderByDescending(ParsePostLikesCount)
+        
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
     
     
     // MARK: Likes
@@ -83,18 +98,20 @@ class ParseHelper {
         // 2
         query.includeKey(ParseLikeFromUser)
         
+        query.cachePolicy = .CacheThenNetwork
+        
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
     // MARK: Push notifications
-    static func sendPushNotification(toUser: PFUser){
+    static func sendPushNotification(toUser: PFUser, toPostID: String){
         
         let pushQuery = PFInstallation.query()!
         pushQuery.whereKey("user", equalTo: toUser) //friend is a PFUser object
         
         let currentUserName = PFUser.currentUser()?.objectForKey("displayName") as! String
         
-        let data = ["alert" : "\(currentUserName) liked your post", "badge" : "Increment"]
+        let data = ["alert" : "\(currentUserName) liked your post", "badge" : "Increment", "currentUser": "\(PFUser.currentUser())", "toPostID":"\(toPostID)"]
         let push = PFPush()
         push.setQuery(pushQuery)
         push.setData(data)

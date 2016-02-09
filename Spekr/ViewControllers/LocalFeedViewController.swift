@@ -288,8 +288,6 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
 
     }
     
-    
-    
 
 }
 
@@ -323,7 +321,7 @@ extension LocalFeedViewController: UITableViewDataSource {
     //Footer color
     func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         
-         view.tintColor = UIColor(red: 234, green: 234, blue: 239)
+         view.tintColor = UIColor(red: 238, green: 238, blue: 242)
     }
     
     //Footer height
@@ -411,6 +409,7 @@ extension LocalFeedViewController: UITableViewDataSource {
             
             return cell
     }
+    
     
 }
 

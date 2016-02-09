@@ -23,7 +23,7 @@ class PrivacyPolicyViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
-        self.title = "Privacy Policy"
+        self.title = "Privacy & Location"
     }
     
 
