@@ -10,8 +10,6 @@ pod 'DOFavoriteButton'
 pod 'PermissionScope'
 pod 'Agrume', :git => 'https://github.com/JanGorman/Agrume.git'
 pod 'NVActivityIndicatorView'
-pod 'PullToBounce'
-pod "DGElasticPullToRefresh"
 
 end
 

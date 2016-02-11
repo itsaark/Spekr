@@ -18,8 +18,7 @@ class DetailCellWithImageViewController: UIViewController {
     
     var likesCounter: Int?
 
-    
-    
+
     //Calender Declaration
     let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
     

@@ -9,10 +9,16 @@
 import UIKit
 import Parse
 
-class NotificationsViewController: UIViewController {
+class NotificationsViewController: UIViewController, UITableViewDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var count = 0 //temporary notifications count
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -35,4 +41,58 @@ class NotificationsViewController: UIViewController {
     }
     
 
+}
+
+extension NotificationsViewController: UITableViewDataSource{
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        //Setting placeholder image
+        if count == 0{
+            let image = UIImage(named: "NotificationPlaceholder")
+            
+            let imageView = UIImageView(image: image)
+            //imageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)
+            imageView.frame = self.tableView.frame
+            imageView.contentMode = UIViewContentMode.ScaleAspectFit
+            
+            self.tableView.backgroundView = imageView
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            return 0
+            
+        } else {
+            //Hiding the background before the view loads
+            self.tableView.backgroundView?.hidden = true
+            return count
+            
+        }
+        
+        
+    }
+    
+    //Footer color
+    func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        
+        view.tintColor = UIColor(red: 238, green: 238, blue: 242)
+    }
+    
+    //Footer height
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        return 10
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("NotificationCell")! as UITableViewCell
+        
+        return cell
+    }
+    
+    
 }

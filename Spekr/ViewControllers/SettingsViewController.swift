@@ -9,9 +9,18 @@
 import UIKit
 import Parse
 import DigitsKit
+import MessageUI
 
-class SettingsViewController: UIViewController, UITableViewDelegate {
+class SettingsViewController: UIViewController, UITableViewDelegate, MFMailComposeViewControllerDelegate {
     
+    //Initializing mail composer
+    let emailComposer = EmailComposer()
+    
+    //Dismiss mail VC after getting a result.
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    
+    }
     //Displaying error message through Alert
     func DisplayAert(title:String, errorMessage:String){
         
@@ -42,6 +51,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -128,16 +138,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         else if indexPath.row == 4 {
             
             //Calling Email composer class to send feedback via e-mail
-            let emailComposer = EmailComposer()
-            let configuredMailComposeViewController = emailComposer.configuredMailComposeViewController()
-            
             if emailComposer.canSendMail() {
-                
+                let configuredMailComposeViewController = emailComposer.configuredMailComposeViewController()
+                configuredMailComposeViewController.mailComposeDelegate = self
                 self.presentViewController(configuredMailComposeViewController, animated: true, completion: nil)
+                
                 
             }else{
                 
-                DisplayAert("Could Not Send Email", errorMessage: "Your device couldn't send the e-mail. Please check the device configuration and try again later")
+                SweetAlert().showAlert("Could Not Send Email", subTitle: "Your device couldn't send the e-mail. Please check the device configuration and try again later", style: AlertStyle.None)
             }
             
         }

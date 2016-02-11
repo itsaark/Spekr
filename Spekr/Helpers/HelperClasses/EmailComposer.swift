@@ -20,9 +20,9 @@ class EmailComposer: NSObject, MFMailComposeViewControllerDelegate {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
         
-        mailComposerVC.setToRecipients(["support@spekrapp.com"])
+        mailComposerVC.setToRecipients(["hello@spekrapp.com"])
         mailComposerVC.setSubject("Feedback")
-        mailComposerVC.setMessageBody("Hello! I have some feedback for you.", isHTML: false)
+        mailComposerVC.setMessageBody("Hello!\n\nI would like to share the following feedback...\n", isHTML: false)
         
         return mailComposerVC
     }

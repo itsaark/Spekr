@@ -12,7 +12,6 @@ import UIKit
 import CoreLocation
 import Parse
 import Foundation
-import PullToBounce
 
 class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UIApplicationDelegate{
     
@@ -67,6 +66,7 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         // -- DO SOMETHING AWESOME (... or just wait 3 seconds) --
         // This is where you'll make requests to an API, reload data, or process information
+        //Hiding the background before the view loads
         UIView.animateWithDuration(0.3, animations: {
             self.tableView.backgroundView?.alpha = 0.0
             }, completion: { finished in
@@ -75,9 +75,9 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         ParseHelper.requestForWorldFeed { (result: [PFObject]?, error: NSError?) -> Void in
             
-                        self.postDetails = result as? [PostDetails] ?? []
-                        print(self.postDetails)
-                        self.tableView.reloadData()
+            self.postDetails = result as? [PostDetails] ?? []
+            print(self.postDetails)
+            self.tableView.reloadData()
         }
         let delayInSeconds = 3.0
         let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
@@ -260,29 +260,6 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         tableView.addSubview(self.refreshControl)
         
-//        ParseHelper.requestForWorldFeed { (result: [PFObject]?, error: NSError?) -> Void in
-//            
-//            self.postDetails = result as? [PostDetails] ?? []
-//            print(self.postDetails)
-//            self.tableView.reloadData()
-//        }
-        
-//        let tableViewWrapper = PullToBounceWrapper(scrollView: tableView)
-//
-//        view.addSubview(tableViewWrapper)
-//        
-//        tableViewWrapper.didPullToRefresh = {
-//            
-//            
-//            ParseHelper.requestForWorldFeed { (result: [PFObject]?, error: NSError?) -> Void in
-//                
-//                self.postDetails = result as? [PostDetails] ?? []
-//                print(self.postDetails)
-//                self.tableView.reloadData()
-//                tableViewWrapper.stopLoadingAnimation()
-//            }
-//            
-//        }
         
     }
     
@@ -392,11 +369,6 @@ extension WorldFeedViewController: UITableViewDataSource {
             imageView.frame = self.tableView.frame
             imageView.contentMode = UIViewContentMode.ScaleAspectFit
             
-            //let imageTappedGesture = UITapGestureRecognizer(target: self, action: Selector("placeHolderImageTapped"))
-            
-            //imageView.addGestureRecognizer(imageTappedGesture)
-            
-            
             self.tableView.backgroundView = imageView
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
             return 0
@@ -430,18 +402,6 @@ extension WorldFeedViewController: UITableViewDataSource {
         return 1
     }
     
-    //    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-    //
-    //        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
-    //
-    //
-    //        if postDetails[indexPath.section].doesUserLikePost(PFUser.currentUser()!) {
-    //
-    //            cell.likeButton.selected = true
-    //        }else{
-    //            cell.likeButton.selected = false
-    //        }
-    //    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         

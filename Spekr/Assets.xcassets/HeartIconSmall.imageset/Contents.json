@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "NotificationPlaceHolder.png",
+      "filename" : "InactiveHeartIconSmall.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "NotificationPlaceHolder@2x.png",
+      "filename" : "InactiveHeartIconSmall@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "NotificationPlaceHolder@3x.png",
+      "filename" : "InactiveHeartIconSmall@3x.png",
       "scale" : "3x"
     }
   ],
