@@ -11,6 +11,7 @@ import Parse
 import Foundation
 import Bond
 import Agrume
+import NVActivityIndicatorView
 
 class DetailCellWithImageViewController: UIViewController {
     
@@ -56,13 +57,18 @@ class DetailCellWithImageViewController: UIViewController {
             likesCounter = likesCounter! + 1
             likesCountLabel.text = "\(likesCounter!)"
             currentObject!.updateLikesCount(likesCounter!)
+            
+            if currentObject?.objectForKey("username") as? PFUser != PFUser.currentUser() {
             //Send a push notification
+            ParseHelper.updateNotificationTap(currentObject?.objectForKey("username") as! PFUser, post: currentObject!)
             ParseHelper.sendPushNotification(currentObject?.objectForKey("username") as! PFUser, toPostID: (currentObject?.objectId)!)
-
+            }
         }
         else{
             
             likeButton.selected = false
+            //Delete notification on Parse backend
+            ParseHelper.removeNotification(currentObject!)
             
             if likesCounter == 0 {
                 
@@ -154,6 +160,11 @@ class DetailCellWithImageViewController: UIViewController {
         self.postImageView.addGestureRecognizer(postImageTapGestureRecognizer)
         self.postImageView.userInteractionEnabled = true
         
+        let frameW:CGRect = CGRectMake(0, 0, postImageView.frame.width, postImageView.frame.height)
+        
+        let activityIndicatorView = NVActivityIndicatorView(frame: frameW, type: .BallClipRotate, color: UIColor(red: 204, green: 204, blue: 204))
+        activityIndicatorView.tag = 1
+        activityIndicatorView.size = CGSize(width: 60.0, height: 60.0)
         
         
 
@@ -194,19 +205,50 @@ class DetailCellWithImageViewController: UIViewController {
         
             let postImageFile = object["imageFile"] as! PFFile?
             
-            if postImageFile != nil {
+            postImageFile?.getDataInBackgroundWithBlock({ (imageData:NSData?, error:NSError?) -> Void in
                 
-                postImageFile?.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                if imageData != nil {
                     
-                    if imageData != nil {
+                    let postDisplayImage = UIImage(data: imageData!)
+                    self.postImageView.image = postDisplayImage
+                    self.postImageView.clipsToBounds = true
+                    
+                }
+
+                
+                }, progressBlock: { (progress: Int32) -> Void in
+                    
+                    if progress < 100 {
                         
-                        let postDisplayImage = UIImage(data: imageData!)
-                        self.postImageView.image = postDisplayImage
-                        self.postImageView.clipsToBounds = true
+                        self.postImageView.addSubview(activityIndicatorView)
+                        activityIndicatorView.startAnimation()
+                    }else {
                         
+                        activityIndicatorView.stopAnimation()
+                        activityIndicatorView.hidesWhenStopped = true
+                        
+                        for subview in self.postImageView.subviews {
+                            if !(subview.tag == 1) {
+                                print(subview)
+                                subview.removeFromSuperview()
+                            }
+                        }
                     }
-                })
-            }
+            })
+            
+//            if postImageFile != nil {
+//                
+//                postImageFile?.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+//                    
+//                    if imageData != nil {
+//                        
+//                        let postDisplayImage = UIImage(data: imageData!)
+//                        self.postImageView.image = postDisplayImage
+//                        self.postImageView.clipsToBounds = true
+//                        
+//                    }
+//                })
+//            }
             
             let user = object["username"] as! PFUser
             

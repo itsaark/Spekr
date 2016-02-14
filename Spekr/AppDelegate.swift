@@ -131,6 +131,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         PFPush.handlePush(userInfo)
         print("userInfo: \(userInfo)")
+        
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let navController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+//        let navController = self.window?.rootViewController as! UINavigationController
+//        navController.tabBarItem.badgeValue = "1"
+//        
+//        let tabBarController = navController.tabBarController
+//        let tabArray = tabBarController!.tabBar.items as NSArray!
+//        let tabItem = tabArray.objectAtIndex(2) as! UITabBarItem
+//        
+//        if let badgeValue = (tabItem).badgeValue {
+//            (tabItem).badgeValue = (Int(badgeValue)! + 1).description
+//        } else {
+//            (tabItem).badgeValue = "1"
+//        }
+        
         if application.applicationState == UIApplicationState.Inactive {
             PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
         }

@@ -55,16 +55,18 @@
 		DC975C791C20714F007BA980 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C781C20714F007BA980 /* Accounts.framework */; };
 		DC975C7B1C207154007BA980 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C7A1C207154007BA980 /* Social.framework */; };
 		DC975C7D1C207280007BA980 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C7C1C207280007BA980 /* ParseTwitterUtils.framework */; };
+		DCAB19541C70625300DA45E8 /* UserPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAB19531C70625300DA45E8 /* UserPostTableViewCell.swift */; };
 		DCB65A081C22860A0094E58B /* PFUserDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB65A071C22860A0094E58B /* PFUserDigits.swift */; };
 		DCC304141C57911D001C9E74 /* WorldFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC304131C57911D001C9E74 /* WorldFeedViewController.swift */; };
 		DCC8A1061C436EF1009C4846 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8A1051C436EF1009C4846 /* DateFormat.swift */; };
-		DCE302591C686A35002A5B90 /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE302581C686A35002A5B90 /* PushNotifications.swift */; };
+		DCE302591C686A35002A5B90 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE302581C686A35002A5B90 /* Notifications.swift */; };
 		DCE90A6F1C1FE0B4004A5004 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */; };
 		DCE90A701C1FE0B4004A5004 /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */; };
 		DCE90A711C1FE0B4004A5004 /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCE90A6D1C1FE0B4004A5004 /* DigitsKitResources.bundle */; };
 		DCE90A721C1FE0B4004A5004 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6E1C1FE0B4004A5004 /* TwitterCore.framework */; };
 		DCFE8E0F1C2C6278005A1100 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFE8E0E1C2C6278005A1100 /* NotificationsViewController.swift */; };
 		DCFE8E111C2C62C1005A1100 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFE8E101C2C62C1005A1100 /* SettingsViewController.swift */; };
+		DCFF0AC01C6CFBFB00E71DF6 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFF0ABF1C6CFBFB00E71DF6 /* NotificationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,16 +122,18 @@
 		DC975C781C20714F007BA980 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		DC975C7A1C207154007BA980 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		DC975C7C1C207280007BA980 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
+		DCAB19531C70625300DA45E8 /* UserPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPostTableViewCell.swift; sourceTree = "<group>"; };
 		DCB65A071C22860A0094E58B /* PFUserDigits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFUserDigits.swift; sourceTree = "<group>"; };
 		DCC304131C57911D001C9E74 /* WorldFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldFeedViewController.swift; sourceTree = "<group>"; };
 		DCC8A1051C436EF1009C4846 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
-		DCE302581C686A35002A5B90 /* PushNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
+		DCE302581C686A35002A5B90 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = SOURCE_ROOT; };
 		DCE90A6D1C1FE0B4004A5004 /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = SOURCE_ROOT; };
 		DCE90A6E1C1FE0B4004A5004 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = SOURCE_ROOT; };
 		DCFE8E0E1C2C6278005A1100 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		DCFE8E101C2C62C1005A1100 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DCFF0ABF1C6CFBFB00E71DF6 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +218,8 @@
 				DC1F39ED1C34DB3F00E6FBE0 /* EmailComposer.swift */,
 				DC2964C01C3661A300F2FEF9 /* PhotoTakingHelper.swift */,
 				DCC8A1051C436EF1009C4846 /* DateFormat.swift */,
+				DCFF0ABF1C6CFBFB00E71DF6 /* NotificationTableViewCell.swift */,
+				DCAB19531C70625300DA45E8 /* UserPostTableViewCell.swift */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -239,7 +245,6 @@
 		DC54E7941C1EF9B8001496AB /* Spekr */ = {
 			isa = PBXGroup;
 			children = (
-				DCC304151C591F6D001C9E74 /* Particles */,
 				DC61620C1C2BB77D00C484FD /* Models */,
 				DCE90A671C1FDEEB004A5004 /* Helpers */,
 				DC54E7A81C1F0E1A001496AB /* Frameworks */,
@@ -311,16 +316,9 @@
 			isa = PBXGroup;
 			children = (
 				DC2964C21C36890B00F2FEF9 /* PostDetails.swift */,
-				DCE302581C686A35002A5B90 /* PushNotifications.swift */,
+				DCE302581C686A35002A5B90 /* Notifications.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		DCC304151C591F6D001C9E74 /* Particles */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Particles;
 			sourceTree = "<group>";
 		};
 		DCE90A671C1FDEEB004A5004 /* Helpers */ = {
@@ -497,6 +495,7 @@
 			files = (
 				DC6162101C2C35DD00C484FD /* LocalFeedViewController.swift in Sources */,
 				DC65CF5E1C50C3F70045930C /* UserProfileViewController.swift in Sources */,
+				DCFF0AC01C6CFBFB00E71DF6 /* NotificationTableViewCell.swift in Sources */,
 				DC0B52AE1C60D97D00D83037 /* SweetAlert.swift in Sources */,
 				DCC304141C57911D001C9E74 /* WorldFeedViewController.swift in Sources */,
 				DC8669C11C1FEFF600692AAE /* SocialAccountViewController.swift in Sources */,
@@ -504,11 +503,12 @@
 				DC1F39EB1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift in Sources */,
 				DC2964C11C3661A300F2FEF9 /* PhotoTakingHelper.swift in Sources */,
 				DC54E7C41C1F1242001496AB /* SignInViewController.swift in Sources */,
-				DCE302591C686A35002A5B90 /* PushNotifications.swift in Sources */,
+				DCE302591C686A35002A5B90 /* Notifications.swift in Sources */,
 				DC6162051C2BA99800C484FD /* AccountViewController.swift in Sources */,
 				DCB65A081C22860A0094E58B /* PFUserDigits.swift in Sources */,
 				DC46D2F41C3193E4008BBE48 /* ComposeViewController.swift in Sources */,
 				DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */,
+				DCAB19541C70625300DA45E8 /* UserPostTableViewCell.swift in Sources */,
 				DC52D1981C3D6099003AC3F8 /* DetailCellWithImageViewController.swift in Sources */,
 				DC746E411C6712B60017DBF1 /* TermsOfServiceViewController.swift in Sources */,
 				DC6162091C2BAE6700C484FD /* ParseHelper.swift in Sources */,

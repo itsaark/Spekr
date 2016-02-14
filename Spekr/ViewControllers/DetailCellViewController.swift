@@ -53,11 +53,19 @@ class DetailCellViewController: UIViewController {
             likesCounter = likesCounter! + 1
             likesCountLabel.text = "\(likesCounter!)"
             currentObject!.updateLikesCount(likesCounter!)
-            ParseHelper.sendPushNotification(currentObject?.objectForKey("username") as! PFUser, toPostID: (currentObject?.objectId)!)
+            
+            if currentObject?.objectForKey("username") as? PFUser != PFUser.currentUser() {
+                //Send a push notification
+                ParseHelper.updateNotificationTap(currentObject?.objectForKey("username") as! PFUser, post: currentObject!)
+                ParseHelper.sendPushNotification(currentObject?.objectForKey("username") as! PFUser, toPostID: (currentObject?.objectId)!)
+            }
         }
         else{
             
             likeButton.selected = false
+            
+            //Delete notification on Parse backend
+            ParseHelper.removeNotification(currentObject!)
             
             if likesCounter == 0 {
                 

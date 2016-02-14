@@ -21,6 +21,7 @@ class ParseHelper {
     static let ParsePostCreatedAt     = "createdAt"
     static let ParsePostDetailsClass  = "PostDetails"
     static let ParsePostLikesCount    = "likesCount"
+    static let ParsePostObjectId      = "objectId"
     
     // Flagged Content Relation
     static let ParseFlaggedContentClass    = "FlaggedContent"
@@ -29,6 +30,13 @@ class ParseHelper {
     
     // User Relation
     static let ParseUserUsername      = "username"
+    
+    // Notification Relation
+    static let ParseNotificationToUser         = "toUser"
+    static let ParseNotificationCreatedAt      = "createdAt"
+    static let ParseNotificationClass          = "Notifications"
+    static let ParseNotificationFromUser       = "fromUser"
+    static let ParseNotificationToPost         = "toPost"
 
     
 
@@ -141,6 +149,69 @@ class ParseHelper {
                 for flags in result {
                     
                     flags.deleteInBackgroundWithBlock(nil)
+                }
+            }
+        }
+    }
+    
+    static func updateNotificationTap(toUser: PFUser, post: PostDetails){
+        
+        let notificationObject = PFObject(className: ParseNotificationClass)
+        notificationObject[ParseNotificationFromUser] = PFUser.currentUser()
+        notificationObject[ParseNotificationToUser] = toUser
+        notificationObject[ParseNotificationToPost] = post
+        
+        notificationObject.saveInBackgroundWithBlock(nil)
+    }
+    
+    static func removeNotification(post: PostDetails){
+        
+        let query = PFQuery(className: ParseNotificationClass)
+        query.whereKey(ParseNotificationFromUser, equalTo: PFUser.currentUser()!)
+        query.whereKey(ParseNotificationToPost, equalTo: post)
+        
+        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
+            
+            if let result = results {
+                
+                for notificationObject in result {
+                    
+                    notificationObject.deleteInBackgroundWithBlock(nil)
+                }
+            }
+        }
+        
+    }
+    
+    static func loadNotificationsForCurrentUser(completionBlock: PFQueryArrayResultBlock){
+        
+        let query = PFQuery(className: ParseNotificationClass)
+        query.whereKey(ParseNotificationToUser, equalTo: PFUser.currentUser()!)
+        query.orderByDescending(ParsePostCreatedAt)
+        query.cachePolicy = .CacheThenNetwork
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
+    static func loadCurrentUserPosts(completionBlock: PFQueryArrayResultBlock){
+        
+        let query = PFQuery(className: ParsePostDetailsClass)
+        query.whereKey(ParsePostUser, equalTo: PFUser.currentUser()!)
+        query.orderByDescending(ParsePostCreatedAt)
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
+    static func deleteUserPost(postObjectID: String, completionBlock:PFBooleanResultBlock){
+        
+        let query = PFQuery(className: ParsePostDetailsClass)
+        query.whereKey(ParsePostObjectId, equalTo: postObjectID)
+        
+        query.findObjectsInBackgroundWithBlock { (result: [PFObject]?, error: NSError?) -> Void in
+            
+            if let result = result {
+                
+                for postObject in result{
+                    
+                    postObject.deleteInBackgroundWithBlock(completionBlock)
                 }
             }
         }
