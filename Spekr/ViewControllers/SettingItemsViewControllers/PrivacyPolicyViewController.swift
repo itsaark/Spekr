@@ -10,8 +10,12 @@ import UIKit
 
 class PrivacyPolicyViewController: UIViewController {
 
+    @IBOutlet weak var privacyPolicy: UILabel!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }
@@ -23,7 +27,7 @@ class PrivacyPolicyViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
-        self.title = "Privacy & Location"
+        self.title = "Location & Privacy"
     }
     
 

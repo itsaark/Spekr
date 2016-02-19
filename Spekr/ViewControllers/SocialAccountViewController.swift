@@ -40,6 +40,15 @@ class SocialAccountViewController: UIViewController {
         performSegueWithIdentifier(Identifier, sender: self)
     }
     
+    func loadTabBarViewController() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+        
+        self.presentViewController(tabBarController, animated: true, completion: nil)
+        
+    }
+    
     // Updating twitter user data to Parse database
     func twitterUserDataToParse(){
         
@@ -133,7 +142,8 @@ class SocialAccountViewController: UIViewController {
                 if PFTwitterUtils.isLinkedWithUser(user) {
                     print("Woohoo, user logged in with Twitter!")
                     self.twitterUserDataToParse()
-                    self.navigateToNewViewController("JumpFromLinkToLocalFeed")
+                    //self.navigateToNewViewController("JumpFromLinkToLocalFeed")
+                    self.loadTabBarViewController()
                     
                     }
                 } else {
@@ -252,7 +262,8 @@ class SocialAccountViewController: UIViewController {
                     print("Woohoo, the user is linked with Facebook!")
                     
                     self.fbUserDataToParse()
-                    self.navigateToNewViewController("JumpFromLinkToLocalFeed")
+                    //self.navigateToNewViewController("JumpFromLinkToLocalFeed")
+                    self.loadTabBarViewController()
                 }
                 } else {
                     

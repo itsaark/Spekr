@@ -117,6 +117,11 @@ class DetailCellViewController: UIViewController {
         print("imageTapped")
     }
     
+    func dismissVC() {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "JumpToUserProfileVC" {
@@ -219,8 +224,10 @@ class DetailCellViewController: UIViewController {
         //setting view controller's title
         self.title = "Post"
         
-        //Makes toolbar appear
-        self.navigationController?.toolbarHidden = false
+//        let backItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: Selector("dismissVC"))
+//        self.navigationItem.rightBarButtonItem = backItem // This will show in the next view controller being pushed
+        
+
         
         if currentObject?.likes.value?.count == nil || (currentObject?.likes.value?.count)! == 0 {
             

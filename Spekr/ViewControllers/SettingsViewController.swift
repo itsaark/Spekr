@@ -41,7 +41,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, MFMailCompo
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let backItem = UIBarButtonItem()
         backItem.title = ""
-        self.tabBarController?.navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        self.navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
     }
 
     
@@ -63,7 +63,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, MFMailCompo
         
         //Setting View controller's navigation item properties
         
-        self.tabBarController?.navigationItem.title = "Settings"
+        self.navigationItem.title = "Settings"
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
     }
     
@@ -166,11 +166,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, MFMailCompo
                         nil {
                      
                         Digits.sharedInstance().logOut()
+
                     }
                 })
                 
                 //Segue to sing in view controller
-                self.performSegueWithIdentifier("JumpToSignInVC", sender: self)
+                //self.performSegueWithIdentifier("JumpToSignInVC", sender: self)
+                self.dismissViewControllerAnimated(true, completion: nil)
+                
                 
                 
             }))

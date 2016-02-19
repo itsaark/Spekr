@@ -110,7 +110,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>SignIn</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -121,9 +121,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-    <key>aps-environment</key>
-    <string>development</string>
-    <key>get-task-allow</key>
-    <true/>
+	<key>aps-environment</key>
+	<string>development</string>
+	<key>get-task-allow</key>
+	<true/>
 </dict>
 </plist>

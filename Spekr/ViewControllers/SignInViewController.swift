@@ -40,6 +40,15 @@ class SignInViewController: UIViewController {
     private func navigateToNewViewController(Identifier: String) {
         performSegueWithIdentifier(Identifier, sender: self)
     }
+    
+    func loadTabBarViewController() {
+    
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+        
+        self.presentViewController(tabBarController, animated: true, completion: nil)
+    
+    }
 
     
     //Sign in with Phone Number button tapped
@@ -55,7 +64,8 @@ class SignInViewController: UIViewController {
                 if user.isLinkedWithAuthType("facebook") || user.isLinkedWithAuthType("twitter") {
                     
                     //TODO: Change the string in this func to "JumpFromSignInToLocalFeed" when isNew property is added.
-                    self.navigateToNewViewController("JumpFromSignInToLocalFeed")
+                    //self.navigateToNewViewController("JumpFromSignInToLocalFeed")
+                    self.loadTabBarViewController()
 
                     
                 }else {
@@ -202,7 +212,9 @@ class SignInViewController: UIViewController {
                 
                 
                         //Performing a segue to Local Feed Screen
-                        self.navigateToNewViewController("JumpFromSignInToLocalFeed")
+                        //self.navigateToNewViewController("JumpFromSignInToLocalFeed")
+                        self.loadTabBarViewController()
+                    
                     
                 
                 
@@ -324,7 +336,9 @@ class SignInViewController: UIViewController {
                     }
                     
                     //Performing a segue to Local Feed Screen
-                    self.navigateToNewViewController("JumpFromSignInToLocalFeed")
+                    //self.navigateToNewViewController("JumpFromSignInToLocalFeed")
+                    self.loadTabBarViewController()
+
                     
                 } else {
                     print("Uh oh. The user cancelled the Facebook login.")

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rCv-gt-l4k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -8,257 +8,6 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Sign In View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="SignInViewController" id="BYZ-38-t0r" customClass="SignInViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpekrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iwB-ab-ghp">
-                                <rect key="frame" x="110" y="45" width="101" height="101"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="101" id="Jz2-S8-AX7"/>
-                                    <constraint firstAttribute="height" constant="101" id="aEg-Qi-dIC"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPX-Ga-R9E">
-                                <rect key="frame" x="56" y="166" width="209" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="2fx-3m-0FH"/>
-                                    <constraint firstAttribute="width" constant="209" id="eqt-TS-Fdi"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
-                                <state key="normal" title="SIGN IN WITH PHONE NUMBER">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapPhoneSignInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OEg-Zf-cl7"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OrLine" translatesAutoresizingMaskIntoConstraints="NO" id="teO-hG-fkv">
-                                <rect key="frame" x="50" y="220" width="221" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="od5-bP-pSU"/>
-                                    <constraint firstAttribute="width" constant="221" id="vRN-jK-QfQ"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in with social account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEP-Ke-75p">
-                                <rect key="frame" x="86" y="278" width="149" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="149" id="Z6j-cy-8r4"/>
-                                    <constraint firstAttribute="height" constant="15" id="o1j-CB-IZq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8T-uL-PtJ">
-                                <rect key="frame" x="50" y="308" width="220" height="43"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPZ-EE-R08">
-                                        <rect key="frame" x="0.0" y="0.0" width="110" height="43"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="0cH-Zu-9MP"/>
-                                            <constraint firstAttribute="width" constant="110" id="4oK-gl-WRG"/>
-                                            <constraint firstAttribute="width" constant="110" id="ATs-yG-TiS"/>
-                                            <constraint firstAttribute="height" constant="48" id="Vfl-jJ-QHq"/>
-                                            <constraint firstAttribute="height" constant="48" id="YVM-Y3-ehG"/>
-                                            <constraint firstAttribute="width" constant="110" id="eA9-em-YO1"/>
-                                            <constraint firstAttribute="height" constant="48" id="faX-1b-aa5"/>
-                                            <constraint firstAttribute="width" constant="110" id="k7g-aS-TOJ"/>
-                                        </constraints>
-                                        <state key="normal" image="TwitterSignInButton"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="0cH-Zu-9MP"/>
-                                                <exclude reference="4oK-gl-WRG"/>
-                                                <exclude reference="ATs-yG-TiS"/>
-                                                <exclude reference="Vfl-jJ-QHq"/>
-                                                <exclude reference="YVM-Y3-ehG"/>
-                                                <exclude reference="eA9-em-YO1"/>
-                                                <exclude reference="faX-1b-aa5"/>
-                                                <exclude reference="k7g-aS-TOJ"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <action selector="signInTwitter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j0w-bp-LUS"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGT-LC-oqM">
-                                        <rect key="frame" x="110" y="0.0" width="110" height="43"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="110" id="1Le-w1-Jmi"/>
-                                            <constraint firstAttribute="height" constant="48" id="3dB-za-Eot"/>
-                                            <constraint firstAttribute="height" constant="48" id="6d2-XJ-AqB"/>
-                                            <constraint firstAttribute="width" constant="110" id="ZCB-ej-1Lv"/>
-                                            <constraint firstAttribute="width" constant="110" id="fms-df-hwP"/>
-                                            <constraint firstAttribute="height" constant="48" id="pTb-TL-gi0"/>
-                                        </constraints>
-                                        <state key="normal" image="FB SignInButton"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="1Le-w1-Jmi"/>
-                                                <exclude reference="3dB-za-Eot"/>
-                                                <exclude reference="6d2-XJ-AqB"/>
-                                                <exclude reference="ZCB-ej-1Lv"/>
-                                                <exclude reference="fms-df-hwP"/>
-                                                <exclude reference="pTb-TL-gi0"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <action selector="signInFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0KQ-n0-Un4"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By continuing, you agree to our Terms of Service and Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="oLf-uJ-voh">
-                                <rect key="frame" x="15" y="415" width="295" height="11.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="oLf-uJ-voh" secondAttribute="height" multiplier="101:4" id="RY1-Vq-KbS"/>
-                                    <constraint firstAttribute="width" constant="333" id="b5K-AE-aaR"/>
-                                    <constraint firstAttribute="height" constant="13" id="ek0-XQ-Hsz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="b5K-AE-aaR"/>
-                                        <exclude reference="ek0-XQ-Hsz"/>
-                                    </mask>
-                                </variation>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.40392156862745099" green="0.29019607843137252" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="lEP-Ke-75p" firstAttribute="top" secondItem="teO-hG-fkv" secondAttribute="bottom" constant="25" id="4Bj-RC-F9w"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="oLf-uJ-voh" secondAttribute="trailing" constant="5" id="4Cm-7S-LzY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="oLf-uJ-voh" secondAttribute="trailing" constant="-12" id="70d-UX-JZY"/>
-                            <constraint firstItem="MPX-Ga-R9E" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iwB-ab-ghp" secondAttribute="bottom" constant="20" id="7NQ-VZ-bOO"/>
-                            <constraint firstItem="oLf-uJ-voh" firstAttribute="top" secondItem="l8T-uL-PtJ" secondAttribute="bottom" constant="19" id="8PW-d9-zUP"/>
-                            <constraint firstItem="oLf-uJ-voh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-1" id="BB1-A3-N0h"/>
-                            <constraint firstItem="teO-hG-fkv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DIA-ec-Owi"/>
-                            <constraint firstItem="oLf-uJ-voh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DQB-VL-Qy4"/>
-                            <constraint firstItem="MPX-Ga-R9E" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dc5-Qk-UgK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="oLf-uJ-voh" secondAttribute="trailing" constant="-6" id="Ec7-gh-gjI"/>
-                            <constraint firstItem="oLf-uJ-voh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="7" id="I8K-Ef-Oob"/>
-                            <constraint firstItem="l8T-uL-PtJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mbj-nN-PQs"/>
-                            <constraint firstItem="oLf-uJ-voh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-11" id="Nzd-Th-zqz"/>
-                            <constraint firstItem="iwB-ab-ghp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="45" id="T0E-og-9dD"/>
-                            <constraint firstAttribute="bottom" secondItem="iwB-ab-ghp" secondAttribute="bottom" constant="367" id="TKU-f2-CF0"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oLf-uJ-voh" secondAttribute="bottom" constant="28" id="UO9-QV-VfH"/>
-                            <constraint firstItem="oLf-uJ-voh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dPT-F9-Wdn"/>
-                            <constraint firstItem="teO-hG-fkv" firstAttribute="top" secondItem="MPX-Ga-R9E" secondAttribute="bottom" constant="25" id="egJ-Ma-ovh"/>
-                            <constraint firstItem="MPX-Ga-R9E" firstAttribute="top" secondItem="iwB-ab-ghp" secondAttribute="bottom" constant="73" id="h4D-EN-0jh"/>
-                            <constraint firstItem="lEP-Ke-75p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jBH-Ie-2Pf"/>
-                            <constraint firstItem="oLf-uJ-voh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kXd-co-UCT"/>
-                            <constraint firstItem="oLf-uJ-voh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="kgf-Ms-HyI"/>
-                            <constraint firstItem="oLf-uJ-voh" firstAttribute="top" secondItem="l8T-uL-PtJ" secondAttribute="bottom" constant="64" id="oxD-21-prG"/>
-                            <constraint firstItem="l8T-uL-PtJ" firstAttribute="top" secondItem="lEP-Ke-75p" secondAttribute="bottom" constant="15" id="r7c-rS-iPj"/>
-                            <constraint firstItem="iwB-ab-ghp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sBU-rf-6kw"/>
-                            <constraint firstAttribute="trailing" secondItem="oLf-uJ-voh" secondAttribute="trailing" constant="7" id="vRb-wi-vZ1"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="TKU-f2-CF0"/>
-                                <exclude reference="h4D-EN-0jh"/>
-                                <exclude reference="4Cm-7S-LzY"/>
-                                <exclude reference="70d-UX-JZY"/>
-                                <exclude reference="8PW-d9-zUP"/>
-                                <exclude reference="DQB-VL-Qy4"/>
-                                <exclude reference="I8K-Ef-Oob"/>
-                                <exclude reference="Nzd-Th-zqz"/>
-                                <exclude reference="dPT-F9-Wdn"/>
-                                <exclude reference="kXd-co-UCT"/>
-                                <exclude reference="kgf-Ms-HyI"/>
-                                <exclude reference="vRb-wi-vZ1"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" id="RLm-CF-Ge5"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <segue destination="gxg-Og-xS9" kind="show" identifier="JumpFromPhoneSignInToLinkAccount" id="MdY-EL-EwC"/>
-                        <segue destination="rCv-gt-l4k" kind="show" identifier="JumpFromSignInToLocalFeed" id="V4B-U7-B5o"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1619" y="349"/>
-        </scene>
-        <!--Social Account View Controller-->
-        <scene sceneID="taS-8U-pYp">
-            <objects>
-                <viewController storyboardIdentifier="SocialAccountViewController" id="gxg-Og-xS9" customClass="SocialAccountViewController" customModule="Spekr" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aIf-8a-T2u"/>
-                        <viewControllerLayoutGuide type="bottom" id="cXm-o3-K6S"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gtY-2P-UJU">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Fpt-eI-XBg">
-                                <rect key="frame" x="6" y="28" width="308" height="36"/>
-                                <string key="text">Link your social account, so people around 
-you can get in touch.</string>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxS-Oz-YJL">
-                                <rect key="frame" x="50" y="140" width="220" height="48"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IiT-9B-Hid">
-                                        <rect key="frame" x="0.0" y="0.0" width="110" height="48"/>
-                                        <state key="normal" image="TwitterSignInButton"/>
-                                        <connections>
-                                            <action selector="linkTwitter:" destination="gxg-Og-xS9" eventType="touchUpInside" id="Jy6-gw-P6s"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em5-A4-QJv">
-                                        <rect key="frame" x="110" y="0.0" width="110" height="48"/>
-                                        <state key="normal" image="FB SignInButton"/>
-                                        <connections>
-                                            <action selector="linkFacebook:" destination="gxg-Og-xS9" eventType="touchUpInside" id="eEm-pF-nnp"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.40392156862745099" green="0.29019607843137252" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="Fpt-eI-XBg" firstAttribute="top" secondItem="aIf-8a-T2u" secondAttribute="bottom" constant="28" id="I0b-Rc-HaF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Fpt-eI-XBg" secondAttribute="trailing" constant="-10" id="KjU-iE-j8T"/>
-                            <constraint firstItem="Fpt-eI-XBg" firstAttribute="leading" secondItem="gtY-2P-UJU" secondAttribute="leadingMargin" constant="-14" id="Nsb-cM-3mm"/>
-                            <constraint firstItem="Fpt-eI-XBg" firstAttribute="leading" secondItem="gtY-2P-UJU" secondAttribute="leadingMargin" constant="-10" id="SVo-UE-Mcc"/>
-                            <constraint firstItem="Fpt-eI-XBg" firstAttribute="centerX" secondItem="gtY-2P-UJU" secondAttribute="centerX" id="W5G-Yh-ja2"/>
-                            <constraint firstItem="WxS-Oz-YJL" firstAttribute="centerX" secondItem="gtY-2P-UJU" secondAttribute="centerX" id="emw-uu-wOl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Fpt-eI-XBg" secondAttribute="trailing" constant="-14" id="iZb-mY-V1B"/>
-                            <constraint firstItem="WxS-Oz-YJL" firstAttribute="top" secondItem="Fpt-eI-XBg" secondAttribute="bottom" constant="76" id="tH3-mS-GZt"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Nsb-cM-3mm"/>
-                                <exclude reference="iZb-mY-V1B"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <segue destination="rCv-gt-l4k" kind="show" identifier="JumpFromLinkToLocalFeed" id="QNy-2O-c1d"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XBJ-le-DcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2097" y="-67"/>
-        </scene>
         <!--Notifications-->
         <scene sceneID="QJw-uV-H5E">
             <objects>
@@ -268,7 +17,7 @@ you can get in touch.</string>
                         <viewControllerLayoutGuide type="bottom" id="gqs-qz-KMr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jwi-hK-Eq1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hd4-OR-Kqh">
@@ -435,9 +184,7 @@ you can get in touch.</string>
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="BellIcon" id="gTe-ON-waM">
-                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="7Hg-ei-vFY"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="hd4-OR-Kqh" id="Mih-cD-NkH"/>
@@ -445,7 +192,7 @@ you can get in touch.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oh0-g7-kfJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2103" y="1335.75"/>
+            <point key="canvasLocation" x="2901" y="1335.75"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Eob-lJ-49u">
@@ -456,22 +203,22 @@ you can get in touch.</string>
                         <viewControllerLayoutGuide type="bottom" id="G9i-0F-Pr1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JTt-Om-N33">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="©2016 Spekr, Inc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuY-PN-FFu">
-                                <rect key="frame" x="105" y="464" width="110.5" height="17"/>
+                                <rect key="frame" x="105" y="400" width="110.5" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="0.60784316062927246" green="0.60784316062927246" blue="0.60784316062927246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Version 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOl-ud-lPC">
-                                <rect key="frame" x="131" y="484" width="58" height="14.5"/>
+                                <rect key="frame" x="131" y="420" width="58" height="14.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.60784316062927246" green="0.60784316062927246" blue="0.60784316062927246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bRe-zk-e6L">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bRe-zk-e6L">
                                 <rect key="frame" x="-4" y="35" width="328" height="262"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -501,7 +248,7 @@ you can get in touch.</string>
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpekrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="8vg-Cv-lbA">
-                                <rect key="frame" x="120" y="372" width="80" height="80"/>
+                                <rect key="frame" x="120" y="308" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="0CL-AY-phE"/>
                                     <constraint firstAttribute="width" constant="80" id="2DI-5D-HcN"/>
@@ -547,13 +294,10 @@ you can get in touch.</string>
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="SettingsIcon" id="ZaX-hQ-Uc4">
-                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="gBv-Vm-1Oy"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="settingsTableView" destination="bRe-zk-e6L" id="YLS-62-vsG"/>
-                        <segue destination="CUU-Sm-2h5" kind="show" identifier="JumpToSignInVC" id="ZpB-fF-GHi"/>
                         <segue destination="7Ue-oi-EVZ" kind="push" identifier="JumpToAboutVC" id="Ndb-EJ-Tf4"/>
                         <segue destination="ShN-Ex-HJu" kind="push" identifier="JumpToPrivacyPolicyVC" id="Ncc-ET-VgC"/>
                         <segue destination="ycy-qj-lyN" kind="show" identifier="JumpToAccountVC" id="52p-62-GEq"/>
@@ -562,7 +306,7 @@ you can get in touch.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yr2-cO-DFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2974" y="-546"/>
+            <point key="canvasLocation" x="3771" y="-546"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="bap-Ti-eT7">
@@ -573,21 +317,27 @@ you can get in touch.</string>
                         <viewControllerLayoutGuide type="bottom" id="eqF-vV-ywP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Rf7-fU-qIa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AboutPageTopImage" translatesAutoresizingMaskIntoConstraints="NO" id="rxe-JC-Zgx">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="4" y="4" width="308" height="155"/>
+                                </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The World Around You" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="aZm-EL-V8C">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0078431377187371254" green="0.81568628549575806" blue="0.30588236451148987" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="59" y="164" width="201" height="24"/>
+                                </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="22" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="TbS-92-Zqb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="TbS-92-Zqb">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <string key="text">Most of us have very little scope to connect with people around our community. One has to rely on friends/followers to spread information. Our social reach is limited.
+                                <string key="text">Most of us have very little scope to keep up with latest happenings and people around a locality. Our social reach is limited.
 
 We became fascinated by the idea of genuinely discovering people, happenings &amp; content around a location.
 
@@ -595,12 +345,18 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="10" y="196" width="306" height="219"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spekr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mig-7D-8me">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="25"/>
                                 <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="126" y="445" width="67.5" height="0.0"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333730697632" green="0.93333333730697632" blue="0.94901961088180542" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -698,12 +454,183 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                         <viewControllerLayoutGuide type="bottom" id="HUo-31-Tsd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0Rj-Eu-318">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcl-Kl-VHt">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7l-OS-I8c">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efr-b4-kGh">
+                                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="95" id="WcM-5s-Cem">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="1"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <mutableString key="text">Spekr is designed to help you share content publicly within your locality (100-mile radius) and eventually all around the world.
+
+When you post something on Spker, it is public by default. This only includes your post content(like text and images). Your location will never be explicitly made public to other users on Spekr. Your associated information related to a post and itself will remain public for 24 hours or until you delete it.
+
+Any information that you or other users provide to Spekr is subject to our Privacy Policy, which governs our collection and use of your information. You understand that through your use of the Services you consent to the collection and use (as set forth in the Privacy Policy) of this information, including the transfer of this information to the United States, Ireland, and/or other countries for storage, processing and use by Spekr. As part of providing you the Services, we may need to provide you with certain communications, such as service announcements and administrative messages. These communications are considered part of the Services and your account, which you may not be able to opt-out from receiving.
+
+Your profile information on Spekr is publicly available and includes your name, profile picture, Facebook/Twitter profile link and the number of hearts you have received for each post.
+
+We use and store information about your location to provide features of our Services, such as loading feed within a 100-mile radius from your location, and to improve and customize the Services. We may infer your location based on information from your device. </mutableString>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="WcM-5s-Cem"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="8" y="169" width="304" height="42"/>
+                                                    <mask key="constraints">
+                                                        <exclude reference="WcM-5s-Cem"/>
+                                                    </mask>
+                                                </variation>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrivacyAndLocation" translatesAutoresizingMaskIntoConstraints="NO" id="oyU-4c-TjE">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="d4k-10-rx5"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="d4k-10-rx5"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="8" y="33" width="304" height="128"/>
+                                                    <mask key="constraints">
+                                                        <include reference="d4k-10-rx5"/>
+                                                    </mask>
+                                                </variation>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="efr-b4-kGh" firstAttribute="top" secondItem="oyU-4c-TjE" secondAttribute="bottom" constant="8" id="8Ze-tK-sgW"/>
+                                            <constraint firstItem="efr-b4-kGh" firstAttribute="top" secondItem="n7l-OS-I8c" secondAttribute="top" constant="8" id="HKY-hd-quL"/>
+                                            <constraint firstItem="efr-b4-kGh" firstAttribute="leading" secondItem="n7l-OS-I8c" secondAttribute="leading" constant="8" id="SVa-Da-crf"/>
+                                            <constraint firstAttribute="trailing" secondItem="efr-b4-kGh" secondAttribute="trailing" constant="8" id="iNT-kN-45h"/>
+                                            <constraint firstItem="oyU-4c-TjE" firstAttribute="centerX" secondItem="n7l-OS-I8c" secondAttribute="centerX" id="jQq-sC-Pi1"/>
+                                            <constraint firstItem="oyU-4c-TjE" firstAttribute="top" secondItem="n7l-OS-I8c" secondAttribute="top" constant="6" id="kxv-JD-sRr"/>
+                                            <constraint firstAttribute="bottom" secondItem="efr-b4-kGh" secondAttribute="bottom" constant="8" id="wdn-eD-1hb"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="efr-b4-kGh"/>
+                                                <exclude reference="oyU-4c-TjE"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <exclude reference="jQq-sC-Pi1"/>
+                                                <exclude reference="kxv-JD-sRr"/>
+                                                <exclude reference="8Ze-tK-sgW"/>
+                                                <exclude reference="HKY-hd-quL"/>
+                                                <exclude reference="SVa-Da-crf"/>
+                                                <exclude reference="iNT-kN-45h"/>
+                                                <exclude reference="wdn-eD-1hb"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="subviews">
+                                                <include reference="efr-b4-kGh"/>
+                                                <include reference="oyU-4c-TjE"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <include reference="jQq-sC-Pi1"/>
+                                                <include reference="kxv-JD-sRr"/>
+                                                <include reference="8Ze-tK-sgW"/>
+                                                <exclude reference="HKY-hd-quL"/>
+                                                <include reference="SVa-Da-crf"/>
+                                                <include reference="iNT-kN-45h"/>
+                                                <include reference="wdn-eD-1hb"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="n7l-OS-I8c" firstAttribute="width" secondItem="Hcl-Kl-VHt" secondAttribute="width" id="9ng-2u-L5D"/>
+                                    <constraint firstItem="n7l-OS-I8c" firstAttribute="top" secondItem="Hcl-Kl-VHt" secondAttribute="top" id="HSx-av-NIn"/>
+                                    <constraint firstItem="n7l-OS-I8c" firstAttribute="leading" secondItem="Hcl-Kl-VHt" secondAttribute="leading" id="X19-3t-nkB"/>
+                                    <constraint firstAttribute="trailing" secondItem="n7l-OS-I8c" secondAttribute="trailing" id="kFf-bl-Y8q"/>
+                                    <constraint firstItem="n7l-OS-I8c" firstAttribute="height" secondItem="Hcl-Kl-VHt" secondAttribute="height" placeholder="YES" id="lEf-g6-b61"/>
+                                    <constraint firstAttribute="bottom" secondItem="n7l-OS-I8c" secondAttribute="bottom" id="z9o-rb-CYR"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="n7l-OS-I8c"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="9ng-2u-L5D"/>
+                                        <exclude reference="HSx-av-NIn"/>
+                                        <exclude reference="X19-3t-nkB"/>
+                                        <exclude reference="kFf-bl-Y8q"/>
+                                        <exclude reference="lEf-g6-b61"/>
+                                        <exclude reference="z9o-rb-CYR"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="n7l-OS-I8c"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="9ng-2u-L5D"/>
+                                        <include reference="HSx-av-NIn"/>
+                                        <include reference="X19-3t-nkB"/>
+                                        <include reference="kFf-bl-Y8q"/>
+                                        <include reference="lEf-g6-b61"/>
+                                        <include reference="z9o-rb-CYR"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hcl-Kl-VHt" firstAttribute="leading" secondItem="0Rj-Eu-318" secondAttribute="leading" id="06C-uo-nGz"/>
+                            <constraint firstAttribute="trailing" secondItem="Hcl-Kl-VHt" secondAttribute="trailing" id="7u2-2G-ctz"/>
+                            <constraint firstItem="Hcl-Kl-VHt" firstAttribute="top" secondItem="nlS-Kq-0f5" secondAttribute="bottom" id="9ml-P4-4gk"/>
+                            <constraint firstItem="HUo-31-Tsd" firstAttribute="top" secondItem="Hcl-Kl-VHt" secondAttribute="bottom" id="Kpj-S5-LzD"/>
+                            <constraint firstItem="Hcl-Kl-VHt" firstAttribute="top" secondItem="nlS-Kq-0f5" secondAttribute="bottom" id="c1t-rR-IYs"/>
+                            <constraint firstItem="HUo-31-Tsd" firstAttribute="top" secondItem="Hcl-Kl-VHt" secondAttribute="bottom" id="xiW-TK-ley"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Hcl-Kl-VHt"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="06C-uo-nGz"/>
+                                <exclude reference="7u2-2G-ctz"/>
+                                <exclude reference="9ml-P4-4gk"/>
+                                <exclude reference="c1t-rR-IYs"/>
+                                <exclude reference="Kpj-S5-LzD"/>
+                                <exclude reference="xiW-TK-ley"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Hcl-Kl-VHt"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="06C-uo-nGz"/>
+                                <include reference="7u2-2G-ctz"/>
+                                <include reference="9ml-P4-4gk"/>
+                                <exclude reference="c1t-rR-IYs"/>
+                                <include reference="Kpj-S5-LzD"/>
+                                <exclude reference="xiW-TK-ley"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="p1r-r8-jGy"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="privacyPolicy" destination="efr-b4-kGh" id="dDg-K2-ASg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJg-Tu-qNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -718,17 +645,17 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                         <viewControllerLayoutGuide type="bottom" id="JbT-3f-OQH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZDv-7x-N7J">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-Wy-OdX">
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-Wy-OdX">
                                 <rect key="frame" x="14" y="40" width="292" height="31"/>
                                 <color key="tintColor" red="0.29019609093666077" green="0.92941176891326904" blue="0.55686277151107788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="sliderMoved:" destination="ccy-3x-Qsy" eventType="valueChanged" id="cCR-B8-9Qh"/>
                                 </connections>
                             </slider>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fDj-Su-goR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fDj-Su-goR">
                                 <rect key="frame" x="15" y="85" width="290" height="459"/>
                                 <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -801,19 +728,19 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                     <outlet property="delegate" destination="ccy-3x-Qsy" id="V3L-E3-EDZ"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nearest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqx-Kn-31G">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Nearest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqx-Kn-31G">
                                 <rect key="frame" x="8" y="70" width="41" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farthest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buH-fR-KdU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Farthest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buH-fR-KdU">
                                 <rect key="frame" x="269" y="70" width="43" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move the slider to load feed " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64z-on-g7B">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Move the slider to load feed " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64z-on-g7B">
                                 <rect key="frame" x="102" y="74" width="115" height="10.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
                                 <color key="textColor" red="0.60784316062927246" green="0.60784316062927246" blue="0.60784316062927246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -838,9 +765,6 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                             <constraint firstItem="fDj-Su-goR" firstAttribute="top" secondItem="7kc-Wy-OdX" secondAttribute="bottom" constant="15" id="y3V-80-8tu"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="LocalIcon" id="lE8-sd-uow">
-                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
-                    </tabBarItem>
                     <navigationItem key="navigationItem" id="LJY-HL-Lds"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -848,13 +772,13 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                         <outlet property="moveSliderLabel" destination="64z-on-g7B" id="fz3-2e-gC9"/>
                         <outlet property="tableView" destination="fDj-Su-goR" id="Zn2-Sf-C7g"/>
                         <segue destination="Xuk-DL-n3N" kind="show" identifier="JumpToComposeVC" id="57k-DQ-ywc"/>
-                        <segue destination="0iH-Ad-jhH" kind="show" identifier="JumpToDetailCellWithImageVC" id="l0d-8e-aft"/>
-                        <segue destination="jiZ-v0-cde" kind="show" identifier="JumpToDetailCellVC" id="7Lv-Tz-hWK"/>
+                        <segue destination="0iH-Ad-jhH" kind="show" identifier="JumpToDetailCellWithImageVC" id="yID-nI-PNu"/>
+                        <segue destination="jiZ-v0-cde" kind="show" identifier="JumpToDetailCellVC" id="5CR-RX-prl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6B-Pl-J24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3010.5" y="414.75"/>
+            <point key="canvasLocation" x="3808.5" y="414.75"/>
         </scene>
         <!--Detail Cell With Image View Controller-->
         <scene sceneID="vVn-Re-7MS">
@@ -865,10 +789,10 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                         <viewControllerLayoutGuide type="bottom" id="vay-I6-CTn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JDq-Fs-Ojq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kl3-SR-2WO" userLabel="CellView">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kl3-SR-2WO" userLabel="CellView">
                                 <rect key="frame" x="0.0" y="45" width="320" height="363.5"/>
                                 <subviews>
                                     <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2tE-7W-pHq">
@@ -887,7 +811,7 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Jcb-dS-Rna">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Jcb-dS-Rna">
                                         <rect key="frame" x="82" y="38" width="230" height="0.0"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
                                         <color key="textColor" red="0.25098040699958801" green="0.17647059261798859" blue="0.38431373238563538" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -911,24 +835,18 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xze-Qw-aWm">
-                                        <rect key="frame" x="14" y="331.5" width="0.0" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="X6n-UL-DnX"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                        <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-Qo-C7i" userLabel="LikeButton">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-Qo-C7i" userLabel="LikeButton">
                                         <rect key="frame" x="244" y="330" width="26" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="2Fg-Qo-C7i" secondAttribute="height" multiplier="9:8" id="Mup-oi-uho"/>
                                         </constraints>
                                         <state key="normal" image="HeartIcon"/>
                                         <state key="selected" image="HeartIconSelected"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="231" y="324.5" width="38.5" height="34"/>
+                                        </variation>
                                         <connections>
-                                            <action selector="likeButtonTapped:" destination="0iH-Ad-jhH" eventType="touchUpInside" id="cI3-1R-e1h"/>
+                                            <action selector="likeButtonTapped:" destination="0iH-Ad-jhH" eventType="touchUpInside" id="20m-De-vxj"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="1I5-6n-Qog" userLabel="LikesCount">
@@ -957,14 +875,38 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                             </mask>
                                         </variation>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Z2-Zu-UFy">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" image="FlagIcon"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="14" y="332" width="21" height="26"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="flagButtonTapped:" destination="0iH-Ad-jhH" eventType="touchUpInside" id="Wx8-t6-JPs"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="xze-Qw-aWm">
+                                        <rect key="frame" x="14" y="331" width="0.0" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="X6n-UL-DnX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="318" y="28" width="0.0" height="20"/>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="428" id="1Lw-cr-PDS"/>
                                     <constraint firstItem="gda-Id-c7s" firstAttribute="top" secondItem="2tE-7W-pHq" secondAttribute="bottom" constant="5" id="2bn-ix-hhM"/>
                                     <constraint firstItem="xze-Qw-aWm" firstAttribute="leading" secondItem="Kl3-SR-2WO" secondAttribute="leading" constant="14" id="2cl-hP-nha"/>
+                                    <constraint firstItem="8K5-ms-9P6" firstAttribute="leading" secondItem="Kl3-SR-2WO" secondAttribute="leading" constant="14" id="2kK-wc-VSi"/>
                                     <constraint firstAttribute="height" constant="428" id="4Qj-NC-h6M"/>
                                     <constraint firstAttribute="trailing" secondItem="Jcb-dS-Rna" secondAttribute="trailing" constant="12" id="5M8-Rw-1tM"/>
+                                    <constraint firstItem="1I5-6n-Qog" firstAttribute="centerY" secondItem="5Z2-Zu-UFy" secondAttribute="centerY" id="5j8-Wc-fF0"/>
                                     <constraint firstItem="1I5-6n-Qog" firstAttribute="leading" secondItem="2Fg-Qo-C7i" secondAttribute="trailing" constant="8" id="7Ga-cs-h7y"/>
                                     <constraint firstItem="8K5-ms-9P6" firstAttribute="centerX" secondItem="Kl3-SR-2WO" secondAttribute="centerX" id="93r-qA-Tx1"/>
                                     <constraint firstAttribute="trailing" secondItem="gda-Id-c7s" secondAttribute="trailing" constant="12" id="BUL-H3-TTc"/>
@@ -972,40 +914,59 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                     <constraint firstItem="gda-Id-c7s" firstAttribute="top" secondItem="2tE-7W-pHq" secondAttribute="bottom" constant="5" id="DGm-F3-om8"/>
                                     <constraint firstItem="8K5-ms-9P6" firstAttribute="top" secondItem="gda-Id-c7s" secondAttribute="bottom" constant="5" id="DWQ-l9-WBl"/>
                                     <constraint firstItem="gda-Id-c7s" firstAttribute="leading" secondItem="Kl3-SR-2WO" secondAttribute="leading" constant="12" id="DyH-sQ-rwG"/>
+                                    <constraint firstItem="2Fg-Qo-C7i" firstAttribute="centerY" secondItem="5Z2-Zu-UFy" secondAttribute="centerY" id="EMu-xz-Ad0"/>
                                     <constraint firstItem="Jcb-dS-Rna" firstAttribute="leading" secondItem="2tE-7W-pHq" secondAttribute="trailing" constant="8" id="FVf-GY-rT2"/>
                                     <constraint firstItem="gda-Id-c7s" firstAttribute="leading" secondItem="Kl3-SR-2WO" secondAttribute="leading" constant="12" id="HNO-nG-f6C"/>
                                     <constraint firstAttribute="trailing" secondItem="gda-Id-c7s" secondAttribute="trailing" constant="8" id="Ijl-4M-0dl"/>
                                     <constraint firstItem="xze-Qw-aWm" firstAttribute="leading" secondItem="Kl3-SR-2WO" secondAttribute="leading" constant="14" id="Ik8-Us-0Xf"/>
                                     <constraint firstItem="8K5-ms-9P6" firstAttribute="top" secondItem="xze-Qw-aWm" secondAttribute="bottom" constant="15" id="J73-LH-uwn"/>
+                                    <constraint firstItem="xze-Qw-aWm" firstAttribute="centerY" secondItem="2tE-7W-pHq" secondAttribute="centerY" id="Je9-vF-Bxt"/>
+                                    <constraint firstAttribute="bottom" secondItem="5Z2-Zu-UFy" secondAttribute="bottom" constant="5.5" id="LiG-JJ-7NF"/>
                                     <constraint firstItem="8K5-ms-9P6" firstAttribute="width" secondItem="Kl3-SR-2WO" secondAttribute="width" multiplier="345:375" id="Nb1-lJ-dit"/>
                                     <constraint firstItem="8K5-ms-9P6" firstAttribute="top" secondItem="gda-Id-c7s" secondAttribute="bottom" constant="4" id="P2o-ry-QK2"/>
                                     <constraint firstItem="1I5-6n-Qog" firstAttribute="top" secondItem="8K5-ms-9P6" secondAttribute="bottom" constant="15" id="PWX-8x-e0E"/>
                                     <constraint firstItem="2tE-7W-pHq" firstAttribute="leading" secondItem="Kl3-SR-2WO" secondAttribute="leading" constant="12" id="Ph8-O7-Gyf"/>
+                                    <constraint firstItem="1I5-6n-Qog" firstAttribute="leading" secondItem="2Fg-Qo-C7i" secondAttribute="trailing" constant="8.5" id="QaC-rF-qrT">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="6"/>
+                                    </constraint>
                                     <constraint firstAttribute="bottom" secondItem="xze-Qw-aWm" secondAttribute="bottom" constant="15" id="RFj-mo-yuQ"/>
                                     <constraint firstAttribute="trailing" secondItem="gda-Id-c7s" secondAttribute="trailing" constant="8" id="Rxv-cY-0te"/>
                                     <constraint firstItem="2tE-7W-pHq" firstAttribute="top" secondItem="Kl3-SR-2WO" secondAttribute="top" constant="8" id="TTx-nr-tHD"/>
+                                    <constraint firstItem="5Z2-Zu-UFy" firstAttribute="leading" secondItem="xze-Qw-aWm" secondAttribute="trailing" id="UWC-e6-MyR"/>
                                     <constraint firstAttribute="bottom" secondItem="xze-Qw-aWm" secondAttribute="bottom" priority="500" constant="12" id="UvA-RB-Oxu"/>
                                     <constraint firstItem="2Fg-Qo-C7i" firstAttribute="width" secondItem="Kl3-SR-2WO" secondAttribute="height" multiplier="18:375" id="V1y-KZ-8GU"/>
                                     <constraint firstItem="2Fg-Qo-C7i" firstAttribute="top" secondItem="8K5-ms-9P6" secondAttribute="bottom" constant="15" id="WgN-8d-qM4"/>
                                     <constraint firstItem="Jcb-dS-Rna" firstAttribute="top" secondItem="xze-Qw-aWm" secondAttribute="bottom" constant="3" id="XOB-fU-ah3"/>
                                     <constraint firstAttribute="trailing" secondItem="Jcb-dS-Rna" secondAttribute="trailing" constant="8" id="Ycv-LT-e0A"/>
-                                    <constraint firstAttribute="trailing" secondItem="1I5-6n-Qog" secondAttribute="trailing" constant="8" id="Ykh-L7-bVr"/>
+                                    <constraint firstAttribute="trailing" secondItem="1I5-6n-Qog" secondAttribute="trailing" constant="8" id="Ykh-L7-bVr">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="12"/>
+                                    </constraint>
                                     <constraint firstItem="gda-Id-c7s" firstAttribute="leading" secondItem="Kl3-SR-2WO" secondAttribute="leading" constant="12" id="afK-bK-QKt"/>
                                     <constraint firstItem="xze-Qw-aWm" firstAttribute="top" secondItem="8K5-ms-9P6" secondAttribute="bottom" priority="250" constant="14" id="b0Z-0A-Oko"/>
                                     <constraint firstAttribute="trailing" secondItem="1I5-6n-Qog" secondAttribute="trailing" constant="5" id="cPJ-hG-EB5"/>
                                     <constraint firstItem="8K5-ms-9P6" firstAttribute="leading" secondItem="Kl3-SR-2WO" secondAttribute="leading" constant="12" id="cTX-Cj-lpG"/>
                                     <constraint firstItem="2Fg-Qo-C7i" firstAttribute="centerY" secondItem="xze-Qw-aWm" secondAttribute="centerY" id="dcX-z3-cOl"/>
                                     <constraint firstAttribute="bottom" secondItem="xze-Qw-aWm" secondAttribute="bottom" constant="4" id="evs-mU-nEb"/>
+                                    <constraint firstAttribute="trailing" secondItem="xze-Qw-aWm" secondAttribute="trailing" constant="12" id="fjb-lJ-ZKu"/>
                                     <constraint firstItem="xze-Qw-aWm" firstAttribute="top" secondItem="8K5-ms-9P6" secondAttribute="bottom" constant="15" id="fpy-wB-mgX"/>
                                     <constraint firstItem="Jcb-dS-Rna" firstAttribute="leading" secondItem="2tE-7W-pHq" secondAttribute="trailing" constant="8" id="h7Q-Ed-WjG"/>
                                     <constraint firstItem="1I5-6n-Qog" firstAttribute="centerY" secondItem="2Fg-Qo-C7i" secondAttribute="centerY" id="hW6-Kx-vJY"/>
+                                    <constraint firstItem="xze-Qw-aWm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jcb-dS-Rna" secondAttribute="trailing" constant="-40" id="hWn-1Y-Cme">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="6"/>
+                                    </constraint>
                                     <constraint firstAttribute="bottom" secondItem="8K5-ms-9P6" secondAttribute="bottom" constant="50" id="iRf-Sn-AIr"/>
                                     <constraint firstItem="gda-Id-c7s" firstAttribute="top" secondItem="2tE-7W-pHq" secondAttribute="bottom" constant="4" id="ksW-if-9ye"/>
+                                    <constraint firstItem="5Z2-Zu-UFy" firstAttribute="leading" secondItem="Kl3-SR-2WO" secondAttribute="leading" constant="14" id="nTz-39-Jld"/>
+                                    <constraint firstItem="5Z2-Zu-UFy" firstAttribute="top" secondItem="8K5-ms-9P6" secondAttribute="bottom" constant="14.5" id="oMf-00-XCu">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="12"/>
+                                    </constraint>
+                                    <constraint firstItem="2Fg-Qo-C7i" firstAttribute="centerY" secondItem="5Z2-Zu-UFy" secondAttribute="centerY" id="pe5-jz-zJY"/>
                                     <constraint firstItem="gda-Id-c7s" firstAttribute="height" secondItem="Kl3-SR-2WO" secondAttribute="height" multiplier="40:400" id="qJp-Y7-G61"/>
                                     <constraint firstAttribute="trailing" secondItem="8K5-ms-9P6" secondAttribute="trailing" constant="12" id="rUF-fw-H4f"/>
                                     <constraint firstAttribute="bottom" secondItem="Jcb-dS-Rna" secondAttribute="bottom" constant="407" id="rWb-6R-oae"/>
                                     <constraint firstItem="Jcb-dS-Rna" firstAttribute="centerY" secondItem="2tE-7W-pHq" secondAttribute="centerY" id="sFl-2u-K1x"/>
                                     <constraint firstItem="2tE-7W-pHq" firstAttribute="top" secondItem="Kl3-SR-2WO" secondAttribute="top" constant="8" id="tka-5f-Zrg"/>
+                                    <constraint firstItem="xze-Qw-aWm" firstAttribute="centerY" secondItem="Jcb-dS-Rna" secondAttribute="centerY" id="tye-J1-fQe"/>
                                     <constraint firstItem="2tE-7W-pHq" firstAttribute="leading" secondItem="Kl3-SR-2WO" secondAttribute="leading" constant="14" id="vQ0-nB-EZz"/>
                                     <constraint firstItem="Jcb-dS-Rna" firstAttribute="top" secondItem="Kl3-SR-2WO" secondAttribute="top" constant="21" id="w2i-vA-6T7"/>
                                     <constraint firstItem="1I5-6n-Qog" firstAttribute="width" secondItem="Kl3-SR-2WO" secondAttribute="width" multiplier="40:375" id="w3U-zU-Vic"/>
@@ -1014,6 +975,9 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                     <constraint firstItem="8K5-ms-9P6" firstAttribute="leading" secondItem="Kl3-SR-2WO" secondAttribute="leading" constant="14" id="xZE-oN-xMq"/>
                                 </constraints>
                                 <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="5Z2-Zu-UFy"/>
+                                    </mask>
                                     <mask key="constraints">
                                         <exclude reference="1Lw-cr-PDS"/>
                                         <exclude reference="4Qj-NC-h6M"/>
@@ -1032,6 +996,7 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                         <exclude reference="h7Q-Ed-WjG"/>
                                         <exclude reference="rWb-6R-oae"/>
                                         <exclude reference="w2i-vA-6T7"/>
+                                        <exclude reference="2kK-wc-VSi"/>
                                         <exclude reference="93r-qA-Tx1"/>
                                         <exclude reference="DWQ-l9-WBl"/>
                                         <exclude reference="J73-LH-uwn"/>
@@ -1040,14 +1005,56 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                         <exclude reference="iRf-Sn-AIr"/>
                                         <exclude reference="rUF-fw-H4f"/>
                                         <exclude reference="2cl-hP-nha"/>
+                                        <exclude reference="Je9-vF-Bxt"/>
                                         <exclude reference="RFj-mo-yuQ"/>
                                         <exclude reference="evs-mU-nEb"/>
+                                        <exclude reference="fjb-lJ-ZKu"/>
                                         <exclude reference="fpy-wB-mgX"/>
+                                        <exclude reference="hWn-1Y-Cme"/>
+                                        <exclude reference="tye-J1-fQe"/>
+                                        <exclude reference="LiG-JJ-7NF"/>
+                                        <exclude reference="UWC-e6-MyR"/>
+                                        <exclude reference="nTz-39-Jld"/>
+                                        <exclude reference="oMf-00-XCu"/>
+                                        <exclude reference="EMu-xz-Ad0"/>
                                         <exclude reference="V1y-KZ-8GU"/>
                                         <exclude reference="WgN-8d-qM4"/>
+                                        <exclude reference="pe5-jz-zJY"/>
+                                        <exclude reference="5j8-Wc-fF0"/>
                                         <exclude reference="PWX-8x-e0E"/>
+                                        <exclude reference="QaC-rF-qrT"/>
                                         <exclude reference="cPJ-hG-EB5"/>
                                         <exclude reference="wSa-4R-8nO"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="25" width="320" height="363.5"/>
+                                    <mask key="subviews">
+                                        <include reference="5Z2-Zu-UFy"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="Ycv-LT-e0A"/>
+                                        <include reference="2kK-wc-VSi"/>
+                                        <exclude reference="xZE-oN-xMq"/>
+                                        <exclude reference="Ik8-Us-0Xf"/>
+                                        <include reference="Je9-vF-Bxt"/>
+                                        <exclude reference="UvA-RB-Oxu"/>
+                                        <exclude reference="b0Z-0A-Oko"/>
+                                        <include reference="fjb-lJ-ZKu"/>
+                                        <include reference="hWn-1Y-Cme"/>
+                                        <exclude reference="tye-J1-fQe"/>
+                                        <include reference="LiG-JJ-7NF"/>
+                                        <exclude reference="UWC-e6-MyR"/>
+                                        <include reference="nTz-39-Jld"/>
+                                        <include reference="oMf-00-XCu"/>
+                                        <include reference="EMu-xz-Ad0"/>
+                                        <exclude reference="dcX-z3-cOl"/>
+                                        <exclude reference="pe5-jz-zJY"/>
+                                        <include reference="5j8-Wc-fF0"/>
+                                        <exclude reference="7Ga-cs-h7y"/>
+                                        <include reference="QaC-rF-qrT"/>
+                                        <exclude reference="hW6-Kx-vJY"/>
+                                        <exclude reference="w3U-zU-Vic"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -1084,19 +1091,11 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                             </mask>
                         </variation>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem image="FlagIcon" id="gIR-Ij-xPK">
-                            <color key="tintColor" red="0.0078431372549019607" green="0.81568627450980391" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="flagButtonTapped:" destination="0iH-Ad-jhH" id="mzw-fp-ubZ"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="eIy-4A-hhb"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="likeButton" destination="2Fg-Qo-C7i" id="Tve-nJ-U0H"/>
+                        <outlet property="likeButton" destination="2Fg-Qo-C7i" id="940-hC-k2S"/>
                         <outlet property="likesCountLabel" destination="1I5-6n-Qog" id="axe-FI-jnn"/>
                         <outlet property="postImageView" destination="8K5-ms-9P6" id="XpD-2x-ilk"/>
                         <outlet property="postTextView" destination="gda-Id-c7s" id="v4U-xy-EQm"/>
@@ -1108,7 +1107,7 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kig-7y-oU8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3327" y="1335.75"/>
+            <point key="canvasLocation" x="4968" y="1314.75"/>
         </scene>
         <!--Terms Of Service View Controller-->
         <scene sceneID="JcI-S9-aor">
@@ -1119,15 +1118,97 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                         <viewControllerLayoutGuide type="bottom" id="aog-7X-zbg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0zP-cm-bzE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1QI-qn-fnb">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Terms" translatesAutoresizingMaskIntoConstraints="NO" id="l7S-JU-oIE">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="7c9-2d-0bu"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="7c9-2d-0bu"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="7c9-2d-0bu"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="l7S-JU-oIE" secondAttribute="bottom" constant="383" id="8Ak-dA-x6T"/>
+                                    <constraint firstItem="l7S-JU-oIE" firstAttribute="centerX" secondItem="1QI-qn-fnb" secondAttribute="centerX" id="8Wz-4a-bDK"/>
+                                    <constraint firstAttribute="trailing" secondItem="l7S-JU-oIE" secondAttribute="trailing" id="IkR-cn-Y7c"/>
+                                    <constraint firstItem="l7S-JU-oIE" firstAttribute="top" secondItem="1QI-qn-fnb" secondAttribute="top" constant="8" id="NYf-8U-dbQ"/>
+                                    <constraint firstItem="l7S-JU-oIE" firstAttribute="leading" secondItem="1QI-qn-fnb" secondAttribute="leading" id="cQD-Zn-yH3"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="l7S-JU-oIE"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="8Ak-dA-x6T"/>
+                                        <exclude reference="8Wz-4a-bDK"/>
+                                        <exclude reference="IkR-cn-Y7c"/>
+                                        <exclude reference="NYf-8U-dbQ"/>
+                                        <exclude reference="cQD-Zn-yH3"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="l7S-JU-oIE"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="8Ak-dA-x6T"/>
+                                        <include reference="8Wz-4a-bDK"/>
+                                        <include reference="IkR-cn-Y7c"/>
+                                        <include reference="NYf-8U-dbQ"/>
+                                        <include reference="cQD-Zn-yH3"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1QI-qn-fnb" secondAttribute="trailing" id="NCy-y7-uKb"/>
+                            <constraint firstItem="1QI-qn-fnb" firstAttribute="leading" secondItem="0zP-cm-bzE" secondAttribute="leading" id="P7h-hK-C0N"/>
+                            <constraint firstItem="1QI-qn-fnb" firstAttribute="top" secondItem="0zP-cm-bzE" secondAttribute="top" id="V9y-ev-Snh"/>
+                            <constraint firstItem="aog-7X-zbg" firstAttribute="top" secondItem="1QI-qn-fnb" secondAttribute="bottom" id="p0d-io-9YY"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="1QI-qn-fnb"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="p0d-io-9YY"/>
+                                <exclude reference="NCy-y7-uKb"/>
+                                <exclude reference="P7h-hK-C0N"/>
+                                <exclude reference="V9y-ev-Snh"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="1QI-qn-fnb"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="p0d-io-9YY"/>
+                                <include reference="NCy-y7-uKb"/>
+                                <include reference="P7h-hK-C0N"/>
+                                <include reference="V9y-ev-Snh"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AfJ-aI-NXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3705" y="-261"/>
+            <point key="canvasLocation" x="4503" y="-261"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="EMG-WL-V3Z">
@@ -1138,11 +1219,11 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                         <viewControllerLayoutGuide type="bottom" id="wsn-RQ-tup"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gbj-mp-OoB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJF-E6-1HB">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="399"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="335"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="0SQ-d1-wtk"/>
@@ -1157,7 +1238,7 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                 </variation>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's new around you?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1go-1P-Mhg">
-                                <rect key="frame" x="6" y="10" width="188" height="21"/>
+                                <rect key="frame" x="6" y="10" width="187.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.78020833333333328" green="0.78020833333333328" blue="0.78020833333333328" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1190,14 +1271,14 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                     <connections>
                         <outlet property="composeTextView" destination="eJF-E6-1HB" id="wm0-VK-Dfg"/>
                         <outlet property="placeHolderLabel" destination="1go-1P-Mhg" id="10L-74-tjl"/>
-                        <segue destination="ccy-3x-Qsy" kind="show" identifier="JumpToLocalFeedVCAfterPost" id="QkS-V1-igt"/>
+                        <segue destination="n0N-Fk-frI" kind="show" identifier="JumpToLocalFeedVCAfterPost" id="QkS-V1-igt"/>
                         <segue destination="EOm-Os-mIO" kind="unwind" identifier="unwindToLocalFeed" unwindAction="unwindToLocalFeed:" id="Gpi-gh-HPp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSM-Xy-1va" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="EOm-Os-mIO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3594" y="414.75"/>
+            <point key="canvasLocation" x="4392" y="414.75"/>
         </scene>
         <!--Account-->
         <scene sceneID="Mag-j3-Snz">
@@ -1208,21 +1289,24 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                         <viewControllerLayoutGuide type="bottom" id="uuq-uk-Um5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="k72-ZV-LCL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F8m-vu-DNP" userLabel="DisplayImage">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F8m-vu-DNP" userLabel="DisplayImage">
                                 <rect key="frame" x="118" y="32" width="84" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="84" id="eSd-Z5-2Fd"/>
                                     <constraint firstAttribute="width" constant="84" id="z5d-h2-anr"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-Ql-cfn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-Ql-cfn">
                                 <rect key="frame" x="16" y="124" width="288" height="0.0"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="132" width="288" height="0.0"/>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANw-EB-oCp">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -1268,6 +1352,7 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserPostCell" rowHeight="79" id="Kqc-V0-eFd" customClass="UserPostTableViewCell" customModule="Spekr" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kqc-V0-eFd" id="sCj-JL-OYF">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="78.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGr-5a-dhq">
@@ -1291,8 +1376,7 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                                             <exclude reference="g54-Fm-mTt"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="8" y="59" width="32" height="16"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="0gl-zu-srv"/>
                                                             <exclude reference="g54-Fm-mTt"/>
@@ -1322,12 +1406,12 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                                     <exclude reference="Ix6-0M-KRU"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="8L0-r7-tdr"/>
-                                                    <exclude reference="l7i-vv-jVJ"/>
-                                                    <exclude reference="zTC-47-v7Q"/>
                                                     <exclude reference="HXC-3t-70E"/>
                                                     <exclude reference="gxC-ei-BSK"/>
                                                     <exclude reference="og1-0c-NZa"/>
+                                                    <exclude reference="8L0-r7-tdr"/>
+                                                    <exclude reference="l7i-vv-jVJ"/>
+                                                    <exclude reference="zTC-47-v7Q"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -1336,12 +1420,12 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                                     <include reference="Ix6-0M-KRU"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="8L0-r7-tdr"/>
-                                                    <include reference="l7i-vv-jVJ"/>
-                                                    <include reference="zTC-47-v7Q"/>
                                                     <include reference="HXC-3t-70E"/>
                                                     <include reference="gxC-ei-BSK"/>
                                                     <include reference="og1-0c-NZa"/>
+                                                    <include reference="8L0-r7-tdr"/>
+                                                    <include reference="l7i-vv-jVJ"/>
+                                                    <include reference="zTC-47-v7Q"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1381,7 +1465,8 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                         <exclude reference="exs-Eu-lae"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="4" y="270" width="98" height="23.5"/>
                                     <mask key="constraints">
                                         <include reference="exs-Eu-lae"/>
                                     </mask>
@@ -1409,7 +1494,7 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                             </constraint>
                             <constraint firstItem="jml-RG-h2i" firstAttribute="leading" secondItem="k72-ZV-LCL" secondAttribute="leading" constant="4" id="I6Y-5G-VZU"/>
                             <constraint firstItem="ANw-EB-oCp" firstAttribute="top" secondItem="B9n-Ql-cfn" secondAttribute="bottom" constant="20" id="N1x-1d-CpL">
-                                <variation key="heightClass=regular-widthClass=compact" constant="15"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="jml-RG-h2i" firstAttribute="top" secondItem="B9n-Ql-cfn" secondAttribute="bottom" constant="173" id="Pt8-hz-9gO"/>
                             <constraint firstItem="0bA-Cg-w6N" firstAttribute="centerY" secondItem="ANw-EB-oCp" secondAttribute="centerY" id="Qat-AR-pcz"/>
@@ -1422,7 +1507,7 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="jml-RG-h2i" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ANw-EB-oCp" secondAttribute="bottom" constant="115" id="dqC-nh-PA0">
-                                <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
                             </constraint>
                             <constraint firstItem="ANw-EB-oCp" firstAttribute="centerX" secondItem="k72-ZV-LCL" secondAttribute="centerX" id="kdm-vd-sQC"/>
                             <constraint firstItem="F8m-vu-DNP" firstAttribute="centerX" secondItem="k72-ZV-LCL" secondAttribute="centerX" id="mHE-ED-kfr"/>
@@ -1440,21 +1525,21 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                 <exclude reference="SxS-sI-nrp"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="8NX-Fu-mZN"/>
-                                <exclude reference="shC-gj-XU2"/>
-                                <exclude reference="S8R-bT-Txx"/>
                                 <exclude reference="4VO-iD-BRH"/>
                                 <exclude reference="N1x-1d-CpL"/>
                                 <exclude reference="kdm-vd-sQC"/>
                                 <exclude reference="1IC-ll-cmG"/>
                                 <exclude reference="Qat-AR-pcz"/>
+                                <exclude reference="S8R-bT-Txx"/>
+                                <exclude reference="1IV-1D-CRj"/>
+                                <exclude reference="FBZ-kG-vwj"/>
+                                <exclude reference="a8W-k7-fYH"/>
+                                <exclude reference="8NX-Fu-mZN"/>
+                                <exclude reference="shC-gj-XU2"/>
                                 <exclude reference="I6Y-5G-VZU"/>
                                 <exclude reference="Pt8-hz-9gO"/>
                                 <exclude reference="dqC-nh-PA0"/>
                                 <exclude reference="mPp-u5-a9L"/>
-                                <exclude reference="1IV-1D-CRj"/>
-                                <exclude reference="FBZ-kG-vwj"/>
-                                <exclude reference="a8W-k7-fYH"/>
                                 <exclude reference="GBu-3l-EmC"/>
                                 <exclude reference="GtF-MH-28F"/>
                             </mask>
@@ -1467,20 +1552,20 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                 <include reference="SxS-sI-nrp"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="S8R-bT-Txx"/>
                                 <include reference="4VO-iD-BRH"/>
                                 <include reference="N1x-1d-CpL"/>
                                 <include reference="kdm-vd-sQC"/>
                                 <include reference="1IC-ll-cmG"/>
                                 <include reference="Qat-AR-pcz"/>
+                                <include reference="S8R-bT-Txx"/>
+                                <include reference="1IV-1D-CRj"/>
+                                <include reference="FBZ-kG-vwj"/>
+                                <include reference="a8W-k7-fYH"/>
                                 <include reference="I6Y-5G-VZU"/>
                                 <exclude reference="Ylk-TG-LW8"/>
                                 <exclude reference="aPJ-dq-gGZ"/>
                                 <include reference="dqC-nh-PA0"/>
                                 <include reference="mPp-u5-a9L"/>
-                                <include reference="1IV-1D-CRj"/>
-                                <include reference="FBZ-kG-vwj"/>
-                                <include reference="a8W-k7-fYH"/>
                                 <include reference="GtF-MH-28F"/>
                             </mask>
                         </variation>
@@ -1493,7 +1578,7 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XjI-dA-jJ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3705" y="-776.25"/>
+            <point key="canvasLocation" x="4503" y="-776.25"/>
         </scene>
         <!--World Feed View Controller-->
         <scene sceneID="lap-wd-E8r">
@@ -1504,7 +1589,7 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                         <viewControllerLayoutGuide type="bottom" id="6xC-SD-Kek"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0Jp-nM-jSv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MBX-Zh-3Qt">
@@ -1626,24 +1711,22 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="WorldIcon" id="Dv8-Wd-9jg">
-                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="L4M-89-mKN"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="MBX-Zh-3Qt" id="SHP-Yu-WzI"/>
-                        <segue destination="0iH-Ad-jhH" kind="show" identifier="JumpToDetailCellWithImageVC" id="r6h-YR-PVz"/>
-                        <segue destination="jiZ-v0-cde" kind="show" identifier="JumpToDetailCellVC" id="LKs-B2-tU3"/>
+                        <segue destination="jiZ-v0-cde" kind="show" identifier="JumpToDetailCellVC" id="XWj-YT-S7G"/>
+                        <segue destination="0iH-Ad-jhH" kind="show" identifier="JumpToDetailCellWithImageVC" id="fd8-Pa-I0v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ece-If-I6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2623.5" y="1335.75"/>
+            <point key="canvasLocation" x="4219.5" y="1335.75"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--MainTabControllerViewController-->
         <scene sceneID="W1C-2k-m1Z">
             <objects>
-                <tabBarController storyboardIdentifier="tabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rCv-gt-l4k" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" title="MainTabControllerViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rCv-gt-l4k" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="4nO-uL-6yu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -1659,43 +1742,15 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="yO2-g9-vHt" kind="relationship" relationship="viewControllers" id="qRi-Vd-Mhk"/>
-                        <segue destination="ccy-3x-Qsy" kind="relationship" relationship="viewControllers" id="iF1-pc-oxg"/>
-                        <segue destination="SNP-D8-71L" kind="relationship" relationship="viewControllers" id="3rj-KS-XbA"/>
-                        <segue destination="8rd-xi-tLz" kind="relationship" relationship="viewControllers" id="gdW-0q-HrO"/>
+                        <segue destination="mtG-Oh-J9t" kind="relationship" relationship="viewControllers" id="qRi-Vd-Mhk"/>
+                        <segue destination="n0N-Fk-frI" kind="relationship" relationship="viewControllers" id="iF1-pc-oxg"/>
+                        <segue destination="4xz-pq-GwU" kind="relationship" relationship="viewControllers" id="3rj-KS-XbA"/>
+                        <segue destination="VJ3-BB-iZw" kind="relationship" relationship="viewControllers" id="gdW-0q-HrO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocV-TX-8Ds" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2415" y="414.75"/>
-        </scene>
-        <!--SignInNavigationViewController-->
-        <scene sceneID="zWb-rf-AIR">
-            <objects>
-                <navigationController storyboardIdentifier="SignInNavigationViewController" title="SignInNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CUU-Sm-2h5" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="6gQ-AQ-NP3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="jmh-1F-ll8">
-                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oIL-Bf-G6V"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iMs-CF-kdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1069" y="349"/>
+            <point key="canvasLocation" x="2388" y="414.75"/>
         </scene>
         <!--Detail Cell View Controller-->
         <scene sceneID="IPa-aO-0vQ">
@@ -1706,10 +1761,10 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                         <viewControllerLayoutGuide type="bottom" id="Sg8-UP-Wld"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="J8T-gL-KGJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjO-4h-Xbk" userLabel="CellView">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gjO-4h-Xbk" userLabel="CellView">
                                 <rect key="frame" x="0.0" y="45" width="320" height="160"/>
                                 <subviews>
                                     <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ct0-vv-bGZ">
@@ -1728,28 +1783,25 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Did-Pn-kXZ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Did-Pn-kXZ">
                                         <rect key="frame" x="82" y="38" width="230" height="0.0"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
                                         <color key="textColor" red="0.25098040700000002" green="0.1764705926" blue="0.3843137324" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="82" y="38" width="220" height="0.0"/>
+                                        </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBR-KJ-YPH">
-                                        <rect key="frame" x="14" y="128" width="0.0" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="EdV-r6-iKz"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                        <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYp-qN-YCJ" userLabel="LikeButton">
-                                        <rect key="frame" x="244" y="126.5" width="26" height="23"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYp-qN-YCJ" userLabel="LikeButton">
+                                        <rect key="frame" x="244" y="126" width="26" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="QYp-qN-YCJ" secondAttribute="height" multiplier="9:8" id="MW5-RX-mJQ"/>
                                         </constraints>
                                         <state key="normal" image="HeartIcon"/>
                                         <state key="selected" image="HeartIconSelected"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="245" y="126.5" width="25" height="22"/>
+                                        </variation>
                                         <connections>
                                             <action selector="likeButtonTapped:" destination="jiZ-v0-cde" eventType="touchUpInside" id="sbn-LM-RPO"/>
                                         </connections>
@@ -1759,6 +1811,9 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="278" y="136" width="34" height="0.0"/>
+                                        </variation>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5W-dw-QZe">
                                         <rect key="frame" x="12" y="73" width="296" height="40"/>
@@ -1780,10 +1835,41 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                             </mask>
                                         </variation>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yq-a9-tDw">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" image="FlagIcon"/>
+                                        <connections>
+                                            <action selector="flagButtonTapped:" destination="jiZ-v0-cde" eventType="touchUpInside" id="yLU-Dd-p2I"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="NBR-KJ-YPH">
+                                        <rect key="frame" x="14" y="128" width="0.0" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="3M2-1U-Z93"/>
+                                            <constraint firstAttribute="height" constant="20" id="EdV-r6-iKz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="3M2-1U-Z93"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="239" y="28" width="73" height="20"/>
+                                            <mask key="constraints">
+                                                <include reference="3M2-1U-Z93"/>
+                                                <exclude reference="EdV-r6-iKz"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="4yq-a9-tDw" secondAttribute="bottom" constant="5" id="11L-Nk-G5f"/>
                                     <constraint firstItem="Did-Pn-kXZ" firstAttribute="top" secondItem="gjO-4h-Xbk" secondAttribute="top" constant="21" id="3Jm-bb-W4C"/>
+                                    <constraint firstItem="4yq-a9-tDw" firstAttribute="centerY" secondItem="QYp-qN-YCJ" secondAttribute="centerY" id="41y-AK-bvf"/>
                                     <constraint firstAttribute="height" constant="428" id="4Jg-n6-N7v"/>
                                     <constraint firstItem="QYp-qN-YCJ" firstAttribute="centerY" secondItem="NBR-KJ-YPH" secondAttribute="centerY" id="4d5-WN-Y7G"/>
                                     <constraint firstAttribute="bottom" secondItem="NBR-KJ-YPH" secondAttribute="bottom" constant="4" id="7Z2-6k-Qm8"/>
@@ -1794,12 +1880,20 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                     <constraint firstItem="g5W-dw-QZe" firstAttribute="leading" secondItem="gjO-4h-Xbk" secondAttribute="leading" constant="12" id="EuU-vy-3wF"/>
                                     <constraint firstItem="NBR-KJ-YPH" firstAttribute="leading" secondItem="gjO-4h-Xbk" secondAttribute="leading" constant="14" id="Frz-ZP-OIo"/>
                                     <constraint firstItem="g5W-dw-QZe" firstAttribute="leading" secondItem="gjO-4h-Xbk" secondAttribute="leading" constant="12" id="G7a-rV-AMY"/>
+                                    <constraint firstItem="4yq-a9-tDw" firstAttribute="top" secondItem="g5W-dw-QZe" secondAttribute="bottom" constant="12" id="GZs-Op-R9L"/>
                                     <constraint firstAttribute="bottom" secondItem="Did-Pn-kXZ" secondAttribute="bottom" constant="407" id="H4P-xa-4nn"/>
                                     <constraint firstAttribute="trailing" secondItem="g5W-dw-QZe" secondAttribute="trailing" constant="12" id="Hcp-zS-q1N"/>
                                     <constraint firstItem="ntl-Qz-PN0" firstAttribute="width" secondItem="gjO-4h-Xbk" secondAttribute="width" multiplier="40:375" id="In3-wY-zDN"/>
-                                    <constraint firstAttribute="trailing" secondItem="ntl-Qz-PN0" secondAttribute="trailing" constant="8" id="Lsd-os-6dm"/>
+                                    <constraint firstAttribute="trailing" secondItem="ntl-Qz-PN0" secondAttribute="trailing" constant="8" id="Lsd-os-6dm">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                    </constraint>
                                     <constraint firstItem="g5W-dw-QZe" firstAttribute="top" secondItem="ct0-vv-bGZ" secondAttribute="bottom" constant="5" id="LxU-NF-z4C"/>
+                                    <constraint firstAttribute="trailing" secondItem="NBR-KJ-YPH" secondAttribute="trailing" constant="8" id="Nkn-4C-tnr"/>
                                     <constraint firstItem="g5W-dw-QZe" firstAttribute="top" secondItem="ct0-vv-bGZ" secondAttribute="bottom" constant="4" id="PeH-lt-Tm4"/>
+                                    <constraint firstItem="NBR-KJ-YPH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Did-Pn-kXZ" secondAttribute="trailing" constant="-24" id="Q17-Oz-PPw">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="6"/>
+                                    </constraint>
+                                    <constraint firstItem="NBR-KJ-YPH" firstAttribute="centerY" secondItem="ct0-vv-bGZ" secondAttribute="centerY" id="R2E-4K-gii"/>
                                     <constraint firstItem="ntl-Qz-PN0" firstAttribute="centerY" secondItem="QYp-qN-YCJ" secondAttribute="centerY" id="RE1-C7-HXk"/>
                                     <constraint firstItem="g5W-dw-QZe" firstAttribute="top" secondItem="ct0-vv-bGZ" secondAttribute="bottom" constant="5" id="RZk-sV-iZa"/>
                                     <constraint firstItem="g5W-dw-QZe" firstAttribute="leading" secondItem="gjO-4h-Xbk" secondAttribute="leading" constant="12" id="SQI-bQ-6kf"/>
@@ -1819,11 +1913,15 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                     <constraint firstItem="ntl-Qz-PN0" firstAttribute="leading" secondItem="QYp-qN-YCJ" secondAttribute="trailing" constant="8" id="ruO-86-BIt"/>
                                     <constraint firstAttribute="bottom" secondItem="NBR-KJ-YPH" secondAttribute="bottom" constant="12" id="s6o-79-xS3"/>
                                     <constraint firstItem="Did-Pn-kXZ" firstAttribute="top" secondItem="NBR-KJ-YPH" secondAttribute="bottom" constant="3" id="umb-PP-aNP"/>
+                                    <constraint firstItem="4yq-a9-tDw" firstAttribute="leading" secondItem="gjO-4h-Xbk" secondAttribute="leading" constant="14" id="veV-6p-8qf"/>
                                     <constraint firstItem="NBR-KJ-YPH" firstAttribute="top" secondItem="g5W-dw-QZe" secondAttribute="bottom" constant="15" id="ydx-uJ-f8B"/>
                                     <constraint firstAttribute="trailing" secondItem="g5W-dw-QZe" secondAttribute="trailing" constant="8" id="yuT-RP-B8U"/>
                                     <constraint firstAttribute="trailing" secondItem="Did-Pn-kXZ" secondAttribute="trailing" constant="12" id="zNf-26-ePv"/>
                                 </constraints>
                                 <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="4yq-a9-tDw"/>
+                                    </mask>
                                     <mask key="constraints">
                                         <exclude reference="4Jg-n6-N7v"/>
                                         <exclude reference="EA4-7c-XyA"/>
@@ -1842,12 +1940,40 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                         <exclude reference="j8n-CL-904"/>
                                         <exclude reference="umb-PP-aNP"/>
                                         <exclude reference="zNf-26-ePv"/>
+                                        <exclude reference="11L-Nk-G5f"/>
+                                        <exclude reference="41y-AK-bvf"/>
+                                        <exclude reference="GZs-Op-R9L"/>
+                                        <exclude reference="veV-6p-8qf"/>
                                         <exclude reference="7Z2-6k-Qm8"/>
+                                        <exclude reference="Nkn-4C-tnr"/>
+                                        <exclude reference="Q17-Oz-PPw"/>
+                                        <exclude reference="R2E-4K-gii"/>
                                         <exclude reference="ee9-2j-Rum"/>
                                         <exclude reference="ivu-U0-uHa"/>
                                         <exclude reference="cM2-Wi-r9z"/>
                                         <exclude reference="WbD-iE-vcn"/>
                                         <exclude reference="fgn-N1-55x"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="25" width="320" height="160"/>
+                                    <mask key="subviews">
+                                        <include reference="4yq-a9-tDw"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="acD-cJ-a7g"/>
+                                        <include reference="11L-Nk-G5f"/>
+                                        <include reference="41y-AK-bvf"/>
+                                        <include reference="GZs-Op-R9L"/>
+                                        <include reference="veV-6p-8qf"/>
+                                        <exclude reference="Frz-ZP-OIo"/>
+                                        <include reference="Nkn-4C-tnr"/>
+                                        <include reference="Q17-Oz-PPw"/>
+                                        <include reference="R2E-4K-gii"/>
+                                        <exclude reference="s6o-79-xS3"/>
+                                        <exclude reference="ydx-uJ-f8B"/>
+                                        <exclude reference="4d5-WN-Y7G"/>
+                                        <exclude reference="In3-wY-zDN"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -1884,15 +2010,7 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                             </mask>
                         </variation>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem image="FlagIcon" id="tgJ-ca-w9a">
-                            <color key="tintColor" red="0.0078431372549019607" green="0.81568627450980391" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="flagButtonTapped:" destination="jiZ-v0-cde" id="bUf-sj-A5L"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="OWm-t1-nVs"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -1907,7 +2025,7 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1IK-RX-ode" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3975" y="1335.75"/>
+            <point key="canvasLocation" x="5535" y="1314.75"/>
         </scene>
         <!--User Profile View Controller-->
         <scene sceneID="fWN-Q2-7Pr">
@@ -1918,10 +2036,10 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                         <viewControllerLayoutGuide type="bottom" id="9QI-MZ-8E7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SXn-ae-dWr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iRM-rL-q6k">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iRM-rL-q6k">
                                 <rect key="frame" x="119" y="60" width="82" height="82"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="82" id="bsa-2V-vEy"/>
@@ -1933,10 +2051,16 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="132" y="157" width="55.5" height="30.5"/>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydI-w4-o6I">
                                 <rect key="frame" x="117" y="210" width="87" height="27"/>
                                 <state key="normal" image="ConnectButton"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="117" y="202.5" width="87" height="27"/>
+                                </variation>
                                 <connections>
                                     <action selector="connectButtonTapped:" destination="gc4-Bt-32K" eventType="touchUpInside" id="Zxl-SY-vfh"/>
                                 </connections>
@@ -1946,6 +2070,9 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="67" y="249.5" width="186" height="17"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
@@ -1970,30 +2097,135 @@ Spekr helps you easily share anything across your locality. We truly believe tha
             </objects>
             <point key="canvasLocation" x="3297" y="2155"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oo8-sk-GFt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VJ3-BB-iZw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="SettingsIcon" id="ZaX-hQ-Uc4">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="lJH-O6-Gcb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                            <color key="textColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8rd-xi-tLz" kind="relationship" relationship="rootViewController" id="OCr-c9-hks"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jd7-oP-WgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2973" y="-546"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ISN-aH-gbh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n0N-Fk-frI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="LocalIcon" id="lE8-sd-uow">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="X4B-Ln-5BP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                            <color key="textColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ccy-3x-Qsy" kind="relationship" relationship="rootViewController" id="xd4-Hw-mif"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gt1-4U-uiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3010.5" y="414.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Vac-2a-aoS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mtG-Oh-J9t" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="WorldIcon" id="Dv8-Wd-9jg">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Aga-v9-acr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                            <color key="textColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yO2-g9-vHt" kind="relationship" relationship="rootViewController" id="LsZ-T7-T3x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A8O-qh-fp0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3502.5" y="1325.25"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zHh-ef-gvU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4xz-pq-GwU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="BellIcon" id="gTe-ON-waM">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="vqx-MQ-tDM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                            <color key="textColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SNP-D8-71L" kind="relationship" relationship="rootViewController" id="Duo-SX-Exe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QPw-rP-5sr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2103" y="1335.75"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AboutPageTopImage" width="367" height="155"/>
         <image name="AddButton" width="40" height="40"/>
         <image name="BellIcon" width="27" height="31"/>
         <image name="ConnectButton" width="87" height="27"/>
-        <image name="FB SignInButton" width="110" height="48"/>
-        <image name="FlagIcon" width="21" height="26"/>
-        <image name="HeartIcon" width="26" height="23"/>
-        <image name="HeartIconSelected" width="26" height="23"/>
+        <image name="FlagIcon" width="18" height="22"/>
+        <image name="HeartIcon" width="22" height="19"/>
+        <image name="HeartIconSelected" width="22" height="19"/>
         <image name="HeartIconSmall" width="17" height="15"/>
         <image name="HeartIconSmallSelected" width="16" height="14"/>
         <image name="LocalIcon" width="20" height="30"/>
-        <image name="OrLine" width="221" height="35"/>
+        <image name="PrivacyAndLocation" width="243" height="133"/>
         <image name="SettingsIcon" width="26" height="26"/>
         <image name="SpekrLogo" width="109" height="109"/>
-        <image name="TwitterSignInButton" width="110" height="48"/>
+        <image name="Terms" width="145" height="111"/>
         <image name="WorldIcon" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7Lv-Tz-hWK"/>
         <segue reference="iF1-pc-oxg"/>
-        <segue reference="V4B-U7-B5o"/>
-        <segue reference="l0d-8e-aft"/>
+        <segue reference="yID-nI-PNu"/>
+        <segue reference="5CR-RX-prl"/>
         <segue reference="TVA-lP-vkP"/>
     </inferredMetricsTieBreakers>
 </document>

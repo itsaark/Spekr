@@ -44,26 +44,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Initializing Digits & Twitter
         Fabric.with([Digits.self, Twitter.self, Crashlytics.self])
         
-        PFUser.logOut()
-        Digits.sharedInstance().logOut()
+        //PFUser.logOut()
+        //Digits.sharedInstance().logOut()
+        
+        print(self.window?.rootViewController)
         
         //Initializing Twitter for Parse
         PFTwitterUtils.initializeWithConsumerKey("YcXiqliTkJPfilJmvx8LiMI2r",  consumerSecret:"Oy4EXN1X46tNdmtxLbusBqomQrzHgOasQUbXVUnc1T9CyHZrSb")
         //Initializing Facebook for Parse
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         
+        print("currentuser: \(PFUser.currentUser())")
         
         //TODO: Add a similar instance for facebook as well.
         // Check for an existing Twitter or Digits session before presenting the sign in screen.
-        if Twitter.sharedInstance().sessionStore.session() == nil && Digits.sharedInstance().session() == nil {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let signInViewController: AnyObject! = storyboard.instantiateViewControllerWithIdentifier("SignInNavigationViewController")
-            window?.rootViewController = signInViewController as? UINavigationController
-        }
+//        if Twitter.sharedInstance().sessionStore.session() == nil && Digits.sharedInstance().session() == nil && FBSDKAccessToken.currentAccessToken() == nil{
+//            
+//            showSignInScreen()
+//            
+//        }
         
         //let settings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
         //application.registerUserNotificationSettings(settings)
         //application.registerForRemoteNotifications()
+        
+//        let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
+//        let launchViewController = storyboard.instantiateViewControllerWithIdentifier("launchScreen")
+//        
+//        self.window?.rootViewController = launchViewController
         
                 
         if let launchOptions = launchOptions as? [String : AnyObject] {
@@ -76,14 +84,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func application(application: UIApplication,
-        openURL url: NSURL,
-        sourceApplication: String?,
-        annotation: AnyObject) -> Bool {
-            return FBSDKApplicationDelegate.sharedInstance().application(application,
-                openURL: url,
-                sourceApplication: sourceApplication,
-                annotation: annotation)
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+            return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
+    
+    func showSignInScreen() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let signInNavigationViewController = storyboard.instantiateViewControllerWithIdentifier("SignInNavigationViewController") as! UINavigationController
+        signInNavigationViewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        self.window?.makeKeyAndVisible()
+        self.window?.rootViewController?.presentViewController(signInNavigationViewController, animated: true, completion: nil)
+        
+        //self.window?.rootViewController = signInNavigationViewController as? UINavigationController
+        //            UIView.transitionWithView(window!, duration: 0.1, options: .TransitionCrossDissolve, animations: { () -> Void in
+        //
+        //
+        //
+        //                }, completion: nil)
+    }
+    
+    func logOutButtonTapped(){
+        
+        PFUser.logOut()
+        Digits.sharedInstance().logOut()
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+        self.window?.rootViewController = tabBarController
+        
+        showSignInScreen()
+        
     }
     
     //--------------------------------------
@@ -132,20 +163,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFPush.handlePush(userInfo)
         print("userInfo: \(userInfo)")
         
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let navController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
-//        let navController = self.window?.rootViewController as! UINavigationController
-//        navController.tabBarItem.badgeValue = "1"
-//        
-//        let tabBarController = navController.tabBarController
-//        let tabArray = tabBarController!.tabBar.items as NSArray!
-//        let tabItem = tabArray.objectAtIndex(2) as! UITabBarItem
-//        
-//        if let badgeValue = (tabItem).badgeValue {
-//            (tabItem).badgeValue = (Int(badgeValue)! + 1).description
-//        } else {
-//            (tabItem).badgeValue = "1"
-//        }
+          let storyboard = UIStoryboard(name: "Main", bundle: nil)
+          let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+        
+          self.window?.rootViewController = tabBarController
+          tabBarController.tabBarItem.badgeValue = "1"
+        
+        let tabArray = tabBarController.tabBar.items as NSArray!
+        let tabItem = tabArray.objectAtIndex(2) as! UITabBarItem
+        
+        if let badgeValue = (tabItem).badgeValue {
+            (tabItem).badgeValue = (Int(badgeValue)! + 1).description
+        } else {
+            (tabItem).badgeValue = "1"
+        }
         
         if application.applicationState == UIApplicationState.Inactive {
             PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)

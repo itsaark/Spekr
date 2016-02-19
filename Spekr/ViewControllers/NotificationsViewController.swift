@@ -22,6 +22,14 @@ class NotificationsViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         
         tableView.delegate = self
+        
+        ParseHelper.loadNotificationsForCurrentUser { (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            self.notifications = objects as? [Notifications] ?? []
+            print(self.notifications)
+            self.tableView.reloadData()
+        }
+
 
         // Do any additional setup after loading the view.
     }
@@ -34,15 +42,10 @@ class NotificationsViewController: UIViewController, UITableViewDelegate {
     override func viewWillAppear(animated: Bool) {
         
         //Setting View controller's navigation item properties
-        self.tabBarController?.navigationItem.title = "Notifications"
+        self.navigationItem.title = "Notifications"
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
         
-        ParseHelper.loadNotificationsForCurrentUser { (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            self.notifications = objects as? [Notifications] ?? []
-            print(self.notifications)
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
         
         //Setting badge value to Nil
         (tabBarController!.tabBar.items![2]).badgeValue = nil

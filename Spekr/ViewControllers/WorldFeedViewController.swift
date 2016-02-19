@@ -273,17 +273,17 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     override func viewWillAppear(animated: Bool) {
         
        
-      
-        self.tabBarController?.navigationController?.navigationBarHidden = false
-        self.tabBarController?.navigationItem.setHidesBackButton(true, animated: false)
-        self.tabBarController?.navigationItem.rightBarButtonItem = nil
+//      
+//        self.tabBarController?.navigationController?.navigationBarHidden = true
+//        self.navigationController?.navigationItem.setHidesBackButton(true, animated: false)
+//        self.navigationController?.navigationItem.rightBarButtonItem = nil
         
         
         //Makes toolbar disappear
         self.navigationController?.toolbarHidden = true
         
         //Setting View controller's title
-        self.tabBarController?.navigationItem.title = "World Feed"
+        self.navigationItem.title = "World Feed"
         
         //Reload Tableview
         self.tableView.reloadData()
@@ -307,27 +307,28 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     
     //Customizing the back bar button item
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         let backItem = UIBarButtonItem()
         backItem.title = ""
-        self.tabBarController?.navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        self.navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
         
         if (segue.identifier == "JumpToDetailCellWithImageVC"){
             
-            let destinationVC = segue.destinationViewController as! DetailCellWithImageViewController
+            let destinationViewController = segue.destinationViewController as! DetailCellWithImageViewController
             
             let selectedRow = tableView.indexPathForSelectedRow?.section
             
             print("wow\(postDetails[selectedRow!])")
             
-            destinationVC.currentObject = postDetails[selectedRow!] as PostDetails
+            destinationViewController.currentObject = postDetails[selectedRow!] as PostDetails
         }
         else if (segue.identifier == "JumpToDetailCellVC"){
             
-            let destinationVC = segue.destinationViewController as! DetailCellViewController
+            let destinationViewController = segue.destinationViewController as! DetailCellViewController
             
             let selectedRow = tableView.indexPathForSelectedRow?.section
             
-            destinationVC.currentObject = postDetails[selectedRow!] as PostDetails
+            destinationViewController.currentObject = postDetails[selectedRow!] as PostDetails
             
         }
     }

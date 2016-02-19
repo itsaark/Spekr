@@ -35,27 +35,27 @@ extension NSDate {
     var relativeTime: String {
         let now = NSDate()
         if now.yearsFrom(self)   > 0 {
-            return now.yearsFrom(self).description  + " year"  + { return now.yearsFrom(self)   > 1 ? "s" : "" }() + " ago"
+            return now.yearsFrom(self).description  + "yr"  + { return now.yearsFrom(self)   > 1 ? "" : "" }() + " ago"
         }
         if now.monthsFrom(self)  > 0 {
-            return now.monthsFrom(self).description + " month" + { return now.monthsFrom(self)  > 1 ? "s" : "" }() + " ago"
+            return now.monthsFrom(self).description + "mth" + { return now.monthsFrom(self)  > 1 ? "" : "" }() + " ago"
         }
         if now.weeksFrom(self)   > 0 {
-            return now.weeksFrom(self).description  + " week"  + { return now.weeksFrom(self)   > 1 ? "s" : "" }() + " ago"
+            return now.weeksFrom(self).description  + "w"  + { return now.weeksFrom(self)   > 1 ? "" : "" }() + " ago"
         }
         if now.daysFrom(self)    > 0 {
-            if now.daysFrom(self) == 1 { return "Yesterday" }
-            return now.daysFrom(self).description + " days ago"
+            if now.daysFrom(self) == 1 { return "1d ago" }
+            return now.daysFrom(self).description + "d ago"
         }
         if now.hoursFrom(self)   > 0 {
-            return "\(now.hoursFrom(self)) hour"     + { return now.hoursFrom(self)   > 1 ? "s" : "" }() + " ago"
+            return "\(now.hoursFrom(self))hr"     + { return now.hoursFrom(self)   > 1 ? "" : "" }() + " ago"
         }
         if now.minutesFrom(self) > 0 {
-            return "\(now.minutesFrom(self)) minute" + { return now.minutesFrom(self) > 1 ? "s" : "" }() + " ago"
+            return "\(now.minutesFrom(self))min" + { return now.minutesFrom(self) > 1 ? "" : "" }() + " ago"
         }
         if now.secondsFrom(self) > 0 {
             if now.secondsFrom(self) < 15 { return "Just now"  }
-            return "\(now.secondsFrom(self)) second" + { return now.secondsFrom(self) > 1 ? "s" : "" }() + " ago"
+            return "\(now.secondsFrom(self))sec" + { return now.secondsFrom(self) > 1 ? "" : "" }() + " ago"
         }
         return ""
     }

@@ -12,6 +12,7 @@ import Foundation
 import Bond
 import Agrume
 import NVActivityIndicatorView
+import DOFavoriteButton
 
 class DetailCellWithImageViewController: UIViewController {
     
@@ -59,14 +60,15 @@ class DetailCellWithImageViewController: UIViewController {
             currentObject!.updateLikesCount(likesCounter!)
             
             if currentObject?.objectForKey("username") as? PFUser != PFUser.currentUser() {
-            //Send a push notification
-            ParseHelper.updateNotificationTap(currentObject?.objectForKey("username") as! PFUser, post: currentObject!)
-            ParseHelper.sendPushNotification(currentObject?.objectForKey("username") as! PFUser, toPostID: (currentObject?.objectId)!)
+                //Send a push notification
+                ParseHelper.updateNotificationTap(currentObject?.objectForKey("username") as! PFUser, post: currentObject!)
+                ParseHelper.sendPushNotification(currentObject?.objectForKey("username") as! PFUser, toPostID: (currentObject?.objectId)!)
             }
         }
         else{
             
             likeButton.selected = false
+            
             //Delete notification on Parse backend
             ParseHelper.removeNotification(currentObject!)
             
@@ -117,6 +119,12 @@ class DetailCellWithImageViewController: UIViewController {
         print("imageTapped")
     }
     
+    
+    func dismissVC() {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func postImageTapped(){
         
         if let image = self.postImageView.image {
@@ -145,6 +153,7 @@ class DetailCellWithImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        likeButton.frame = CGRect(x: 220, y: 330, width: 22, height: 24)
         print("height \(UIScreen.mainScreen().bounds.size.height)")
         
         //User display image/name tap gesture recognizer
@@ -166,7 +175,7 @@ class DetailCellWithImageViewController: UIViewController {
         activityIndicatorView.tag = 1
         activityIndicatorView.size = CGSize(width: 60.0, height: 60.0)
         
-        
+        likeButton.addTarget(self, action: Selector("likeButtonTapped:"), forControlEvents: .TouchUpInside)
 
         // Do any additional setup after loading the view.
         
@@ -284,6 +293,7 @@ class DetailCellWithImageViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
     
     override func viewWillAppear(animated: Bool) {
@@ -291,8 +301,9 @@ class DetailCellWithImageViewController: UIViewController {
         //setting view controller's title
         self.title = "Post"
         
-        //Makes toolbar appear
-        self.navigationController?.toolbarHidden = false
+        
+//        let backItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: Selector("dismissVC"))
+//        self.navigationItem.rightBarButtonItem = backItem // This will show in the next view controller being pushed
         
         if currentObject?.likes.value?.count == nil || (currentObject?.likes.value?.count)! == 0 {
             
