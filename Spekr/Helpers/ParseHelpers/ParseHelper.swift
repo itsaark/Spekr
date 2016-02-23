@@ -67,6 +67,8 @@ class ParseHelper {
         
         query.orderByDescending(ParsePostLikesCount)
         
+        query.limit = 10
+        
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     

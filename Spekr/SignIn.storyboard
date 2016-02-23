@@ -19,23 +19,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SpekrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="lGt-On-DM6">
-                                <rect key="frame" x="105.5" y="65" width="109" height="109"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpekrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="lGt-On-DM6" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="112.5" y="99" width="95" height="95"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="101" id="7PK-WH-9ho"/>
-                                    <constraint firstAttribute="width" constant="101" id="tQL-zG-wIo"/>
+                                    <constraint firstAttribute="height" constant="95" id="7PK-WH-9ho"/>
+                                    <constraint firstAttribute="width" constant="95" id="tQL-zG-wIo"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="3.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="1.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="damping">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="velocity">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="curve" value="easeIn"/>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7PK-WH-9ho"/>
+                                        <exclude reference="tQL-zG-wIo"/>
+                                    </mask>
+                                </variation>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="spekr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TE5-ZT-TtI">
+                                <rect key="frame" x="117" y="199" width="87" height="46.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="34"/>
+                                <color key="textColor" red="0.4039215686" green="0.2901960784" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beyond Your Social Network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFD-VL-IkR">
+                                <rect key="frame" x="49" y="254" width="223.5" height="23.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" red="0.49803921569999998" green="0.36862745099999999" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.40392156862745099" green="0.29019607843137252" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="lGt-On-DM6" firstAttribute="centerX" secondItem="Tdl-Wz-ko7" secondAttribute="centerX" id="4ve-k1-OGN"/>
-                            <constraint firstItem="lGt-On-DM6" firstAttribute="top" secondItem="DBh-Tc-SMc" secondAttribute="bottom" constant="45" id="x1d-sa-Unl"/>
+                            <constraint firstItem="TE5-ZT-TtI" firstAttribute="top" secondItem="DBh-Tc-SMc" secondAttribute="bottom" constant="135" id="87O-Pe-Ye9"/>
+                            <constraint firstItem="XFD-VL-IkR" firstAttribute="top" secondItem="TE5-ZT-TtI" secondAttribute="bottom" constant="8" id="Xnq-Lv-R3F"/>
+                            <constraint firstItem="XFD-VL-IkR" firstAttribute="centerX" secondItem="Tdl-Wz-ko7" secondAttribute="centerX" id="YVr-bS-iFj"/>
+                            <constraint firstItem="TE5-ZT-TtI" firstAttribute="centerX" secondItem="Tdl-Wz-ko7" secondAttribute="centerX" id="lLr-cU-izf"/>
+                            <constraint firstItem="lGt-On-DM6" firstAttribute="top" secondItem="DBh-Tc-SMc" secondAttribute="bottom" constant="35" id="x1d-sa-Unl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lhW-sA-Q7l"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="spekrLogo" destination="lGt-On-DM6" id="W09-DM-ebf"/>
                         <segue destination="VJ0-Fy-6bd" kind="show" identifier="JumpToSignInVC" id="uia-HJ-vd5"/>
                     </connections>
                 </viewController>
@@ -55,46 +95,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SpekrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pIZ-q6-PoT">
-                                <rect key="frame" x="110" y="45" width="101" height="101"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpekrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pIZ-q6-PoT">
+                                <rect key="frame" x="113" y="99" width="95" height="95"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="101" id="hPw-fG-nNQ"/>
                                     <constraint firstAttribute="width" constant="101" id="po6-Np-S2Y"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hPw-fG-nNQ"/>
+                                        <exclude reference="po6-Np-S2Y"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3EZ-P5-TcP">
-                                <rect key="frame" x="56" y="274" width="209" height="29"/>
+                                <rect key="frame" x="56" y="360" width="209" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="9vb-HY-o7c"/>
                                     <constraint firstAttribute="width" constant="209" id="MuH-m9-10L"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                                 <state key="normal" title="SIGN IN WITH PHONE NUMBER">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.40392157435417175" green="0.29019609093666077" blue="0.60784316062927246" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapPhoneSignInButton:" destination="VJ0-Fy-6bd" eventType="touchUpInside" id="wXD-tP-W6t"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OrLine" translatesAutoresizingMaskIntoConstraints="NO" id="m08-nE-MTE">
-                                <rect key="frame" x="50" y="328" width="221" height="33"/>
+                                <rect key="frame" x="50" y="397" width="221" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="221" id="CmE-JI-4JE"/>
                                     <constraint firstAttribute="height" constant="33" id="evx-a3-dHb"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in with social account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kW-tv-9Cg">
-                                <rect key="frame" x="86" y="386" width="149" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="149" id="gyN-RC-mD0"/>
-                                    <constraint firstAttribute="height" constant="15" id="k5d-iq-BJW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wlb-iX-6eE">
-                                <rect key="frame" x="50" y="416" width="220" height="48"/>
+                                <rect key="frame" x="50" y="440" width="220" height="48"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTU-qX-Kis">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="48"/>
@@ -135,7 +171,7 @@
                                             <constraint firstAttribute="width" constant="110" id="rH9-yf-s8n"/>
                                             <constraint firstAttribute="height" constant="48" id="vpn-OC-5YB"/>
                                         </constraints>
-                                        <state key="normal" image="FB SignInButton"/>
+                                        <state key="normal" image="FBSignInButton"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="6g3-C1-YkL"/>
@@ -169,34 +205,48 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="spekr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vv-Pc-hhI">
+                                <rect key="frame" x="119" y="208" width="87" height="46.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="34"/>
+                                <color key="textColor" red="0.4039215686" green="0.2901960784" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Beyond Your Social Network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXZ-AD-ndE">
+                                <rect key="frame" x="51" y="263" width="223.5" height="23.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" red="0.49803921569999998" green="0.36862745099999999" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.4039215686" green="0.2901960784" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Tlg-pJ-KOY" firstAttribute="leading" secondItem="tDx-GV-xqc" secondAttribute="leadingMargin" constant="-1" id="34H-Ww-TCE"/>
-                            <constraint firstItem="Tlg-pJ-KOY" firstAttribute="top" secondItem="wlb-iX-6eE" secondAttribute="bottom" constant="64" id="37X-Ks-gFu"/>
+                            <constraint firstItem="Tlg-pJ-KOY" firstAttribute="top" secondItem="wlb-iX-6eE" secondAttribute="bottom" constant="40" id="37X-Ks-gFu"/>
                             <constraint firstItem="3EZ-P5-TcP" firstAttribute="centerX" secondItem="tDx-GV-xqc" secondAttribute="centerX" id="3Wn-oS-oGL"/>
                             <constraint firstItem="pIZ-q6-PoT" firstAttribute="centerX" secondItem="tDx-GV-xqc" secondAttribute="centerX" id="3qc-Nj-aJ6"/>
-                            <constraint firstItem="wlb-iX-6eE" firstAttribute="top" secondItem="2kW-tv-9Cg" secondAttribute="bottom" constant="15" id="44h-LW-MHH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tlg-pJ-KOY" secondAttribute="trailing" constant="-12" id="53n-5o-Kud"/>
                             <constraint firstItem="Tlg-pJ-KOY" firstAttribute="leading" secondItem="tDx-GV-xqc" secondAttribute="leadingMargin" constant="5" id="67t-1y-fCD"/>
+                            <constraint firstItem="6Vv-Pc-hhI" firstAttribute="top" secondItem="DI1-jH-Mls" secondAttribute="bottom" constant="135" id="9oy-2B-HZB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tlg-pJ-KOY" secondAttribute="trailing" constant="5" id="AtZ-Hu-XnI"/>
                             <constraint firstItem="Tlg-pJ-KOY" firstAttribute="centerX" secondItem="tDx-GV-xqc" secondAttribute="centerX" id="B3p-3D-qd3"/>
-                            <constraint firstItem="2kW-tv-9Cg" firstAttribute="centerX" secondItem="tDx-GV-xqc" secondAttribute="centerX" id="DQs-Xl-8hd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tlg-pJ-KOY" secondAttribute="trailing" constant="-6" id="EnY-OL-mqf"/>
+                            <constraint firstItem="wlb-iX-6eE" firstAttribute="top" secondItem="m08-nE-MTE" secondAttribute="bottom" constant="10" id="IBr-Z8-Vzc"/>
                             <constraint firstItem="Tlg-pJ-KOY" firstAttribute="centerX" secondItem="tDx-GV-xqc" secondAttribute="centerX" id="IaT-o0-JWW"/>
                             <constraint firstItem="3EZ-P5-TcP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pIZ-q6-PoT" secondAttribute="bottom" constant="20" id="Kgb-Cp-uDe"/>
                             <constraint firstItem="Tlg-pJ-KOY" firstAttribute="leading" secondItem="tDx-GV-xqc" secondAttribute="leading" constant="7" id="LxU-BZ-uoy"/>
                             <constraint firstItem="W0G-AI-yvm" firstAttribute="top" secondItem="Tlg-pJ-KOY" secondAttribute="bottom" constant="28" id="QaD-nw-a8Y"/>
                             <constraint firstItem="Tlg-pJ-KOY" firstAttribute="centerX" secondItem="tDx-GV-xqc" secondAttribute="centerX" id="Qgx-Wu-xQZ"/>
+                            <constraint firstItem="BXZ-AD-ndE" firstAttribute="top" secondItem="6Vv-Pc-hhI" secondAttribute="bottom" constant="8" id="Uz9-93-DOZ"/>
                             <constraint firstItem="Tlg-pJ-KOY" firstAttribute="leading" secondItem="tDx-GV-xqc" secondAttribute="leadingMargin" constant="-11" id="VYA-yw-AND"/>
+                            <constraint firstItem="BXZ-AD-ndE" firstAttribute="centerX" secondItem="tDx-GV-xqc" secondAttribute="centerX" id="d63-1y-0Ch"/>
                             <constraint firstItem="3EZ-P5-TcP" firstAttribute="top" secondItem="pIZ-q6-PoT" secondAttribute="bottom" constant="73" id="pCF-xc-ci5"/>
                             <constraint firstItem="Tlg-pJ-KOY" firstAttribute="top" secondItem="wlb-iX-6eE" secondAttribute="bottom" constant="19" id="rnE-er-0Xb"/>
+                            <constraint firstItem="6Vv-Pc-hhI" firstAttribute="centerX" secondItem="tDx-GV-xqc" secondAttribute="centerX" id="sIQ-TZ-DDk"/>
                             <constraint firstItem="wlb-iX-6eE" firstAttribute="centerX" secondItem="tDx-GV-xqc" secondAttribute="centerX" id="sPo-Gt-a3q"/>
                             <constraint firstAttribute="trailing" secondItem="Tlg-pJ-KOY" secondAttribute="trailing" constant="7" id="sTK-Qv-gh1"/>
-                            <constraint firstItem="pIZ-q6-PoT" firstAttribute="top" secondItem="DI1-jH-Mls" secondAttribute="bottom" constant="45" id="tVb-lH-gOR"/>
+                            <constraint firstItem="pIZ-q6-PoT" firstAttribute="top" secondItem="DI1-jH-Mls" secondAttribute="bottom" constant="35" id="tVb-lH-gOR"/>
                             <constraint firstAttribute="bottom" secondItem="pIZ-q6-PoT" secondAttribute="bottom" constant="367" id="tuN-jV-3KW"/>
-                            <constraint firstItem="m08-nE-MTE" firstAttribute="top" secondItem="3EZ-P5-TcP" secondAttribute="bottom" constant="25" id="vc0-UZ-akd"/>
-                            <constraint firstItem="2kW-tv-9Cg" firstAttribute="top" secondItem="m08-nE-MTE" secondAttribute="bottom" constant="25" id="yDC-jm-5Oo"/>
+                            <constraint firstItem="m08-nE-MTE" firstAttribute="top" secondItem="3EZ-P5-TcP" secondAttribute="bottom" constant="8" id="vc0-UZ-akd"/>
                             <constraint firstItem="m08-nE-MTE" firstAttribute="centerX" secondItem="tDx-GV-xqc" secondAttribute="centerX" id="z38-hN-GtD"/>
                         </constraints>
                         <variation key="default">
@@ -297,7 +347,6 @@ you can get in touch.</string>
         <!--Navigation Controller-->
         <scene sceneID="CgE-ls-CZz">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VTF-pc-gwS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ha8-b5-jd6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -307,17 +356,21 @@ you can get in touch.</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="nua-WN-bv6" id="7Xx-9P-lbT"/>
                         <segue destination="tF5-bK-6uN" kind="relationship" relationship="rootViewController" id="Ufv-qg-2Ng"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VTF-pc-gwS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="nua-WN-bv6" customClass="NavigationControllerDelegate" customModule="Spekr" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1405" y="368"/>
         </scene>
     </scenes>
     <resources>
         <image name="FB SignInButton" width="110" height="48"/>
+        <image name="FBSignInButton" width="110" height="48"/>
         <image name="OrLine" width="221" height="35"/>
-        <image name="SpekrLogo" width="109" height="109"/>
+        <image name="SpekrLogo" width="95" height="95"/>
         <image name="TwitterSignInButton" width="110" height="48"/>
     </resources>
 </document>

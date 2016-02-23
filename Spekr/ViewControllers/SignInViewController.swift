@@ -19,6 +19,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         
         navigationController?.navigationBarHidden = true
+        
     }
     
     //Displaying error message through Alert
@@ -65,7 +66,10 @@ class SignInViewController: UIViewController {
                     
                     //TODO: Change the string in this func to "JumpFromSignInToLocalFeed" when isNew property is added.
                     //self.navigateToNewViewController("JumpFromSignInToLocalFeed")
-                    self.loadTabBarViewController()
+                    //self.loadTabBarViewController()
+                    if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                        appDelegate.setMainTabBarControllerAsRoot()
+                    }
 
                     
                 }else {
@@ -203,17 +207,23 @@ class SignInViewController: UIViewController {
 //                        self.twitterUserDataToParse()
 //                    })
                         self.twitterUserDataToParse()
+                        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                            appDelegate.setMainTabBarControllerAsRoot()
+                        }
 //                    
                         
                     } else {
                         print("User logged in with Twitter!")
+                        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                            appDelegate.setMainTabBarControllerAsRoot()
+                        }
                     }
                 
                 
                 
                         //Performing a segue to Local Feed Screen
                         //self.navigateToNewViewController("JumpFromSignInToLocalFeed")
-                        self.loadTabBarViewController()
+                        //self.loadTabBarViewController()
                     
                     
                 
@@ -330,14 +340,20 @@ class SignInViewController: UIViewController {
                         print("User signed up and logged in through Facebook!")
                         
                         self.fbUserDataToParse()
+                        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                            appDelegate.setMainTabBarControllerAsRoot()
+                        }
                         
                     } else {
                         print("User logged in through Facebook!")
+                        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                            appDelegate.setMainTabBarControllerAsRoot()
+                        }
                     }
                     
                     //Performing a segue to Local Feed Screen
                     //self.navigateToNewViewController("JumpFromSignInToLocalFeed")
-                    self.loadTabBarViewController()
+                    //self.loadTabBarViewController()
 
                     
                 } else {

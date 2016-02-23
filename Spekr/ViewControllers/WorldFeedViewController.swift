@@ -464,5 +464,16 @@ extension WorldFeedViewController: UITableViewDataSource {
         return cell
     }
     
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        
+        if (maximumOffset - currentOffset <= -40) {
+            
+            //Query 10 more posts from Prase
+        }
+    }
+    
     
 }

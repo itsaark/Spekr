@@ -12,17 +12,25 @@ import Foundation
 import Bond
 import Agrume
 import NVActivityIndicatorView
-import DOFavoriteButton
+
+
 
 class DetailCellWithImageViewController: UIViewController {
     
     var currentObject : PostDetails?
     
     var likesCounter: Int?
+    
 
+     // TODO: Update likesCounter on Parse assoicated with each post
+    // TODO:  Resolve the flicker issue with progress view else replace it with NVACtivityInidicator
 
     //Calender Declaration
     let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+    
+    @IBOutlet weak var progressView: DACircularProgressView!
+    
+    @IBOutlet weak var cellView: UIView!
     
     @IBOutlet weak var userDisplayImage: UIImageView!
     
@@ -153,7 +161,7 @@ class DetailCellWithImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        likeButton.frame = CGRect(x: 220, y: 330, width: 22, height: 24)
+        //likeButton.frame = CGRect(x: 220, y: 330, width: 22, height: 24)
         print("height \(UIScreen.mainScreen().bounds.size.height)")
         
         //User display image/name tap gesture recognizer
@@ -169,13 +177,22 @@ class DetailCellWithImageViewController: UIViewController {
         self.postImageView.addGestureRecognizer(postImageTapGestureRecognizer)
         self.postImageView.userInteractionEnabled = true
         
-        let frameW:CGRect = CGRectMake(0, 0, postImageView.frame.width, postImageView.frame.height)
+        let framewithMain = self.view.convertRect(postImageView.frame, fromCoordinateSpace: cellView)
+        
+       let frameW:CGRect = CGRectMake(framewithMain.midX, framewithMain.midY, postImageView.frame.width/2, postImageView.frame.height/2)
+        
+
+        
+        //progressView.frame = frameW
+        progressView.progressTintColor = UIColor.grayColor()
+        //self.postImageView.addSubview(progressView)
+        
         
         let activityIndicatorView = NVActivityIndicatorView(frame: frameW, type: .BallClipRotate, color: UIColor(red: 204, green: 204, blue: 204))
         activityIndicatorView.tag = 1
         activityIndicatorView.size = CGSize(width: 60.0, height: 60.0)
         
-        likeButton.addTarget(self, action: Selector("likeButtonTapped:"), forControlEvents: .TouchUpInside)
+        //likeButton.addTarget(self, action: Selector("likeButtonTapped:"), forControlEvents: .TouchUpInside)
 
         // Do any additional setup after loading the view.
         
@@ -199,6 +216,7 @@ class DetailCellWithImageViewController: UIViewController {
             var newFrame = postTextView.frame
             newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
             postTextView.frame = newFrame
+            
             
             let createdAtDate = object.createdAt
             
@@ -226,23 +244,21 @@ class DetailCellWithImageViewController: UIViewController {
 
                 
                 }, progressBlock: { (progress: Int32) -> Void in
-                    
-                    if progress < 100 {
+//                  
+                    if progress <= 99 {
                         
-                        self.postImageView.addSubview(activityIndicatorView)
-                        activityIndicatorView.startAnimation()
-                    }else {
+                        self.progressView.setProgress(CGFloat(progress)/100, animated: true)
                         
-                        activityIndicatorView.stopAnimation()
-                        activityIndicatorView.hidesWhenStopped = true
+                        print("CG value: \(CGFloat(progress)/100)")
                         
-                        for subview in self.postImageView.subviews {
-                            if !(subview.tag == 1) {
-                                print(subview)
-                                subview.removeFromSuperview()
-                            }
-                        }
+                        print(self.progressView.progress)
+                        
+                    } else {
+                        
+                        self.progressView.removeFromSuperview()
                     }
+                  
+                 
             })
             
 //            if postImageFile != nil {

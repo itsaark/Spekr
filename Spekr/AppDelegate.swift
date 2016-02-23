@@ -54,24 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Initializing Facebook for Parse
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         
-        print("currentuser: \(PFUser.currentUser())")
-        
-        //TODO: Add a similar instance for facebook as well.
-        // Check for an existing Twitter or Digits session before presenting the sign in screen.
-//        if Twitter.sharedInstance().sessionStore.session() == nil && Digits.sharedInstance().session() == nil && FBSDKAccessToken.currentAccessToken() == nil{
-//            
-//            showSignInScreen()
-//            
-//        }
-        
-        //let settings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
-        //application.registerUserNotificationSettings(settings)
-        //application.registerForRemoteNotifications()
-        
-//        let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-//        let launchViewController = storyboard.instantiateViewControllerWithIdentifier("launchScreen")
-//        
-//        self.window?.rootViewController = launchViewController
         
                 
         if let launchOptions = launchOptions as? [String : AnyObject] {
@@ -96,26 +78,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController?.presentViewController(signInNavigationViewController, animated: true, completion: nil)
         
-        //self.window?.rootViewController = signInNavigationViewController as? UINavigationController
-        //            UIView.transitionWithView(window!, duration: 0.1, options: .TransitionCrossDissolve, animations: { () -> Void in
-        //
-        //
-        //
-        //                }, completion: nil)
+
     }
     
-    func logOutButtonTapped(){
-        
-        PFUser.logOut()
-        Digits.sharedInstance().logOut()
+    func setMainTabBarControllerAsRoot() {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
-        self.window?.rootViewController = tabBarController
-        
-        showSignInScreen()
-        
+        let rootViewController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+        //rootViewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        window?.rootViewController = rootViewController
+        self.window?.makeKeyAndVisible()
     }
+    
+
     
     //--------------------------------------
     // MARK: Push Notifications

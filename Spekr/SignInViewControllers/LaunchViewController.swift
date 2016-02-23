@@ -14,16 +14,41 @@ import TwitterKit
 import FBSDKCoreKit
 import ParseTwitterUtils
 import ParseFacebookUtilsV4
+import Spring
 
 
 class LaunchViewController: UIViewController {
+    
+    @IBOutlet weak var spekrLogo: SpringImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        //Logo animation
+        spekrLogo.animateNext { () -> () in
+            
+            //Checking for current user
+            if PFUser.currentUser() == nil {
+                
+                UIView.animateWithDuration(Double(1.5), delay: Double(0.0), options: [UIViewAnimationOptions.Repeat, UIViewAnimationOptions.Autoreverse], animations: { () -> Void in
+                    }) { (bool: Bool) -> Void in
+                        
+                        if bool {
+                            
+                            self.performSegueWithIdentifier("JumpToSignInVC", sender: self)
+                        }
+                }
+                
+             }else {
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+                self.presentViewController(tabBarController, animated: true, completion: nil)
+            }
+         
+        }
         
-        // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,44 +61,6 @@ class LaunchViewController: UIViewController {
         navigationController?.navigationBarHidden = true
 
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        
-        //PFUser.logOut()
-        //Digits.sharedInstance().logOut()
-        
-        print("Fbskd not called \(FBSDKAccessToken.currentAccessToken())")
-        
-        if PFUser.currentUser()
-            == nil {
-                
-                //            let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-                //            let signInViewController = storyboard.instantiateViewControllerWithIdentifier("SignInViewController")
-                
-                self.performSegueWithIdentifier("JumpToSignInVC", sender: self)
-                //            let storyboardtwo = UIStoryboard(name: "Main", bundle: nil)
-                //            let tabBarController = storyboardtwo.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
-                
-        }else {
-            
-            print("currentuser: \(PFUser.currentUser())")
-            
-            PFUser.becomeInBackground(FBSDKAccessToken.currentAccessToken().tokenString)
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
-            self.presentViewController(tabBarController, animated: true, completion: nil)
-        }
-    }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

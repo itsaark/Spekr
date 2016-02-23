@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B880F7E2E19F1583CBF40B59'
+               BlueprintIdentifier = '898CEF2DD70101E8B394101B'
                BlueprintName = 'Agrume'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Agrume.framework'>

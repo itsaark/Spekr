@@ -10,6 +10,8 @@ pod 'DOFavoriteButton'
 pod 'PermissionScope'
 pod 'Agrume', :git => 'https://github.com/JanGorman/Agrume.git'
 pod 'NVActivityIndicatorView'
+pod 'ImagePicker'
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
 
 end
 

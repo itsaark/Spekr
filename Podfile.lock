@@ -2,30 +2,42 @@ PODS:
   - Agrume (2.0.4)
   - Bond (4.3.0)
   - DOFavoriteButton (0.0.4)
+  - ImagePicker (1.1)
   - NVActivityIndicatorView (2.3)
   - PermissionScope (1.0.2)
+  - Spring (1.0.3)
 
 DEPENDENCIES:
   - Agrume (from `https://github.com/JanGorman/Agrume.git`)
   - Bond (~> 4.0)
   - DOFavoriteButton
+  - ImagePicker
   - NVActivityIndicatorView
   - PermissionScope
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
 
 EXTERNAL SOURCES:
   Agrume:
     :git: https://github.com/JanGorman/Agrume.git
+  Spring:
+    :branch: swift2
+    :git: https://github.com/MengTo/Spring.git
 
 CHECKOUT OPTIONS:
   Agrume:
-    :commit: dd276a9196820ae77752179c3d684ab2a56ecf04
+    :commit: 78c2876f6d76cf706f55e42a1ca23154c67d174b
     :git: https://github.com/JanGorman/Agrume.git
+  Spring:
+    :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
+    :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
   Agrume: 166fb17264340f63c18953fc6fc900c249da87bf
   Bond: ebe2364b18130690083cbceff036420b21494ae4
   DOFavoriteButton: 866e15af173d2dd5233971a1f657a5f31d2491d5
+  ImagePicker: 2a904341bbc47c96457de00558d2f8dd186eff7c
   NVActivityIndicatorView: c7ef25ef527ab5e51b00322cb1ddd58681bcf2a3
   PermissionScope: 860828c5516d349b6f49e5491799cfef33c5ccc7
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
 COCOAPODS: 0.39.0

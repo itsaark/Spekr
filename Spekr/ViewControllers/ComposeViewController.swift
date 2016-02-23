@@ -9,8 +9,9 @@
 import UIKit
 import Parse
 import CoreLocation
+import ImagePicker
 
-class ComposeViewController: UIViewController, CLLocationManagerDelegate, UITextViewDelegate {
+class ComposeViewController: UIViewController, CLLocationManagerDelegate, UITextViewDelegate, ImagePickerDelegate {
     
     
     //Displaying error/alert message through Alert
@@ -27,7 +28,28 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
         self.presentViewController(alert, animated: true, completion: nil)
         
     }
+    
+    let imagePickerController = ImagePickerController()
+    
+    
+    func wrapperDidPress(images: [UIImage]) {
 
+        
+    }
+    func doneButtonDidPress(images: [UIImage]){
+        
+        self.selectedImage.image = images[0]
+        self.postDetails.image.value = images[0]
+        self.cameraButton.selected = true
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    func cancelButtonDidPress(){
+        
+        self.selectedImage.image = nil
+        self.cameraButton.selected = false
+    }
+    
     var photoTakingHelper: PhotoTakingHelper?
     var currentUserLocation: PFGeoPoint?
     let locationManager = CLLocationManager()
@@ -44,14 +66,21 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
     
     func attachImage() {
         
-        photoTakingHelper = PhotoTakingHelper(viewController: self, callback: { (image: UIImage?) -> Void in
+        presentViewController(imagePickerController, animated: true) { () -> Void in
             
-            print("received a callback")
             
-            self.postDetails.image.value = image
-            //TODO: Change Image icon to file name after image has been selected
-            self.cameraButton.selected = true
-        })
+        }
+        
+//        photoTakingHelper = PhotoTakingHelper(viewController: self, callback: { (image: UIImage?) -> Void in
+//            
+//            print("received a callback")
+//            
+//            self.selectedImage.image = image
+//            
+//            self.postDetails.image.value = image
+//            //TODO: Change Image icon to file name after image has been selected
+//            self.cameraButton.selected = true
+//        })
     }
 
     
@@ -59,7 +88,7 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
     
     @IBOutlet weak var placeHolderLabel: UILabel!
 
-    
+    @IBOutlet weak var selectedImage: UIImageView!
     
     
     func postButtonTapped() {
@@ -184,6 +213,10 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
         // Do any additional setup after loading the view.
         
         composeTextView.delegate = self
+        
+        imagePickerController.delegate = self
+        
+        imagePickerController.imageLimit = 1
         
         //Setting custom toolbar as inputAccessory to composeTextView
         composeTextView.inputAccessoryView = inputToolbar

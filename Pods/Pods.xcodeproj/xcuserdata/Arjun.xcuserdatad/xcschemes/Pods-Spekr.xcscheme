@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0DA95A834970E052A03701EA'
+               BlueprintIdentifier = '0580E0367BA4194D035E4C9B'
                BlueprintName = 'Pods-Spekr'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_Spekr.framework'>

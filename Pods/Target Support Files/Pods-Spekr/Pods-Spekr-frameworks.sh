@@ -87,13 +87,17 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Spekr/Agrume.framework"
   install_framework "Pods-Spekr/Bond.framework"
   install_framework "Pods-Spekr/DOFavoriteButton.framework"
+  install_framework "Pods-Spekr/ImagePicker.framework"
   install_framework "Pods-Spekr/NVActivityIndicatorView.framework"
   install_framework "Pods-Spekr/PermissionScope.framework"
+  install_framework "Pods-Spekr/Spring.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Spekr/Agrume.framework"
   install_framework "Pods-Spekr/Bond.framework"
   install_framework "Pods-Spekr/DOFavoriteButton.framework"
+  install_framework "Pods-Spekr/ImagePicker.framework"
   install_framework "Pods-Spekr/NVActivityIndicatorView.framework"
   install_framework "Pods-Spekr/PermissionScope.framework"
+  install_framework "Pods-Spekr/Spring.framework"
 fi

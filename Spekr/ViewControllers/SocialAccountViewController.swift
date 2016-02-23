@@ -143,7 +143,10 @@ class SocialAccountViewController: UIViewController {
                     print("Woohoo, user logged in with Twitter!")
                     self.twitterUserDataToParse()
                     //self.navigateToNewViewController("JumpFromLinkToLocalFeed")
-                    self.loadTabBarViewController()
+                    //self.loadTabBarViewController()
+                    if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                        appDelegate.setMainTabBarControllerAsRoot()
+                    }
                     
                     }
                 } else {
@@ -263,7 +266,10 @@ class SocialAccountViewController: UIViewController {
                     
                     self.fbUserDataToParse()
                     //self.navigateToNewViewController("JumpFromLinkToLocalFeed")
-                    self.loadTabBarViewController()
+                    //self.loadTabBarViewController()
+                    if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                        appDelegate.setMainTabBarControllerAsRoot()
+                    }
                 }
                 } else {
                     
