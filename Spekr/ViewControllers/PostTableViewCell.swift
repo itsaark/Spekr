@@ -22,9 +22,13 @@ class PostTableViewCell: UITableViewCell {
     
     
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        userDisplayImage.layer.cornerRadius = 22.5
+        userDisplayImage.clipsToBounds = true
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

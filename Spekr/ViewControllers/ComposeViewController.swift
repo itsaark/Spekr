@@ -55,6 +55,8 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
     let locationManager = CLLocationManager()
     let postDetails = PostDetails()
     
+    let alertView = SweetAlert()
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         for location in locations {
@@ -90,10 +92,16 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
 
     @IBOutlet weak var selectedImage: UIImageView!
     
+    @IBAction func dismissButtonTapped (sender:AnyObject) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     func postButtonTapped() {
         
         print(currentUserLocation)
+        composeTextView.endEditing(true)
         
         if currentUserLocation == nil {
             
@@ -114,23 +122,24 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
             
         }else if composeTextView.text == "" {
             
-            DisplayAert("Empty Post", errorMessage: "Please enter text")
+            alertView.showAlert("Empty Post", subTitle: "Please enter text", style: AlertStyle.Error, buttonTitle: "OK")
+            //DisplayAert("Empty Post", errorMessage: "Please enter text")
             
         }else {
             
             self.postDetails.locationCoordinates = currentUserLocation
             self.postDetails.postText = composeTextView.text
-            self.postDetails.uploadPost()
-            
-            let alert = UIAlertController(title: "Posted Successfully", message: "", preferredStyle: .Alert)
-            
-            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction) -> Void in
+            self.postDetails.uploadPost({ (uploaded: Bool, error: NSError?) -> Void in
                 
-                self.performSegueWithIdentifier("unwindToLocalFeed", sender: self)
-                
-            }))
-            
-            self.presentViewController(alert, animated: true, completion: nil)
+                self.alertView.showAlert("Posted Successfully", subTitle: "", style: AlertStyle.Success, buttonTitle: "OK", action: { (isOtherButton) -> Void in
+                    
+                    if isOtherButton {
+                        
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    }
+                })
+            })
+
             
         }
         
@@ -257,6 +266,11 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
         }
 
 
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        
+        self.composeTextView.endEditing(true)
     }
     
     override func viewDidAppear(animated: Bool) {

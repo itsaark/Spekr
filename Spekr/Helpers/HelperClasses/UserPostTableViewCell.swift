@@ -13,6 +13,8 @@ class UserPostTableViewCell: UITableViewCell {
     @IBOutlet weak var timeStamp: UILabel!
     
     @IBOutlet weak var postTextLabel: UILabel!
+    
+    @IBOutlet weak var likesCountLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -25,9 +25,12 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     
     var refreshControl:UIRefreshControl!
     
-    
+    var todaysLikesArray = [Int]()
     var isRefreshIconsOverlap = false
     var isRefreshAnimating = false
+    let todaysTotalLikes = TodaysTotalLikes()
+    var likesMedianValue = 0
+    let medianOf = MedianOf()
     
     // Please wrap your scroll view
 
@@ -73,9 +76,9 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
                 self.tableView.backgroundView?.hidden = true
         })
         
-        ParseHelper.requestForWorldFeed { (result: [PFObject]?, error: NSError?) -> Void in
+        ParseHelper.requestForWorldFeed(likesMedianValue) { (posts: [PFObject]?, error: NSError?) -> Void in
             
-            self.postDetails = result as? [PostDetails] ?? []
+            self.postDetails = posts as? [PostDetails] ?? []
             print(self.postDetails)
             self.tableView.reloadData()
         }
@@ -174,11 +177,7 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         // Flag that we are animating
         self.isRefreshAnimating = true
         
-        UIView.animateWithDuration(
-            Double(0.3),
-            delay: Double(0.0),
-            options: UIViewAnimationOptions.CurveLinear,
-            animations: {
+        UIView.animateWithDuration(Double(0.3), delay: Double(0.0), options: UIViewAnimationOptions.CurveLinear, animations: {
                 // Rotate the spinner by M_PI_2 = PI/2 = 90 degrees
                 self.compass_spinner.transform = CGAffineTransformRotate(self.compass_spinner.transform, CGFloat(M_PI_2))
                 
@@ -220,6 +219,7 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         // Do any additional setup after loading the view, typically from a nib.
         
         tableView.delegate = self
+        
         // Programmatically inserting a UIRefreshControl
         self.refreshControl = UIRefreshControl()
         
@@ -260,7 +260,7 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         tableView.addSubview(self.refreshControl)
         
-        
+
     }
     
     
@@ -272,12 +272,6 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     
     override func viewWillAppear(animated: Bool) {
         
-       
-//      
-//        self.tabBarController?.navigationController?.navigationBarHidden = true
-//        self.navigationController?.navigationItem.setHidesBackButton(true, animated: false)
-//        self.navigationController?.navigationItem.rightBarButtonItem = nil
-        
         
         //Makes toolbar disappear
         self.navigationController?.toolbarHidden = true
@@ -288,13 +282,12 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         //Reload Tableview
         self.tableView.reloadData()
         
+        todaysLikesArray = todaysTotalLikes.getArray()
+        likesMedianValue = medianOf.array(todaysLikesArray)
+        
         
     }
     
-    override func viewDidAppear(animated: Bool) {
-        
-        
-    }
     
     
     //Segue function to navigate to Compose view controller from right bar button item
@@ -401,6 +394,14 @@ extension WorldFeedViewController: UITableViewDataSource {
         
         
         return 1
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
+        
+        cell.userDisplayImage.layer.cornerRadius = 22.5
+        cell.userDisplayImage.clipsToBounds = true
     }
     
     

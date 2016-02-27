@@ -15,7 +15,7 @@ class DetailCellViewController: UIViewController {
     
     var currentObject : PostDetails?
     
-    var likesCounter: Int?
+    var localLikesCounter: Int?
     
     //Calender Declaration
     let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
@@ -50,14 +50,16 @@ class DetailCellViewController: UIViewController {
             )
             
             likeButton.selected = true
-            likesCounter = likesCounter! + 1
-            likesCountLabel.text = "\(likesCounter!)"
-            currentObject!.updateLikesCount(likesCounter!)
+            localLikesCounter = localLikesCounter! + 1
+            likesCountLabel.text = "\(localLikesCounter!)"
+            currentObject!.updateLikesCount(localLikesCounter!)
             
             if currentObject?.objectForKey("username") as? PFUser != PFUser.currentUser() {
                 //Send a push notification
                 ParseHelper.updateNotificationTap(currentObject?.objectForKey("username") as! PFUser, post: currentObject!)
                 ParseHelper.sendPushNotification(currentObject?.objectForKey("username") as! PFUser, toPostID: (currentObject?.objectId)!)
+                //UpdateTotalLikes
+                ParseHelper.updateTotalLikesOfUser((currentObject?.objectForKey("username") as? PFUser)!)
             }
         }
         else{
@@ -67,20 +69,20 @@ class DetailCellViewController: UIViewController {
             //Delete notification on Parse backend
             ParseHelper.removeNotification(currentObject!)
             
-            if likesCounter == 0 {
+            if localLikesCounter == 0 {
                 
                 likesCountLabel.text = ""
                 currentObject!.updateLikesCount(0)
             }
-            else if likesCounter == 1{
-                likesCounter = likesCounter! - 1
+            else if localLikesCounter == 1{
+                localLikesCounter = localLikesCounter! - 1
                 likesCountLabel.text = ""
-                currentObject!.updateLikesCount(likesCounter!)
+                currentObject!.updateLikesCount(localLikesCounter!)
             }
             else{
-                likesCounter = likesCounter! - 1
-                likesCountLabel.text = "\(likesCounter!)"
-                currentObject!.updateLikesCount(likesCounter!)
+                localLikesCounter = localLikesCounter! - 1
+                likesCountLabel.text = "\(localLikesCounter!)"
+                currentObject!.updateLikesCount(localLikesCounter!)
             }
         }
 
@@ -108,13 +110,18 @@ class DetailCellViewController: UIViewController {
     }
 
     
-    
-    
     //User's display image/name is tapped. Performing a segue to user profile vc
     func userDisplayTapped(){
         
-        performSegueWithIdentifier("JumpToUserProfileVC", sender: self)
-        print("imageTapped")
+        if currentObject?.objectForKey("username") as? PFUser != PFUser.currentUser() {
+            performSegueWithIdentifier("JumpToUserProfileVC", sender: self)
+            print("imageTapped")
+            
+        } else{
+            
+            //User's display image/name is tapped by the user itself. Performing a segue to user account vc
+            performSegueWithIdentifier("JumpToAccount", sender: self)
+        }
     }
     
     func dismissVC() {
@@ -232,12 +239,12 @@ class DetailCellViewController: UIViewController {
         if currentObject?.likes.value?.count == nil || (currentObject?.likes.value?.count)! == 0 {
             
             likesCountLabel.text = ""
-            likesCounter = 0
+            localLikesCounter = 0
         }
         else{
             
             likesCountLabel.text = "\((currentObject?.likes.value?.count)!)"
-            likesCounter = currentObject?.likes.value?.count
+            localLikesCounter = currentObject?.likes.value?.count
         }
         
         if currentObject?.doesUserLikePost(PFUser.currentUser()!) == true {

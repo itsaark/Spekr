@@ -41,9 +41,13 @@ class LaunchViewController: UIViewController {
                 
              }else {
                 
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
-                self.presentViewController(tabBarController, animated: true, completion: nil)
+                //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                //let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+                //self.presentViewController(tabBarController, animated: true, completion: nil)
+                
+                if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                    appDelegate.setMainTabBarControllerAsRoot()
+                }
             }
          
         }

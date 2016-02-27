@@ -11,6 +11,13 @@ import Parse
 
 class ParseHelper {
     
+    
+    
+    //User class
+    static let ParseUserDetailsClass = "UserDetails"
+    static let ParseTotalUserLikes = "totalLikes"
+    static let ParseUser = "user"
+    
     // Like Relation
     static let ParseLikeClass         = "Likes"
     static let ParseLikeToPost        = "toPost"
@@ -59,15 +66,30 @@ class ParseHelper {
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
-    static func requestForWorldFeed(completionBlock: PFQueryArrayResultBlock){
+    static func findTodaysPosts(completionBlock: PFQueryArrayResultBlock) {
         
         let query = PFQuery(className: ParsePostDetailsClass)
         
-        query.whereKey(ParsePostLikesCount, greaterThan: 1)
+        let yesterdayDate = NSDate(timeIntervalSinceNow: -86400)
+        
+        query.whereKey(ParsePostCreatedAt, greaterThan: yesterdayDate)
+        
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
+    static func requestForWorldFeed(likesMedianValue: Int, completionBlock: PFQueryArrayResultBlock){
+        
+        let query = PFQuery(className: ParsePostDetailsClass)
+        
+        let yesterdayDate = NSDate(timeIntervalSinceNow: -86400)
+        
+        query.whereKey(ParsePostCreatedAt, greaterThan: yesterdayDate)
+        
+        query.whereKey(ParsePostLikesCount, greaterThan: likesMedianValue)
         
         query.orderByDescending(ParsePostLikesCount)
         
-        query.limit = 10
+        //query.limit = 10
         
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
@@ -202,6 +224,7 @@ class ParseHelper {
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
+    //Called when "user" deletes post
     static func deleteUserPost(postObjectID: String, completionBlock:PFBooleanResultBlock){
         
         let query = PFQuery(className: ParsePostDetailsClass)
@@ -217,6 +240,46 @@ class ParseHelper {
                 }
             }
         }
+    }
+    
+    static func deleteOldPost(completionBlock: PFQueryArrayResultBlock){
+        
+        let query = PFQuery(className: ParsePostDetailsClass)
+        
+        query.whereKey(ParsePostUser, equalTo: PFUser.currentUser()!)
+        
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
+    static func totalLikesForUser(user: PFUser, completionBlock: PFQueryArrayResultBlock) {
+        
+        let query = PFQuery(className: ParseUserDetailsClass)
+        query.whereKey(ParseUser, equalTo: user)
+        // 2
+        query.includeKey(ParseTotalUserLikes)
+        
+        query.cachePolicy = .CacheThenNetwork
+        
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
+    static func updateTotalLikesOfUser(user: PFUser) {
+        
+        let userDetailObject = PFObject(withoutDataWithClassName: ParseUserDetailsClass, objectId: user.objectId)
+        userDetailObject.incrementKey(ParseTotalUserLikes, byAmount: 1)
+        userDetailObject.saveInBackground()
+    
+    }
+    
+    //Creates an user object(for storing likes) when user signs-up.
+    static func createUserDetailsInstance(){
+        
+        let userDetailObject = PFObject(className: ParseUserDetailsClass)
+        
+        userDetailObject[ParseUser] = PFUser.currentUser()
+        
+        userDetailObject.saveInBackground()
+        
     }
 
  

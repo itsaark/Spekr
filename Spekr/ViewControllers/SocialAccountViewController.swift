@@ -50,7 +50,7 @@ class SocialAccountViewController: UIViewController {
     }
     
     // Updating twitter user data to Parse database
-    func twitterUserDataToParse(){
+    func twitterUserDataToParse(completionBlock: PFBooleanResultBlock){
         
         if PFTwitterUtils.isLinkedWithUser(PFUser.currentUser()!) {
             
@@ -106,15 +106,7 @@ class SocialAccountViewController: UIViewController {
                             myUser.setObject(profileFileObject!, forKey: "displayImage")
                         }
                         
-                        
-                        myUser.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
-                            
-                            if(success) {
-                                print("User details are now updated")
-                            }
-                            
-                        })
-                        
+                        myUser.saveInBackgroundWithBlock(completionBlock)
                         
                     }
                     
@@ -141,12 +133,16 @@ class SocialAccountViewController: UIViewController {
                     
                 if PFTwitterUtils.isLinkedWithUser(user) {
                     print("Woohoo, user logged in with Twitter!")
-                    self.twitterUserDataToParse()
-                    //self.navigateToNewViewController("JumpFromLinkToLocalFeed")
-                    //self.loadTabBarViewController()
-                    if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                        appDelegate.setMainTabBarControllerAsRoot()
-                    }
+                    ParseHelper.createUserDetailsInstance()
+                    self.twitterUserDataToParse({ (updated: Bool, error: NSError?) -> Void in
+                        
+                        if updated {
+                            
+                            if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                                appDelegate.setMainTabBarControllerAsRoot()
+                            }
+                        }
+                    })
                     
                     }
                 } else {
@@ -171,9 +167,9 @@ class SocialAccountViewController: UIViewController {
     }
     
     // Updating Facebook user data to Parse database
-    func fbUserDataToParse() {
+    func fbUserDataToParse(completionBlock: PFBooleanResultBlock) {
         
-        let requestParameters = ["fields": "id, email, name"]
+        let requestParameters = ["fields": "id, email, name, link"]
         
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: requestParameters)
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
@@ -194,6 +190,7 @@ class SocialAccountViewController: UIViewController {
                 let userId:String = result["id"] as! String
                 let userName:String? = result["name"] as? String
                 let userEmail:String? = result["email"] as? String
+                let userTimeLineLink:String? = result["link"] as? String
                 
                 
                 print("\(userEmail)")
@@ -213,6 +210,12 @@ class SocialAccountViewController: UIViewController {
                     myUser.setObject(userEmail!, forKey: "email")
                 }
                 
+                // Save Timeline link
+                if(userTimeLineLink != nil)
+                {
+                    myUser.setObject(userTimeLineLink!, forKey: "link")
+                }
+                
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                     
                     // Get Facebook profile picture
@@ -229,15 +232,7 @@ class SocialAccountViewController: UIViewController {
                     }
                     
                     
-                    myUser.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
-                        
-                        if(success) {
-                            print("User details are now updated")
-                        }
-                        
-                    })
-                    
-                    
+                    myUser.saveInBackgroundWithBlock(completionBlock)
                     
                 }
                 
@@ -263,13 +258,19 @@ class SocialAccountViewController: UIViewController {
                 
                 if (succeeded != nil) {
                     print("Woohoo, the user is linked with Facebook!")
-                    
-                    self.fbUserDataToParse()
+                    ParseHelper.createUserDetailsInstance()
+                    self.fbUserDataToParse({ (updated: Bool, error: NSError?) -> Void in
+                        
+                        if updated {
+                            
+                            if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                                appDelegate.setMainTabBarControllerAsRoot()
+                            }
+                        }
+                    })
                     //self.navigateToNewViewController("JumpFromLinkToLocalFeed")
                     //self.loadTabBarViewController()
-                    if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                        appDelegate.setMainTabBarControllerAsRoot()
-                    }
+
                 }
                 } else {
                     

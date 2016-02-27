@@ -178,7 +178,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         //Setting right bar button item
         let composeButtonImage = UIImage(named: "Compose")
         
-        let composeButton = UIBarButtonItem(image: composeButtonImage, style: .Plain, target: self, action: "segueFunction")
+        let composeButton = UIBarButtonItem(image: composeButtonImage, style: .Plain, target: self, action: "showComposeViewController")
         
         self.navigationItem.rightBarButtonItem = composeButton
         
@@ -229,6 +229,14 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         }
         
 
+    }
+    
+    func showComposeViewController(){
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let composeViewController = storyBoard.instantiateViewControllerWithIdentifier("composeViewController") as! ComposeViewController
+        self.presentViewController(composeViewController, animated: true, completion: nil)
     }
     
     
@@ -317,6 +325,14 @@ extension LocalFeedViewController: UITableViewDataSource {
         }
         
         
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
+        
+        cell.userDisplayImage.layer.cornerRadius = 22.5
+        cell.userDisplayImage.clipsToBounds = true
     }
     
     //Footer color

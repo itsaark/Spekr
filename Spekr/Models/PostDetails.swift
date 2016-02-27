@@ -22,7 +22,7 @@ class PostDetails: PFObject, PFSubclassing {
     var image: Observable<UIImage?> = Observable(nil)
     var photoUploadTask: UIBackgroundTaskIdentifier?
     var likes: Observable<[PFUser]?> = Observable(nil)
-    //MARK: PFSubclassing Protocol
+        //MARK: PFSubclassing Protocol
     
     // 3
     static func parseClassName() -> String {
@@ -42,28 +42,67 @@ class PostDetails: PFObject, PFSubclassing {
         }
     }
     
-    func uploadPost() {
-        if let image = image.value {
-            // 1
-            let imageData = UIImageJPEGRepresentation(image, 0.8)!
-            let imageFile = PFFile(data: imageData)
-            
-            //Uploading image in background
-            photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
-                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
-            }
-            
-            imageFile?.saveInBackgroundWithBlock({ (Success: Bool, error: NSError?) -> Void in
+    func uploadPost(completionBlock: PFBooleanResultBlock) {
+        
+        ParseHelper.deleteOldPost { (posts: [PFObject]?, error: NSError?) -> Void in
+        
+            if posts?.count > 0 {
                 
-                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
-            })
-            
-            // 2
-            self.imageFile = imageFile
-            
+                if let posts = posts {
+                    
+                    for post in posts {
+                        
+                        post.deleteInBackgroundWithBlock({ (deleted: Bool, error: NSError?) -> Void in
+                            
+                            if let image = self.image.value {
+                                // 1
+                                let imageData = UIImageJPEGRepresentation(image, 0.8)!
+                                let imageFile = PFFile(data: imageData)
+                                
+                                //Uploading image in background
+                                self.photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
+                                    UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+                                }
+                                
+                                imageFile?.saveInBackgroundWithBlock({ (Success: Bool, error: NSError?) -> Void in
+                                    
+                                    UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+                                })
+                                
+                                // 2
+                                self.imageFile = imageFile
+                                
+                            }
+                            self.username = PFUser.currentUser()
+                            self.saveInBackgroundWithBlock(completionBlock)
+                        })
+                    }
+                }
+            }else {
+                
+                if let image = self.image.value {
+                    // 1
+                    let imageData = UIImageJPEGRepresentation(image, 0.8)!
+                    let imageFile = PFFile(data: imageData)
+                    
+                    //Uploading image in background
+                    self.photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
+                        UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+                    }
+                    
+                    imageFile?.saveInBackgroundWithBlock({ (Success: Bool, error: NSError?) -> Void in
+                        
+                        UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+                    })
+                    
+                    // 2
+                    self.imageFile = imageFile
+                    
+                }
+                self.username = PFUser.currentUser()
+                self.saveInBackgroundWithBlock(completionBlock)
+            }
         }
-        username = PFUser.currentUser()
-        saveInBackgroundWithBlock(nil)
     }
     
     func downloadImage() {
@@ -132,5 +171,7 @@ class PostDetails: PFObject, PFSubclassing {
         
         saveInBackground()
     }
+    
+
 
 }

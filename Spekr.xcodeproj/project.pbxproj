@@ -49,6 +49,8 @@
 		DC65CF5C1C50A48A0045930C /* DetailCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65CF5B1C50A48A0045930C /* DetailCellViewController.swift */; };
 		DC65CF5E1C50C3F70045930C /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65CF5D1C50C3F70045930C /* UserProfileViewController.swift */; };
 		DC746E411C6712B60017DBF1 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC746E401C6712B60017DBF1 /* TermsOfServiceViewController.swift */; };
+		DC77EF091C804B2400A0B6EE /* MedianOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC77EF081C804B2400A0B6EE /* MedianOf.swift */; };
+		DC77EF0B1C8067F400A0B6EE /* TodaysTotalLikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC77EF0A1C8067F400A0B6EE /* TodaysTotalLikes.swift */; };
 		DC7B85371C6BA47E00911705 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7B85361C6BA47E00911705 /* MessageUI.framework */; };
 		DC7CB7ED1C737BEC0069E802 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7CB7EC1C737BEC0069E802 /* Main.storyboard */; };
 		DC7CB7F11C748F050069E802 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7CB7F01C748F050069E802 /* SignIn.storyboard */; };
@@ -59,7 +61,6 @@
 		DC975C791C20714F007BA980 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C781C20714F007BA980 /* Accounts.framework */; };
 		DC975C7B1C207154007BA980 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C7A1C207154007BA980 /* Social.framework */; };
 		DC975C7D1C207280007BA980 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC975C7C1C207280007BA980 /* ParseTwitterUtils.framework */; };
-		DCAB19541C70625300DA45E8 /* UserPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAB19531C70625300DA45E8 /* UserPostTableViewCell.swift */; };
 		DCB65A081C22860A0094E58B /* PFUserDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB65A071C22860A0094E58B /* PFUserDigits.swift */; };
 		DCC304141C57911D001C9E74 /* WorldFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC304131C57911D001C9E74 /* WorldFeedViewController.swift */; };
 		DCC8A1061C436EF1009C4846 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8A1051C436EF1009C4846 /* DateFormat.swift */; };
@@ -70,6 +71,8 @@
 		DCE90A721C1FE0B4004A5004 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6E1C1FE0B4004A5004 /* TwitterCore.framework */; };
 		DCF1CB881C7C710200169F73 /* FadeInAnimationForSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1CB871C7C710200169F73 /* FadeInAnimationForSegue.swift */; };
 		DCF1CB8A1C7C716900169F73 /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1CB891C7C716900169F73 /* NavigationControllerDelegate.swift */; };
+		DCF1CB8C1C7D9F2B00169F73 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1CB8B1C7D9F2B00169F73 /* UserDetails.swift */; };
+		DCF1CB901C7E3CEC00169F73 /* UserPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1CB8F1C7E3CEC00169F73 /* UserPostTableViewCell.swift */; };
 		DCFE8E0F1C2C6278005A1100 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFE8E0E1C2C6278005A1100 /* NotificationsViewController.swift */; };
 		DCFE8E111C2C62C1005A1100 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFE8E101C2C62C1005A1100 /* SettingsViewController.swift */; };
 		DCFF0AC01C6CFBFB00E71DF6 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFF0ABF1C6CFBFB00E71DF6 /* NotificationTableViewCell.swift */; };
@@ -125,6 +128,8 @@
 		DC65CF5B1C50A48A0045930C /* DetailCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCellViewController.swift; sourceTree = "<group>"; };
 		DC65CF5D1C50C3F70045930C /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		DC746E401C6712B60017DBF1 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
+		DC77EF081C804B2400A0B6EE /* MedianOf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedianOf.swift; sourceTree = "<group>"; };
+		DC77EF0A1C8067F400A0B6EE /* TodaysTotalLikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodaysTotalLikes.swift; sourceTree = "<group>"; };
 		DC7B85361C6BA47E00911705 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		DC7CB7EC1C737BEC0069E802 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DC7CB7F01C748F050069E802 /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
@@ -135,7 +140,6 @@
 		DC975C781C20714F007BA980 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		DC975C7A1C207154007BA980 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		DC975C7C1C207280007BA980 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
-		DCAB19531C70625300DA45E8 /* UserPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPostTableViewCell.swift; sourceTree = "<group>"; };
 		DCB65A071C22860A0094E58B /* PFUserDigits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFUserDigits.swift; sourceTree = "<group>"; };
 		DCC304131C57911D001C9E74 /* WorldFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldFeedViewController.swift; sourceTree = "<group>"; };
 		DCC8A1051C436EF1009C4846 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 		DCE90A6E1C1FE0B4004A5004 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = SOURCE_ROOT; };
 		DCF1CB871C7C710200169F73 /* FadeInAnimationForSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInAnimationForSegue.swift; sourceTree = "<group>"; };
 		DCF1CB891C7C716900169F73 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
+		DCF1CB8B1C7D9F2B00169F73 /* UserDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
+		DCF1CB8F1C7E3CEC00169F73 /* UserPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPostTableViewCell.swift; sourceTree = "<group>"; };
 		DCFE8E0E1C2C6278005A1100 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		DCFE8E101C2C62C1005A1100 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DCFF0ABF1C6CFBFB00E71DF6 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
@@ -245,9 +251,11 @@
 				DC2964C01C3661A300F2FEF9 /* PhotoTakingHelper.swift */,
 				DCC8A1051C436EF1009C4846 /* DateFormat.swift */,
 				DCFF0ABF1C6CFBFB00E71DF6 /* NotificationTableViewCell.swift */,
-				DCAB19531C70625300DA45E8 /* UserPostTableViewCell.swift */,
 				DCF1CB871C7C710200169F73 /* FadeInAnimationForSegue.swift */,
 				DCF1CB891C7C716900169F73 /* NavigationControllerDelegate.swift */,
+				DCF1CB8F1C7E3CEC00169F73 /* UserPostTableViewCell.swift */,
+				DC77EF081C804B2400A0B6EE /* MedianOf.swift */,
+				DC77EF0A1C8067F400A0B6EE /* TodaysTotalLikes.swift */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -347,6 +355,7 @@
 			children = (
 				DC2964C21C36890B00F2FEF9 /* PostDetails.swift */,
 				DCE302581C686A35002A5B90 /* Notifications.swift */,
+				DCF1CB8B1C7D9F2B00169F73 /* UserDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -550,9 +559,9 @@
 				DC46D2F41C3193E4008BBE48 /* ComposeViewController.swift in Sources */,
 				DC54E7961C1EF9B8001496AB /* AppDelegate.swift in Sources */,
 				DCF1CB881C7C710200169F73 /* FadeInAnimationForSegue.swift in Sources */,
-				DCAB19541C70625300DA45E8 /* UserPostTableViewCell.swift in Sources */,
 				DC52D1981C3D6099003AC3F8 /* DetailCellWithImageViewController.swift in Sources */,
 				DC746E411C6712B60017DBF1 /* TermsOfServiceViewController.swift in Sources */,
+				DC77EF091C804B2400A0B6EE /* MedianOf.swift in Sources */,
 				DC6162091C2BAE6700C484FD /* ParseHelper.swift in Sources */,
 				DC0F4B4F1C79843400A18F9E /* DALabeledCircularProgressView.m in Sources */,
 				DC0F4B4E1C79843400A18F9E /* DACircularProgressView.m in Sources */,
@@ -564,8 +573,11 @@
 				DC65CF5C1C50A48A0045930C /* DetailCellViewController.swift in Sources */,
 				DCF1CB8A1C7C716900169F73 /* NavigationControllerDelegate.swift in Sources */,
 				DC0B52AC1C60A1C700D83037 /* UIColorExtension.swift in Sources */,
+				DCF1CB901C7E3CEC00169F73 /* UserPostTableViewCell.swift in Sources */,
 				DCC8A1061C436EF1009C4846 /* DateFormat.swift in Sources */,
 				DC1F39EE1C34DB3F00E6FBE0 /* EmailComposer.swift in Sources */,
+				DCF1CB8C1C7D9F2B00169F73 /* UserDetails.swift in Sources */,
+				DC77EF0B1C8067F400A0B6EE /* TodaysTotalLikes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

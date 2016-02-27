@@ -96,6 +96,16 @@ class AccountViewController: UIViewController, UITableViewDelegate {
 
 extension AccountViewController: UITableViewDataSource {
     
+    //Setting title for recent post cell
+//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        
+//        let headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! CustomHeaderCell
+//        
+//        headerCell.headerTitle.text = "Recent Post"
+//        
+//        return headerCell
+//    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return postDetails.count
@@ -112,15 +122,17 @@ extension AccountViewController: UITableViewDataSource {
             
             print("Here is the iD: \(postDetails[indexPath.row].objectId)")
             
+
             ParseHelper.deleteUserPost(postDetails[indexPath.row].objectId! as String, completionBlock: { (result:Bool, error:NSError?) -> Void in
                 
                 if result {
-                
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    
                     
                 }
             })
             
+            self.postDetails.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
         }
     }
@@ -135,6 +147,13 @@ extension AccountViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("UserPostCell") as! UserPostTableViewCell
         
         cell.postTextLabel.text = postDetails[indexPath.row].postText
+        
+        if postDetails[indexPath.row].likesCount != nil {
+            
+            let likesCount = postDetails[indexPath.row].likesCount
+            
+            cell.likesCountLabel.text = likesCount?.stringValue
+        }
         
         let createdAtDate = postDetails[indexPath.row].createdAt
         

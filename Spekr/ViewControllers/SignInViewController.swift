@@ -55,7 +55,6 @@ class SignInViewController: UIViewController {
     //Sign in with Phone Number button tapped
     @IBAction func didTapPhoneSignInButton(sender: AnyObject) {
         
-        
         PFUser.loginWithDigitsInBackground { (user: PFUser?, error: NSError?) -> Void in
             
             if error == nil {
@@ -101,7 +100,7 @@ class SignInViewController: UIViewController {
     }
     
     // Function for updating twitter user data to Parse database
-    func twitterUserDataToParse(){
+    func twitterUserDataToParse(completionBlock: PFBooleanResultBlock){
         
         if PFTwitterUtils.isLinkedWithUser(PFUser.currentUser()!) {
             
@@ -169,15 +168,8 @@ class SignInViewController: UIViewController {
                         }
                         
                         
-                        myUser.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
-                            
-                            if(success) {
-                                print("User details are now updated")
-                            }
-                            
-                        })
+                        myUser.saveInBackgroundWithBlock(completionBlock)
 
-                    
                     }
 
                     
@@ -196,6 +188,7 @@ class SignInViewController: UIViewController {
                 if let user = user {
                     if user.isNew {
                     print("User signed up and logged in with Twitter!")
+                        ParseHelper.createUserDetailsInstance()
  
                         //TODO: Update twitter email to parse
 //                        
@@ -206,10 +199,18 @@ class SignInViewController: UIViewController {
 //                        
 //                        self.twitterUserDataToParse()
 //                    })
-                        self.twitterUserDataToParse()
-                        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                            appDelegate.setMainTabBarControllerAsRoot()
-                        }
+                        //TODO: Have a completion block here and then change the root view. Implement this in all sign up process.
+                        self.twitterUserDataToParse({ (updated: Bool, error: NSError?) -> Void in
+                            
+                            if updated {
+                                
+                                if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                                    appDelegate.setMainTabBarControllerAsRoot()
+                                }
+                            }
+
+                        })
+
 //                    
                         
                     } else {
@@ -218,14 +219,6 @@ class SignInViewController: UIViewController {
                             appDelegate.setMainTabBarControllerAsRoot()
                         }
                     }
-                
-                
-                
-                        //Performing a segue to Local Feed Screen
-                        //self.navigateToNewViewController("JumpFromSignInToLocalFeed")
-                        //self.loadTabBarViewController()
-                    
-                    
                 
                 
                 } else {
@@ -244,7 +237,7 @@ class SignInViewController: UIViewController {
     }
     
     // Updating Facebook user data to Parse database
-    func fbUserDataToParse() {
+    func fbUserDataToParse(completionBlock: PFBooleanResultBlock) {
         
         let requestParameters = ["fields": "id, email, name, link"]
         
@@ -283,7 +276,7 @@ class SignInViewController: UIViewController {
                 // Save Timeline link
                 if(userTimeLineLink != nil)
                 {
-                    myUser.setObject(userTimeLineLink!, forKey: "email")
+                    myUser.setObject(userTimeLineLink!, forKey: "link")
                 }
 
                 
@@ -303,13 +296,7 @@ class SignInViewController: UIViewController {
                     }
                     
                     
-                    myUser.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
-                        
-                        if(success) {
-                            print("User details are now updated")
-                        }
-                        
-                    })
+                    myUser.saveInBackgroundWithBlock(completionBlock)
                     
                 }
                 
@@ -338,11 +325,18 @@ class SignInViewController: UIViewController {
                 if let user = user {
                     if user.isNew {
                         print("User signed up and logged in through Facebook!")
+                        ParseHelper.createUserDetailsInstance()
                         
-                        self.fbUserDataToParse()
-                        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                            appDelegate.setMainTabBarControllerAsRoot()
-                        }
+                        self.fbUserDataToParse({ (updated: Bool, error: NSError?) -> Void in
+                            
+                            if updated {
+                                
+                                if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                                    appDelegate.setMainTabBarControllerAsRoot()
+                                }
+                            }
+                        })
+                        
                         
                     } else {
                         print("User logged in through Facebook!")
