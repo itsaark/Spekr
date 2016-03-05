@@ -15,6 +15,8 @@ class NotificationsViewController: UIViewController, UITableViewDelegate {
     
     var notifications: [Notifications] = []
     
+    var selectedUser: PFUser?
+    
     //Calender Declaration
     let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
 
@@ -22,13 +24,6 @@ class NotificationsViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         
         tableView.delegate = self
-        
-        ParseHelper.loadNotificationsForCurrentUser { (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            self.notifications = objects as? [Notifications] ?? []
-            print(self.notifications)
-            self.tableView.reloadData()
-        }
 
 
         // Do any additional setup after loading the view.
@@ -45,12 +40,28 @@ class NotificationsViewController: UIViewController, UITableViewDelegate {
         self.navigationItem.title = "Notifications"
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
         
-        self.tableView.reloadData()
+        ParseHelper.loadNotificationsForCurrentUser { (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            self.notifications = objects as? [Notifications] ?? []
+            print(self.notifications)
+            self.tableView.reloadData()
+        }
         
         //Setting badge value to Nil
         (tabBarController!.tabBar.items![2]).badgeValue = nil
         
 
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        //Check for identifier and jump to user profile VC
+        if segue.identifier == "JumpToUserProfileVC" {
+            
+            let destinationVC = segue.destinationViewController as! UserProfileViewController
+            destinationVC.user = selectedUser
+        }
     }
     
 
@@ -126,6 +137,9 @@ extension NotificationsViewController: UITableViewDataSource{
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        selectedUser = notifications[indexPath.section].objectForKey("fromUser") as? PFUser
+        performSegueWithIdentifier("JumpToUserProfileVC", sender: self)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

@@ -35,8 +35,13 @@ class DetailCellViewController: UIViewController {
     
     @IBAction func likeButtonTapped(sender: AnyObject) {
         
-        currentObject!.toggleLikePost(PFUser.currentUser()!)
+        let postedUser = currentObject?.objectForKey("username") as! PFUser
+        let postedUserID = postedUser.objectId
+        let postObjectID = (currentObject?.objectId)! as String
+        let currentUserName = PFUser.currentUser()?.objectForKey("displayName") as! String
         
+        currentObject!.toggleLikePost(PFUser.currentUser()!)
+        print(currentUserName)
         //Updating likes on UI
         if likeButton.selected == false {
             
@@ -52,19 +57,26 @@ class DetailCellViewController: UIViewController {
             likeButton.selected = true
             localLikesCounter = localLikesCounter! + 1
             likesCountLabel.text = "\(localLikesCounter!)"
-            currentObject!.updateLikesCount(localLikesCounter!)
+            //currentObject!.updateLikesCount(localLikesCounter!)
+            //ParseHelper.updateTotalLikesOfUser((currentObject?.objectForKey("username") as? PFUser)!)
+            PFCloud.callFunctionInBackground("AddLikeToPost", withParameters: ["postId" : postObjectID])
+            PFCloud.callFunctionInBackground("IncrementLike", withParameters: ["user" : postedUser.objectId! as String])
+            
             
             if currentObject?.objectForKey("username") as? PFUser != PFUser.currentUser() {
                 //Send a push notification
-                ParseHelper.updateNotificationTap(currentObject?.objectForKey("username") as! PFUser, post: currentObject!)
-                ParseHelper.sendPushNotification(currentObject?.objectForKey("username") as! PFUser, toPostID: (currentObject?.objectId)!)
+                ParseHelper.updateNotificationTab(currentObject?.objectForKey("username") as! PFUser, post: currentObject!)
+                //ParseHelper.sendPushNotification(currentObject?.objectForKey("username") as! PFUser, toPostID: (currentObject?.objectId)!)
                 //UpdateTotalLikes
-                ParseHelper.updateTotalLikesOfUser((currentObject?.objectForKey("username") as? PFUser)!)
+                PFCloud.callFunctionInBackground("sendPushToUser", withParameters: ["user" : currentUserName, "recipientId" : postedUserID!])
+                
             }
         }
         else{
             
             likeButton.selected = false
+            PFCloud.callFunctionInBackground("RemoveLikeToPost", withParameters: ["postId" : postObjectID])
+            PFCloud.callFunctionInBackground("DecrementLike", withParameters: ["user" : postedUser.objectId! as String])
             
             //Delete notification on Parse backend
             ParseHelper.removeNotification(currentObject!)
@@ -72,17 +84,17 @@ class DetailCellViewController: UIViewController {
             if localLikesCounter == 0 {
                 
                 likesCountLabel.text = ""
-                currentObject!.updateLikesCount(0)
+                //currentObject!.updateLikesCount(0)
             }
             else if localLikesCounter == 1{
                 localLikesCounter = localLikesCounter! - 1
                 likesCountLabel.text = ""
-                currentObject!.updateLikesCount(localLikesCounter!)
+                //currentObject!.updateLikesCount(localLikesCounter!)
             }
             else{
                 localLikesCounter = localLikesCounter! - 1
                 likesCountLabel.text = "\(localLikesCounter!)"
-                currentObject!.updateLikesCount(localLikesCounter!)
+                //currentObject!.updateLikesCount(localLikesCounter!)
             }
         }
 
@@ -134,7 +146,8 @@ class DetailCellViewController: UIViewController {
         if segue.identifier == "JumpToUserProfileVC" {
             
             let destinationVC = segue.destinationViewController as! UserProfileViewController
-            destinationVC.selectedUserObject = currentObject
+            destinationVC.user = currentObject?.objectForKey("username") as? PFUser
+            
         }
     }
     
@@ -146,6 +159,7 @@ class DetailCellViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
          //User display image/name tap gesture recognizer
         let userDisplayImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("userDisplayTapped"))
@@ -206,11 +220,17 @@ class DetailCellViewController: UIViewController {
                     let userDisplayImageFile = fetchedUser["displayImage"] as! PFFile
                     userDisplayImageFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
                         
-                        if error == nil {
+                        if imageData != nil {
                             
                             //Converting displayImage to UIImage
                             let userDisplayImage = UIImage(data: imageData!)
                             self.userDisplayImage.image = userDisplayImage
+                            self.userDisplayImage.layer.cornerRadius = 30
+                            self.userDisplayImage.clipsToBounds = true
+                            
+                        }else{
+                            
+                            self.userDisplayImage.setImageWithString(userName)
                             self.userDisplayImage.layer.cornerRadius = 30
                             self.userDisplayImage.clipsToBounds = true
                         }
@@ -230,9 +250,6 @@ class DetailCellViewController: UIViewController {
         
         //setting view controller's title
         self.title = "Post"
-        
-//        let backItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: Selector("dismissVC"))
-//        self.navigationItem.rightBarButtonItem = backItem // This will show in the next view controller being pushed
         
 
         

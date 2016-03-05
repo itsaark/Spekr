@@ -18,7 +18,7 @@
 		DC1698821C207D5800CD60AB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC16987F1C207D5800CD60AB /* FBSDKLoginKit.framework */; };
 		DC1698831C207D5800CD60AB /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1698801C207D5800CD60AB /* FBSDKShareKit.framework */; };
 		DC1F39E91C343EED00E6FBE0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1F39E81C343EED00E6FBE0 /* AboutViewController.swift */; };
-		DC1F39EB1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1F39EA1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift */; };
+		DC1F39EB1C34C63D00E6FBE0 /* NittyGrittyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1F39EA1C34C63D00E6FBE0 /* NittyGrittyViewController.swift */; };
 		DC1F39EE1C34DB3F00E6FBE0 /* EmailComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1F39ED1C34DB3F00E6FBE0 /* EmailComposer.swift */; };
 		DC261B891C4C8DAC003277DE /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC261B881C4C8DAC003277DE /* SafariServices.framework */; };
 		DC2910E61C37DE5F0025E968 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2910E51C37DE5F0025E968 /* PostTableViewCell.swift */; };
@@ -64,6 +64,7 @@
 		DCB65A081C22860A0094E58B /* PFUserDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB65A071C22860A0094E58B /* PFUserDigits.swift */; };
 		DCC304141C57911D001C9E74 /* WorldFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC304131C57911D001C9E74 /* WorldFeedViewController.swift */; };
 		DCC8A1061C436EF1009C4846 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8A1051C436EF1009C4846 /* DateFormat.swift */; };
+		DCCE26F11C89777E0083FB0A /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCE26F01C89777E0083FB0A /* UIImageView+Letters.m */; };
 		DCE302591C686A35002A5B90 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE302581C686A35002A5B90 /* Notifications.swift */; };
 		DCE90A6F1C1FE0B4004A5004 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */; };
 		DCE90A701C1FE0B4004A5004 /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */; };
@@ -95,7 +96,7 @@
 		DC16987F1C207D5800CD60AB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		DC1698801C207D5800CD60AB /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		DC1F39E81C343EED00E6FBE0 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		DC1F39EA1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		DC1F39EA1C34C63D00E6FBE0 /* NittyGrittyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NittyGrittyViewController.swift; sourceTree = "<group>"; };
 		DC1F39ED1C34DB3F00E6FBE0 /* EmailComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailComposer.swift; sourceTree = "<group>"; };
 		DC261B881C4C8DAC003277DE /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		DC2910E51C37DE5F0025E968 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -143,6 +144,8 @@
 		DCB65A071C22860A0094E58B /* PFUserDigits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFUserDigits.swift; sourceTree = "<group>"; };
 		DCC304131C57911D001C9E74 /* WorldFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldFeedViewController.swift; sourceTree = "<group>"; };
 		DCC8A1051C436EF1009C4846 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		DCCE26EF1C89777E0083FB0A /* UIImageView+Letters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Letters.h"; sourceTree = "<group>"; };
+		DCCE26F01C89777E0083FB0A /* UIImageView+Letters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Letters.m"; sourceTree = "<group>"; };
 		DCE302581C686A35002A5B90 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = SOURCE_ROOT; };
@@ -238,7 +241,7 @@
 			children = (
 				DC6162041C2BA99800C484FD /* AccountViewController.swift */,
 				DC1F39E81C343EED00E6FBE0 /* AboutViewController.swift */,
-				DC1F39EA1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift */,
+				DC1F39EA1C34C63D00E6FBE0 /* NittyGrittyViewController.swift */,
 				DC746E401C6712B60017DBF1 /* TermsOfServiceViewController.swift */,
 			);
 			path = SettingItemsViewControllers;
@@ -368,9 +371,19 @@
 			path = SignInViewControllers;
 			sourceTree = "<group>";
 		};
+		DCCE26EE1C89777E0083FB0A /* UIImageView+Letters */ = {
+			isa = PBXGroup;
+			children = (
+				DCCE26EF1C89777E0083FB0A /* UIImageView+Letters.h */,
+				DCCE26F01C89777E0083FB0A /* UIImageView+Letters.m */,
+			);
+			path = "UIImageView+Letters";
+			sourceTree = "<group>";
+		};
 		DCE90A671C1FDEEB004A5004 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DCCE26EE1C89777E0083FB0A /* UIImageView+Letters */,
 				DC0F4B491C79843400A18F9E /* DACircularProgress */,
 				DC0B52AA1C60A19C00D83037 /* Extensions */,
 				DC1F39EC1C34DAF200E6FBE0 /* HelperClasses */,
@@ -550,9 +563,10 @@
 				DCC304141C57911D001C9E74 /* WorldFeedViewController.swift in Sources */,
 				DC8669C11C1FEFF600692AAE /* SocialAccountViewController.swift in Sources */,
 				DC1F39E91C343EED00E6FBE0 /* AboutViewController.swift in Sources */,
-				DC1F39EB1C34C63D00E6FBE0 /* PrivacyPolicyViewController.swift in Sources */,
+				DC1F39EB1C34C63D00E6FBE0 /* NittyGrittyViewController.swift in Sources */,
 				DC2964C11C3661A300F2FEF9 /* PhotoTakingHelper.swift in Sources */,
 				DC54E7C41C1F1242001496AB /* SignInViewController.swift in Sources */,
+				DCCE26F11C89777E0083FB0A /* UIImageView+Letters.m in Sources */,
 				DCE302591C686A35002A5B90 /* Notifications.swift in Sources */,
 				DC6162051C2BA99800C484FD /* AccountViewController.swift in Sources */,
 				DCB65A081C22860A0094E58B /* PFUserDigits.swift in Sources */,

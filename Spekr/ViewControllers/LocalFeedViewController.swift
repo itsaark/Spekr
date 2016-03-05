@@ -11,6 +11,7 @@ import CoreLocation
 import Parse
 import Foundation
 import PermissionScope
+import SDWebImage
 
 class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UIApplicationDelegate{
     
@@ -18,6 +19,10 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     
     //Calender Declaration
     let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+    
+    //Obtaining current user location details
+    let locationManager = CLLocationManager()
+    var currentUserLocation: PFGeoPoint?
     
     let permissionPane = PermissionScope()
     
@@ -78,9 +83,6 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
     }
     
-    //Obtaining current user location details
-    let locationManager = CLLocationManager()
-    var currentUserLocation: PFGeoPoint?
     
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -101,12 +103,12 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     }
     
 
-
-    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        distanceSliderValue.continuous = false
         
         //Initial request for Location Access
         //self.locationManager.requestWhenInUseAuthorization()
@@ -291,9 +293,6 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         //Deselects the seltected cell
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-//        print(postDetails[indexPath.section].likes.value)
-//        print("current user: \(PFUser.currentUser()!)")
 
     }
     
@@ -405,22 +404,22 @@ extension LocalFeedViewController: UITableViewDataSource {
                 if obj != nil {
                     
                     let fetchedUser = obj as! PFUser
-                    //let username = fetchedUser["displayName"] as! String
-                    //cell.userName.text = username
+                    let userName = fetchedUser["displayName"] as! String
                 
                     //Fetching displayImage
-                    let userDisplayImageFile = fetchedUser["displayImage"] as! PFFile
-                    userDisplayImageFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
-                    
-                        if error == nil {
+                    if let userDisplayImageFile = fetchedUser["displayImage"] as! PFFile? {
                         
-                            //Converting displayImage to UIImage
-                            let userDisplayImage = UIImage(data: imageData!)
-                            cell.userDisplayImage.image = userDisplayImage
-                            cell.userDisplayImage.layer.cornerRadius = 22.5
-                            cell.userDisplayImage.clipsToBounds = true
-                        }
-                    })
+                        let imageUrl = NSURL(string: userDisplayImageFile.url!)
+                        cell.userDisplayImage.sd_setImageWithURL(imageUrl)
+                        cell.userDisplayImage.layer.cornerRadius = 22.5
+                        cell.userDisplayImage.clipsToBounds = true
+                    }else{
+                        
+                        cell.userDisplayImage.setImageWithString(userName)
+                        cell.userDisplayImage.layer.cornerRadius = 22.5
+                        cell.userDisplayImage.clipsToBounds = true
+                    }
+                    
                 }
             }
             

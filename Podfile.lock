@@ -5,6 +5,9 @@ PODS:
   - ImagePicker (1.1)
   - NVActivityIndicatorView (2.3)
   - PermissionScope (1.0.2)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
   - Spring (1.0.3)
 
 DEPENDENCIES:
@@ -14,6 +17,7 @@ DEPENDENCIES:
   - ImagePicker
   - NVActivityIndicatorView
   - PermissionScope
+  - SDWebImage (~> 3.7)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
 
 EXTERNAL SOURCES:
@@ -38,6 +42,7 @@ SPEC CHECKSUMS:
   ImagePicker: 2a904341bbc47c96457de00558d2f8dd186eff7c
   NVActivityIndicatorView: c7ef25ef527ab5e51b00322cb1ddd58681bcf2a3
   PermissionScope: 860828c5516d349b6f49e5491799cfef33c5ccc7
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
 COCOAPODS: 0.39.0

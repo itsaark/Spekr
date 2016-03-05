@@ -169,9 +169,7 @@ class PostDetails: PFObject, PFSubclassing {
         
         self.likesCount = count
         
-        saveInBackground()
+        self.saveInBackground()
     }
-    
-
 
 }

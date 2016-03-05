@@ -8,14 +8,20 @@
 
 import UIKit
 import Parse
+import SDWebImage
 
 class UserProfileViewController: UIViewController {
     
+    var user: PFUser?
     var selectedUserObject: PFObject?
     
     @IBOutlet weak var userDisplayImage: UIImageView!
     
     @IBOutlet weak var userDisplayName: UILabel!
+    
+    @IBOutlet weak var heartIcon: UIImageView!
+    
+    @IBOutlet weak var likesLabel: UILabel!
     
     
     @IBAction func connectButtonTapped(sender: AnyObject) {
@@ -32,9 +38,8 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let userObject = selectedUserObject {
+        if let user = user {
             
-            let user = userObject["username"] as! PFUser
             user.fetchIfNeededInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
                 
                 if object != nil {
@@ -49,21 +54,41 @@ class UserProfileViewController: UIViewController {
                     self.userDisplayName.text = userName
                     
                     //Fetching displayImage
-                    let userDisplayImageFile = selectedUser["displayImage"] as! PFFile
-                    userDisplayImageFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                    if let userDisplayImageFile = selectedUser["displayImage"] as! PFFile?{
                         
-                        if error == nil {
-                            
-                            //Converting displayImage to UIImage
-                            let userDisplayImage = UIImage(data: imageData!)
-                            self.userDisplayImage.image = userDisplayImage
-                            self.userDisplayImage.layer.cornerRadius = 41
-                            self.userDisplayImage.clipsToBounds = true
-                        }
-                    })
-
+                        let imageUrl = NSURL(string: userDisplayImageFile.url!)
+                        self.userDisplayImage.sd_setImageWithURL(imageUrl)
+                        self.userDisplayImage.layer.cornerRadius = 41
+                        self.userDisplayImage.clipsToBounds = true
+                        
+                    }else{
+                        
+                        self.userDisplayImage.setImageWithString(userName)
+                        self.userDisplayImage.layer.cornerRadius = 41
+                        self.userDisplayImage.clipsToBounds = true
+                    }
                 }
             })
+            
+            ParseHelper.totalLikesForUser(user) { (results: [PFObject]?, error: NSError?) -> Void in
+                
+                if let results = results {
+                    
+                    for result in results{
+                        
+                        if let likesCount = result.objectForKey("totalLikes") as! Int? {
+                            
+                            self.likesLabel.text = String(likesCount)
+                            
+                        }else {
+                            
+                            self.likesLabel.text = ""
+                            self.heartIcon.hidden = true
+                        }
+                    }
+                    
+                }
+            }
         }
         
     }
@@ -77,6 +102,8 @@ class UserProfileViewController: UIViewController {
         
         self.userDisplayImage.layer.cornerRadius = 41
         self.userDisplayImage.clipsToBounds = true
+        
+
     }
 
     /*

@@ -311,7 +311,7 @@ you can get in touch.</string>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELm-j3-YPV">
                                         <rect key="frame" x="110" y="0.0" width="110" height="48"/>
-                                        <state key="normal" image="FB SignInButton"/>
+                                        <state key="normal" image="FBSignInButton"/>
                                         <connections>
                                             <action selector="linkFacebook:" destination="fso-y1-2Ci" eventType="touchUpInside" id="hah-kT-GyD"/>
                                         </connections>
@@ -367,7 +367,6 @@ you can get in touch.</string>
         </scene>
     </scenes>
     <resources>
-        <image name="FB SignInButton" width="110" height="48"/>
         <image name="FBSignInButton" width="110" height="48"/>
         <image name="OrLine" width="221" height="35"/>
         <image name="SpekrLogo" width="95" height="95"/>

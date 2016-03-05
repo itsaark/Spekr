@@ -12,11 +12,13 @@ import UIKit
 import CoreLocation
 import Parse
 import Foundation
+import SDWebImage
 
 class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UIApplicationDelegate{
     
     var postDetails: [PostDetails] = []
     
+    //Stuff related to refresh control
     var refreshLoadingView : UIView!
     var refreshColorView : UIView!
     var compass_background : UIImageView!
@@ -28,14 +30,8 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     var todaysLikesArray = [Int]()
     var isRefreshIconsOverlap = false
     var isRefreshAnimating = false
-    let todaysTotalLikes = TodaysTotalLikes()
-    var likesMedianValue = 0
-    let medianOf = MedianOf()
+    var likesMedianValue: Int?
     
-    // Please wrap your scroll view
-
-    
-    // Please add wrapper view to your view instead of your scroll view.
     
     //Calender Declaration
     let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
@@ -44,10 +40,6 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     
     @IBOutlet weak var tableView: UITableView!
     
-    func placeHolderImageTapped(sender: UIImageView) {
-                
-
-    }
     
     //Displaying error/alert message through Alert
     func DisplayAert(title:String, errorMessage:String){
@@ -69,17 +61,11 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         // -- DO SOMETHING AWESOME (... or just wait 3 seconds) --
         // This is where you'll make requests to an API, reload data, or process information
-        //Hiding the background before the view loads
-        UIView.animateWithDuration(0.3, animations: {
-            self.tableView.backgroundView?.alpha = 0.0
-            }, completion: { finished in
-                self.tableView.backgroundView?.hidden = true
-        })
+
         
-        ParseHelper.requestForWorldFeed(likesMedianValue) { (posts: [PFObject]?, error: NSError?) -> Void in
+        ParseHelper.requestForWorldFeed(likesMedianValue!) { (posts: [PFObject]?, error: NSError?) -> Void in
             
             self.postDetails = posts as? [PostDetails] ?? []
-            print(self.postDetails)
             self.tableView.reloadData()
         }
         let delayInSeconds = 3.0
@@ -164,11 +150,7 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     }
     
     func animateRefreshView() {
-        
-        // Background color to loop through for our color view
-        
-        //var colorArray = [UIColor.redColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.cyanColor(), UIColor.orangeColor(), UIColor.magentaColor()]
-        
+
         // In Swift, static variables must be members of a struct or class
         struct ColorIndex {
             static var colorIndex = 0
@@ -181,9 +163,9 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
                 // Rotate the spinner by M_PI_2 = PI/2 = 90 degrees
                 self.compass_spinner.transform = CGAffineTransformRotate(self.compass_spinner.transform, CGFloat(M_PI_2))
                 
-                // Change the background color
+                // Background color
                 self.refreshColorView!.backgroundColor = UIColor(red: 238, green: 238, blue: 242)
-                //ColorIndex.colorIndex = (ColorIndex.colorIndex + 1) % colorArray.count
+            
             },
             completion: { finished in
                 // If still refreshing, keep spinning, else reset
@@ -204,7 +186,6 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         self.isRefreshIconsOverlap = false
         self.refreshColorView.backgroundColor = UIColor.clearColor()
     }
-    
     
     
     
@@ -282,8 +263,26 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         //Reload Tableview
         self.tableView.reloadData()
         
-        todaysLikesArray = todaysTotalLikes.getArray()
-        likesMedianValue = medianOf.array(todaysLikesArray)
+        //Get median value from cloud
+        PFCloud.callFunctionInBackground("LikesMedian", withParameters: nil) { (value: AnyObject?, error: NSError?) -> Void in
+            
+            if error == nil {
+                
+                if let medianValue = value as? Int{
+                    
+                    print(medianValue)
+                    self.likesMedianValue = medianValue
+                    
+                }else{
+                    self.likesMedianValue = -1
+
+                }
+                
+            }else{
+                
+                self.likesMedianValue = -1
+            }
+        }
         
         
     }
@@ -370,6 +369,10 @@ extension WorldFeedViewController: UITableViewDataSource {
         } else {
             //Hiding the background before the view loads
             //self.tableView.backgroundView?.hidden = true
+            //Hiding the background before the view loads
+            UIView.animateWithDuration(0.3, animations: { self.tableView.backgroundView?.alpha = 0.0}, completion: { finished in
+                self.tableView.backgroundView?.hidden = true
+            })
             return postDetails.count
             
         }
@@ -443,28 +446,30 @@ extension WorldFeedViewController: UITableViewDataSource {
             if obj != nil {
                 
                 let fetchedUser = obj as! PFUser
-                //let username = fetchedUser["displayName"] as! String
+                let userName = fetchedUser["displayName"] as! String
                 //cell.userName.text = username
                 
                 //Fetching displayImage
-                let userDisplayImageFile = fetchedUser["displayImage"] as! PFFile
-                userDisplayImageFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                if let userDisplayImageFile = fetchedUser["displayImage"] as! PFFile? {
                     
-                    if error == nil {
-                        
-                        //Converting displayImage to UIImage
-                        let userDisplayImage = UIImage(data: imageData!)
-                        cell.userDisplayImage.image = userDisplayImage
-                        cell.userDisplayImage.layer.cornerRadius = 22.5
-                        cell.userDisplayImage.clipsToBounds = true
-                    }
-                })
+                    let imageUrl = NSURL(string: userDisplayImageFile.url!)
+                    cell.userDisplayImage.sd_setImageWithURL(imageUrl)
+                    cell.userDisplayImage.layer.cornerRadius = 22.5
+                    cell.userDisplayImage.clipsToBounds = true
+                }else{
+                    
+                    cell.userDisplayImage.setImageWithString(userName)
+                    cell.userDisplayImage.layer.cornerRadius = 22.5
+                    cell.userDisplayImage.clipsToBounds = true
+                }
+
             }
         }
         
         return cell
     }
     
+    //Currently inactive function
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
         let currentOffset = scrollView.contentOffset.y

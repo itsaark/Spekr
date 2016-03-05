@@ -28,7 +28,7 @@ class AccountViewController: UIViewController, UITableViewDelegate {
     
     @IBAction func inviteButtonTapped(sender: UIButton){
         
-        activityViewController = UIActivityViewController(activityItems: ["Spekr-Discover the world around you. Share anything; See everything. Check it out here http://spekrapp.com"], applicationActivities: nil)
+        activityViewController = UIActivityViewController(activityItems: ["Spekr lets you connect with anyone around you. Check it out here http://spekrapp.com"], applicationActivities: nil)
         activityViewController.excludedActivityTypes = [UIActivityTypePostToWeibo,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,
             UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo,UIActivityTypeAirDrop]
         presentViewController(activityViewController, animated: true, completion: nil)
@@ -56,17 +56,22 @@ class AccountViewController: UIViewController, UITableViewDelegate {
         //Displaying current user displayImage
         if let parseDisplayImage = PFUser.currentUser()!["displayImage"] as? PFFile {
             
-            parseDisplayImage.getDataInBackgroundWithBlock({ (imageDate: NSData?, error: NSError?) -> Void in
+            parseDisplayImage.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
                 
-                if error == nil {
+                if imageData != nil {
                     
-                    let image = UIImage(data: imageDate!)
+                    let image = UIImage(data: imageData!)
                     
                     self.displayImage.image = image
                     self.displayImage.layer.cornerRadius = 41
                     self.displayImage.clipsToBounds = true
                     
                     
+                }else {
+                    //Setting default text picture when imageData is not available
+                    self.displayImage.setImageWithString(self.displayName.text)
+                    self.displayImage.layer.cornerRadius = 41
+                    self.displayImage.clipsToBounds = true
                 }
             })
         }
@@ -80,9 +85,7 @@ class AccountViewController: UIViewController, UITableViewDelegate {
         
         tableView.estimatedRowHeight = 50.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        //let purpleColor = UIColor(red: 103, green: 74, blue: 155)
-        //tableView.layer.borderColor = purpleColor.CGColor
-        //tableView.layer.borderWidth = 3.0
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,15 +99,6 @@ class AccountViewController: UIViewController, UITableViewDelegate {
 
 extension AccountViewController: UITableViewDataSource {
     
-    //Setting title for recent post cell
-//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        
-//        let headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! CustomHeaderCell
-//        
-//        headerCell.headerTitle.text = "Recent Post"
-//        
-//        return headerCell
-//    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

@@ -89,6 +89,8 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
     @IBOutlet weak var composeTextView: UITextView!
     
     @IBOutlet weak var placeHolderLabel: UILabel!
+    
+    @IBOutlet weak var placeHolderInstructionLabel: UILabel!
 
     @IBOutlet weak var selectedImage: UIImageView!
     
@@ -128,10 +130,14 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
         }else {
             
             self.postDetails.locationCoordinates = currentUserLocation
+            let lat = currentUserLocation?.latitude
+            let long = currentUserLocation?.longitude
             self.postDetails.postText = composeTextView.text
             self.postDetails.uploadPost({ (uploaded: Bool, error: NSError?) -> Void in
                 
                 self.alertView.showAlert("Posted Successfully", subTitle: "", style: AlertStyle.Success, buttonTitle: "OK", action: { (isOtherButton) -> Void in
+                    
+                    PFCloud.callFunctionInBackground("sendPushAboutNewPost", withParameters: ["latitude" : lat!, "longitude" :long!])
                     
                     if isOtherButton {
                         
@@ -157,11 +163,13 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
         if newLength == 0 {
             
              placeHolderLabel.text = "What's new around you?"
+             placeHolderInstructionLabel.text = "When you create a new post, your old post is automatically deleted."
              postButton.selected = false
             
         }else {
             
             placeHolderLabel.text = ""
+            placeHolderInstructionLabel.text = ""
             postButton.selected = true
         }
         

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D09C5F3A50250E5CB26DDF13'
+               BlueprintIdentifier = 'EB687A7EB70A644BC3EFA0C6'
                BlueprintName = 'DOFavoriteButton'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'DOFavoriteButton.framework'>

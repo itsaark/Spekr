@@ -150,6 +150,33 @@ class ParseHelper {
         push.sendPushInBackground()
     }
     
+    //Send push notifications to near by user when someone posts around them.
+    static func pushNotificationToNearByUser(location: PFGeoPoint) {
+        
+        let query = PFQuery(className: ParsePostDetailsClass)
+        query.whereKey("locationCoordinates", nearGeoPoint: location, withinMiles: Double(50))
+        
+        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
+            
+            if let results = results{
+                
+                for result in results {
+                    
+                    let toUser = result.objectForKey("username") as! PFUser
+                    
+                    let pushQuery = PFInstallation.query()!
+                    pushQuery.whereKey("user", equalTo: toUser) //friend is a PFUser object
+                    let data = ["alert" : "Someone around you posted on Spker", "badge" : "Increment"]
+                    let push = PFPush()
+                    push.setQuery(pushQuery)
+                    push.setData(data)
+                    push.sendPushInBackground()
+                }
+            }
+        }
+        
+    }
+    
     // MARK: Flagged content
     
     static func flagPost(user: PFUser, post: PostDetails) {
@@ -178,14 +205,42 @@ class ParseHelper {
         }
     }
     
-    static func updateNotificationTap(toUser: PFUser, post: PostDetails){
+    static func updateNotificationTab(toUser: PFUser, post: PostDetails){
         
-        let notificationObject = PFObject(className: ParseNotificationClass)
-        notificationObject[ParseNotificationFromUser] = PFUser.currentUser()
-        notificationObject[ParseNotificationToUser] = toUser
-        notificationObject[ParseNotificationToPost] = post
+        let query = PFQuery(className: ParseNotificationClass)
+        query.whereKey(ParseNotificationToUser, equalTo: toUser)
+        query.findObjectsInBackgroundWithBlock { (notifications:[PFObject]?, error: NSError?) -> Void in
         
-        notificationObject.saveInBackgroundWithBlock(nil)
+            if let notifications = notifications{
+                
+                if notifications == []{
+                    
+                    let notificationObject = PFObject(className: ParseNotificationClass)
+                    notificationObject[ParseNotificationFromUser] = PFUser.currentUser()
+                    notificationObject[ParseNotificationToUser] = toUser
+                    notificationObject[ParseNotificationToPost] = post
+                    
+                    notificationObject.saveInBackgroundWithBlock(nil)
+                    
+                }else{
+                    
+                    for notification in notifications{
+                        
+                        if PFUser.currentUser() != notification.objectForKey("fromUser") as? PFUser{
+                            
+                            let notificationObject = PFObject(className: ParseNotificationClass)
+                            notificationObject[ParseNotificationFromUser] = PFUser.currentUser()
+                            notificationObject[ParseNotificationToUser] = toUser
+                            notificationObject[ParseNotificationToPost] = post
+                            
+                            notificationObject.saveInBackgroundWithBlock(nil)
+                        }
+                    }
+                    
+                }
+            }
+        }
+
     }
     
     static func removeNotification(post: PostDetails){
@@ -224,6 +279,8 @@ class ParseHelper {
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
+    
+    
     //Called when "user" deletes post
     static func deleteUserPost(postObjectID: String, completionBlock:PFBooleanResultBlock){
         
@@ -251,12 +308,11 @@ class ParseHelper {
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
+    // MARK: Total likes
     static func totalLikesForUser(user: PFUser, completionBlock: PFQueryArrayResultBlock) {
         
         let query = PFQuery(className: ParseUserDetailsClass)
         query.whereKey(ParseUser, equalTo: user)
-        // 2
-        query.includeKey(ParseTotalUserLikes)
         
         query.cachePolicy = .CacheThenNetwork
         
@@ -265,9 +321,31 @@ class ParseHelper {
     
     static func updateTotalLikesOfUser(user: PFUser) {
         
-        let userDetailObject = PFObject(withoutDataWithClassName: ParseUserDetailsClass, objectId: user.objectId)
-        userDetailObject.incrementKey(ParseTotalUserLikes, byAmount: 1)
-        userDetailObject.saveInBackground()
+        let query = PFQuery(className: ParseUserDetailsClass)
+        query.whereKey("user", equalTo: user)
+        
+        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
+            
+            if let results = results {
+                
+                for result in results{
+                    
+                    let objectId = result.objectId
+                    print(objectId)
+                    let userDetailObject = PFObject(withoutDataWithObjectId: objectId)
+                    userDetailObject.incrementKey(ParseTotalUserLikes, byAmount: 1)
+                    userDetailObject.saveInBackgroundWithBlock({ (updated: Bool, error: NSError?) -> Void in
+                        
+                        if error != nil {
+                            
+                            print("Hey we got an \(error)")
+                        }
+                    })
+                }
+            }
+        }
+        
+
     
     }
     
@@ -277,6 +355,7 @@ class ParseHelper {
         let userDetailObject = PFObject(className: ParseUserDetailsClass)
         
         userDetailObject[ParseUser] = PFUser.currentUser()
+        userDetailObject[ParseTotalUserLikes] = 0
         
         userDetailObject.saveInBackground()
         

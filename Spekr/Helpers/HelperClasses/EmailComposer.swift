@@ -16,13 +16,13 @@ class EmailComposer: NSObject, MFMailComposeViewControllerDelegate {
         return MFMailComposeViewController.canSendMail()
     }
     
-    func configuredMailComposeViewController() -> MFMailComposeViewController {
+    func configuredMailComposeViewController(subject: String) -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
         
         mailComposerVC.setToRecipients(["hello@spekrapp.com"])
-        mailComposerVC.setSubject("Feedback")
-        mailComposerVC.setMessageBody("Hello!\n\nI would like to share the following feedback...\n", isHTML: false)
+        mailComposerVC.setSubject(subject)
+        mailComposerVC.setMessageBody("Hello!", isHTML: false)
         
         return mailComposerVC
     }

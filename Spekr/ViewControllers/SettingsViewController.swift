@@ -67,7 +67,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, MFMailCompo
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
     }
     
-    var settingsList = ["About", "Account", "Privacy & Location", "Terms of Service", "Send Feedback", "Log Out"]
+    var settingsList = ["About", "Account", "Nitty Gritty", "Terms of Service", "Send Feedback" , "Log Out"]
     
     // MARK: - UITableViewDataSource
    
@@ -125,12 +125,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, MFMailCompo
         }
         else if indexPath.row == 2 {
             
-            //Segue to privacy policy view controller
-            self.performSegueWithIdentifier("JumpToPrivacyPolicyVC", sender: self)
+            //Segue to Nitty Gritty view controller
+            self.performSegueWithIdentifier("JumpToNittyGrittyVC", sender: self)
         }
         else if indexPath.row == 3 {
             
-            //Segue to privacy policy view controller
+            //Segue to terms of service view controller
             self.performSegueWithIdentifier("JumpToTermsOfService", sender: self)
             
         }
@@ -139,7 +139,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, MFMailCompo
             
             //Calling Email composer class to send feedback via e-mail
             if emailComposer.canSendMail() {
-                let configuredMailComposeViewController = emailComposer.configuredMailComposeViewController()
+                let configuredMailComposeViewController = emailComposer.configuredMailComposeViewController("Feedback")
                 configuredMailComposeViewController.mailComposeDelegate = self
                 self.presentViewController(configuredMailComposeViewController, animated: true, completion: nil)
                 
