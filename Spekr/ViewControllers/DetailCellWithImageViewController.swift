@@ -50,7 +50,10 @@ class DetailCellWithImageViewController: UIViewController {
         
         currentObject!.toggleLikePost(PFUser.currentUser()!)
         let postedUser = currentObject?.objectForKey("username") as! PFUser
+        let postedUserID = postedUser.objectId
         let postObjectID = (currentObject?.objectId)! as String
+        let currentUserName = PFUser.currentUser()?.objectForKey("displayName") as! String
+        
         
         //Updating likes on UI
         if likeButton.selected == false {
@@ -80,6 +83,7 @@ class DetailCellWithImageViewController: UIViewController {
                 //ParseHelper.sendPushNotification(currentObject?.objectForKey("username") as! PFUser, toPostID: (currentObject?.objectId)!)
                 //UpdateTotalLikes
                 //ParseHelper.updateTotalLikesOfUser((currentObject?.objectForKey("username") as? PFUser)!)
+                PFCloud.callFunctionInBackground("sendPushToUser", withParameters: ["user" : currentUserName, "recipientId" : postedUserID!])
             }
         }
         else{
@@ -114,7 +118,7 @@ class DetailCellWithImageViewController: UIViewController {
     @IBAction func flagButtonTapped(sender: AnyObject) {
         
         
-        SweetAlert().showAlert("Are you sure?", subTitle: "Do you want to flag this post for inappropriate content?", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor(red: 182, green: 182, blue: 182) , otherButtonTitle:  "Yes, flag it!", otherButtonColor: UIColor(red: 100, green: 240, blue: 150)) { (isOtherButton) -> Void in
+        SweetAlert().showAlert("Are you sure?", subTitle: "Do you want to flag this post for offensive/spam content?", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor(red: 182, green: 182, blue: 182) , otherButtonTitle:  "Yes, flag it!", otherButtonColor: UIColor(red: 100, green: 240, blue: 150)) { (isOtherButton) -> Void in
             if isOtherButton == true {
                 
                 print("Cancel Button  Pressed")
@@ -123,7 +127,7 @@ class DetailCellWithImageViewController: UIViewController {
                 
                 ParseHelper.flagPost(PFUser.currentUser()!, post: self.currentObject!)
                 
-                SweetAlert().showAlert("Flagged", subTitle: "Thanks! We'll review it shortly.", style: AlertStyle.Success, buttonTitle: "OK", buttonColor:  UIColor(red: 103, green: 74, blue: 155))
+                SweetAlert().showAlert("Flagged!", subTitle: "We'll review it shortly.", style: AlertStyle.Success, buttonTitle: "OK", buttonColor:  UIColor(red: 103, green: 74, blue: 155))
             }
         }
         
@@ -263,7 +267,7 @@ class DetailCellWithImageViewController: UIViewController {
 
                 
                 }, progressBlock: { (progress: Int32) -> Void in
-//                  
+                  
                     if progress <= 99 {
                         
                         self.progressView.setProgress(CGFloat(progress)/100, animated: true)
@@ -280,19 +284,7 @@ class DetailCellWithImageViewController: UIViewController {
                  
             })
             
-//            if postImageFile != nil {
-//                
-//                postImageFile?.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
-//                    
-//                    if imageData != nil {
-//                        
-//                        let postDisplayImage = UIImage(data: imageData!)
-//                        self.postImageView.image = postDisplayImage
-//                        self.postImageView.clipsToBounds = true
-//                        
-//                    }
-//                })
-//            }
+
             
             let user = object["username"] as! PFUser
             

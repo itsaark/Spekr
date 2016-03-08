@@ -17,7 +17,7 @@ class SocialAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        navigationController?.navigationBarHidden = false
+        navigationController?.navigationBarHidden = true
     }
     
     //Displaying error message through Alert
@@ -78,12 +78,23 @@ class SocialAccountViewController: UIViewController {
                     let userName: String! = result?.objectForKey("name") as! String
                     //let userEmail: String! = result?.objectForKey("email") as! String
                     
+                    let userId: String! = result?.objectForKey("id_str") as! String
+                    
+                    let userProfileLink: String! = "https://twitter.com/intent/user?user_id=" + userId
+                    
                     let myUser:PFUser = PFUser.currentUser()!
                     
                     // Save first name
                     if(userName != nil)
                     {
                         myUser.setObject(userName!, forKey: "displayName")
+                        
+                    }
+                    
+                    // Save user profile link
+                    if(userProfileLink != nil)
+                    {
+                        myUser.setObject(userProfileLink!, forKey: "link")
                         
                     }
                     

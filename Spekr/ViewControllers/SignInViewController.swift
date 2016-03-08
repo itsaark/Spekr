@@ -18,8 +18,13 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        navigationController?.navigationBarHidden = true
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        navigationController?.navigationBarHidden = true
+
     }
     
     //Displaying error message through Alert
@@ -61,24 +66,23 @@ class SignInViewController: UIViewController {
                 
                 if let user = user {
                     
-                if user.isLinkedWithAuthType("facebook") || user.isLinkedWithAuthType("twitter") {
+                    if user.isLinkedWithAuthType("facebook") || user.isLinkedWithAuthType("twitter") {
                     
                     //TODO: Change the string in this func to "JumpFromSignInToLocalFeed" when isNew property is added.
                     //self.navigateToNewViewController("JumpFromSignInToLocalFeed")
                     //self.loadTabBarViewController()
-                    if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                        print("user is linked")
+                        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
                         appDelegate.setMainTabBarControllerAsRoot()
-                    }
+                        }
 
                     
-                }else {
+                    }else {
                     //TODO: Change the string in this func to "JumpFromSignInToLocalFeed" when isNew property is added.
-                    self.navigateToNewViewController("JumpFromPhoneSignInToLinkAccount")
+                        self.navigateToNewViewController("JumpFromPhoneSignInToLinkAccount")
                     
                     }
                 }
-            
-            print("log in done")
             
             // TODO: Perform a segue to user profile screen after successful sign in
             // Navigate to the Naming screen.

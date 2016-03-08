@@ -14,15 +14,11 @@ class UserProfileViewController: UIViewController {
     
     var user: PFUser?
     var selectedUserObject: PFObject?
+    let alertView = SweetAlert()
     
     @IBOutlet weak var userDisplayImage: UIImageView!
     
     @IBOutlet weak var userDisplayName: UILabel!
-    
-    @IBOutlet weak var heartIcon: UIImageView!
-    
-    @IBOutlet weak var likesLabel: UILabel!
-    
     
     @IBAction func connectButtonTapped(sender: AnyObject) {
         
@@ -34,6 +30,25 @@ class UserProfileViewController: UIViewController {
     }
     
     var socialAccountURL: NSURL?
+    
+    func flagUser(){
+        
+        let userId = user?.objectId
+        let fromUserId = PFUser.currentUser()?.objectId
+        
+        alertView.showAlert("Are you sure?", subTitle: "Do you want to report this user?", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor(red: 182, green: 182, blue: 182) , otherButtonTitle:  "Yes", otherButtonColor: UIColor(red: 100, green: 240, blue: 150)) { (isOtherButton) -> Void in
+            if isOtherButton == true {
+                
+               
+            }
+            else {
+                
+                PFCloud.callFunctionInBackground("flagUser", withParameters: ["user" : userId!, "fromUser": fromUserId!])
+                SweetAlert().showAlert("Flagged!", subTitle: "User has been reported.", style: AlertStyle.Success, buttonTitle: "OK", buttonColor:  UIColor(red: 103, green: 74, blue: 155))
+            }
+        }
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,25 +85,6 @@ class UserProfileViewController: UIViewController {
                 }
             })
             
-            ParseHelper.totalLikesForUser(user) { (results: [PFObject]?, error: NSError?) -> Void in
-                
-                if let results = results {
-                    
-                    for result in results{
-                        
-                        if let likesCount = result.objectForKey("totalLikes") as! Int? {
-                            
-                            self.likesLabel.text = String(likesCount)
-                            
-                        }else {
-                            
-                            self.likesLabel.text = ""
-                            self.heartIcon.hidden = true
-                        }
-                    }
-                    
-                }
-            }
         }
         
     }
@@ -103,17 +99,15 @@ class UserProfileViewController: UIViewController {
         self.userDisplayImage.layer.cornerRadius = 41
         self.userDisplayImage.clipsToBounds = true
         
+        //Setting right bar button item
+        let flagButtonImage = UIImage(named: "FlagIcon")
+        
+        let flagButton = UIBarButtonItem(image: flagButtonImage, style: .Plain, target: self, action: "flagUser")
+        flagButton.tintColor = UIColor(red: 251, green: 209, blue: 75)
+        
+        self.navigationItem.rightBarButtonItem = flagButton
 
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

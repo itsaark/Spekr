@@ -5,6 +5,7 @@ PODS:
   - ImagePicker (1.1)
   - NVActivityIndicatorView (2.3)
   - PermissionScope (1.0.2)
+  - ReachabilitySwift (2.3.3)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
@@ -17,12 +18,15 @@ DEPENDENCIES:
   - ImagePicker
   - NVActivityIndicatorView
   - PermissionScope
+  - ReachabilitySwift (from `https://github.com/ashleymills/Reachability.swift`)
   - SDWebImage (~> 3.7)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
 
 EXTERNAL SOURCES:
   Agrume:
     :git: https://github.com/JanGorman/Agrume.git
+  ReachabilitySwift:
+    :git: https://github.com/ashleymills/Reachability.swift
   Spring:
     :branch: swift2
     :git: https://github.com/MengTo/Spring.git
@@ -31,6 +35,9 @@ CHECKOUT OPTIONS:
   Agrume:
     :commit: 78c2876f6d76cf706f55e42a1ca23154c67d174b
     :git: https://github.com/JanGorman/Agrume.git
+  ReachabilitySwift:
+    :commit: cf126c0584a209143c75bf1d0f23fd904891e26e
+    :git: https://github.com/ashleymills/Reachability.swift
   Spring:
     :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
     :git: https://github.com/MengTo/Spring.git
@@ -42,6 +49,7 @@ SPEC CHECKSUMS:
   ImagePicker: 2a904341bbc47c96457de00558d2f8dd186eff7c
   NVActivityIndicatorView: c7ef25ef527ab5e51b00322cb1ddd58681bcf2a3
   PermissionScope: 860828c5516d349b6f49e5491799cfef33c5ccc7
+  ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 

@@ -13,6 +13,7 @@ pod 'NVActivityIndicatorView'
 pod 'ImagePicker'
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
 pod 'SDWebImage', '~>3.7'
+pod 'ReachabilitySwift', :git => 'https://github.com/ashleymills/Reachability.swift'
 
 end
 

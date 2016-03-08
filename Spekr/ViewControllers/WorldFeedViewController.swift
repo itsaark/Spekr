@@ -13,10 +13,15 @@ import CoreLocation
 import Parse
 import Foundation
 import SDWebImage
+import ReachabilitySwift
 
 class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UIApplicationDelegate{
     
     var postDetails: [PostDetails] = []
+    
+    
+    let alertView = SweetAlert()
+
     
     //Stuff related to refresh control
     var refreshLoadingView : UIView!
@@ -54,6 +59,25 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         self.presentViewController(alert, animated: true, completion: nil)
         
+    }
+    
+    var reachability: Reachability?
+
+    
+   dynamic func reachabilityChanged(note: NSNotification) {
+        
+        let reachability = note.object as! Reachability
+        
+        if reachability.isReachable() {
+            if reachability.isReachableViaWiFi() {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+        } else {
+            print("Not reachable")
+            alertView.showAlert("No Internet!", subTitle: "No working Internet connection is found.", style: AlertStyle.Warning, buttonTitle: "OK")
+        }
     }
     
     func refresh(){
@@ -193,6 +217,23 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            return
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "reachabilityChanged:",
+            name: ReachabilityChangedNotification,
+            object: reachability)
+        
+        do{
+            try reachability!.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
         
         tableView.estimatedRowHeight = 60.0
         tableView.rowHeight = UITableViewAutomaticDimension

@@ -16,6 +16,7 @@ import FBSDKCoreKit
 import ParseTwitterUtils
 import ParseFacebookUtilsV4
 import Crashlytics
+import ReachabilitySwift
 
 
 
@@ -24,6 +25,8 @@ import Crashlytics
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var reachability : Reachability?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -54,11 +57,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Initializing Facebook for Parse
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "reachabilityChanged:",
+            name: ReachabilityChangedNotification,
+            object: reachability)
+        
+        do{
+            try reachability!.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
+
+        
         
                 
         if let launchOptions = launchOptions as? [String : AnyObject] {
             if let notificationDictionary = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey] as? [NSObject : AnyObject] {
                 self.application(application, didReceiveRemoteNotification: notificationDictionary)
+                
+                if let aps = notificationDictionary["aps"] as? NSDictionary {
+                    
+                    if let alert = aps["alert"] as? NSString {
+                        
+                        if alert != "Someone near you just posted" {
+                            
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+                            tabBarController.selectedIndex = 2
+                            self.window?.rootViewController = tabBarController
+                            
+                            
+                        } else{
+                                
+                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+                                tabBarController.selectedIndex = 1
+                                self.window?.rootViewController = tabBarController
+                        }
+                    }
+                }
             }
         }
 
@@ -79,6 +123,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController?.presentViewController(signInNavigationViewController, animated: true, completion: nil)
         
 
+    }
+    
+    func reachabilityChanged(note: NSNotification) {
+        
+        let reachability = note.object as! Reachability
+        
+        if reachability.isReachable() {
+            if reachability.isReachableViaWiFi() {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+        } else {
+            print("Not reachable")
+        }
     }
     
     func setMainTabBarControllerAsRoot() {
@@ -107,7 +166,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         installation["user"] = PFUser.currentUser()
         installation.setDeviceTokenFromData(deviceToken)
         installation.saveInBackground()
-        print("fucking work device")
+
         
     }
     
@@ -135,23 +194,66 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        PFPush.handlePush(userInfo)
+        
+        if let aps = userInfo["aps"] as? NSDictionary {
+            
+            if let alert = aps["alert"] as? NSString {
+                
+                if alert != "Someone near you just posted" {
+                    
+                    if application.applicationState != .Active{
+                        
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+                        tabBarController.selectedIndex = 2
+                        self.window?.rootViewController = tabBarController
+                        
+                        
+                    }else{
+                        
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+                        self.window?.rootViewController = tabBarController
+                        let tabArray = tabBarController.tabBar.items as NSArray!
+                        let tabItem = tabArray.objectAtIndex(2) as! UITabBarItem
+                        
+                        if let badgeValue = (tabItem).badgeValue {
+                            (tabItem).badgeValue = (Int(badgeValue)! + 1).description
+                        } else {
+                            (tabItem).badgeValue = "1"
+                        }
+                    }
+                    
+                } else{
+                    
+                    if application.applicationState != .Active{
+                        
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+                        tabBarController.selectedIndex = 1
+                        self.window?.rootViewController = tabBarController
+                        
+                    }
+                }
+            }
+        }
+        //PFPush.handlePush(userInfo)
         print("userInfo: \(userInfo)")
         
-          let storyboard = UIStoryboard(name: "Main", bundle: nil)
-          let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
-        
-          self.window?.rootViewController = tabBarController
-          tabBarController.tabBarItem.badgeValue = "1"
-        
-        let tabArray = tabBarController.tabBar.items as NSArray!
-        let tabItem = tabArray.objectAtIndex(2) as! UITabBarItem
-        
-        if let badgeValue = (tabItem).badgeValue {
-            (tabItem).badgeValue = (Int(badgeValue)! + 1).description
-        } else {
-            (tabItem).badgeValue = "1"
-        }
+//          let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//          let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+//        
+//          self.window?.rootViewController = tabBarController
+//          tabBarController.tabBarItem.badgeValue = "1"
+//        
+//        let tabArray = tabBarController.tabBar.items as NSArray!
+//        let tabItem = tabArray.objectAtIndex(2) as! UITabBarItem
+//        
+//        if let badgeValue = (tabItem).badgeValue {
+//            (tabItem).badgeValue = (Int(badgeValue)! + 1).description
+//        } else {
+//            (tabItem).badgeValue = "1"
+//        }
         
         if application.applicationState == UIApplicationState.Inactive {
             PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
@@ -184,7 +286,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    
 
 }
 

@@ -41,13 +41,22 @@ class LaunchViewController: UIViewController {
                 
              }else {
                 
-                //let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                //let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
-                //self.presentViewController(tabBarController, animated: true, completion: nil)
-                
-                if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                    appDelegate.setMainTabBarControllerAsRoot()
+                if let user = PFUser.currentUser() {
+                    
+                    if user.isLinkedWithAuthType("facebook") == false || user.isLinkedWithAuthType("twitter") == false{
+                        
+                        self.performSegueWithIdentifier("JumpToSignInVC", sender: self)
+
+                        
+                    }else{
+                        
+                        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                            appDelegate.setMainTabBarControllerAsRoot()
+                        }
+                    }
+                    
                 }
+                
             }
          
         }
@@ -63,6 +72,7 @@ class LaunchViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         
         navigationController?.navigationBarHidden = true
+        
 
     }
 

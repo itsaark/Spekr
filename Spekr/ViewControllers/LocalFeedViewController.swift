@@ -12,10 +12,14 @@ import Parse
 import Foundation
 import PermissionScope
 import SDWebImage
+import ReachabilitySwift
+
 
 class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UIApplicationDelegate{
     
     var postDetails: [PostDetails] = []
+    
+    let alertView = SweetAlert()
     
     //Calender Declaration
     let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
@@ -25,6 +29,25 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     var currentUserLocation: PFGeoPoint?
     
     let permissionPane = PermissionScope()
+    
+    var reachability: Reachability?
+    
+    
+    dynamic func reachabilityChanged(note: NSNotification) {
+        
+        let reachability = note.object as! Reachability
+        
+        if reachability.isReachable() {
+            if reachability.isReachableViaWiFi() {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+        } else {
+            print("Not reachable")
+            alertView.showAlert("No Internet!", subTitle: "No working Internet connection is found.", style: AlertStyle.Warning, buttonTitle: "OK")
+        }
+    }
     
     @IBOutlet weak var moveSliderLabel: UILabel!
     
@@ -107,6 +130,24 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            return
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "reachabilityChanged:",
+            name: ReachabilityChangedNotification,
+            object: reachability)
+        
+        do{
+            try reachability!.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
         
         distanceSliderValue.continuous = false
         

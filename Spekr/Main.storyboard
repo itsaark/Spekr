@@ -341,11 +341,11 @@
                                                         <variation key="heightClass=regular-widthClass=compact" constant="1"/>
                                                     </constraint>
                                                 </constraints>
-                                                <string key="text">Most of us have very little scope to keep up with latest happenings and people around a locality. Our social reach is limited.
+                                                <string key="text">Most of us have a very little scope for sharing content beyond one's own social network. Our reach is limited.
 
-We became fascinated by the idea of genuinely discovering happenings &amp; what people are upto around a location.
+We became fascinated by the idea of sharing, discovering happenings &amp; what people are up to around a location. Spekr lets you discover and share information with people around you. It acts like a location-based noticeboard.
 
-Spekr helps you easily share anything across your locality. We truly believe that it gives everyone the limitless power to connect with people locally.</string>
+We truly believe that it gives you the power to make news connections beyond your social network.</string>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                 <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -371,7 +371,7 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                             </constraint>
                                             <constraint firstItem="MCd-Nd-Kww" firstAttribute="top" secondItem="oRw-NM-0yb" secondAttribute="bottom" constant="8" id="Bx6-P2-eT5"/>
                                             <constraint firstItem="MCd-Nd-Kww" firstAttribute="top" secondItem="Z4h-Ia-Go8" secondAttribute="bottom" constant="-24.5" id="DC3-UZ-dKg">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="12"/>
                                             </constraint>
                                             <constraint firstItem="oRw-NM-0yb" firstAttribute="top" secondItem="lNx-WG-U9n" secondAttribute="top" constant="6" id="GBa-vB-AwY">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="4"/>
@@ -380,7 +380,7 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                             <constraint firstAttribute="trailing" secondItem="oRw-NM-0yb" secondAttribute="trailing" id="Ssn-CK-b6l"/>
                                             <constraint firstItem="MCd-Nd-Kww" firstAttribute="leading" secondItem="lNx-WG-U9n" secondAttribute="leading" constant="8" id="h26-8x-yCO"/>
                                             <constraint firstItem="Z4h-Ia-Go8" firstAttribute="top" secondItem="oRw-NM-0yb" secondAttribute="bottom" constant="16" id="nt5-ls-tbe">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="12"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="15"/>
                                             </constraint>
                                             <constraint firstItem="oRw-NM-0yb" firstAttribute="leading" secondItem="lNx-WG-U9n" secondAttribute="leading" id="ug6-eh-ySA"/>
                                             <constraint firstItem="oRw-NM-0yb" firstAttribute="centerX" secondItem="lNx-WG-U9n" secondAttribute="centerX" id="w8G-Ur-bsu"/>
@@ -531,20 +531,19 @@ Spekr helps you easily share anything across your locality. We truly believe tha
                                                 </constraints>
                                                 <mutableString key="text">Spekr is designed to help you share content publicly within your locality (100-mile radius) and eventually all around the world.
 
-When you post something on Spker, it is public by default; It appears to any user who is within a 100-mile range.
+When you post something on Spker, it is public by default.
 
-You can only have one post on Spekr at any point in time, i.e your post will remain in Local Feed until you delete it or create a new post.
+You can only have one post at any point in time, i.e when you create a new post, your old post will be deleted.
 
 World Feed contains top posts from around the world in the last 24hrs.
 
 Tap the ❤️ button to show some love :)
 
-Your location will never be explicitly made public to other users on Spekr. 
+Your location will never be explicitly made public to other users.
 
-To connect with anyone, just click on the their name/display picture and then hit the "connect" button on their Profile page.
+To connect with anyone, just tap on their name/display picture and then tap the "connect" button on their Profile page.
 
-Need more help?
- </mutableString>
+Need more help?</mutableString>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -2422,78 +2421,26 @@ Effective:  March 1st, 2016
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HeartIconSmallSelected" translatesAutoresizingMaskIntoConstraints="NO" id="dy5-8C-0vc">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="TiN-UK-Agv">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="18"/>
-                                    </constraint>
-                                    <constraint firstAttribute="width" constant="16" id="Zzb-5s-J0P">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
-                                    </constraint>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="TiN-UK-Agv"/>
-                                        <exclude reference="Zzb-5s-J0P"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="TiN-UK-Agv"/>
-                                        <include reference="Zzb-5s-J0P"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqT-Jb-eY3">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="iRM-rL-q6k" firstAttribute="centerX" secondItem="SXn-ae-dWr" secondAttribute="centerX" id="3rk-En-fss"/>
-                            <constraint firstItem="ydI-w4-o6I" firstAttribute="top" secondItem="042-tU-ew4" secondAttribute="bottom" constant="40" id="4y4-A6-wDc"/>
-                            <constraint firstItem="dy5-8C-0vc" firstAttribute="top" secondItem="042-tU-ew4" secondAttribute="bottom" constant="1.5" id="CgI-YE-KiQ"/>
+                            <constraint firstItem="ydI-w4-o6I" firstAttribute="top" secondItem="042-tU-ew4" secondAttribute="bottom" constant="15" id="4y4-A6-wDc"/>
                             <constraint firstItem="042-tU-ew4" firstAttribute="centerX" secondItem="SXn-ae-dWr" secondAttribute="centerX" id="EBn-P2-uOV"/>
-                            <constraint firstItem="aqT-Jb-eY3" firstAttribute="leading" secondItem="dy5-8C-0vc" secondAttribute="trailing" constant="9" id="Fz5-8g-HRC"/>
-                            <constraint firstItem="dy5-8C-0vc" firstAttribute="centerY" secondItem="aqT-Jb-eY3" secondAttribute="centerY" id="GU8-hk-eqN"/>
                             <constraint firstItem="ydI-w4-o6I" firstAttribute="top" secondItem="042-tU-ew4" secondAttribute="bottom" constant="15" id="MG1-RN-i31"/>
                             <constraint firstItem="nr2-4o-2xl" firstAttribute="top" secondItem="ydI-w4-o6I" secondAttribute="bottom" constant="20" id="Ncj-Vc-zLQ"/>
                             <constraint firstItem="nr2-4o-2xl" firstAttribute="centerX" secondItem="SXn-ae-dWr" secondAttribute="centerX" id="Pd2-0Z-Jvk"/>
                             <constraint firstItem="042-tU-ew4" firstAttribute="top" secondItem="iRM-rL-q6k" secondAttribute="bottom" constant="15" id="aFm-2J-7uE"/>
                             <constraint firstItem="ydI-w4-o6I" firstAttribute="centerX" secondItem="SXn-ae-dWr" secondAttribute="centerX" id="fGh-ig-U6C"/>
                             <constraint firstItem="iRM-rL-q6k" firstAttribute="top" secondItem="Q8G-bf-qpC" secondAttribute="bottom" constant="40" id="j4d-lM-03V"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aqT-Jb-eY3" secondAttribute="trailing" constant="96" id="jr6-p4-kbz"/>
-                            <constraint firstItem="dy5-8C-0vc" firstAttribute="leading" secondItem="SXn-ae-dWr" secondAttribute="leadingMargin" constant="95" id="ksh-oD-694"/>
                         </constraints>
                         <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="dy5-8C-0vc"/>
-                                <exclude reference="aqT-Jb-eY3"/>
-                            </mask>
                             <mask key="constraints">
-                                <exclude reference="Fz5-8g-HRC"/>
-                                <exclude reference="jr6-p4-kbz"/>
-                                <exclude reference="CgI-YE-KiQ"/>
-                                <exclude reference="GU8-hk-eqN"/>
-                                <exclude reference="ksh-oD-694"/>
                                 <exclude reference="4y4-A6-wDc"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="dy5-8C-0vc"/>
-                                <include reference="aqT-Jb-eY3"/>
-                            </mask>
                             <mask key="constraints">
-                                <include reference="Fz5-8g-HRC"/>
-                                <include reference="jr6-p4-kbz"/>
-                                <include reference="CgI-YE-KiQ"/>
-                                <include reference="GU8-hk-eqN"/>
-                                <include reference="ksh-oD-694"/>
                                 <include reference="4y4-A6-wDc"/>
                                 <exclude reference="MG1-RN-i31"/>
                             </mask>
@@ -2501,8 +2448,6 @@ Effective:  March 1st, 2016
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="heartIcon" destination="dy5-8C-0vc" id="tV7-46-Cxj"/>
-                        <outlet property="likesLabel" destination="aqT-Jb-eY3" id="Hyf-wN-whq"/>
                         <outlet property="userDisplayImage" destination="iRM-rL-q6k" id="ySG-Lv-PIL"/>
                         <outlet property="userDisplayName" destination="042-tU-ew4" id="wcn-he-zfP"/>
                     </connections>
@@ -2638,9 +2583,9 @@ Effective:  March 1st, 2016
         <image name="WorldIcon" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="yID-nI-PNu"/>
+        <segue reference="5CR-RX-prl"/>
         <segue reference="hjk-qI-t4c"/>
-        <segue reference="XWj-YT-S7G"/>
-        <segue reference="fd8-Pa-I0v"/>
         <segue reference="52p-62-GEq"/>
     </inferredMetricsTieBreakers>
 </document>
