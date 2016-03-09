@@ -10,9 +10,29 @@ import UIKit
 import Parse
 import CoreLocation
 import ImagePicker
+import ReachabilitySwift
 
 class ComposeViewController: UIViewController, CLLocationManagerDelegate, UITextViewDelegate, ImagePickerDelegate {
     
+    var reachability: Reachability?
+    
+    
+    dynamic func reachabilityChanged(note: NSNotification) {
+        
+        let reachability = note.object as! Reachability
+        
+        if reachability.isReachable() {
+            if reachability.isReachableViaWiFi() {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+        } else {
+            print("Not reachable")
+            alertView.showAlert("No Internet!", subTitle: "No working Internet connection is found.", style: AlertStyle.Warning, buttonTitle: "OK")
+            composeTextView.endEditing(true)
+        }
+    }
     
     //Displaying error/alert message through Alert
     func DisplayAert(title:String, errorMessage:String){
@@ -41,6 +61,9 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
         self.selectedImage.image = images[0]
         self.postDetails.image.value = images[0]
         self.cameraButton.selected = true
+        placeHolderLabel.text = ""
+        placeHolderInstructionLabel.text = ""
+        postButton.selected = true
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
@@ -129,24 +152,31 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
             
         }else {
             
+            self.view.userInteractionEnabled = false
             self.postDetails.locationCoordinates = currentUserLocation
             let lat = currentUserLocation?.latitude
             let long = currentUserLocation?.longitude
             self.postDetails.postText = composeTextView.text
             self.postDetails.uploadPost({ (uploaded: Bool, error: NSError?) -> Void in
                 
-                self.alertView.showAlert("Posted Successfully", subTitle: "", style: AlertStyle.Success, buttonTitle: "OK", action: { (isOtherButton) -> Void in
+                if uploaded{
                     
+                    self.view.userInteractionEnabled = false
                     PFCloud.callFunctionInBackground("sendPushAboutNewPost", withParameters: ["latitude" : lat!, "longitude" :long!])
-                    
-                    if isOtherButton {
+                    self.alertView.showAlert("Posted Successfully", subTitle: "", style: AlertStyle.Success, buttonTitle: "OK", action: { (isOtherButton) -> Void in
                         
-                        self.dismissViewControllerAnimated(true, completion: nil)
-                    }
-                })
+                        if isOtherButton {
+                            
+                            self.dismissViewControllerAnimated(true, completion: nil)
+                        }
+                    })
+                }else{
+                    
+                    self.view.userInteractionEnabled = false
+                    self.alertView.showAlert("Failed to post", subTitle: "Please try again later.", style: AlertStyle.Error, buttonTitle: "OK")
+                }
             })
 
-            
         }
         
     }
@@ -237,6 +267,24 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
         
         //Setting custom toolbar as inputAccessory to composeTextView
         composeTextView.inputAccessoryView = inputToolbar
+        
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            return
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "reachabilityChanged:",
+            name: ReachabilityChangedNotification,
+            object: reachability)
+        
+        do{
+            try reachability!.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
     }
 
     override func didReceiveMemoryWarning() {

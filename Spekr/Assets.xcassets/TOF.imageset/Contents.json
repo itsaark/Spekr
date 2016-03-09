@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "SignInWithPhoneNumber.png",
+      "filename" : "TOF.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "SignInWithPhoneNumber@2x.png",
+      "filename" : "TOF@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "SignInWithPhoneNumber@3x.png",
+      "filename" : "TOF@3x.png",
       "scale" : "3x"
     }
   ],

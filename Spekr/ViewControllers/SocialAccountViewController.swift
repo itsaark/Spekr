@@ -200,11 +200,9 @@ class SocialAccountViewController: UIViewController {
             {
                 let userId:String = result["id"] as! String
                 let userName:String? = result["name"] as? String
-                let userEmail:String? = result["email"] as? String
                 let userTimeLineLink:String? = result["link"] as? String
                 
                 
-                print("\(userEmail)")
                 
                 let myUser:PFUser = PFUser.currentUser()!
                 
@@ -215,11 +213,6 @@ class SocialAccountViewController: UIViewController {
                     
                 }
                 
-                // Save email address
-                if(userEmail != nil)
-                {
-                    myUser.setObject(userEmail!, forKey: "email")
-                }
                 
                 // Save Timeline link
                 if(userTimeLineLink != nil)
