@@ -315,13 +315,14 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
                     self.likesMedianValue = medianValue
                     
                 }else{
-                    self.likesMedianValue = -1
+                    
+                    self.likesMedianValue = 0
 
                 }
                 
             }else{
                 
-                self.likesMedianValue = -1
+                self.likesMedianValue = 0
             }
         }
         

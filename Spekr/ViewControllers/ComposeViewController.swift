@@ -152,17 +152,24 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
             
         }else {
             
+            SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.Custom)
+            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Clear)
+            SVProgressHUD.setForegroundColor(UIColor(red: 136, green: 219, blue: 163))
+            SVProgressHUD.setBackgroundColor(UIColor.whiteColor())
+            SVProgressHUD.showWithStatus("Uploading...")
             self.view.userInteractionEnabled = false
             self.postDetails.locationCoordinates = currentUserLocation
             let lat = currentUserLocation?.latitude
             let long = currentUserLocation?.longitude
+            let postedUserId = PFUser.currentUser()?.objectId
             self.postDetails.postText = composeTextView.text
             self.postDetails.uploadPost({ (uploaded: Bool, error: NSError?) -> Void in
                 
                 if uploaded{
                     
+                    SVProgressHUD.dismiss()
                     self.view.userInteractionEnabled = false
-                    PFCloud.callFunctionInBackground("sendPushAboutNewPost", withParameters: ["latitude" : lat!, "longitude" :long!])
+                    PFCloud.callFunctionInBackground("sendPushAboutNewPost", withParameters: ["latitude" : lat!, "longitude" :long!, "postedUserId" : postedUserId!])
                     self.alertView.showAlert("Posted Successfully", subTitle: "", style: AlertStyle.Success, buttonTitle: "OK", action: { (isOtherButton) -> Void in
                         
                         if isOtherButton {

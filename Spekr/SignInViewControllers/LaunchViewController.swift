@@ -43,16 +43,17 @@ class LaunchViewController: UIViewController {
                 
                 if let user = PFUser.currentUser() {
                     
-                    if user.isLinkedWithAuthType("facebook") == false || user.isLinkedWithAuthType("twitter") == false{
+                    if user.isLinkedWithAuthType("facebook") || user.isLinkedWithAuthType("twitter") {
                         
-                        self.performSegueWithIdentifier("JumpToSignInVC", sender: self)
-
-                        
-                    }else{
-                        
+                        print("this is getting called")
                         if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
                             appDelegate.setMainTabBarControllerAsRoot()
                         }
+                        
+                        
+                    }else{
+
+                        self.performSegueWithIdentifier("JumpToSignInVC", sender: self)
                     }
                     
                 }

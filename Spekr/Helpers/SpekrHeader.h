@@ -8,6 +8,7 @@
 
 #import "DACircularProgressView.h"
 #import "UIImageView+Letters.h"
+#import "SVProgressHUD.h"
 
 
 

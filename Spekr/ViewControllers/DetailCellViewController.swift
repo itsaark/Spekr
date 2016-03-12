@@ -41,7 +41,7 @@ class DetailCellViewController: UIViewController {
         let currentUserName = PFUser.currentUser()?.objectForKey("displayName") as! String
         
         currentObject!.toggleLikePost(PFUser.currentUser()!)
-        print(currentUserName)
+
         //Updating likes on UI
         if likeButton.selected == false {
             
@@ -57,12 +57,12 @@ class DetailCellViewController: UIViewController {
             likeButton.selected = true
             localLikesCounter = localLikesCounter! + 1
             likesCountLabel.text = "\(localLikesCounter!)"
-            //currentObject!.updateLikesCount(localLikesCounter!)
-            //ParseHelper.updateTotalLikesOfUser((currentObject?.objectForKey("username") as? PFUser)!)
+            
+            //Increment Likes on cloud
             PFCloud.callFunctionInBackground("AddLikeToPost", withParameters: ["postId" : postObjectID])
             PFCloud.callFunctionInBackground("IncrementLike", withParameters: ["user" : postedUser.objectId! as String])
             
-            
+            //If current user is not liking his/her own post then send a push to posted user.Update notifications class
             if currentObject?.objectForKey("username") as? PFUser != PFUser.currentUser() {
                 //Send a push notification
                 ParseHelper.updateNotificationTab(currentObject?.objectForKey("username") as! PFUser, post: currentObject!)
@@ -104,7 +104,7 @@ class DetailCellViewController: UIViewController {
     @IBAction func flagButtonTapped(sender: AnyObject) {
         
         
-        SweetAlert().showAlert("Are you sure?", subTitle: "Do you want to flag this post for offensive/spam content?", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor(red: 182, green: 182, blue: 182) , otherButtonTitle:  "Yes, flag it!", otherButtonColor: UIColor(red: 100, green: 240, blue: 150)) { (isOtherButton) -> Void in
+        SweetAlert().showAlert("Are you sure?", subTitle: "Do you want to flag this post as offensive/spam content?", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor(red: 182, green: 182, blue: 182) , otherButtonTitle:  "Yes, flag it!", otherButtonColor: UIColor(red: 100, green: 240, blue: 150)) { (isOtherButton) -> Void in
             if isOtherButton == true {
                 
                 print("Cancel Button  Pressed")

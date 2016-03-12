@@ -52,6 +52,19 @@ class UserProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        self.userDisplayImage.layer.cornerRadius = 41
+        self.userDisplayImage.clipsToBounds = true
         
         if let user = user {
             
@@ -86,18 +99,6 @@ class UserProfileViewController: UIViewController {
             })
             
         }
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        
-        self.userDisplayImage.layer.cornerRadius = 41
-        self.userDisplayImage.clipsToBounds = true
         
         //Setting right bar button item
         let flagButtonImage = UIImage(named: "FlagIcon")

@@ -96,10 +96,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             
                         } else{
                                 
-                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
-                                tabBarController.selectedIndex = 1
-                                self.window?.rootViewController = tabBarController
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+                            tabBarController.selectedIndex = 1
+                            self.window?.rootViewController = tabBarController
                         }
                     }
                 }
@@ -195,6 +195,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         
+        
         if let aps = userInfo["aps"] as? NSDictionary {
             
             if let alert = aps["alert"] as? NSString {
@@ -203,17 +204,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     if application.applicationState != .Active{
                         
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+                        let tabBarController = self.window?.rootViewController as! UITabBarController
                         tabBarController.selectedIndex = 2
-                        self.window?.rootViewController = tabBarController
                         
                         
                     }else{
                         
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
-                        self.window?.rootViewController = tabBarController
+                        let tabBarController = self.window?.rootViewController as! UITabBarController
                         let tabArray = tabBarController.tabBar.items as NSArray!
                         let tabItem = tabArray.objectAtIndex(2) as! UITabBarItem
                         
@@ -228,10 +225,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     if application.applicationState != .Active{
                         
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+                        let tabBarController = self.window?.rootViewController as! UITabBarController
                         tabBarController.selectedIndex = 1
-                        self.window?.rootViewController = tabBarController
                         
                     }
                 }

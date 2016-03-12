@@ -28,33 +28,13 @@ class SignInViewController: UIViewController {
     }
     
     //Displaying error message through Alert
-    func DisplayAert(title:String, errorMessage:String){
-        
-        let alert = UIAlertController(title: title, message: errorMessage, preferredStyle: UIAlertControllerStyle.Alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
-            
-            //self.dismissViewControllerAnimated(true, completion: nil)
-            
-        }))
-        
-        self.presentViewController(alert, animated: true, completion: nil)
-        
-    }
+    let alert = SweetAlert()
     
     //Funtion for seguing from one view controller to other
     private func navigateToNewViewController(Identifier: String) {
         performSegueWithIdentifier(Identifier, sender: self)
     }
-    
-    func loadTabBarViewController() {
-    
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
-        
-        self.presentViewController(tabBarController, animated: true, completion: nil)
-    
-    }
+
 
     
     //Sign in with Phone Number button tapped
@@ -69,11 +49,10 @@ class SignInViewController: UIViewController {
                     if user.isLinkedWithAuthType("facebook") || user.isLinkedWithAuthType("twitter") {
                     
                     //TODO: Change the string in this func to "JumpFromSignInToLocalFeed" when isNew property is added.
-                    //self.navigateToNewViewController("JumpFromSignInToLocalFeed")
-                    //self.loadTabBarViewController()
-                        print("user is linked")
+
                         if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
                         appDelegate.setMainTabBarControllerAsRoot()
+                            
                         }
 
                     
@@ -83,9 +62,7 @@ class SignInViewController: UIViewController {
                     
                     }
                 }
-            
-            // TODO: Perform a segue to user profile screen after successful sign in
-            // Navigate to the Naming screen.
+
             
             } else {
                 
@@ -93,7 +70,7 @@ class SignInViewController: UIViewController {
                     
                     if let errorString = error.userInfo["error"] as? NSString {
                         
-                        self.DisplayAert("Error", errorMessage: errorString as String)
+                        self.alert.showAlert("Error", subTitle: errorString as String, style: AlertStyle.Error, buttonTitle: "OK")
                     }
                     
                 }
@@ -102,268 +79,6 @@ class SignInViewController: UIViewController {
         }
             
     }
-    
-    // Function for updating twitter user data to Parse database
-    func twitterUserDataToParse(completionBlock: PFBooleanResultBlock){
-        
-        if PFTwitterUtils.isLinkedWithUser(PFUser.currentUser()!) {
-            
-            let screenName = PFTwitterUtils.twitter()?.screenName!
-            let requestString = NSURL(string: "https://api.twitter.com/1.1/users/show.json?screen_name=" + screenName!)
-            let request = NSMutableURLRequest(URL: requestString!, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 5.0)
-            PFTwitterUtils.twitter()?.signRequest(request)
-            let session = NSURLSession.sharedSession()
-            
-            // TODO: Add code to pull user's email ID from twitter API
-            
-            session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
-                print(data)
-                print(response)
-                print(error)
-                
-                if error == nil {
-                    var result: AnyObject?
-                    do {
-                        result = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
-                    } catch let error2 as NSError? {
-                        print("error 2 \(error2)")
-                    }
-                    
-                    let userName: String! = result?.objectForKey("name") as! String
-                    //let userEmail: String! = result?.objectForKey("email") as! String
-                    
-                    let userId: String! = result?.objectForKey("id_str") as! String
-                    
-                    let userProfileLink: String! = "https://twitter.com/intent/user?user_id=" + userId
-                    
-                    let myUser:PFUser = PFUser.currentUser()!
-                    
-                    // Save first name
-                    if(userName != nil)
-                    {
-                        myUser.setObject(userName!, forKey: "displayName")
-                        
-                    }
-                    
-                    // Save user profile link
-                    if(userProfileLink != nil)
-                    {
-                        myUser.setObject(userProfileLink!, forKey: "link")
-                        
-                    }
-                    
-                    // Save email address
-                    //if(userEmail != nil)
-                    //{
-                       // myUser.setObject(userEmail!, forKey: "email")
-                    //}
-                    
-                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                        
-                        let urlString = result?.objectForKey("profile_image_url_https") as! String
-                        let hiResUrlString = urlString.stringByReplacingOccurrencesOfString("_normal", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                        let twitterPhotoUrl = NSURL(string: hiResUrlString)
-                        let profilePictureData = NSData(contentsOfURL: twitterPhotoUrl!)
-                        
-                        if(profilePictureData != nil)
-                        {
-                            let profileFileObject = PFFile(data:profilePictureData!)
-                            myUser.setObject(profileFileObject!, forKey: "displayImage")
-                        }
-                        
-                        
-                        myUser.saveInBackgroundWithBlock(completionBlock)
-
-                    }
-
-                    
-                }
-            }).resume()
-        }
-        
-    }
-        
-    //Sign in with Twitter button tapped
-    @IBAction func signInTwitter(sender: AnyObject) {
-        
-        PFTwitterUtils.logInWithBlock {
-            (user: PFUser?, error: NSError?) -> Void in
-            if error == nil {
-                if let user = user {
-                    if user.isNew {
-                    print("User signed up and logged in with Twitter!")
-                        ParseHelper.createUserDetailsInstance()
- 
-                        //TODO: Update twitter email to parse
-//                        
-//                        let shareEmailViewController = TWTRShareEmailViewController() { email, error in
-//                            print("Email \(email), Error: \(error)")
-//                        }
-//                    self.presentViewController(shareEmailViewController, animated: true, completion: { () -> Void in
-//                        
-//                        self.twitterUserDataToParse()
-//                    })
-                        //TODO: Have a completion block here and then change the root view. Implement this in all sign up process.
-                        self.twitterUserDataToParse({ (updated: Bool, error: NSError?) -> Void in
-                            
-                            if updated {
-                                
-                                if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                                    appDelegate.setMainTabBarControllerAsRoot()
-                                }
-                            }
-
-                        })
-
-//                    
-                        
-                    } else {
-                        print("User logged in with Twitter!")
-                        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                            appDelegate.setMainTabBarControllerAsRoot()
-                        }
-                    }
-                
-                
-                } else {
-                    print("Uh oh. The user cancelled the Twitter login.")
-                       }
-            } else {
-                if let error = error {
-                    if let errorString = error.userInfo["error"] as? NSString {
-                        
-                        self.DisplayAert("Error", errorMessage: errorString as String)
-                    }
-                }
-            }
-         }
-        
-    }
-    
-    // Updating Facebook user data to Parse database
-    func fbUserDataToParse(completionBlock: PFBooleanResultBlock) {
-        
-        let requestParameters = ["fields": "id, email, name, link"]
-        
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: requestParameters)
-        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-            
-            if ((error) != nil)
-            {
-                // Process error
-            }
-            else
-            {
-                let userId:String = result["id"] as! String
-                let userName:String? = result["name"] as? String
-                let userEmail:String? = result["email"] as? String
-                let userTimeLineLink:String? = result["link"] as? String
-                
-                
-                print("\(userEmail)")
-                
-                let myUser:PFUser = PFUser.currentUser()!
-                
-                // Save first name
-                if(userName != nil)
-                {
-                    myUser.setObject(userName!, forKey: "displayName")
-                    
-                }
-                
-                // Save email address
-                if(userEmail != nil)
-                {
-                    myUser.setObject(userEmail!, forKey: "email")
-                }
-                
-                // Save Timeline link
-                if(userTimeLineLink != nil)
-                {
-                    myUser.setObject(userTimeLineLink!, forKey: "link")
-                }
-
-                
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                    
-                    // Get Facebook profile picture
-                    let userProfilePictureLink = "https://graph.facebook.com/" + userId + "/picture?type=large"
-                    
-                    let profilePictureUrl = NSURL(string: userProfilePictureLink)
-                    
-                    let profilePictureData = NSData(contentsOfURL: profilePictureUrl!)
-                    
-                    if(profilePictureData != nil)
-                    {
-                        let profileFileObject = PFFile(data:profilePictureData!)
-                        myUser.setObject(profileFileObject!, forKey: "displayImage")
-                    }
-                    
-                    
-                    myUser.saveInBackgroundWithBlock(completionBlock)
-                    
-                }
-                
-            }
-        })
-    }
-    
-    //Sign in with Facebook button tapped
-    @IBAction func signInFacebook(sender: AnyObject) {
-        
-        let permissions = ["public_profile", "email"]
-        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions) {
-            (user: PFUser?, error: NSError?) -> Void in
-            
-            if error != nil {
-                //Display an alert message
-                if let error = error {
-                    if let errorString = error.userInfo["error"] as? NSString {
-                        
-                        self.DisplayAert("Error", errorMessage: errorString as String)
-                    }
-                }
-                
-            } else {
-                
-                if let user = user {
-                    if user.isNew {
-                        print("User signed up and logged in through Facebook!")
-                        ParseHelper.createUserDetailsInstance()
-                        
-                        self.fbUserDataToParse({ (updated: Bool, error: NSError?) -> Void in
-                            
-                            if updated {
-                                
-                                if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                                    appDelegate.setMainTabBarControllerAsRoot()
-                                }
-                            }
-                        })
-                        
-                        
-                    } else {
-                        print("User logged in through Facebook!")
-                        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                            appDelegate.setMainTabBarControllerAsRoot()
-                        }
-                    }
-                    
-                    //Performing a segue to Local Feed Screen
-                    //self.navigateToNewViewController("JumpFromSignInToLocalFeed")
-                    //self.loadTabBarViewController()
-
-                    
-                } else {
-                    print("Uh oh. The user cancelled the Facebook login.")
-                }
-                
-            }
-            
-        }
-
-    }
-    
     
 
 }

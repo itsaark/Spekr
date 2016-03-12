@@ -20,20 +20,9 @@ class SocialAccountViewController: UIViewController {
         navigationController?.navigationBarHidden = true
     }
     
-    //Displaying error message through Alert
-    func DisplayAert(title:String, errorMessage:String){
-        
-        let alert = UIAlertController(title: title, message: errorMessage, preferredStyle: UIAlertControllerStyle.Alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
-            
-            //self.dismissViewControllerAnimated(true, completion: nil)
-            
-        }))
-        
-        self.presentViewController(alert, animated: true, completion: nil)
-        
-    }
+    //Displays error messages
+    let alert = SweetAlert()
+    
     
     //Funtion for seguing from one view controller to other
     private func navigateToNewViewController(Identifier: String) {
@@ -63,9 +52,6 @@ class SocialAccountViewController: UIViewController {
             // TODO: Add code to pull user's email ID from twitter API
             
             session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
-                print(data)
-                print(response)
-                print(error)
                 
                 if error == nil {
                     var result: AnyObject?
@@ -162,7 +148,7 @@ class SocialAccountViewController: UIViewController {
                         
                         if let errorString = error.userInfo["error"] as? NSString {
                             
-                            self.DisplayAert("Try with a different account", errorMessage: errorString as String)
+                            self.alert.showAlert("Error", subTitle: (errorString as String) + ".Please try again.", style: .Error, buttonTitle: "OK")
                         }
                         
                     }
@@ -171,7 +157,7 @@ class SocialAccountViewController: UIViewController {
             })
         } else {
             
-            print("another user is linked")
+            self.alert.showAlert("Account already linked", subTitle: "Please try with a different account.", style: AlertStyle.Error, buttonTitle: "OK")
         }
 
         
@@ -191,8 +177,8 @@ class SocialAccountViewController: UIViewController {
                 if let error = error {
                     
                     if let errorString = error.userInfo["error"] as? NSString{
-                    self.DisplayAert("Error", errorMessage: errorString as String)
                         
+                        self.alert.showAlert("Error", subTitle: errorString as String + ".Please try again.", style: .Error, buttonTitle: "OK")
                     }
                 }
             }
@@ -202,11 +188,13 @@ class SocialAccountViewController: UIViewController {
                 let userName:String? = result["name"] as? String
                 let userTimeLineLink:String? = result["link"] as? String
                 
-                
+                SVProgressHUD.setForegroundColor(UIColor(red: 58, green: 197, blue: 105))
+                SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Gradient)
+                SVProgressHUD.showWithStatus("Getting there")
                 
                 let myUser:PFUser = PFUser.currentUser()!
                 
-                // Save first name
+                // Save name
                 if(userName != nil)
                 {
                     myUser.setObject(userName!, forKey: "displayName")
@@ -219,6 +207,7 @@ class SocialAccountViewController: UIViewController {
                 {
                     myUser.setObject(userTimeLineLink!, forKey: "link")
                 }
+                
                 
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                     
@@ -237,6 +226,11 @@ class SocialAccountViewController: UIViewController {
                     
                     
                     myUser.saveInBackgroundWithBlock(completionBlock)
+                    
+                    dispatch_async(dispatch_get_main_queue()){
+                        
+                        SVProgressHUD.dismiss()
+                    }
                     
                 }
                 
@@ -272,8 +266,7 @@ class SocialAccountViewController: UIViewController {
                             }
                         }
                     })
-                    //self.navigateToNewViewController("JumpFromLinkToLocalFeed")
-                    //self.loadTabBarViewController()
+                    
 
                 }
                 } else {
@@ -282,7 +275,7 @@ class SocialAccountViewController: UIViewController {
                         
                         if let errorString = error.userInfo["error"] as? NSString {
                             
-                            self.DisplayAert("Try with a different account", errorMessage: errorString as String)
+                            self.alert.showAlert("Error", subTitle: errorString as String + ".Please try again.", style: .Error, buttonTitle: "OK")
                         }
                     }
                         
@@ -291,7 +284,7 @@ class SocialAccountViewController: UIViewController {
                 
         } else {
             
-            print("another user is linked")
+            self.alert.showAlert("Account already linked", subTitle: ".Please try with a different account.", style: AlertStyle.Error, buttonTitle: "OK")
         }
     }
     

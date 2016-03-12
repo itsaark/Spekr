@@ -52,6 +52,9 @@ class PostDetails: PFObject, PFSubclassing {
                     
                     for post in posts {
                         
+                        let postObjectId = post.objectId
+                        PFCloud.callFunctionInBackground("deletePostsAssociatedLikes", withParameters: ["postId" : postObjectId!])
+                        PFCloud.callFunctionInBackground("deletePostsAssociatedNotifications", withParameters: ["postId" : postObjectId!])
                         post.deleteInBackgroundWithBlock({ (deleted: Bool, error: NSError?) -> Void in
                             
                             if let image = self.image.value {
@@ -74,6 +77,7 @@ class PostDetails: PFObject, PFSubclassing {
                                 
                             }
                             self.username = PFUser.currentUser()
+                            self.likesCount = 0
                             self.saveInBackgroundWithBlock(completionBlock)
                         })
                     }
@@ -100,6 +104,7 @@ class PostDetails: PFObject, PFSubclassing {
                     
                 }
                 self.username = PFUser.currentUser()
+                self.likesCount = 0
                 self.saveInBackgroundWithBlock(completionBlock)
             }
         }

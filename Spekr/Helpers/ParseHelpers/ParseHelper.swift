@@ -85,7 +85,7 @@ class ParseHelper {
         
         query.whereKey(ParsePostCreatedAt, greaterThan: yesterdayDate)
         
-        query.whereKey(ParsePostLikesCount, greaterThan: likesMedianValue)
+        query.whereKey(ParsePostLikesCount, greaterThan: (likesMedianValue - 1))
         
         query.orderByDescending(ParsePostLikesCount)
         

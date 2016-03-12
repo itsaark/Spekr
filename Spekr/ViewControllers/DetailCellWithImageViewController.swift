@@ -118,7 +118,7 @@ class DetailCellWithImageViewController: UIViewController {
     @IBAction func flagButtonTapped(sender: AnyObject) {
         
         
-        SweetAlert().showAlert("Are you sure?", subTitle: "Do you want to flag this post for offensive/spam content?", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor(red: 182, green: 182, blue: 182) , otherButtonTitle:  "Yes, flag it!", otherButtonColor: UIColor(red: 100, green: 240, blue: 150)) { (isOtherButton) -> Void in
+        SweetAlert().showAlert("Are you sure?", subTitle: "Do you want to flag this post as offensive/spam content?", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor(red: 182, green: 182, blue: 182) , otherButtonTitle:  "Yes, flag it!", otherButtonColor: UIColor(red: 100, green: 240, blue: 150)) { (isOtherButton) -> Void in
             if isOtherButton == true {
                 
                 print("Cancel Button  Pressed")

@@ -28,7 +28,7 @@ class AccountViewController: UIViewController, UITableViewDelegate {
     
     @IBAction func inviteButtonTapped(sender: UIButton){
         
-        activityViewController = UIActivityViewController(activityItems: ["Spekr lets you connect with anyone around you. Check it out here http://spekrapp.com"], applicationActivities: nil)
+        activityViewController = UIActivityViewController(activityItems: ["Explore beyond your social network with Spekr. Check it out here http://spekrapp.com"], applicationActivities: nil)
         activityViewController.excludedActivityTypes = [UIActivityTypePostToWeibo,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,
             UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo,UIActivityTypeAirDrop]
         presentViewController(activityViewController, animated: true, completion: nil)
@@ -115,13 +115,14 @@ extension AccountViewController: UITableViewDataSource {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             
             print("Here is the iD: \(postDetails[indexPath.row].objectId)")
+            let postObjectId = postDetails[indexPath.row].objectId
             
-
             ParseHelper.deleteUserPost(postDetails[indexPath.row].objectId! as String, completionBlock: { (result:Bool, error:NSError?) -> Void in
                 
                 if result {
                     
-                    
+                    PFCloud.callFunctionInBackground("deletePostsAssociatedLikes", withParameters: ["postId" : postObjectId!])
+                    PFCloud.callFunctionInBackground("deletePostsAssociatedNotifications", withParameters: ["postId" : postObjectId!])
                 }
             })
             
