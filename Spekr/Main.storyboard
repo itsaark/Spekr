@@ -341,11 +341,11 @@
                                                         <variation key="heightClass=regular-widthClass=compact" constant="1"/>
                                                     </constraint>
                                                 </constraints>
-                                                <string key="text">Most of us have very little scope for sharing content beyond one's own social network. Our reach is limited.
+                                                <mutableString key="text">Most of us have very little scope to reach out to people beyond one's own social network. Imagine a place, where your reach is not just limited to your friends &amp; followers.
 
-We became fascinated by the idea of discovering happenings &amp; what people are up to around one's location. Spekr lets you share images &amp; information with people around you. It acts like a location-based noticeboard.
+I became fascinated by the idea of discovering happenings &amp; what people are up to around one's location. Spekr gives you the freedom to directly share content with an entire community. You can share your thoughts with everyone around a locality and eventually all around the world. 
 
-We truly believe that it gives you the power to make new connections beyond your social reach.</string>
+I truly believe that it gives you the power to make new connections beyond your social reach.</mutableString>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                 <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -355,11 +355,21 @@ We truly believe that it gives you the power to make new connections beyond your
                                                         <exclude reference="y5g-2z-1JH"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="heightClass=regular-widthClass=compact">
+                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="8" y="183" width="308" height="261"/>
                                                     <mask key="constraints">
                                                         <exclude reference="bEp-vl-ImL"/>
                                                         <exclude reference="y5g-2z-1JH"/>
                                                     </mask>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spekr Creator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxb-cn-M32">
+                                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                                <color key="textColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="128" y="426" width="42" height="21"/>
                                                 </variation>
                                             </label>
                                         </subviews>
@@ -375,9 +385,13 @@ We truly believe that it gives you the power to make new connections beyond your
                                             <constraint firstItem="oRw-NM-0yb" firstAttribute="top" secondItem="lNx-WG-U9n" secondAttribute="top" constant="6" id="GBa-vB-AwY">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="4"/>
                                             </constraint>
+                                            <constraint firstItem="Jxb-cn-M32" firstAttribute="top" secondItem="MCd-Nd-Kww" secondAttribute="bottom" constant="-18.5" id="NUa-iR-fJc">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                                            </constraint>
                                             <constraint firstItem="MCd-Nd-Kww" firstAttribute="top" secondItem="lNx-WG-U9n" secondAttribute="top" constant="8" id="Rw6-az-nvL"/>
                                             <constraint firstAttribute="trailing" secondItem="oRw-NM-0yb" secondAttribute="trailing" id="Ssn-CK-b6l"/>
                                             <constraint firstItem="MCd-Nd-Kww" firstAttribute="leading" secondItem="lNx-WG-U9n" secondAttribute="leading" constant="8" id="h26-8x-yCO"/>
+                                            <constraint firstItem="Jxb-cn-M32" firstAttribute="centerX" secondItem="lNx-WG-U9n" secondAttribute="centerX" id="jpV-H0-89v"/>
                                             <constraint firstItem="Z4h-Ia-Go8" firstAttribute="top" secondItem="oRw-NM-0yb" secondAttribute="bottom" constant="16" id="nt5-ls-tbe">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="15"/>
                                             </constraint>
@@ -391,20 +405,23 @@ We truly believe that it gives you the power to make new connections beyond your
                                                 <exclude reference="oRw-NM-0yb"/>
                                                 <exclude reference="Z4h-Ia-Go8"/>
                                                 <exclude reference="MCd-Nd-Kww"/>
+                                                <exclude reference="Jxb-cn-M32"/>
                                             </mask>
                                             <mask key="constraints">
+                                                <exclude reference="GBa-vB-AwY"/>
+                                                <exclude reference="Ssn-CK-b6l"/>
+                                                <exclude reference="ug6-eh-ySA"/>
+                                                <exclude reference="w8G-Ur-bsu"/>
+                                                <exclude reference="nt5-ls-tbe"/>
+                                                <exclude reference="xyW-mZ-1HG"/>
                                                 <exclude reference="23Q-SF-vIT"/>
                                                 <exclude reference="Bx6-P2-eT5"/>
                                                 <exclude reference="DC3-UZ-dKg"/>
                                                 <exclude reference="Rw6-az-nvL"/>
                                                 <exclude reference="h26-8x-yCO"/>
                                                 <exclude reference="wah-jE-HuB"/>
-                                                <exclude reference="nt5-ls-tbe"/>
-                                                <exclude reference="xyW-mZ-1HG"/>
-                                                <exclude reference="GBa-vB-AwY"/>
-                                                <exclude reference="Ssn-CK-b6l"/>
-                                                <exclude reference="ug6-eh-ySA"/>
-                                                <exclude reference="w8G-Ur-bsu"/>
+                                                <exclude reference="NUa-iR-fJc"/>
+                                                <exclude reference="jpV-H0-89v"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
@@ -412,20 +429,23 @@ We truly believe that it gives you the power to make new connections beyond your
                                                 <include reference="oRw-NM-0yb"/>
                                                 <include reference="Z4h-Ia-Go8"/>
                                                 <include reference="MCd-Nd-Kww"/>
+                                                <include reference="Jxb-cn-M32"/>
                                             </mask>
                                             <mask key="constraints">
+                                                <include reference="GBa-vB-AwY"/>
+                                                <include reference="Ssn-CK-b6l"/>
+                                                <include reference="ug6-eh-ySA"/>
+                                                <include reference="w8G-Ur-bsu"/>
+                                                <include reference="nt5-ls-tbe"/>
+                                                <include reference="xyW-mZ-1HG"/>
                                                 <include reference="23Q-SF-vIT"/>
                                                 <exclude reference="Bx6-P2-eT5"/>
                                                 <include reference="DC3-UZ-dKg"/>
                                                 <exclude reference="Rw6-az-nvL"/>
                                                 <include reference="h26-8x-yCO"/>
                                                 <exclude reference="wah-jE-HuB"/>
-                                                <include reference="nt5-ls-tbe"/>
-                                                <include reference="xyW-mZ-1HG"/>
-                                                <include reference="GBa-vB-AwY"/>
-                                                <include reference="Ssn-CK-b6l"/>
-                                                <include reference="ug6-eh-ySA"/>
-                                                <include reference="w8G-Ur-bsu"/>
+                                                <include reference="NUa-iR-fJc"/>
+                                                <include reference="jpV-H0-89v"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -2434,7 +2454,7 @@ Effective:  March 1st, 2016
                         <viewControllerLayoutGuide type="bottom" id="9QI-MZ-8E7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SXn-ae-dWr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iRM-rL-q6k">
