@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>KDCircularProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>NVActivityIndicatorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,7 +72,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3878F216205587CE563BFF742530C62A</key>
+		<key>07C8F1C19B04ED94A61B4494E68732F6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2043238848A226C61420B538A3E46E9F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,7 +87,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>48B047D6C14598659C1046850EB22B79</key>
+		<key>60BB0E87241C1A9F40EEB67B4299AB35</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +107,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>92FE6140AED24247144231226A15B38E</key>
+		<key>9558B32FB980ED0E42BF1BD3AEC626CE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C1AE4FD6E2DF041D5F491712A87981D5</key>
+		<key>A0D25B49148C1DC042361BE0DD4CE20F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C09D38E0E90A5533DD7FC400B9A1AB95</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -118,11 +133,6 @@
 			<true/>
 		</dict>
 		<key>D1426E46902A1D4E27B3AB527ECCFB99</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EA9F3C6D278EADD8805320632C9AD73C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

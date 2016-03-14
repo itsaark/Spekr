@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ha8-b5-jd6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ha8-b5-jd6">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -19,9 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpekrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="lGt-On-DM6" customClass="SpringImageView" customModule="Spring">
-                                <rect key="frame" x="112" y="120" width="95" height="95"/>
+                                <rect key="frame" x="112" y="120" width="95" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="95" id="7PK-WH-9ho"/>
+                                    <constraint firstAttribute="width" constant="95" id="DJd-uk-6s8"/>
                                     <constraint firstAttribute="width" constant="95" id="tQL-zG-wIo"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -55,7 +56,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spekr" translatesAutoresizingMaskIntoConstraints="NO" id="aEF-dY-L59">
-                                <rect key="frame" x="101.5" y="235" width="117" height="49"/>
+                                <rect key="frame" x="101" y="235" width="117" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="2Nc-t1-Ms4"/>
                                     <constraint firstAttribute="width" constant="117" id="FiC-EN-mBa"/>
@@ -315,7 +316,7 @@
         <image name="FBSignInButton" width="110" height="48"/>
         <image name="SignInWithPhone" width="268" height="47"/>
         <image name="Spekr" width="114" height="40"/>
-        <image name="SpekrLogo" width="95" height="95"/>
+        <image name="SpekrLogo" width="105" height="106"/>
         <image name="TOF" width="223" height="36"/>
         <image name="TwitterSignInButton" width="110" height="48"/>
     </resources>

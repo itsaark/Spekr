@@ -121,6 +121,11 @@ class SocialAccountViewController: UIViewController {
     //Link Twitter button tapped
     @IBAction func linkTwitter(sender: AnyObject) {
         
+        SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.Custom)
+        SVProgressHUD.setForegroundColor(UIColor(red: 58, green: 197, blue: 105))
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Clear)
+        SVProgressHUD.showWithStatus("Getting there")
+        
         let user: PFUser = PFUser.currentUser()!
         
         if !PFTwitterUtils.isLinkedWithUser(user) {
@@ -135,6 +140,7 @@ class SocialAccountViewController: UIViewController {
                         
                         if updated {
                             
+                            SVProgressHUD.dismiss()
                             if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
                                 appDelegate.setMainTabBarControllerAsRoot()
                             }
@@ -188,8 +194,9 @@ class SocialAccountViewController: UIViewController {
                 let userName:String? = result["name"] as? String
                 let userTimeLineLink:String? = result["link"] as? String
                 
+                SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.Custom)
                 SVProgressHUD.setForegroundColor(UIColor(red: 58, green: 197, blue: 105))
-                SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Gradient)
+                SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Clear)
                 SVProgressHUD.showWithStatus("Getting there")
                 
                 let myUser:PFUser = PFUser.currentUser()!

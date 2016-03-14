@@ -155,7 +155,7 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
             SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.Custom)
             SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Clear)
             SVProgressHUD.setForegroundColor(UIColor(red: 136, green: 219, blue: 163))
-            SVProgressHUD.setBackgroundColor(UIColor.whiteColor())
+            SVProgressHUD.setBackgroundColor(UIColor.clearColor())
             SVProgressHUD.showWithStatus("Uploading...")
             self.view.userInteractionEnabled = false
             self.postDetails.locationCoordinates = currentUserLocation

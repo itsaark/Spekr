@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -528,7 +528,7 @@ We truly believe that it gives you the power to make new connections beyond your
                                                         <variation key="heightClass=regular-widthClass=compact" constant="1"/>
                                                     </constraint>
                                                 </constraints>
-                                                <mutableString key="text">Spekr is designed to help you share content publicly within your locality (100-mile radius) and eventually all around the world.
+                                                <string key="text">Spekr is designed to help you share content publicly within your locality (100-mile radius) and eventually all around the world.
 
 When you post something on Spekr, it is public by default.
 
@@ -542,7 +542,7 @@ Your location will never be explicitly made public to other users.
 
 To connect with anyone, just tap on their name/display picture and then tap the "connect" button on their Profile page.
 
-Need more help?</mutableString>
+Need more help?</string>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -965,16 +965,38 @@ Need more help?</mutableString>
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="167" id="qMy-JA-jNl"/>
                                             <constraint firstAttribute="height" constant="128" id="sLZ-aT-04h"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="clockwise" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                                <integer key="value" value="-90"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
+                                                <real key="value" value="0.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progressThickness">
+                                                <real key="value" value="0.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                                <color key="value" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
+                                                <exclude reference="qMy-JA-jNl"/>
                                                 <exclude reference="sLZ-aT-04h"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
-                                                <include reference="sLZ-aT-04h"/>
+                                                <include reference="qMy-JA-jNl"/>
+                                                <exclude reference="sLZ-aT-04h"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -1251,7 +1273,7 @@ Need more help?</mutableString>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="T8K-aJ-3t2">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.93333333730000001" green="0.93333333730000001" blue="0.94901961089999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <mutableString key="text">These Terms of Service (“Terms”) govern your access to and use of our Services of application(Spekr) and buttons (collectively, the “Services”), and any information, text, graphics, photos or other materials uploaded, downloaded or appearing on the Services (collectively referred to as “Content”). Your access to and use of the Services are conditioned on your acceptance of and compliance with these Terms. By accessing or using the Services, you agree to be bound by these Terms.
+                                <string key="text">These Terms of Service (“Terms”) govern your access to and use of our Services of application(Spekr) and buttons (collectively, the “Services”), and any information, text, graphics, photos or other materials uploaded, downloaded or appearing on the Services (collectively referred to as “Content”). Your access to and use of the Services are conditioned on your acceptance of and compliance with these Terms. By accessing or using the Services, you agree to be bound by these Terms.
 
 1. Basic Terms
 You are responsible for your use of the Services, for any Content you post to the Services, and for any consequences thereof. Most Content you submit, post, or display through the Spekr Services is public by default and will be able to be viewed by other users. You should only provide Content that you are comfortable sharing with others under these Terms. What you say on the Spekr Services may be viewed all around the world instantly.
@@ -1364,7 +1386,7 @@ Spekr logo Copyright (c)
 
 Effective:  March 1st, 2016
 
- © 2016 Spekr</mutableString>
+ © 2016 Spekr</string>
                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2606,8 +2628,8 @@ Effective:  March 1st, 2016
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yID-nI-PNu"/>
-        <segue reference="hjk-qI-t4c"/>
         <segue reference="5CR-RX-prl"/>
         <segue reference="FFx-Hm-WPi"/>
+        <segue reference="TVA-lP-vkP"/>
     </inferredMetricsTieBreakers>
 </document>
