@@ -187,6 +187,13 @@ class DetailCellWithImageViewController: UIViewController {
         //likeButton.frame = CGRect(x: 220, y: 330, width: 22, height: 24)
         print("height \(UIScreen.mainScreen().bounds.size.height)")
         
+
+        
+        let framewithMain = self.view.convertRect(postImageView.frame, fromCoordinateSpace: cellView)
+        
+        let frameW:CGRect = CGRectMake(framewithMain.midX, framewithMain.midY, postImageView.frame.width/2, postImageView.frame.height/2)
+        
+        
         //User display image/name tap gesture recognizer
         let userDisplayImageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("userDisplayTapped"))
         self.userDisplayImage.addGestureRecognizer(userDisplayImageTapGestureRecognizer)
@@ -200,125 +207,18 @@ class DetailCellWithImageViewController: UIViewController {
         self.postImageView.addGestureRecognizer(postImageTapGestureRecognizer)
         self.postImageView.userInteractionEnabled = true
         
-        let framewithMain = self.view.convertRect(postImageView.frame, fromCoordinateSpace: cellView)
-        
-       let frameW:CGRect = CGRectMake(framewithMain.midX, framewithMain.midY, postImageView.frame.width/2, postImageView.frame.height/2)
-        
 
         
         //progressView.frame = frameW
-        progressView.progressTintColor = UIColor.grayColor()
+        //progressView.progressTintColor = UIColor.grayColor()
+        //progressView.trackTintColor = UIColor.whiteColor()
         //self.postImageView.addSubview(progressView)
-        
-        
-        let activityIndicatorView = NVActivityIndicatorView(frame: frameW, type: .BallClipRotate, color: UIColor(red: 204, green: 204, blue: 204))
-        activityIndicatorView.tag = 1
-        activityIndicatorView.size = CGSize(width: 60.0, height: 60.0)
+
         
         //likeButton.addTarget(self, action: Selector("likeButtonTapped:"), forControlEvents: .TouchUpInside)
 
         // Do any additional setup after loading the view.
         
-        if let object = currentObject {
-            
-            self.postTextView.text = object["postText"] as! String
-            postTextView.textContainerInset = UIEdgeInsetsZero
-            postTextView.textContainer.lineFragmentPadding = 0
-            
-            //Setting font size for iPhone5 and below.
-            if windowHeight() <= 568{
-                
-                postTextView.font = UIFont(name: "Helvetica Neue", size: 15)
-            }
-       
-            
-            //Changing the height of postTextView based on the content inside the view
-            let fixedWidth = postTextView.frame.size.width
-            postTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-            let newSize = postTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-            var newFrame = postTextView.frame
-            newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
-            postTextView.frame = newFrame
-            
-            
-            let createdAtDate = object.createdAt
-            
-            //Getting date components from NSDate
-            let dateComponents = gregorianCal.components([NSCalendarUnit.Era, NSCalendarUnit.Year, NSCalendarUnit.Month,NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Nanosecond], fromDate: createdAtDate!)
-            
-            let postedDate = gregorianCal.dateWithEra(dateComponents.era, year: dateComponents.year, month: dateComponents.month, day: dateComponents.day, hour: dateComponents.hour, minute: dateComponents.minute, second: dateComponents.second, nanosecond: dateComponents.nanosecond)
-            
-            //calling relative time property from Date Format
-            let postedRelativeTime = postedDate?.relativeTime
-            
-            timeStamp.text = postedRelativeTime
-        
-            let postImageFile = object["imageFile"] as! PFFile?
-            
-            postImageFile?.getDataInBackgroundWithBlock({ (imageData:NSData?, error:NSError?) -> Void in
-                
-                if imageData != nil {
-                    
-                    let postDisplayImage = UIImage(data: imageData!)
-                    self.postImageView.image = postDisplayImage
-                    self.postImageView.clipsToBounds = true
-                    
-                }
-
-                
-                }, progressBlock: { (progress: Int32) -> Void in
-                  
-                    if progress <= 99 {
-                        
-                        self.progressView.setProgress(CGFloat(progress)/100, animated: true)
-                        
-                        print("CG value: \(CGFloat(progress)/100)")
-                        
-                        print(self.progressView.progress)
-                        
-                    } else {
-                        
-                        self.progressView.removeFromSuperview()
-                    }
-                  
-                 
-            })
-            
-
-            
-            let user = object["username"] as! PFUser
-            
-            user.fetchIfNeededInBackgroundWithBlock({ (obj: PFObject?, error: NSError?) -> Void in
-                
-                if obj != nil {
-                    
-                    let fetchedUser = obj as! PFUser
-                    let userName = fetchedUser["displayName"] as! String
-                    self.userDisplayName.text = userName
-                    
-                    //Fetching displayImage
-                    let userDisplayImageFile = fetchedUser["displayImage"] as! PFFile
-                    userDisplayImageFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
-                        
-                        if imageData != nil {
-                            
-                            //Converting displayImage to UIImage
-                            let userDisplayImage = UIImage(data: imageData!)
-                            self.userDisplayImage.image = userDisplayImage
-                            self.userDisplayImage.layer.cornerRadius = 30
-                            self.userDisplayImage.clipsToBounds = true
-                            
-                        }else{
-                         
-                            self.userDisplayImage.setImageWithString(userName)
-                            self.userDisplayImage.layer.cornerRadius = 30
-                            self.userDisplayImage.clipsToBounds = true
-                        }
-                    })
-                }
-            })
-           
-        }
         
     }
 
@@ -355,6 +255,108 @@ class DetailCellWithImageViewController: UIViewController {
         }else {
             likeButton.selected = false
         }
+
+        
+        if let object = currentObject {
+            
+            self.postTextView.text = object["postText"] as! String
+            postTextView.textContainerInset = UIEdgeInsetsZero
+            postTextView.textContainer.lineFragmentPadding = 0
+            
+            //Setting font size for iPhone5 and below.
+            if windowHeight() <= 568{
+                
+                postTextView.font = UIFont(name: "Helvetica Neue", size: 15)
+            }
+            
+            
+            //Changing the height of postTextView based on the content inside the view
+            let fixedWidth = postTextView.frame.size.width
+            postTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+            let newSize = postTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+            var newFrame = postTextView.frame
+            newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+            postTextView.frame = newFrame
+            
+            
+            let createdAtDate = object.createdAt
+            
+            //Getting date components from NSDate
+            let dateComponents = gregorianCal.components([NSCalendarUnit.Era, NSCalendarUnit.Year, NSCalendarUnit.Month,NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Nanosecond], fromDate: createdAtDate!)
+            
+            let postedDate = gregorianCal.dateWithEra(dateComponents.era, year: dateComponents.year, month: dateComponents.month, day: dateComponents.day, hour: dateComponents.hour, minute: dateComponents.minute, second: dateComponents.second, nanosecond: dateComponents.nanosecond)
+            
+            //calling relative time property from Date Format
+            let postedRelativeTime = postedDate?.relativeTime
+            
+            timeStamp.text = postedRelativeTime
+            
+            let user = object["username"] as! PFUser
+            
+            user.fetchIfNeededInBackgroundWithBlock({ (obj: PFObject?, error: NSError?) -> Void in
+                
+                if obj != nil {
+                    
+                    let fetchedUser = obj as! PFUser
+                    let userName = fetchedUser["displayName"] as! String
+                    self.userDisplayName.text = userName
+                    
+                    //Fetching displayImage
+                    let userDisplayImageFile = fetchedUser["displayImage"] as! PFFile
+                    userDisplayImageFile.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                        
+                        if imageData != nil {
+                            
+                            //Converting displayImage to UIImage
+                            let userDisplayImage = UIImage(data: imageData!)
+                            self.userDisplayImage.image = userDisplayImage
+                            self.userDisplayImage.layer.cornerRadius = 30
+                            self.userDisplayImage.clipsToBounds = true
+                            
+                        }else{
+                            
+                            self.userDisplayImage.setImageWithString(userName)
+                            self.userDisplayImage.layer.cornerRadius = 30
+                            self.userDisplayImage.clipsToBounds = true
+                        }
+                    })
+                }
+            })
+            
+            let postImageFile = object["imageFile"] as! PFFile?
+            
+            NSOperationQueue.mainQueue().cancelAllOperations()
+            
+            postImageFile?.getDataInBackgroundWithBlock({ (imageData:NSData?, error:NSError?) -> Void in
+                
+                if imageData != nil {
+                    
+                    let postDisplayImage = UIImage(data: imageData!)
+                    self.postImageView.image = postDisplayImage
+                    self.postImageView.clipsToBounds = true
+                    
+                }
+                
+                
+                }, progressBlock: { (progress: Int32) -> Void in
+                    
+                    if progress <= 99 {
+                        
+                        self.progressView.setProgress(CGFloat(progress)/100, animated: true)
+                        
+                        print("CG value: \(CGFloat(progress)/100)")
+                        
+                        print(self.progressView.progress)
+                        
+                    } else {
+                        
+                        self.progressView.removeFromSuperview()
+                    }
+                    
+            })
+            
+        }
+
         
     }
 

@@ -145,6 +145,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         do{
             try reachability!.startNotifier()
+            
         }catch{
             print("could not start reachability notifier")
         }

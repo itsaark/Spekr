@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1F6B0CE22C7225805F0D238E'
-               BlueprintName = 'KDCircularProgress'
+               BlueprintIdentifier = '51FB611C4880888CC56F3E29'
+               BlueprintName = 'SDWebImage-ProgressView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'KDCircularProgress.framework'>
+               BuildableName = 'SDWebImage_ProgressView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

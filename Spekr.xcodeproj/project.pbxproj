@@ -65,6 +65,7 @@
 		DCC304141C57911D001C9E74 /* WorldFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC304131C57911D001C9E74 /* WorldFeedViewController.swift */; };
 		DCC8A1061C436EF1009C4846 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8A1051C436EF1009C4846 /* DateFormat.swift */; };
 		DCCE26F11C89777E0083FB0A /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCE26F01C89777E0083FB0A /* UIImageView+Letters.m */; };
+		DCDD07401C988762006857F2 /* THCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCDD073F1C988762006857F2 /* THCircularProgressView.m */; };
 		DCE302591C686A35002A5B90 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE302581C686A35002A5B90 /* Notifications.swift */; };
 		DCE90A6F1C1FE0B4004A5004 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */; };
 		DCE90A701C1FE0B4004A5004 /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */; };
@@ -146,6 +147,8 @@
 		DCC8A1051C436EF1009C4846 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		DCCE26EF1C89777E0083FB0A /* UIImageView+Letters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Letters.h"; sourceTree = "<group>"; };
 		DCCE26F01C89777E0083FB0A /* UIImageView+Letters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Letters.m"; sourceTree = "<group>"; };
+		DCDD073E1C988762006857F2 /* THCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCircularProgressView.h; sourceTree = "<group>"; };
+		DCDD073F1C988762006857F2 /* THCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THCircularProgressView.m; sourceTree = "<group>"; };
 		DCE302581C686A35002A5B90 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		DCE90A6B1C1FE0B4004A5004 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		DCE90A6C1C1FE0B4004A5004 /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = SOURCE_ROOT; };
@@ -380,9 +383,19 @@
 			path = "UIImageView+Letters";
 			sourceTree = "<group>";
 		};
+		DCDD073D1C988762006857F2 /* THCircularProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				DCDD073E1C988762006857F2 /* THCircularProgressView.h */,
+				DCDD073F1C988762006857F2 /* THCircularProgressView.m */,
+			);
+			path = THCircularProgressView;
+			sourceTree = "<group>";
+		};
 		DCE90A671C1FDEEB004A5004 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DCDD073D1C988762006857F2 /* THCircularProgressView */,
 				DCCE26EE1C89777E0083FB0A /* UIImageView+Letters */,
 				DC0F4B491C79843400A18F9E /* DACircularProgress */,
 				DC0B52AA1C60A19C00D83037 /* Extensions */,
@@ -561,6 +574,7 @@
 				DCFF0AC01C6CFBFB00E71DF6 /* NotificationTableViewCell.swift in Sources */,
 				DC0B52AE1C60D97D00D83037 /* SweetAlert.swift in Sources */,
 				DCC304141C57911D001C9E74 /* WorldFeedViewController.swift in Sources */,
+				DCDD07401C988762006857F2 /* THCircularProgressView.m in Sources */,
 				DC8669C11C1FEFF600692AAE /* SocialAccountViewController.swift in Sources */,
 				DC1F39E91C343EED00E6FBE0 /* AboutViewController.swift in Sources */,
 				DC1F39EB1C34C63D00E6FBE0 /* NittyGrittyViewController.swift in Sources */,
