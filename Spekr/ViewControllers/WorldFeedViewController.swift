@@ -76,8 +76,13 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
             }
         } else {
             print("Not reachable")
-            alertView.showAlert("No Internet!", subTitle: "No working Internet connection is found.", style: AlertStyle.Warning, buttonTitle: "OK")
+            dispatch_async(dispatch_get_main_queue()){
+                
+                self.alertView.showAlert("No Internet!", subTitle: "No working Internet connection is found.", style: AlertStyle.Warning, buttonTitle: "OK")
+                
+            }
             reachability.stopNotifier()
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: ReachabilityChangedNotification, object: reachability)
         }
     }
     
@@ -218,24 +223,7 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        do {
-            reachability = try Reachability.reachabilityForInternetConnection()
-        } catch {
-            print("Unable to create Reachability")
-            return
-        }
-        
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "reachabilityChanged:",
-            name: ReachabilityChangedNotification,
-            object: reachability)
-        
-        do{
-            try reachability!.startNotifier()
-            
-        }catch{
-            print("could not start reachability notifier")
-        }
+
         
         tableView.estimatedRowHeight = 60.0
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -328,6 +316,21 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
             }
         }
         
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            return
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:", name: ReachabilityChangedNotification, object: reachability)
+        
+        do{
+            try reachability!.startNotifier()
+            
+        }catch{
+            print("could not start reachability notifier")
+        }
         
     }
     

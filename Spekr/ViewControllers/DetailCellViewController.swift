@@ -92,6 +92,7 @@ class DetailCellViewController: UIViewController {
                 //currentObject!.updateLikesCount(localLikesCounter!)
             }
             else{
+                
                 localLikesCounter = localLikesCounter! - 1
                 likesCountLabel.text = "\(localLikesCounter!)"
                 //currentObject!.updateLikesCount(localLikesCounter!)

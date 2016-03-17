@@ -25,8 +25,6 @@ import ReachabilitySwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    var reachability : Reachability?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -56,24 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFTwitterUtils.initializeWithConsumerKey("YcXiqliTkJPfilJmvx8LiMI2r",  consumerSecret:"Oy4EXN1X46tNdmtxLbusBqomQrzHgOasQUbXVUnc1T9CyHZrSb")
         //Initializing Facebook for Parse
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
-        
-        do {
-            reachability = try Reachability.reachabilityForInternetConnection()
-        } catch {
-            print("Unable to create Reachability")
-            
-        }
-        
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "reachabilityChanged:",
-            name: ReachabilityChangedNotification,
-            object: reachability)
-        
-        do{
-            try reachability!.startNotifier()
-        }catch{
-            print("could not start reachability notifier")
-        }
 
         
         
@@ -123,21 +103,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController?.presentViewController(signInNavigationViewController, animated: true, completion: nil)
         
 
-    }
-    
-    func reachabilityChanged(note: NSNotification) {
-        
-        let reachability = note.object as! Reachability
-        
-        if reachability.isReachable() {
-            if reachability.isReachableViaWiFi() {
-                print("Reachable via WiFi")
-            } else {
-                print("Reachable via Cellular")
-            }
-        } else {
-            print("Not reachable")
-        }
     }
     
     func setMainTabBarControllerAsRoot() {
