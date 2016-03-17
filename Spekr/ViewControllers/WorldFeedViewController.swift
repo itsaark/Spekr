@@ -77,7 +77,7 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         } else {
             print("Not reachable")
             alertView.showAlert("No Internet!", subTitle: "No working Internet connection is found.", style: AlertStyle.Warning, buttonTitle: "OK")
-            
+            reachability.stopNotifier()
         }
     }
     

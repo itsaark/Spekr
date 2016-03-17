@@ -977,26 +977,6 @@ Need more help?</string>
                                             <rect key="frame" x="318" y="28" width="0.0" height="20"/>
                                         </variation>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83R-qZ-bEi" userLabel="DACircularProgressView" customClass="DACircularProgressView">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="167" id="qMy-JA-jNl"/>
-                                            <constraint firstAttribute="height" constant="128" id="sLZ-aT-04h"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="qMy-JA-jNl"/>
-                                                <exclude reference="sLZ-aT-04h"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="qMy-JA-jNl"/>
-                                                <exclude reference="sLZ-aT-04h"/>
-                                            </mask>
-                                        </variation>
-                                    </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8K5-ms-9P6">
                                         <rect key="frame" x="14" y="121" width="294.5" height="196.5"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1016,6 +996,35 @@ Need more help?</string>
                                             </mask>
                                         </variation>
                                     </imageView>
+                                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="83R-qZ-bEi" userLabel="DACircularProgressView" customClass="THCircularProgressView">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="83R-qZ-bEi" secondAttribute="height" multiplier="1:1" id="XJT-3u-b8h"/>
+                                            <constraint firstAttribute="width" secondItem="83R-qZ-bEi" secondAttribute="height" multiplier="199:167" id="elq-ws-Jdu"/>
+                                            <constraint firstAttribute="height" constant="167" placeholder="YES" id="m03-65-T3K"/>
+                                            <constraint firstAttribute="height" constant="167" id="qMy-JA-jNl"/>
+                                            <constraint firstAttribute="height" constant="128" id="sLZ-aT-04h"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="XJT-3u-b8h"/>
+                                                <exclude reference="elq-ws-Jdu"/>
+                                                <exclude reference="m03-65-T3K"/>
+                                                <exclude reference="qMy-JA-jNl"/>
+                                                <exclude reference="sLZ-aT-04h"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="XJT-3u-b8h"/>
+                                                <exclude reference="elq-ws-Jdu"/>
+                                                <exclude reference="m03-65-T3K"/>
+                                                <exclude reference="qMy-JA-jNl"/>
+                                                <exclude reference="sLZ-aT-04h"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1044,7 +1053,7 @@ Need more help?</string>
                                     <constraint firstItem="xze-Qw-aWm" firstAttribute="centerY" secondItem="2tE-7W-pHq" secondAttribute="centerY" id="Je9-vF-Bxt"/>
                                     <constraint firstAttribute="bottom" secondItem="5Z2-Zu-UFy" secondAttribute="bottom" constant="5.5" id="LiG-JJ-7NF"/>
                                     <constraint firstItem="83R-qZ-bEi" firstAttribute="centerY" secondItem="8K5-ms-9P6" secondAttribute="centerY" id="McF-U2-Yxn"/>
-                                    <constraint firstItem="83R-qZ-bEi" firstAttribute="width" secondItem="8K5-ms-9P6" secondAttribute="height" multiplier="38:49" id="MmA-dl-Bkt"/>
+                                    <constraint firstItem="83R-qZ-bEi" firstAttribute="width" secondItem="8K5-ms-9P6" secondAttribute="height" multiplier="3:5" id="MmA-dl-Bkt"/>
                                     <constraint firstItem="8K5-ms-9P6" firstAttribute="width" secondItem="Kl3-SR-2WO" secondAttribute="width" multiplier="345:375" id="Nb1-lJ-dit"/>
                                     <constraint firstItem="83R-qZ-bEi" firstAttribute="centerX" secondItem="8K5-ms-9P6" secondAttribute="centerX" id="OwJ-Im-fD9"/>
                                     <constraint firstItem="8K5-ms-9P6" firstAttribute="top" secondItem="gda-Id-c7s" secondAttribute="bottom" constant="4" id="P2o-ry-QK2"/>

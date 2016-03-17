@@ -28,7 +28,7 @@ class DetailCellWithImageViewController: UIViewController {
     //Calender Declaration
     let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
     
-    @IBOutlet weak var progressView: DACircularProgressView!
+    @IBOutlet weak var progressView: THCircularProgressView!
     
     @IBOutlet weak var cellView: UIView!
     
@@ -290,7 +290,16 @@ class DetailCellWithImageViewController: UIViewController {
             let postedRelativeTime = postedDate?.relativeTime
             
             timeStamp.text = postedRelativeTime
-            
+            //progressView.center = postImageView.center
+            progressView.radius = progressView.bounds.height/2
+            progressView.lineWidth = 15
+            progressView.clipsToBounds = false
+            progressView.progressColor = UIColor.whiteColor()
+            progressView.progressBackgroundColor = UIColor.greenColor()
+            progressView.progressBackgroundMode = .Circle
+            progressView.backgroundColor = UIColor.clearColor()
+            progressView.clockwise = true
+            progressView.translatesAutoresizingMaskIntoConstraints = false
             let user = object["username"] as! PFUser
             
             user.fetchIfNeededInBackgroundWithBlock({ (obj: PFObject?, error: NSError?) -> Void in
@@ -342,11 +351,11 @@ class DetailCellWithImageViewController: UIViewController {
                     
                     if progress <= 99 {
                         
-                        self.progressView.setProgress(CGFloat(progress)/100, animated: true)
+                        self.progressView.percentage = (CGFloat(progress)/100)
                         
                         print("CG value: \(CGFloat(progress)/100)")
                         
-                        print(self.progressView.progress)
+                        //print(self.progressView.progress)
                         
                     } else {
                         
