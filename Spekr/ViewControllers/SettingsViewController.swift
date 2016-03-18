@@ -171,8 +171,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, MFMailCompo
                 })
                 
                 //Segue to sing in view controller
-                //self.performSegueWithIdentifier("JumpToSignInVC", sender: self)
-                //self.dismissViewControllerAnimated(true, completion: nil)
                 let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
                 let signInViewController = storyboard.instantiateViewControllerWithIdentifier("SignInViewController")
                 self.presentViewController(signInViewController, animated: true, completion: nil)

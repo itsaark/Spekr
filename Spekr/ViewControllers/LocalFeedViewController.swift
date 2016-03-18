@@ -39,12 +39,12 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         if reachability.isReachable() {
             if reachability.isReachableViaWiFi() {
-                print("Reachable via WiFi")
+                //print("Reachable via WiFi")
             } else {
-                print("Reachable via Cellular")
+                //print("Reachable via Cellular")
             }
         } else {
-            print("Not reachable")
+            //print("Not reachable")
             dispatch_async(dispatch_get_main_queue()){
                 
                 self.alertView.showAlert("No Internet!", subTitle: "No working Internet connection is found.", style: AlertStyle.Warning, buttonTitle: "OK")
@@ -72,7 +72,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
             ParseHelper.timelineRequestForCurrentPost("locationCoordinates", geoPoint: currentUserLocation!, radius: Double(distanceSliderValue.value)) { (result:[PFObject]?, error: NSError?) -> Void in
             
             self.postDetails = result as? [PostDetails] ?? []
-            print(self.postDetails)
+            //print(self.postDetails)
             self.tableView.reloadData()
 
             }
@@ -164,11 +164,11 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         permissionPane.show(
             { finished, results in
-                print("got results \(results)")
+                //print("got results \(results)")
                 
             },
             cancelled: { results in
-                print("thing was cancelled")
+                //print("thing was cancelled")
             }
         )
         
@@ -221,7 +221,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
             switch(CLLocationManager.authorizationStatus()) {
                  
             case .AuthorizedAlways, .AuthorizedWhenInUse:
-                print("Access")
+                //print("Access")
                 locationManager.delegate = self
                 locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
                 locationManager.startUpdatingLocation()
@@ -274,7 +274,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
                 
                 if currentUserLocation != nil {
                 locationManager.stopUpdatingLocation()
-                print("Stopped updating location")
+                //print("Stopped updating location")
                     
                 }
             }
@@ -313,7 +313,7 @@ class LocalFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
             
             let selectedRow = tableView.indexPathForSelectedRow?.section
             
-            print("wow\(postDetails[selectedRow!])")
+            //print("wow\(postDetails[selectedRow!])")
             
             destinationViewController.currentObject = postDetails[selectedRow!] as PostDetails
         }
@@ -421,7 +421,7 @@ extension LocalFeedViewController: UITableViewDataSource {
             //TODO: Use custom cell for this task later.
         
         
-            print("\(indexPath.section): \(postDetails[indexPath.section].likes.value)")
+            //print("\(indexPath.section): \(postDetails[indexPath.section].likes.value)")
         
             let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
             

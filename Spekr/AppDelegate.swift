@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //PFUser.logOut()
         //Digits.sharedInstance().logOut()
         
-        print(self.window?.rootViewController)
+        //print(self.window?.rootViewController)
         
         //Initializing Twitter for Parse
         PFTwitterUtils.initializeWithConsumerKey("YcXiqliTkJPfilJmvx8LiMI2r",  consumerSecret:"Oy4EXN1X46tNdmtxLbusBqomQrzHgOasQUbXVUnc1T9CyHZrSb")
@@ -123,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         
         application.registerForRemoteNotifications()
-        print("Registered for remote notif")
+        //print("Registered for remote notif")
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
@@ -137,9 +137,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         if error.code == 3010 {
-            print("Push notifications are not supported in the iOS Simulator.\n")
+            
+            //print("Push notifications are not supported in the iOS Simulator.\n")
         } else {
-            print("application:didFailToRegisterForRemoteNotificationsWithError: %@\n", error)
+            //print("application:didFailToRegisterForRemoteNotificationsWithError: %@\n", error)
         }
     }
     
@@ -148,11 +149,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         installation.badge = 0
         installation.saveInBackgroundWithBlock { (success, error) -> Void in
             if success {
-                print("cleared badges")
+                //print("cleared badges")
                 UIApplication.sharedApplication().applicationIconBadgeNumber = 0
             }
             else {
-                print("failed to clear badges")
+                //print("failed to clear badges")
             }
         }
     }
@@ -198,22 +199,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         //PFPush.handlePush(userInfo)
-        print("userInfo: \(userInfo)")
+        //print("userInfo: \(userInfo)")
         
-//          let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//          let tabBarController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
-//        
-//          self.window?.rootViewController = tabBarController
-//          tabBarController.tabBarItem.badgeValue = "1"
-//        
-//        let tabArray = tabBarController.tabBar.items as NSArray!
-//        let tabItem = tabArray.objectAtIndex(2) as! UITabBarItem
-//        
-//        if let badgeValue = (tabItem).badgeValue {
-//            (tabItem).badgeValue = (Int(badgeValue)! + 1).description
-//        } else {
-//            (tabItem).badgeValue = "1"
-//        }
         
         if application.applicationState == UIApplicationState.Inactive {
             PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)

@@ -45,7 +45,7 @@ class LaunchViewController: UIViewController {
                     
                     if user.isLinkedWithAuthType("facebook") || user.isLinkedWithAuthType("twitter") {
                         
-                        print("this is getting called")
+                        //print("this is getting called")
                         if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
                             appDelegate.setMainTabBarControllerAsRoot()
                         }

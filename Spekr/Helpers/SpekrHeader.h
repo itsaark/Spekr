@@ -6,7 +6,6 @@
 //  Copyright © 2016 Arjun Kodur. All rights reserved.
 //
 
-#import "DACircularProgressView.h"
 #import "UIImageView+Letters.h"
 #import "SVProgressHUD.h"
 #import "THCircularProgressView.h"

@@ -29,11 +29,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>NVActivityIndicatorView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>PermissionScope.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -45,11 +40,6 @@
 			<false/>
 		</dict>
 		<key>ReachabilitySwift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SDWebImage-ProgressView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -72,12 +62,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>06B5953A3E3589C769C7B9F5B4080D6F</key>
+		<key>2B1B5C98446B11FCD9140BAA6489A709</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3B4F5A1606E17CEC11CECA81FD301C86</key>
+		<key>43E135477F85568697E97B4F138D8B59</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,22 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>626D49AD18621B0A3059EE726B27AE89</key>
+		<key>565AFB5F7C054C2F6A9C8BB74447229F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>64F7A055ADC2583A6F64F3EB171FE106</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>72977A9D2015EBFFE68C736CA84A41B9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7DB3DB622572C12DB4A6A9892ED11D9D</key>
+		<key>66244DD6797504EEAF65BA1E0A96EC0C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,22 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9468C2677384BBE9571C815B2654EFA3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C47D4FB0291BC785D4D8F09A34855024</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>C55E46AC6A1E70A6AA25E306AE545375</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CE0925E7A9CEC6666446BE60C61A3622</key>
+		<key>CE25B23FA450CDD7D1BBAA35C29E352A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -143,16 +113,6 @@
 			<true/>
 		</dict>
 		<key>D1426E46902A1D4E27B3AB527ECCFB99</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D14AB6D1210DB2C21C1809B54D6B65D0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D7AEE5796A84F3BBC38173D5E78C32F0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

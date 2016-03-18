@@ -43,7 +43,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate {
         ParseHelper.loadNotificationsForCurrentUser { (objects: [PFObject]?, error: NSError?) -> Void in
             
             self.notifications = objects as? [Notifications] ?? []
-            print(self.notifications)
+            //print(self.notifications)
             self.tableView.reloadData()
         }
         

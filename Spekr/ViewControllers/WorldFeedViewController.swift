@@ -70,12 +70,12 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         
         if reachability.isReachable() {
             if reachability.isReachableViaWiFi() {
-                print("Reachable via WiFi")
+                //print("Reachable via WiFi")
             } else {
-                print("Reachable via Cellular")
+                //print("Reachable via Cellular")
             }
         } else {
-            print("Not reachable")
+            //print("Not reachable")
             dispatch_async(dispatch_get_main_queue()){
                 
                 self.alertView.showAlert("No Internet!", subTitle: "No working Internet connection is found.", style: AlertStyle.Warning, buttonTitle: "OK")
@@ -86,6 +86,7 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
         }
     }
     
+    //Scroll refresh function
     func refresh(){
 
         
@@ -301,7 +302,7 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
                 
                 if let medianValue = value as? Int{
                     
-                    print(medianValue)
+                    //print(medianValue)
                     self.likesMedianValue = medianValue
                     
                 }else{
@@ -329,6 +330,7 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
             try reachability!.startNotifier()
             
         }catch{
+            
             print("could not start reachability notifier")
         }
         
@@ -357,7 +359,7 @@ class WorldFeedViewController: UIViewController, CLLocationManagerDelegate, UITa
             
             let selectedRow = tableView.indexPathForSelectedRow?.section
             
-            print("wow\(postDetails[selectedRow!])")
+            //print("wow\(postDetails[selectedRow!])")
             
             destinationViewController.currentObject = postDetails[selectedRow!] as PostDetails
         }
@@ -414,8 +416,7 @@ extension WorldFeedViewController: UITableViewDataSource {
             return 0
             
         } else {
-            //Hiding the background before the view loads
-            //self.tableView.backgroundView?.hidden = true
+
             //Hiding the background before the view loads
             UIView.animateWithDuration(0.3, animations: { self.tableView.backgroundView?.alpha = 0.0}, completion: { finished in
                 self.tableView.backgroundView?.hidden = true
@@ -460,7 +461,7 @@ extension WorldFeedViewController: UITableViewDataSource {
         //TODO: Use custom cell for this task later.
         
         
-        print("\(indexPath.section): \(postDetails[indexPath.section].likes.value)")
+        //print("\(indexPath.section): \(postDetails[indexPath.section].likes.value)")
         
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
         

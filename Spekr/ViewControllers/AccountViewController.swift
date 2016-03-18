@@ -28,7 +28,7 @@ class AccountViewController: UIViewController, UITableViewDelegate {
     
     @IBAction func inviteButtonTapped(sender: UIButton){
         
-        activityViewController = UIActivityViewController(activityItems: ["Explore beyond your social network with Spekr. Check it out here http://spekrapp.com"], applicationActivities: nil)
+        activityViewController = UIActivityViewController(activityItems: ["Spekr lets you explore beyond your social network. Check it out here http://spekrapp.com"], applicationActivities: nil)
         activityViewController.excludedActivityTypes = [UIActivityTypePostToWeibo,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,
             UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo,UIActivityTypeAirDrop]
         presentViewController(activityViewController, animated: true, completion: nil)
@@ -43,7 +43,7 @@ class AccountViewController: UIViewController, UITableViewDelegate {
         ParseHelper.loadCurrentUserPosts { (result: [PFObject]?, error: NSError?) -> Void in
             
             self.postDetails = result as? [PostDetails] ?? []
-            print(self.postDetails)
+            //print(self.postDetails)
             self.tableView.reloadData()
         }
         
@@ -114,7 +114,7 @@ extension AccountViewController: UITableViewDataSource {
         
         if editingStyle == UITableViewCellEditingStyle.Delete {
             
-            print("Here is the iD: \(postDetails[indexPath.row].objectId)")
+            //print("Here is the iD: \(postDetails[indexPath.row].objectId)")
             let postObjectId = postDetails[indexPath.row].objectId
             
             ParseHelper.deleteUserPost(postDetails[indexPath.row].objectId! as String, completionBlock: { (result:Bool, error:NSError?) -> Void in

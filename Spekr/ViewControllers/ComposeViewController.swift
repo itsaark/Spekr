@@ -23,14 +23,21 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
         
         if reachability.isReachable() {
             if reachability.isReachableViaWiFi() {
-                print("Reachable via WiFi")
+                //print("Reachable via WiFi")
             } else {
-                print("Reachable via Cellular")
+                //print("Reachable via Cellular")
             }
         } else {
-            print("Not reachable")
-            alertView.showAlert("No Internet!", subTitle: "No working Internet connection is found.", style: AlertStyle.Warning, buttonTitle: "OK")
-            composeTextView.endEditing(true)
+            //print("Not reachable")
+            dispatch_async(dispatch_get_main_queue()){
+                
+                self.composeTextView.endEditing(true)
+                self.alertView.showAlert("No Internet!", subTitle: "No working Internet connection is found.", style: AlertStyle.Warning, buttonTitle: "OK")
+                
+            }
+            
+            reachability.stopNotifier()
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: ReachabilityChangedNotification, object: reachability)
         }
     }
     
@@ -125,7 +132,6 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
     
     func postButtonTapped() {
         
-        print(currentUserLocation)
         composeTextView.endEditing(true)
         
         if currentUserLocation == nil {
@@ -275,29 +281,8 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
         //Setting custom toolbar as inputAccessory to composeTextView
         composeTextView.inputAccessoryView = inputToolbar
         
-        do {
-            reachability = try Reachability.reachabilityForInternetConnection()
-        } catch {
-            print("Unable to create Reachability")
-            return
-        }
-        
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "reachabilityChanged:",
-            name: ReachabilityChangedNotification,
-            object: reachability)
-        
-        do{
-            try reachability!.startNotifier()
-        }catch{
-            print("could not start reachability notifier")
-        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func viewWillAppear(animated: Bool) {
         
@@ -315,7 +300,7 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
             switch(CLLocationManager.authorizationStatus()) {
                 
             case .AuthorizedAlways, .AuthorizedWhenInUse:
-                print("Access")
+                //print("Access")
                 locationManager.delegate = self
                 locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
                 locationManager.startUpdatingLocation()
@@ -325,7 +310,28 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
                 
             }
         } else {
-            DisplayAert("Location Access Disabled", errorMessage: "Please turn your Location Access ON to get feed around you")
+            //DisplayAert("Location Access Disabled", errorMessage: "Please turn your Location Access ON to get feed around you")
+            alertView.showAlert("Location Access Disabled", subTitle: "Please turn your Location Access ON to get feed around you", style: AlertStyle.Error, buttonTitle: "OK")
+        }
+        
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            //print("Unable to create Reachability")
+            return
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "reachabilityChanged:",
+            name: ReachabilityChangedNotification,
+            object: reachability)
+        
+        do{
+            try reachability!.startNotifier()
+            
+        }catch{
+            
+            print("could not start reachability notifier")
         }
 
 
@@ -343,7 +349,7 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
             switch(CLLocationManager.authorizationStatus()) {
                 
             case .NotDetermined, .Restricted, .Denied:
-                print("No access")
+                //print("No access")
                 
                 //TODO: Redirect to settings pane
                 let alert = UIAlertController(title: "Location Access Denied", message: "Please turn your Location Access ON to get feed around you", preferredStyle: .Alert)
@@ -364,7 +370,7 @@ class ComposeViewController: UIViewController, CLLocationManagerDelegate, UIText
                 //Stop updating location once the view is appeared.
                 if currentUserLocation != nil {
                     locationManager.stopUpdatingLocation()
-                    print("Stopped updating location")
+                    //print("Stopped updating location")
                 }
                 
             }

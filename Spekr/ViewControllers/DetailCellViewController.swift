@@ -66,8 +66,6 @@ class DetailCellViewController: UIViewController {
             if currentObject?.objectForKey("username") as? PFUser != PFUser.currentUser() {
                 //Send a push notification
                 ParseHelper.updateNotificationTab(currentObject?.objectForKey("username") as! PFUser, post: currentObject!)
-                //ParseHelper.sendPushNotification(currentObject?.objectForKey("username") as! PFUser, toPostID: (currentObject?.objectId)!)
-                //UpdateTotalLikes
                 PFCloud.callFunctionInBackground("sendPushToUser", withParameters: ["user" : currentUserName, "recipientId" : postedUserID!])
                 
             }
@@ -106,15 +104,9 @@ class DetailCellViewController: UIViewController {
         
         
         SweetAlert().showAlert("Are you sure?", subTitle: "Do you want to flag this post as offensive/spam content?", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor(red: 182, green: 182, blue: 182) , otherButtonTitle:  "Yes, flag it!", otherButtonColor: UIColor(red: 100, green: 240, blue: 150)) { (isOtherButton) -> Void in
-            if isOtherButton == true {
-                
-                print("Cancel Button  Pressed")
-            }
-            else {
+            if isOtherButton != true {
                 
                 ParseHelper.flagPost(PFUser.currentUser()!, post: self.currentObject!)
-                
-                print("Flag Button  Pressed")
                 
                 SweetAlert().showAlert("Flagged!", subTitle: "We'll review it shortly.", style: AlertStyle.Success, buttonTitle: "OK", buttonColor:  UIColor(red: 103, green: 74, blue: 155))
             }
@@ -128,7 +120,7 @@ class DetailCellViewController: UIViewController {
         
         if currentObject?.objectForKey("username") as? PFUser != PFUser.currentUser() {
             performSegueWithIdentifier("JumpToUserProfileVC", sender: self)
-            print("imageTapped")
+
             
         } else{
             

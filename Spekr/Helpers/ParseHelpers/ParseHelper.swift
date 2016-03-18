@@ -331,14 +331,14 @@ class ParseHelper {
                 for result in results{
                     
                     let objectId = result.objectId
-                    print(objectId)
+                    //print(objectId)
                     let userDetailObject = PFObject(withoutDataWithObjectId: objectId)
                     userDetailObject.incrementKey(ParseTotalUserLikes, byAmount: 1)
                     userDetailObject.saveInBackgroundWithBlock({ (updated: Bool, error: NSError?) -> Void in
                         
                         if error != nil {
                             
-                            print("Hey we got an \(error)")
+                            //print("Hey we got an \(error)")
                         }
                     })
                 }

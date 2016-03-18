@@ -11,7 +11,7 @@ import Parse
 import Foundation
 import Bond
 import Agrume
-import NVActivityIndicatorView
+
 
 
 
@@ -21,9 +21,6 @@ class DetailCellWithImageViewController: UIViewController {
     
     var localLikesCounter: Int?
     
-
-     // TODO: Update likesCounter on Parse assoicated with each post
-    // TODO:  Resolve the flicker issue with progress view else replace it with NVACtivityInidicator
 
     //Calender Declaration
     let gregorianCal =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
@@ -80,9 +77,7 @@ class DetailCellWithImageViewController: UIViewController {
             if currentObject?.objectForKey("username") as? PFUser != PFUser.currentUser() {
                 //Send a push notification
                 ParseHelper.updateNotificationTab(currentObject?.objectForKey("username") as! PFUser, post: currentObject!)
-                //ParseHelper.sendPushNotification(currentObject?.objectForKey("username") as! PFUser, toPostID: (currentObject?.objectId)!)
-                //UpdateTotalLikes
-                //ParseHelper.updateTotalLikesOfUser((currentObject?.objectForKey("username") as? PFUser)!)
+
                 PFCloud.callFunctionInBackground("sendPushToUser", withParameters: ["user" : currentUserName, "recipientId" : postedUserID!])
             }
         }
@@ -119,16 +114,13 @@ class DetailCellWithImageViewController: UIViewController {
         
         
         SweetAlert().showAlert("Are you sure?", subTitle: "Do you want to flag this post as offensive/spam content?", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor(red: 182, green: 182, blue: 182) , otherButtonTitle:  "Yes, flag it!", otherButtonColor: UIColor(red: 100, green: 240, blue: 150)) { (isOtherButton) -> Void in
-            if isOtherButton == true {
-                
-                print("Cancel Button  Pressed")
-            }
-            else {
+            if isOtherButton != true {
                 
                 ParseHelper.flagPost(PFUser.currentUser()!, post: self.currentObject!)
                 
                 SweetAlert().showAlert("Flagged!", subTitle: "We'll review it shortly.", style: AlertStyle.Success, buttonTitle: "OK", buttonColor:  UIColor(red: 103, green: 74, blue: 155))
             }
+
         }
         
     }
@@ -140,7 +132,7 @@ class DetailCellWithImageViewController: UIViewController {
         
         if currentObject?.objectForKey("username") as? PFUser != PFUser.currentUser() {
         performSegueWithIdentifier("JumpToUserProfileVC", sender: self)
-        print("imageTapped")
+        //print("imageTapped")
             
         } else{
             
@@ -184,14 +176,7 @@ class DetailCellWithImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //likeButton.frame = CGRect(x: 220, y: 330, width: 22, height: 24)
-        print("height \(UIScreen.mainScreen().bounds.size.height)")
-        
-
-        
-        let framewithMain = self.view.convertRect(postImageView.frame, fromCoordinateSpace: cellView)
-        
-        let frameW:CGRect = CGRectMake(framewithMain.midX, framewithMain.midY, postImageView.frame.width/2, postImageView.frame.height/2)
+        //print("height \(UIScreen.mainScreen().bounds.size.height)")
         
         
         //User display image/name tap gesture recognizer
@@ -207,24 +192,8 @@ class DetailCellWithImageViewController: UIViewController {
         self.postImageView.addGestureRecognizer(postImageTapGestureRecognizer)
         self.postImageView.userInteractionEnabled = true
         
-
-        
-        //progressView.frame = frameW
-        //progressView.progressTintColor = UIColor.grayColor()
-        //progressView.trackTintColor = UIColor.whiteColor()
-        //self.postImageView.addSubview(progressView)
-
-        
-        //likeButton.addTarget(self, action: Selector("likeButtonTapped:"), forControlEvents: .TouchUpInside)
-
-        // Do any additional setup after loading the view.
         
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     
@@ -235,9 +204,7 @@ class DetailCellWithImageViewController: UIViewController {
         self.title = "Post"
         
         
-//        let backItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: Selector("dismissVC"))
-//        self.navigationItem.rightBarButtonItem = backItem // This will show in the next view controller being pushed
-        
+        //Setting likes button state to active/inactive
         if currentObject?.likes.value?.count == nil || (currentObject?.likes.value?.count)! == 0 {
             
             likesCountLabel.text = ""
@@ -256,7 +223,7 @@ class DetailCellWithImageViewController: UIViewController {
             likeButton.selected = false
         }
 
-        
+        //Loading and displaying selected post object
         if let object = currentObject {
             
             self.postTextView.text = object["postText"] as! String
@@ -290,12 +257,13 @@ class DetailCellWithImageViewController: UIViewController {
             let postedRelativeTime = postedDate?.relativeTime
             
             timeStamp.text = postedRelativeTime
-            //progressView.center = postImageView.center
+            
+            //THProgress view while the image is loading
             progressView.radius = progressView.bounds.height/2
             progressView.lineWidth = 15
             progressView.clipsToBounds = false
             progressView.progressColor = UIColor.whiteColor()
-            progressView.progressBackgroundColor = UIColor.greenColor()
+            progressView.progressBackgroundColor = UIColor.grayColor()
             progressView.progressBackgroundMode = .Circle
             progressView.backgroundColor = UIColor.clearColor()
             progressView.clockwise = true
@@ -353,7 +321,7 @@ class DetailCellWithImageViewController: UIViewController {
                         
                         self.progressView.percentage = (CGFloat(progress)/100)
                         
-                        print("CG value: \(CGFloat(progress)/100)")
+                        //print("CG value: \(CGFloat(progress)/100)")
                         
                         //print(self.progressView.progress)
                         

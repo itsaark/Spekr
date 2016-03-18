@@ -123,6 +123,7 @@ class SocialAccountViewController: UIViewController {
         
         SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.Custom)
         SVProgressHUD.setForegroundColor(UIColor(red: 58, green: 197, blue: 105))
+        SVProgressHUD.setBackgroundColor(UIColor.clearColor())
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Clear)
         SVProgressHUD.showWithStatus("Getting there")
         
@@ -134,7 +135,7 @@ class SocialAccountViewController: UIViewController {
                 if error == nil {
                     
                 if PFTwitterUtils.isLinkedWithUser(user) {
-                    print("Woohoo, user logged in with Twitter!")
+                    //print("Woohoo, user logged in with Twitter!")
                     ParseHelper.createUserDetailsInstance()
                     self.twitterUserDataToParse({ (updated: Bool, error: NSError?) -> Void in
                         
@@ -196,6 +197,7 @@ class SocialAccountViewController: UIViewController {
                 
                 SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.Custom)
                 SVProgressHUD.setForegroundColor(UIColor(red: 58, green: 197, blue: 105))
+                SVProgressHUD.setBackgroundColor(UIColor.clearColor())
                 SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Clear)
                 SVProgressHUD.showWithStatus("Getting there")
                 
@@ -262,7 +264,7 @@ class SocialAccountViewController: UIViewController {
                 if error == nil{
                 
                 if (succeeded != nil) {
-                    print("Woohoo, the user is linked with Facebook!")
+                    //print("Woohoo, the user is linked with Facebook!")
                     ParseHelper.createUserDetailsInstance()
                     self.fbUserDataToParse({ (updated: Bool, error: NSError?) -> Void in
                         

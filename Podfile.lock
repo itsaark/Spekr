@@ -3,13 +3,10 @@ PODS:
   - Bond (4.3.0)
   - DOFavoriteButton (0.0.4)
   - ImagePicker (1.1)
-  - NVActivityIndicatorView (2.3)
   - PermissionScope (1.0.2)
   - ReachabilitySwift (2.3.3)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
-  - SDWebImage-ProgressView (0.4.0):
-    - SDWebImage (~> 3.7.0)
   - SDWebImage/Core (3.7.5)
   - Spring (1.0.3)
   - SVProgressHUD (2.0-beta8)
@@ -19,11 +16,9 @@ DEPENDENCIES:
   - Bond (~> 4.0)
   - DOFavoriteButton
   - ImagePicker
-  - NVActivityIndicatorView
   - PermissionScope
   - ReachabilitySwift (from `https://github.com/ashleymills/Reachability.swift`)
   - SDWebImage (~> 3.7)
-  - SDWebImage-ProgressView
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
   - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
 
@@ -57,11 +52,9 @@ SPEC CHECKSUMS:
   Bond: ebe2364b18130690083cbceff036420b21494ae4
   DOFavoriteButton: 866e15af173d2dd5233971a1f657a5f31d2491d5
   ImagePicker: 2a904341bbc47c96457de00558d2f8dd186eff7c
-  NVActivityIndicatorView: c7ef25ef527ab5e51b00322cb1ddd58681bcf2a3
   PermissionScope: 860828c5516d349b6f49e5491799cfef33c5ccc7
   ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
-  SDWebImage-ProgressView: cdc29091ec0d53fd6dab3df65039a4f308e0a5ae
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SVProgressHUD: 6e48a1dda09ce3b58adc41d013baed3a8e8980ff
 
