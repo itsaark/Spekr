@@ -355,8 +355,7 @@ I truly believe that it gives you the power to make new connections beyond your 
                                                         <exclude reference="y5g-2z-1JH"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="8" y="183.5" width="308" height="317"/>
+                                                <variation key="heightClass=regular-widthClass=compact">
                                                     <mask key="constraints">
                                                         <exclude reference="bEp-vl-ImL"/>
                                                         <exclude reference="y5g-2z-1JH"/>
@@ -368,9 +367,6 @@ I truly believe that it gives you the power to make new connections beyond your 
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                 <color key="textColor" red="0.37647058820000001" green="0.23137254900000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
-                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="106" y="508.5" width="108.5" height="23.5"/>
-                                                </variation>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

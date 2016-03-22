@@ -56,10 +56,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spekr" translatesAutoresizingMaskIntoConstraints="NO" id="aEF-dY-L59">
-                                <rect key="frame" x="101" y="235" width="117" height="49"/>
+                                <rect key="frame" x="107.5" y="235" width="104" height="37"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="2Nc-t1-Ms4"/>
-                                    <constraint firstAttribute="width" constant="117" id="FiC-EN-mBa"/>
+                                    <constraint firstAttribute="height" constant="37" id="2Nc-t1-Ms4"/>
+                                    <constraint firstAttribute="width" constant="104" id="FiC-EN-mBa"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -140,11 +140,11 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spekr" translatesAutoresizingMaskIntoConstraints="NO" id="kgT-pi-2SH">
-                                <rect key="frame" x="101" y="235" width="117" height="49"/>
+                                <rect key="frame" x="107.5" y="235" width="104" height="37"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="117" id="HUR-2D-Cjm"/>
+                                    <constraint firstAttribute="width" constant="104" id="HUR-2D-Cjm"/>
                                     <constraint firstAttribute="height" constant="49" id="gil-kr-5Mh"/>
-                                    <constraint firstAttribute="height" constant="49" id="yHm-ms-a0j"/>
+                                    <constraint firstAttribute="height" constant="37" id="yHm-ms-a0j"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -315,7 +315,7 @@
     <resources>
         <image name="FBSignInButton" width="110" height="48"/>
         <image name="SignInWithPhone" width="268" height="47"/>
-        <image name="Spekr" width="114" height="40"/>
+        <image name="Spekr" width="103" height="24"/>
         <image name="SpekrLogo" width="105" height="106"/>
         <image name="TOF" width="223" height="36"/>
         <image name="TwitterSignInButton" width="110" height="48"/>

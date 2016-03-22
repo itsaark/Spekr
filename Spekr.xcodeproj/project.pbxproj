@@ -690,8 +690,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spekrapp.Spekr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "04a4f4b2-1433-47ae-ab93-771abc3bddc1";
 				SWIFT_OBJC_BRIDGING_HEADER = /Users/Arjun/GitHubLocalRepo/Spekr/Spekr/Helpers/SpekrHeader.h;
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/\"/**";
 			};
 			name = Debug;
@@ -701,8 +702,8 @@
 			baseConfigurationReference = 478294C8D6D408863BCF6E7F /* Pods-Spekr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Arjun Kodur (E696HLUBV9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Arjun Kodur (E696HLUBV9)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Spekr/Frameworks",
@@ -713,8 +714,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spekrapp.Spekr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "04a4f4b2-1433-47ae-ab93-771abc3bddc1";
 				SWIFT_OBJC_BRIDGING_HEADER = /Users/Arjun/GitHubLocalRepo/Spekr/Spekr/Helpers/SpekrHeader.h;
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/\"/**";
 			};
 			name = Release;
